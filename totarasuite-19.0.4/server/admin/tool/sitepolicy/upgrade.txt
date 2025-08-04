@@ -1,0 +1,17 @@
+This files describes API changes in the tool_filetypes code.
+
+=== 19.0.4 ===
+
+* Added a check in `userconsent::is_consent_needed()` to bypass consent for requests originating from external APIs or legacy web services.
+  * The constants `EXTERNAL_API` and `WS_SERVER` are used to identify these request sources.
+
+=== 19.0 ===
+
+* Updated render functions to use page_main_heading() instead of heading():
+    * tool_sitepolicy\output\page_renderer::sitepolicy_list()
+    * tool_sitepolicy\output\page_renderer::sitepolicy_create_new_policy()
+    * tool_sitepolicy\output\page_renderer::policyversion_translation_list()
+    * tool_sitepolicy\output\page_renderer::policyversion_list()
+    * tool_sitepolicy\output\page_renderer::localisedversion_edit()
+    * tool_sitepolicy\output\page_renderer::localisedversion_translation_edit()
+    * tool_sitepolicy\output\page_renderer::consent_report()

@@ -1,0 +1,41 @@
+query totara_catalog_top_items_grouped($input: totara_catalog_url_query_input) {
+  totara_catalog_top_items_grouped(input: $input) {
+    groups {
+      objecttype
+      items {
+        itemid
+        featured
+        title
+        logo
+        image {
+          url
+          alt
+        }
+        redirecturl
+        objecttype
+        hero_data_text_enabled
+        hero_data_icon_enabled
+        hero_data_type
+        hero_data_text
+        hero_data_icon {
+          icon
+        }
+        description_enabled
+        description
+        progress_bar_enabled
+        progress_bar
+        text_placeholders_enabled
+        text_placeholders {
+          data_exists
+          data
+          label
+          show_label
+        }
+        icon_placeholders_enabled
+        icon_placeholders {
+          icon
+        }
+      }
+    }
+  }
+}

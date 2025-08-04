@@ -1,0 +1,7 @@
+This file describes API changes for the bi/* files,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Fixed incorrectly named $this->mediaTrack to $this->mediatrack in tracking_service::class constructor for PHP 8.2 support.
+* Replaced direct calls to http_response_code to \mod_hvp\local\helper::http_response_code to fix PHPUnit + PHP 8.3 incompatibility.

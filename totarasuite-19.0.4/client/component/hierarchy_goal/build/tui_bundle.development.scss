@@ -1,0 +1,127 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1038.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1038.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/hierarchy_goal/src/components/ChangeStatus.vue?vue&type=style&index=0&id=94bbce54&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-goalLinkedReviewChangeStatus {
+  max-width: 1200px;
+  padding: var(--gap-4) 0;
+  border-bottom: var(--border-width-normal) solid var(--color-neutral-7);
+
+  &--print {
+    border-top: none;
+  }
+
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__form {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__title {
+    @include font(h4);
+    margin: 0;
+
+    &-help {
+      padding-left: var(--gap-1);
+    }
+
+    &-required {
+      color: var(--color-prompt-alert);
+    }
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1038.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1038.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/hierarchy_goal/src/components/ChangeStatusForm.vue?vue&type=style&index=0&id=8e518e8c&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-linkedReviewChangeStatus {
+  &__summary {
+    &-dateAccessibleTitle {
+      @include sr-only();
+    }
+
+    &-status {
+      font-weight: bold;
+    }
+  }
+
+  &__statusWrapper {
+    display: flex;
+
+    > :first-child {
+      margin-right: var(--gap-4);
+    }
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1038.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1038.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/hierarchy_goal/src/components/performelement_linked_review/ParticipantContent.vue?vue&type=style&index=0&id=1b9386d7&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-linkedReviewViewGoal {
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__contentType {
+    @include font(body-sm);
+  }
+
+  &__title {
+    @include font(h4);
+    margin-top: var(--gap-2);
+    margin-bottom: 0;
+  }
+
+  &__overview {
+    & > * + * {
+      margin-top: var(--gap-1);
+    }
+  }
+
+  &__timestamp {
+    @include font(body-sm);
+  }
+
+  &__bar {
+    display: flex;
+    padding: var(--gap-4);
+    background: var(--color-neutral-1);
+    border: var(--border-width-thin) solid var(--color-neutral-5);
+
+    &-statusValue {
+      padding-left: var(--gap-2);
+      font-weight: bold;
+
+      .tui-linkedReviewViewGoal--print & {
+        display: block;
+        padding: 0;
+      }
+    }
+
+    &-label {
+      margin: 0;
+      @include font(body);
+    }
+
+    &-value {
+      padding-left: var(--gap-2);
+      font-weight: bold;
+    }
+
+    &-wrap {
+      padding-left: var(--gap-2);
+      border-color: var(--color-neutral-6);
+      border-style: solid;
+      border-width: 0 0 0 var(--border-width-thick);
+
+      .dir-rtl & {
+        padding-right: var(--gap-2);
+        border-width: 0 var(--border-width-thick) 0 0;
+      }
+    }
+  }
+}
+

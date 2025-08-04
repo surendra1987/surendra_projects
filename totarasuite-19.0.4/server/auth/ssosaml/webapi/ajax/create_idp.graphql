@@ -1,0 +1,5 @@
+mutation auth_ssosaml_create_idp {
+  idp: auth_ssosaml_create_idp {
+    id
+  }
+}

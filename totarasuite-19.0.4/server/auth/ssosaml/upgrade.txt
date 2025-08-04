@@ -1,0 +1,13 @@
+This files describes API changes in /auth/ssosaml/* - plugins,
+information provided here is intended especially for developers.
+
+=== 19.0.4 ===
+
+* RelayState is now passed through clean_param with PARAM_LOCALURL instead of PARAM_URL, as redirects should only ever be internal.
+* The wantsurl parameter of /auth/ssosaml/sp/sso.php expects a PARAM_LOCALURL instead of PARAM_URL. Other URLs will be dropped.
+
+
+=== 19.0 ===
+
+* Added property $signing_certificates to model auth_ssosaml\model\idp - Provides an array of all provided signing certificates in the IdP's metadata.
+  This is intended to replace the use of the singular $signing_certificate which only returns the first certificate.

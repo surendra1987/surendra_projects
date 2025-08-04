@@ -1,0 +1,54 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1481.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1481.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_oauth2/src/components/Oauth2ProviderContent.vue?vue&type=style&index=0&id=037c9a63&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-oauth2ProviderContent {
+  margin-top: var(--gap-8);
+  &__url {
+    margin-top: 2px;
+    font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+      monospace;
+    overflow-wrap: break-word;
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1481.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1481.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_oauth2/src/components/modal/Oauth2ProviderModal.vue?vue&type=style&index=0&id=42694335&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-oauth2ProviderForm {
+  &__buttonGroup {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__requiredStar {
+    color: var(--color-prompt-alert);
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1481.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1481.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_oauth2/src/pages/Oauth2Provider.vue?vue&type=style&index=0&id=0ed067c6&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-oauth2ProviderPage {
+  &__provider {
+    margin-bottom: 2px;
+  }
+  &__form {
+    margin-bottom: var(--gap-6);
+    overflow-wrap: break-word;
+  }
+  &__formDesc {
+    margin-top: var(--gap-6);
+  }
+  &__clientId {
+    margin-top: var(--gap-4);
+  }
+  &__monospaceFont {
+    font-family: var(--font-family-monospace);
+  }
+  &__deleteBody {
+    overflow-wrap: break-word;
+  }
+  &__inputGroupBtn {
+    min-width: rem-px(60);
+  }
+}
+

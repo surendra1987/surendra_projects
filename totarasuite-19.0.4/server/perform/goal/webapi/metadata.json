@@ -1,0 +1,458 @@
+{
+  "OBJECT": {
+    "Query": {
+      "fields": {
+        "perform_goal_view_goal": {
+          "documentation": {
+            "documented": true
+          }
+        }
+      }
+    },
+    "Mutation": {
+      "fields": {
+        "perform_goal_create_goal": {
+          "documentation": {
+            "documented": true
+          }
+        },
+        "perform_goal_update_goal": {
+          "documentation": {
+            "documented": true
+          }
+        },
+        "perform_goal_delete_goal": {
+          "documentation": {
+            "documented": true
+          }
+        },
+        "perform_goal_update_progress": {
+          "documentation": {
+            "documented": true
+          }
+        },
+        "perform_goal_create_goal_task": {
+          "documentation": {
+            "documented": true
+          }
+        },
+        "perform_goal_delete_goal_task": {
+          "documentation": {
+            "documented": true
+          }
+        }
+      }
+    },
+    "perform_goal_status": {
+      "fields": {
+        "id": {
+          "documentation": {
+            "example": "not_started"
+          }
+        },
+        "label": {
+          "documentation": {
+            "example": "Not started"
+          }
+        }
+      }
+    },
+    "perform_goal_goal": {
+      "fields": {
+        "id": {
+          "documentation": {
+            "example": 123456
+          }
+        },
+        "context_id": {
+          "documentation": {
+            "example": 4
+          }
+        },
+        "category_id": {
+          "documentation": {
+            "example": 1
+          }
+        },
+        "owner": {
+          "documentation": {
+            "example": {
+              "id": 5,
+              "username": "system_manager_user1"
+            }
+          }
+        },
+        "user": {
+          "documentation": {
+            "example": {
+              "id": 3,
+              "username": "jane_smith"
+            }
+          }
+        },
+        "name": {
+          "documentation": {
+            "example": "Show understanding of Sales methods"
+          }
+        },
+        "id_number": {
+          "documentation": {
+            "example": "sf_4067"
+          }
+        },
+        "description": {
+          "documentation": {
+            "example": "The learner must show knowledge of 5 sales methods."
+          }
+        },
+        "start_date": {
+          "documentation": {
+            "example": "26/07/2023"
+          }
+        },
+        "target_type": {
+          "documentation": {
+            "example": "date"
+          }
+        },
+        "target_date": {
+          "documentation": {
+            "example": "26/08/2023"
+          }
+        },
+        "target_value": {
+          "documentation": {
+            "example": 100
+          }
+        },
+        "current_value": {
+          "documentation": {
+            "example": 25
+          }
+        },
+        "current_value_updated_at": {
+          "documentation": {
+            "example": "3/07/2023"
+          }
+        },
+        "status": {
+          "documentation": {
+            "example": {
+              "id": "not_started",
+              "label": "Not started"
+            }
+          }
+        },
+        "status_updated_at": {
+          "documentation": {
+            "example": "26/08/2023"
+          }
+        },
+        "closed_at": {
+          "documentation": {
+            "example": "26/08/2023"
+          }
+        },
+        "created_at": {
+          "documentation": {
+            "example": "26/07/2023"
+          }
+        },
+        "updated_at": {
+          "documentation": {
+            "example": "26/08/2023"
+          }
+        }
+      }
+    },
+    "perform_goal_goal_task": {
+      "fields": {
+        "id": {
+          "documentation": {
+            "example": 123456
+          }
+        },
+        "goal_id": {
+          "documentation": {
+            "example": 123456
+          }
+        },
+        "description": {
+          "documentation": {
+            "example": "I have to study \"Information security\" course"
+          }
+        },
+        "completed_at": {
+          "documentation": {
+            "example": "26/07/2023"
+          }
+        },
+        "created_at": {
+          "documentation": {
+            "example": "26/07/2023"
+          }
+        },
+        "updated_at": {
+          "documentation": {
+            "example": "26/08/2023"
+          }
+        },
+        "resource": {
+          "fields": {
+            "id": {
+              "documentation": {
+                "example": 123456
+              }
+            },
+            "task_id": {
+              "documentation": {
+                "example": 123456
+              }
+            },
+            "resource_id": {
+              "documentation": {
+                "example": 4123
+              }
+            },
+            "resource_type": {
+              "documentation": {
+                "example": 1
+              }
+            },
+            "created_at": {
+              "documentation": {
+                "example": "26/07/2023"
+              }
+            }
+          }
+        }
+      }
+    },
+    "perform_goal_update_progress_result": {
+      "documentation": {
+        "documented": true
+      }
+    },
+    "perform_goal_goal_raw_data": {
+      "documentation": {
+        "documented": true
+      }
+    },
+    "perform_goal_permissions": {
+      "documentation": {
+        "documented": true
+      }
+    },
+    "perform_goal_crud_result": {
+      "documentation": {
+        "documented": true
+      }
+    },
+    "perform_goal_task_delete_result": {
+      "documentation": {
+        "documented": true
+      }
+    },
+    "perform_goal_task_upsert_result": {
+      "documentation": {
+        "documented": true
+      }
+    },
+    "perform_goal_goal_task_resource": {
+      "documentation": {
+        "fields": {
+          "id": {
+            "documentation": {
+              "example": 12
+            }
+          },
+          "task_id": {
+            "documentation": {
+              "example": 34
+            }
+          },
+          "resource_id": {
+            "documentation": {
+              "example": 1
+            }
+          },
+          "resource_type": {
+            "documentation": {
+              "example": 1
+            }
+          },
+          "created_at": {
+            "documentation": {
+              "example": "26/07/2023"
+            }
+          },
+          "resource_custom_data": {
+            "documentation": {
+              "example": "{\"name\":\"Cert1CourseA\",\"url\":\"http://http://mytotaradomain.ac.uk/course/view.php?id=9\",\"image_data\":\"http://mytotaradomain.ac.uk/theme/image.php/ventura/core/1709496479/course_defaultimage\",\"subject_progress\":50}"
+            }
+          }
+        }
+      }
+    }
+  },
+  "INPUT_OBJECT": {
+    "perform_goal_create_input": {
+      "inputFields": {
+        "context_id": {
+          "documentation": {
+            "example": 4
+          }
+        },
+        "owner_id": {
+          "documentation": {
+            "example": 10192
+          }
+        },
+        "user_id": {
+          "documentation": {
+            "example": 10191
+          }
+        },
+        "name": {
+          "documentation": {
+            "example": "Display knowledge of 5 sales methods"
+          }
+        },
+        "id_number": {
+          "documentation": {
+            "example": "sf_10133"
+          }
+        },
+        "description": {
+          "documentation": {
+            "example": "The learner must show knowledge of 5 sales methods."
+          }
+        },
+        "start_date": {
+          "documentation": {
+            "example": 1696289455
+          }
+        },
+        "target_type": {
+          "documentation": {
+            "example": "date"
+          }
+        },
+        "target_date": {
+          "documentation": {
+            "example": 1701513055
+          }
+        },
+        "target_value": {
+          "documentation": {
+            "example": 100
+          }
+        },
+        "current_value": {
+          "documentation": {
+            "example": 0
+          }
+        },
+        "status": {
+          "documentation": {
+            "example": "in_progress"
+          }
+        },
+        "plugin_name": {
+          "documentation": {
+            "example": "basic"
+          }
+        }
+      }
+    },
+    "perform_goal_update_input": {
+      "inputFields": {
+        "name": {
+          "documentation": {
+            "example": "Display knowledge of 5 sales methods"
+          }
+        },
+        "id_number": {
+          "documentation": {
+            "example": "sf_10133"
+          }
+        },
+        "description": {
+          "documentation": {
+            "example": "The learner must show knowledge of 5 sales methods."
+          }
+        },
+        "start_date": {
+          "documentation": {
+            "example": 1696289455
+          }
+        },
+        "target_type": {
+          "documentation": {
+            "example": "date"
+          }
+        },
+        "target_date": {
+          "documentation": {
+            "example": 1701513055
+          }
+        },
+        "target_value": {
+          "documentation": {
+            "example": 100
+          }
+        }
+      }
+    },
+    "perform_goal_update_progress_input": {
+      "inputFields": {
+        "current_value": {
+          "documentation": {
+            "example": 25
+          }
+        },
+        "status": {
+          "documentation": {
+            "example": "in_progress"
+          }
+        }
+      }
+    },
+    "perform_goal_task_create_input": {
+      "inputFields": {
+        "goal_id": {
+          "documentation": {
+            "example": 4
+          }
+        },
+        "description": {
+          "documentation": {
+            "example": "I have to study \"Information security\" course"
+          }
+        },
+        "resource_id": {
+          "documentation": {
+            "example": 4123
+          }
+        },
+        "resource_type": {
+          "documentation": {
+            "example": 1
+          }
+        }
+      }
+    },
+    "perform_goal_task_set_progress_input": {
+      "inputFields": {
+        "goal_task_reference": {
+          "documented": true
+        },
+        "completed": {
+          "documentation": {
+            "example": 1
+          }
+        }
+      }
+    }
+  }
+}

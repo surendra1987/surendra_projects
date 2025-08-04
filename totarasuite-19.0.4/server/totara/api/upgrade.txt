@@ -1,0 +1,13 @@
+This file describes changes in the totara API.
+Information provided here is intended especially for developers.
+
+=== 18.0 ===
+
+* Added /api/pluginfile.php for ability to download files via external API.
+* Moved common code for authenticating external API users from /server/totara/api/classes/watcher/handle_request_pre_watcher.php
+  to /server/totara/api/classes/auth/access_token_validator.php
+
+=== 17.2 ===
+
+* Updated client_settings is refactored to handle optional fields / parameters. Replace three arguments with an array for
+the put and update methods.

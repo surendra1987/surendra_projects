@@ -1,0 +1,61 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2023 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2023 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @author    Simon Chester <simon.chester@totara.com>
+// @package   theme_legacy
+
+@each $short, $property in ('p': 'padding', 'm': 'margin') {
+  @for $i from 1 through 5 {
+    $val: var(--gap-#{$i});
+    .#{$short}-#{$i} {
+      #{$property}: $val !important;
+    }
+    .#{$short}x-#{$i} {
+      #{$property}-left: $val !important;
+      #{$property}-right: $val !important;
+    }
+    .#{$short}y-#{$i} {
+      #{$property}-top: $val !important;
+      #{$property}-bottom: $val !important;
+    }
+    .#{$short}t-#{$i} {
+      #{$property}-top: $val !important;
+    }
+    .#{$short}r-#{$i} {
+      #{$property}-right: $val !important;
+    }
+    .#{$short}b-#{$i} {
+      #{$property}-bottom: $val !important;
+    }
+    .#{$short}l-#{$i} {
+      #{$property}-left: $val !important;
+    }
+  }
+}
+
+@include generate-utility-classes-simple(
+  display,
+  d,
+  none block inline inline-block flex
+);
+
+.w-auto {
+  width: auto !important;
+}

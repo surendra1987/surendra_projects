@@ -1,0 +1,18 @@
+This files describes API changes in /client/component/mod_approval,
+information provided here is intended especially for developers.
+
+=== 19.0.4 ===
+* Added accessibility fixes on dropdown button's aria-expanded in ApplicationActions.vue, ApplicationHeader.vue, ApprovalsOverrides.vue, WorkflowDashboard.vue, WorkflowEdit.vue
+  * Template changes
+
+=== 19.0 ===
+
+* Updated ApplicationActions.vue to render modal for assignment selection on clone
+  * Template changes
+* Updated RejectApplicationModal.vue to pass a label to Weka
+  * Template changes
+* Updated ApplicationView.vue to not show required fields
+  * Template changes
+* Updated NotificationEdit.vue to no longer use the NotificationPage component
+* Updated ApplicationsDashboard to use h2's instead of h1's
+* Updated page padding to be consistent in pages/ApplicationsDashboard and pages/WorkflowDashboard

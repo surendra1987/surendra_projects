@@ -1,0 +1,240 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1028.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1028.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/format_pathway/src/components/ActivityFooter.vue?vue&type=style&index=0&id=5b0797e3&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-format_pathway-activityFooter {
+  margin: var(--gap-5) 0;
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1028.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1028.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/format_pathway/src/components/ActivityToolbar.vue?vue&type=style&index=0&id=334c3963&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-format_pathway-activityToolbar {
+  display: flex;
+  justify-content: flex-end;
+  /* Prevents jumping when the settings menu loads*/
+  min-height: rem-px(36);
+
+  &__showCourseInformation {
+    &--noBackLink {
+      margin-right: auto;
+    }
+  }
+
+  &__link {
+    padding: var(--gap-2);
+
+    &--disabled {
+      color: var(--color-text-disabled);
+    }
+  }
+
+  &__header {
+    @include font(h4);
+    margin: 0;
+    padding: var(--gap-2) var(--gap-4);
+    color: var(--color-neutral-6);
+  }
+
+  &__backLink {
+    margin-right: auto;
+    &--collapse {
+      margin-left: var(--gap-6);
+    }
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1028.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1028.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/format_pathway/src/components/CourseInformation.vue?vue&type=style&index=0&id=23f13fc8&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-format_pathway-courseInformation {
+  padding-bottom: var(--gap-4);
+  overflow: hidden;
+  background-color: var(--color-neutral-3);
+  border-radius: var(--border-radius-normal);
+
+  &--inProgress {
+    padding-bottom: 0;
+  }
+
+  &__base {
+    display: flex;
+    padding-top: var(--gap-4);
+  }
+
+  &__baseName {
+    @include font(h4);
+    display: -webkit-box;
+    flex-grow: 1;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__baseImage {
+    width: rem-px(64);
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    aspect-ratio: 16 / 9;
+    margin-left: var(--gap-2);
+    object-fit: cover;
+    border-radius: var(--border-radius-normal);
+  }
+
+  &__completionProgress {
+    flex-grow: 1;
+    margin: auto 0 auto var(--gap-4);
+  }
+
+  > *:not(.tui-format_pathway-courseInformation__progress) {
+    margin-right: var(--gap-4);
+    margin-left: var(--gap-4);
+  }
+
+  > * + * {
+    margin-top: var(--gap-4);
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1028.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1028.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/format_pathway/src/components/CourseToolbar.vue?vue&type=style&index=0&id=ea378ed2&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-format_pathway-courseToolbar {
+  display: flex;
+  justify-content: space-between;
+  /* Prevents jumping when the settings menu loads*/
+  min-height: rem-px(36);
+
+  &__header {
+    @include font(h4);
+    margin: 0;
+    padding: var(--gap-2) var(--gap-4);
+    color: var(--color-neutral-6);
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1028.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1028.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/format_pathway/src/components/navigation/ProgressNavigation.vue?vue&type=style&index=0&id=624355f3&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-format_pathway-progressNavigation {
+  &__progressTrackerNav {
+    padding-top: var(--gap-2);
+  }
+
+  &__sectionTitle {
+    &--hidden {
+      color: var(--progresstracker-color-hidden);
+    }
+  }
+
+  &__sectionTitleIcon {
+    color: var(--progresstracker-color-hidden);
+  }
+
+  &--limitHeight &__sectionTitle {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  &--limitHeight &__activityName {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1028.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1028.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/format_pathway/src/components/navigation/ProgressTrackerItem.vue?vue&type=style&index=0&id=3ea1951c&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-format_pathway-progressTrackerItem {
+  display: block;
+  width: 100%;
+  padding: var(--gap-2);
+  color: var(--progresstracker-color-locked);
+  line-height: var(--font-body-line-height);
+  text-align: left;
+  overflow-wrap: break-word;
+
+  &--link {
+    color: var(--color-state);
+
+    &:hover,
+    &:focus {
+      color: var(--color-state);
+      text-decoration: none;
+      background: var(--color-state-highlight-neutral);
+    }
+  }
+
+  &--selected {
+    color: var(--color-neutral-1);
+    background: var(--color-state-active);
+
+    &:hover,
+    &:focus,
+    &:focus:hover {
+      color: var(--color-neutral-1);
+      background: var(--color-state-active);
+    }
+  }
+
+  &--hidden {
+    color: var(--progresstracker-color-hidden);
+
+    &:hover,
+    &:focus {
+      color: var(--progresstracker-color-hidden);
+    }
+  }
+
+  &--selected&--hidden {
+    color: var(--progresstracker-color-hidden--inverse);
+    background: var(--progresstracker-color-hidden);
+
+    &:hover,
+    &:focus,
+    &:focus:hover {
+      color: var(--progresstracker-color-hidden--inverse);
+      background: var(--progresstracker-color-hidden);
+    }
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1028.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1028.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/format_pathway/src/pages/ActivityView.vue?vue&type=style&index=0&id=bb6c3422&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-format_pathway-activityView {
+  margin-top: var(--gap-2);
+  @include layout-page-padding();
+
+  &__sidePanel {
+    overflow: visible;
+  }
+
+  &__activity {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__activityContent {
+    max-width: 810px;
+    margin: auto;
+    margin-top: var(--gap-2);
+    margin-bottom: var(--gap-5);
+  }
+
+  &__sidePanelInner {
+    padding: var(--gap-2) 0;
+    @include tui-stack-vertical(var(--gap-4));
+  }
+
+  &__activityNotification {
+    padding-top: var(--gap-2);
+  }
+}
+

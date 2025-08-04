@@ -1,0 +1,7 @@
+query totara_catalog_search_filter_options(
+  $input: totara_catalog_search_filter_options_input!
+) {
+  totara_catalog_search_filter_options(input: $input) {
+    filter_options
+  }
+}

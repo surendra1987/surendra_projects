@@ -1,0 +1,21 @@
+This file describes API changes in /client/component/perform_goal,
+information provided here is intended especially for developers.
+
+=== 19.0.4 ===
+* Added accessibility fixes on dropdown button's aria-expanded in GoalActionsMenu.vue
+  * Template changes
+
+=== 19.0 ===
+* Updated performelement_linked_review/ParticipantContent.vue to allow goals in redisplay
+  element to display their full details by clicking on the name
+    * Template, JS changes
+* Moved displayed list of goals from pages/Goals.vue to view/PerformGoalsList.vue and also moved
+  it's supporting methods getComponentPluginPath & getGoalCardComponent
+    * Template, JS changes
+* Updated pages/Goals.vue to support filtering displayed list of goals bringing in a filter bar area
+    * Template, JS and SCSS changes
+* Removed layouts/PageLayoutTwoColumn.vue as it wasn't supported
+* Adjusted view/PerformGoalDetails.vue description header to be compatible with weka content
+    * Template change
+* Added optional prop "canUpdate" to ChangeStatusForm.vue for disabling the submit button
+* Updated PerformGoalsSortBar to use core SortBar (template and SCSS changes)

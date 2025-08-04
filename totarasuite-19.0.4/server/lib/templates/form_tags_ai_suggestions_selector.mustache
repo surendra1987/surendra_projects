@@ -1,0 +1,48 @@
+{{!
+   This file is part of Totara LMS
+
+   Copyright (C) 2023 onwards Totara Learning Solutions LTD
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/form_tags_ai_suggestions_selector
+
+    Totara form_tags_ai_suggestions_selector template.
+
+    The purpose of this template is to render the AI suggestions.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * ai_selection_wrapper_id The dom id of the wrapper.
+    * aiSuggestions List of AI generated tags.
+
+    Example context (json):
+    { "ai_selection_wrapper_id": 1, "ai_suggestions": [] }
+}}
+<div id="{{ai_selection_wrapper_id}}" class="form-aitags__suggestions-selector-container">
+  {{#ai_suggestions}}
+    <div class="form-aitags__suggestion-item" tabindex="0">
+      {{.}}
+    </div>
+  {{/ai_suggestions}}
+  {{^ai_suggestions}}
+    <div></div>
+  {{/ai_suggestions}}
+</div>

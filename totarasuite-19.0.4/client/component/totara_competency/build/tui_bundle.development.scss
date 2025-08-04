@@ -1,0 +1,1021 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/AssignmentProgress.vue?vue&type=style&index=0&id=44e4ed54&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-assignmentProgress {
+  width: 180px;
+  padding: var(--gap-8) var(--gap-3) 0;
+
+  &__header {
+    margin-top: var(--gap-3);
+    overflow: hidden;
+    font-size: font-size-px(16);
+    white-space: nowrap;
+    text-align: center;
+    text-overflow: ellipsis;
+  }
+
+  &__progress-card {
+    padding: 0 var(--gap-4);
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/RatingScaleOverview.vue?vue&type=style&index=0&id=72eee6ba&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyRatingScaleOverview {
+  &__title {
+    @include font(h4);
+    margin: 0;
+  }
+
+  &__list {
+    margin: var(--gap-4) 0 0;
+
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+
+    &-item {
+      display: flex;
+    }
+  }
+
+  &__proficientStatus {
+    min-width: var(--gap-8);
+
+    .flex-icon {
+      position: relative;
+      top: -1px;
+    }
+  }
+
+  &__scaleValue {
+    display: flex;
+    flex-direction: column;
+
+    &-name {
+      margin: 0;
+      font-weight: var(--label-weight);
+    }
+
+    &-description {
+      margin: var(--gap-1) 0 0 var(--gap-3);
+    }
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/achievements/AchievementLayout.vue?vue&type=style&index=0&id=35bdce0a&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-achievementLayout {
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-right: var(--gap-4);
+  }
+
+  &--borderless &__left {
+    border-right: none;
+  }
+}
+
+@media (min-width: $tui-screen-xs) {
+  .tui-achievementLayout {
+    &__left {
+      border-right: var(--border-width-normal) solid var(--color-neutral-5);
+
+      .tui-grid--stacked & {
+        border-right: none;
+      }
+    }
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/achievements/Achievements.vue?vue&type=style&index=0&id=5df83f63&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyAchievements {
+  margin-top: var(--gap-7);
+
+  &__empty {
+    font-size: font-size-px(16);
+    @include text-hint();
+  }
+
+  &__tabs {
+    margin-top: var(--gap-5);
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/achievements/ProgressCircle.vue?vue&type=style&index=0&id=1661a948&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-progressCircle {
+  &__circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    margin: var(--gap-6) auto 0;
+    background: var(--color-neutral-4);
+    border-radius: 100%;
+  }
+
+  &__label {
+    margin-top: var(--gap-1);
+    text-align: center;
+  }
+
+  &--complete &__circle {
+    background: var(--color-primary);
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/achievements/Singlevalue.vue?vue&type=style&index=0&id=28c5108c&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyAchievementsScale {
+  & > * + * {
+    margin-top: var(--gap-3);
+  }
+
+  &__title {
+    @include font(h3);
+    margin-left: var(--gap-2);
+  }
+
+  &__item {
+    margin-top: var(--gap-4);
+    &:first-of-type {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__separator {
+    margin: var(--gap-4) var(--gap-4) 0;
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/competency_copy/CompetencyCopyCrumbtrail.vue?vue&type=style&index=0&id=bd8fc69e&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyCopyPathwayCrumbtrail {
+  &__list {
+    margin: 0;
+    list-style: none;
+
+    &-current {
+      margin: 0;
+    }
+
+    &-item {
+      @include font(body-sm);
+      display: inline;
+    }
+
+    &-multipleItems {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/competency_copy/CompetencyCopyReviewSelection.vue?vue&type=style&index=0&id=99e75884&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyCopyReviewingSelection {
+  &__count {
+    font-weight: var(--label-weight);
+  }
+
+  &__heading {
+    @include font(h4);
+    margin: 0;
+  }
+
+  &__loading {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__paging {
+    display: flex;
+    justify-content: center;
+  }
+
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/competency_copy/CompetencyCopySelectionTable.vue?vue&type=style&index=0&id=6dca0ae8&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyCopyPathwaySelectionTable {
+  &__content {
+    padding-right: var(--gap-2);
+
+    &-parents {
+      @include font(body-sm);
+      color: var(--color-neutral-6);
+    }
+
+    &-paths {
+      padding-top: var(--gap-1);
+      @include font(body-sm);
+    }
+
+    &-pathsLabel {
+      color: var(--color-neutral-6);
+    }
+
+    &-title {
+      @include font(h4);
+      margin: 0;
+    }
+
+    & > * + * {
+      margin-top: var(--gap-1);
+    }
+  }
+
+  &__contentLoader {
+    display: flex;
+    flex-direction: column;
+    & > * + * {
+      margin-top: var(--gap-1);
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/competency_copy/CompetencySelection.vue?vue&type=style&index=0&id=852d12aa&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyCopyPathwaySelection {
+  &__count {
+    font-weight: var(--label-weight);
+  }
+
+  &__heading {
+    @include font(h4);
+    margin: 0;
+  }
+
+  &__crumbtrail {
+    &-list {
+      margin: 0;
+      list-style: none;
+    }
+
+    &-listCurrent {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-listItem {
+      @include font(body-sm);
+      display: inline;
+    }
+
+    &-listMultipleItems {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__body {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__list {
+    margin-top: var(--gap-3);
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/details/ActivityLog.vue?vue&type=style&index=0&id=767f54dc&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyDetailActivityLog {
+  margin: var(--gap-2) var(--gap-4);
+
+  &__title {
+    padding-top: var(--gap-2);
+  }
+}
+
+@media screen and (min-width: $tui-screen-xs) {
+  .tui-competencyDetailActivityLog {
+    &__proficient {
+      font-weight: bold;
+      &-srOnly {
+        @include sr-only();
+      }
+    }
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/details/ActivityLogTable.vue?vue&type=style&index=0&id=30909f82&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyDetailActivityLogTable {
+  &__date {
+    word-wrap: break-word;
+  }
+
+  &__description {
+    .flex-icon {
+      position: relative;
+      top: -1px;
+    }
+
+    &-rating {
+      font-weight: bold;
+    }
+
+    &-tracking {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    &-system {
+      &::before {
+        content: '* ';
+      }
+      &::after {
+        content: ' *';
+      }
+    }
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/details/ArchivedAssignments.vue?vue&type=style&index=0&id=36984eab&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyDetailArchivedAssignments {
+  margin: var(--gap-2) var(--gap-4);
+
+  &__title {
+    padding-top: var(--gap-2);
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/details/ArchivedAssignmentsTable.vue?vue&type=style&index=0&id=07666f13&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyDetailArchivedAssignmentsTable {
+  &__achievement {
+    display: flex;
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/details/Assignment.vue?vue&type=style&index=0&id=59a4dc14&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyDetailAssignment {
+  &__bar {
+    padding: var(--gap-4);
+    background: var(--color-neutral-3);
+
+    &-filter.tui-selectFilter {
+      .tui-select {
+        max-width: initial;
+      }
+    }
+  }
+
+  &__actions {
+    padding: var(--gap-4) var(--gap-2);
+    text-align: right;
+  }
+
+  .tui-grid--stacked {
+    & > * + * {
+      justify-content: flex-start;
+      padding-top: var(--gap-4);
+    }
+  }
+
+  &__level {
+    display: flex;
+    align-items: center;
+
+    &-header {
+      display: flex;
+      margin: 0;
+      @include font(body-sm);
+    }
+
+    &-infoBtn {
+      padding-left: var(--gap-1);
+    }
+
+    &-text {
+      @include font(body-sm, var(--label-weight));
+    }
+
+    &-wrap {
+      @include font(body-sm);
+      padding-left: var(--gap-2);
+      border-style: solid;
+      border-width: 0 0 0 var(--border-width-thick);
+
+      .dir-rtl & {
+        padding-right: var(--gap-2);
+        border-width: 0 var(--border-width-thick) 0 0;
+      }
+
+      &-pending {
+        border-color: var(--progresstracker-color-pending);
+      }
+
+      &-complete {
+        border-color: var(--progresstracker-color-complete);
+      }
+
+      &-achieved {
+        border-color: var(--progresstracker-color-achieved);
+      }
+    }
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &-text {
+      @include font(h3);
+      margin-left: var(--gap-2);
+
+      .dir-rtl & {
+        margin: 0 var(--gap-2) 0 0;
+      }
+
+      &-complete {
+        margin-left: var(--gap-1);
+
+        .dir-rtl & {
+          margin: 0 var(--gap-1) 0 0;
+        }
+      }
+    }
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/details/ProficientStatus.vue?vue&type=style&index=0&id=4a118650&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyDetailProficientStatus {
+  @media screen and (min-width: $tui-screen-xs) {
+    font-weight: bold;
+    &-srOnly {
+      @include sr-only();
+    }
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/details/Progress.vue?vue&type=style&index=0&id=ac9aa4d4&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyDetailProgress {
+  min-height: 65px;
+  margin: var(--gap-7) auto 0;
+
+  &__popover {
+    &-header {
+      margin-top: 0;
+    }
+
+    &-body {
+      color: var(--color-neutral-6);
+    }
+
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/performelement_linked_review/AdminEdit.vue?vue&type=style&index=0&id=000abfa0&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-linkedReviewAdminEditCompetency {
+  &__help {
+    padding-left: var(--gap-1);
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/performelement_linked_review/ParticipantContent.vue?vue&type=style&index=0&id=2380d2af&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-linkedReviewViewCompetency {
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__title {
+    @include font(h4);
+    margin: 0;
+  }
+
+  &__overview {
+    & > * + * {
+      margin-top: var(--gap-1);
+    }
+  }
+
+  &__timestamp {
+    @include font(body-sm);
+  }
+
+  &__bar {
+    display: flex;
+    padding: var(--gap-4);
+    background: var(--color-neutral-1);
+    border: var(--border-width-thin) solid var(--color-neutral-5);
+
+    &-status {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      & > * + * {
+        margin-left: var(--gap-2);
+      }
+    }
+
+    &-statusText {
+      @include font(h3);
+      margin-left: var(--gap-2);
+
+      .dir-rtl & {
+        margin: 0 var(--gap-2) 0 0;
+      }
+    }
+
+    &-statusTextComplete {
+      margin-left: var(--gap-1);
+
+      .dir-rtl & {
+        margin: 0 var(--gap-1) 0 0;
+      }
+    }
+
+    &-header {
+      margin: 0;
+      @include font(body);
+    }
+
+    &-headerHelp {
+      display: inline-block;
+    }
+
+    &-value {
+      font-weight: bold;
+    }
+
+    &-wrap {
+      padding-left: var(--gap-2);
+      border-style: solid;
+      border-width: 0 0 0 var(--border-width-thick);
+
+      .dir-rtl & {
+        padding-right: var(--gap-2);
+        border-width: 0 var(--border-width-thick) 0 0;
+      }
+
+      &-achieved {
+        border-color: var(--progresstracker-color-achieved);
+      }
+
+      &-complete {
+        border-color: var(--progresstracker-color-complete);
+      }
+
+      &-pending {
+        border-color: var(--progresstracker-color-pending);
+      }
+    }
+  }
+
+  &__ratings {
+    & > * + * {
+      margin-top: var(--gap-6);
+    }
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/profile/CompetencyCharts.vue?vue&type=style&index=0&id=5b9cbd74&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_competency-competencyCharts {
+  container-type: inline-size;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-card-grid);
+
+    @container (min-width: 83rem) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__chart {
+    width: 100%;
+    min-width: 0;
+    max-width: rem-px(800);
+    margin: 0 auto;
+    padding: var(--gap-7) var(--gap-5);
+    border: 1px var(--color-neutral-5) solid;
+    border-radius: var(--border-radius-small);
+
+    @container (min-width: 83rem) {
+      max-width: none;
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/profile/CurrentProgress.vue?vue&type=style&index=0&id=55fe53d4&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyProfileCurrentProgress {
+  &__empty {
+    margin-top: var(--gap-8);
+  }
+
+  &__progress {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (min-width: $tui-screen-xs) {
+      justify-content: flex-start;
+    }
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/profile/MyRatingCell.vue?vue&type=style&index=0&id=7aecaa66&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_competency-myRatingCell__trigger {
+  padding: 0;
+  color: currentColor;
+  line-height: 1;
+  background: none;
+  border: none;
+  border-bottom: 1px dashed var(--color-state);
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/profile/NoCompetencyAssignments.vue?vue&type=style&index=0&id=6a9b9df6&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-noCompetencyAssignments {
+  &__search-competencies {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 35px;
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/profile/competency_list/Filters.vue?vue&type=style&index=0&id=2adcd4ba&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyProfileListFilters {
+  margin-bottom: var(--gap-4);
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/summary/AchievementConfiguration.vue?vue&type=style&index=0&id=f5ccc8e8&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencySummaryAchievementConfiguration {
+  & > * + * {
+    margin-top: var(--gap-2);
+  }
+
+  &__aggregation {
+    margin-top: var(--gap-4);
+    &-label {
+      margin-right: var(--gap-2);
+      font-weight: bold;
+    }
+  }
+
+  &__noPaths {
+    color: var(--color-prompt-warning);
+  }
+
+  &__pathGroup {
+    flex-grow: 1;
+    padding: var(--gap-4);
+
+    & > * + * {
+      &.tui-grid {
+        margin-top: var(--gap-4);
+        padding-top: var(--gap-4);
+        border-top: var(--border-width-thin) solid var(--card-border-color);
+      }
+    }
+  }
+
+  &__scaleValue {
+    &-header {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-or {
+      width: 50%;
+      margin: 0;
+    }
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/summary/AchievementConfigurationCriteria.vue?vue&type=style&index=0&id=a37858ea&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencySummaryAchievementCriteria {
+  width: 100%;
+
+  &--multi {
+    padding: var(--gap-4);
+  }
+
+  &__and {
+    width: 50%;
+    margin: 0;
+  }
+
+  &__criterion {
+    &-header {
+      display: inline-block;
+      width: 40%;
+      margin: 0;
+    }
+
+    &-aggregation {
+      @include text-hint();
+    }
+
+    &-items {
+      margin-top: var(--gap-1);
+    }
+  }
+
+  &__warning {
+    color: var(--color-prompt-warning);
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/summary/CompetencySummarySectionHeader.vue?vue&type=style&index=0&id=5daf1a0e&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencySummarySectionHeader {
+  display: flex;
+  align-items: center;
+  padding-bottom: var(--gap-1);
+  border-bottom: var(--border-width-thin) solid var(--color-neutral-5);
+
+  &__title {
+    @include font(h3);
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    flex-shrink: 0;
+    margin-left: auto;
+    padding-left: var(--gap-4);
+
+    & > * + * {
+      margin-left: var(--gap-4);
+    }
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/components/user_assignment/SelectionTable.vue?vue&type=style&index=0&id=460d6428&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencySelfAssignmentTable {
+  & > * + * {
+    margin-top: var(--gap-2);
+  }
+
+  &__header {
+    @include font(h3);
+    margin: 0;
+  }
+
+  &__reasons {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  &__expand {
+    & > * + * {
+      margin: var(--gap-2) 0 0;
+    }
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/pages/CompetencyCopyPathways.vue?vue&type=style&index=0&id=8d1d069a&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyCopyPathway {
+  &__content {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+
+    &-body {
+      margin-top: var(--gap-8);
+    }
+
+    &-heading {
+      @include font(h3);
+      margin: 0;
+    }
+  }
+
+  &__confirmModal {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/pages/CompetencyDetail.vue?vue&type=style&index=0&id=4efaf9a6&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyDetail {
+  &__content {
+    & > * + * {
+      margin-top: var(--gap-6);
+    }
+  }
+
+  &__body {
+    border-top: 1px solid var(--color-neutral-5);
+
+    &-empty {
+      @include text-hint();
+    }
+  }
+
+  &__buttons {
+    text-align: right;
+
+    & > * + * {
+      margin-top: var(--gap-4);
+      margin-left: var(--gap-2);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-xs) {
+  .tui-competencyDetail {
+    &__buttons {
+      > * {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/pages/CompetencyProfile.vue?vue&type=style&index=0&id=17cd6824&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyProfile {
+  /* disable scroll anchoring as it is problematic when switching between chart/list views*/
+  overflow-anchor: none;
+
+  & > * + * {
+    margin-top: var(--gap-8);
+  }
+
+  &__header {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__currentHeading {
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      @include font(h3);
+      margin: 0;
+    }
+
+    &-buttons {
+      & > * {
+        margin-top: var(--gap-4);
+        margin-left: var(--gap-2);
+      }
+    }
+  }
+
+  &__competencies {
+    margin-top: var(--gap-6);
+    padding-top: var(--gap-6);
+    border-top: var(--border-width-thin) solid var(--color-neutral-5);
+
+    &-content {
+      & > * + * {
+        margin-top: var(--gap-8);
+      }
+    }
+  }
+
+  &__sectionTitle {
+    @include font(h3);
+    margin: 0;
+  }
+
+  &__filtersBar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-competencyProfile {
+    &__currentHeading {
+      flex-direction: row;
+      &-buttons {
+        margin-left: auto;
+
+        & > * {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/pages/CompetencySummary.vue?vue&type=style&index=0&id=73c780be&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencySummary {
+  @include font(body);
+
+  & > * + * {
+    margin-top: var(--gap-2);
+  }
+
+  &__header {
+    & > * + * {
+      margin-top: var(--gap-8);
+    }
+
+    &-backLink {
+      display: inline-block;
+    }
+  }
+
+  &__content {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_competency/src/pages/UserAssignment.vue?vue&type=style&index=0&id=3f5d5f10&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencySelfAssignment {
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__actions {
+    justify-content: space-between;
+  }
+
+  &__header {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__loadMore {
+    margin-top: var(--gap-4);
+  }
+}
+

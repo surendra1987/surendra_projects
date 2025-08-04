@@ -1,0 +1,163 @@
+extend type Query {
+  """
+  Return a single course from its id if the user can access it.
+  """
+  core_course(courseid: core_id!): core_course!
+
+  """
+  Return a group of courses from a given list of ids.
+  """
+  core_course_list(course_ids: [core_id!]): [core_course]!
+
+  """
+  Return all the current user's enrolled courses. Internally calls enrol_get_my_courses().
+  """
+  core_my_courses(sort: core_course_sort_order = SORTORDER): [core_course!]!
+
+  """
+  Return all courses in the specified category visible to the current user. Excludes courses inside sub-categories.
+  """
+  core_courses_by_parent_category(
+    """
+    The id of the category of the courses to return.
+    """
+    categoryid: core_id!
+    """
+    Order of courses to return.
+    """
+    sort: core_course_sort_order = SORTORDER
+  ): [core_course!]!
+
+  """
+  Return all courses that match the search parameters for the course selector
+  """
+  core_course_selector(
+    input: course_selector_input!
+  ): core_course_selector_result!
+
+  """
+  Returns a tree with links to course administration settings pages
+  """
+  core_course_settings_navigation_tree(
+    context_id: core_id!
+    page_url: param_url!
+  ): core_course_settings_navigation_tree!
+
+  """
+  Returns a tree with links to course module administration settings pages
+  """
+  core_course_module_settings_navigation_tree(
+    context_id: core_id!
+    page_url: param_url!
+  ): core_course_module_settings_navigation_tree!
+
+  """
+  Returns a result of non interative enrolment pending approval information.
+  """
+  core_non_interactive_enrol_pending_approval_info(
+    course_id: core_id!
+  ): core_non_interactive_enrol_pending_approval_info_result!
+}
+
+"""
+Result for checking whether course is pending with non integrative enrolment requires approval.
+"""
+type core_non_interactive_enrol_pending_approval_info_result {
+  """
+  Whether approval is pending or not.
+  """
+  pending: Boolean!
+  """
+  Redirect application url.
+  """
+  redirect_url: String!
+  """
+  Enrol button's name.
+  """
+  button_name: String!
+  """
+  Whether to create new application.
+  """
+  needs_create_new_application: Boolean!
+}
+
+"""
+Input for the user evidence types query.
+"""
+input course_selector_input {
+  pagination: core_pagination_input
+  filters: course_selector_filter
+}
+
+"""
+Filter information for the course selector input
+"""
+input course_selector_filter {
+  """
+  The (optional) id of a category to limit the search in
+  """
+  category_id: core_id
+  """
+  The (optional) string to search course full/short name against
+  """
+  search: String
+  """
+  The (optional) completion filter, whether a course has enablecompletion set or not.
+  Leave null to get either setting in the results.
+  """
+  completion_tracked: Boolean
+  """
+  The (optional) id of the tenant to filter for.
+  """
+  tenant_id: core_id
+}
+
+type core_course_selector_result implements core_pageable_result {
+  """
+  The page of course items
+  """
+  courses: [core_course]!
+  """
+  Total number of matching courses
+  """
+  total: Int!
+  """
+  Page offset to request the next set of results for this query
+  """
+  page: Int!
+  """
+  Cursor to request the next set of results for this query
+  """
+  next_cursor: String!
+}
+
+"""
+Specify how a list of courses will be sorted.
+"""
+enum core_course_sort_order {
+  """
+  Sort in the order specified on the manage courses and categories page.
+  """
+  SORTORDER
+  """
+  Sort alphabetically by course fullname.
+  """
+  FULLNAME
+  """
+  Sort alphabetically by course shortname.
+  """
+  SHORTNAME
+  """
+  Sort alphabetically by course id number.
+  """
+  IDNUMBER
+}
+
+extend type Mutation {
+  """
+  Mark a course as viewed for the current user
+  The course_id is mandatory, and the current user must be able to access the course
+  The section_id is optional, but if given must be the id of a section within the given course_id
+  """
+  core_course_view(course_id: core_id!, section_id: core_id): Boolean!
+}

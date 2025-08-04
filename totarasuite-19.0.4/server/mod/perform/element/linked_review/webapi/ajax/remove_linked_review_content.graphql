@@ -1,0 +1,8 @@
+mutation performelement_linked_review_remove_linked_review_content(
+  $input: performelement_linked_review_remove_linked_content_input!
+) {
+  performelement_linked_review_remove_linked_review_content(input: $input) {
+    success
+    error
+  }
+}

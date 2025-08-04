@@ -1,0 +1,14 @@
+mutation container_workspace_remove_owners(
+  $workspace_id: core_id!
+  $owner_ids: [core_id]!
+) {
+  container_workspace_remove_owners(
+    workspace_id: $workspace_id
+    owner_ids: $owner_ids
+  ) {
+    success
+    errors {
+      message
+    }
+  }
+}

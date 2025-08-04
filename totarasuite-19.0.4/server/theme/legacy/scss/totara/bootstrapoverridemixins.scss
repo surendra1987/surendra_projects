@@ -1,0 +1,259 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2019 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2019 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @author    Kevin Hottinger <kevin.hottinger@totaralearning.com>
+// @package   theme_legacy
+
+// Extends Bootstrap3 classes to be availble as SCSS mixins.
+
+@mixin bs-well() {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: $well-bg;
+  border: 1px solid $well-border;
+  border-radius: $border-radius-base;
+  @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.05));
+  blockquote {
+    border-color: var(--color-neutral-5);
+  }
+}
+
+@mixin bs-form-control() {
+  @include form-control();
+}
+
+@mixin bs-form-group() {
+  margin-bottom: $form-group-margin-bottom;
+}
+
+@mixin bs-horizontal-form-group() {
+  @include bs-form-group();
+  @include make-row;
+}
+
+@mixin bs-text-muted() {
+  color: $text-muted;
+}
+
+// (only the root element of the panel, does not style children)
+@mixin bs-panel-root() {
+  margin-bottom: $line-height-computed;
+  background-color: $panel-bg;
+  border: 1px solid transparent;
+  border-radius: $panel-border-radius;
+  @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+}
+
+@mixin bs-panel-default() {
+  @include panel-variant(
+    var(--color-border),
+    $panel-default-text,
+    $panel-default-heading-bg,
+    var(--color-border)
+  );
+}
+
+@mixin bs-panel-heading() {
+  padding: $panel-heading-padding;
+  border-bottom: 1px solid transparent;
+  @include border-top-radius(($panel-border-radius - 1));
+
+  > .dropdown .dropdown-toggle {
+    color: inherit;
+  }
+}
+
+@mixin bs-panel-default-heading() {
+  color: $panel-default-text;
+  background-color: $panel-default-heading-bg;
+  border-color: var(--color-border);
+
+  + .panel-collapse > .panel-body {
+    border-top-color: var(--color-border);
+  }
+  .badge {
+    color: $panel-default-heading-bg;
+    background-color: $panel-default-text;
+  }
+}
+
+@mixin bs-table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $line-height-computed;
+
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-cell-padding;
+        line-height: var(--font-body-line-height);
+        vertical-align: top;
+        border-top: 1px solid $table-border-color;
+      }
+    }
+  }
+  // Bottom align for column headings
+  > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid $table-border-color;
+  }
+  // Remove top border from thead by default
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid $table-border-color;
+  }
+
+  // Nesting
+  .table {
+    background-color: $body-bg;
+  }
+}
+
+@mixin bs-table-condensed {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-condensed-cell-padding;
+      }
+    }
+  }
+}
+
+@mixin bs-table-hover {
+  > tbody > tr:hover {
+    background-color: $table-bg-hover;
+  }
+}
+
+@mixin bs-table-striped() {
+  > tbody > tr:nth-of-type(odd) {
+    background-color: $table-bg-accent;
+  }
+}
+
+@mixin bs-table-bordered() {
+  border: 1px solid $table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid $table-border-color;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+@mixin bs-panel-title() {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: var(--font-body-size);
+  color: inherit;
+
+  > a,
+  > small,
+  > .small,
+  > small > a,
+  > .small > a {
+    color: inherit;
+  }
+}
+
+@mixin bs-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@mixin form-error() {
+  font-weight: 400;
+  font-size: font-size-px(13);
+  line-height: 1.15;
+  padding: var(--gap-1) var(--gap-2);
+  color: var(--form-error-text-color);
+  background: var(--form-error-bg-color);
+  display: block;
+  width: max-content;
+  max-width: 100%;
+}
+
+@mixin bs-btn() {
+  @include button();
+}
+
+@mixin bs-btn-lg {
+  @include button-sz('lg');
+}
+
+@mixin bs-btn-sm {
+  @include button-sz('sm');
+}
+
+@mixin bs-btn-xs {
+  @include button-sz('xs');
+}
+
+@mixin bs-label {
+  @include label;
+}
+
+@mixin bs-legend {
+  @include legend;
+}
+
+@mixin bs-btn-block {
+  display: block;
+  width: 100%;
+}
+
+@mixin bs-table-root {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $line-height-computed;
+}

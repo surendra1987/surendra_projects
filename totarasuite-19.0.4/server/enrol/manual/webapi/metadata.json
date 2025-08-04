@@ -1,0 +1,145 @@
+{
+  "OBJECT": {
+    "enrol_manual_enrol_user_result": {
+      "fields": {
+        "user": {
+          "documentation": {
+            "example": {
+              "id": 12,
+              "idnumber": "123"
+            }
+          }
+        },
+        "course": {
+          "documentation": {
+            "example": {
+              "id": 22,
+              "idnumber": "222"
+            }
+          }
+        },
+        "role": {
+          "documentation": {
+            "example": {
+              "id": 5,
+              "shortname": "learner"
+            }
+          }
+        },
+        "enrolment": {
+          "documentation": {
+            "example": {
+              "id": 122,
+              "timestart": "1698227823",
+              "timeend": "1698227824",
+              "status": "ENROL_USER_ACTIVE"
+            }
+          }
+        },
+        "success": {
+          "documentation": {
+            "example": true
+          }
+        },
+        "was_already_enrolled": {
+          "documentation": {
+            "example": true
+          }
+        }
+      }
+    },
+    "enrol_manual_unenrol_user_result": {
+      "fields": {
+        "user": {
+          "documentation": {
+            "example": {
+              "id": 12,
+              "idnumber": "123"
+            }
+          }
+        },
+        "course": {
+          "documentation": {
+            "example": {
+              "id": 22,
+              "idnumber": "222"
+            }
+          }
+        },
+        "success": {
+          "documentation": {
+            "example": true
+          }
+        },
+        "user_had_manual_enrolment": {
+          "documentation": {
+            "example": true
+          }
+        }
+      }
+    },
+    "enrol_manual_enrol_user_input": {
+      "inputFields": {
+        "user": {
+          "documentation": {
+            "example": {
+              "id": 12,
+              "idnumber": "123"
+            }
+          }
+        },
+        "course": {
+          "documentation": {
+            "example": {
+              "id": 22,
+              "idnumber": "222"
+            }
+          }
+        },
+        "role": {
+          "documentation": {
+            "example": {
+              "id": 5,
+              "shortname": "learner"
+            }
+          }
+        },
+        "timestart": {
+          "documentation": {
+            "example": "1698227822"
+          }
+        },
+        "timeend": {
+          "documentation": {
+            "example": "1698227823"
+          }
+        },
+        "suspended": {
+          "documentation": {
+            "example": true
+          }
+        }
+      }
+    },
+    "enrol_manual_unenrol_user_input": {
+      "inputFields": {
+        "user": {
+          "documentation": {
+            "example": {
+              "id": 12,
+              "idnumber": "123"
+            }
+          }
+        },
+        "course": {
+          "documentation": {
+            "example": {
+              "id": 22,
+              "idnumber": "222"
+            }
+          }
+        }
+      }
+    }
+  }
+}

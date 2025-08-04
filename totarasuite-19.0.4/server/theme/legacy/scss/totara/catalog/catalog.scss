@@ -1,0 +1,184 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2019 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2019 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @author    Kevin Hottinger <kevin.hottinger@totaralearning.com>
+// @package   theme/legacy/scss/theme_legacy
+
+// Variables
+// Breakpoint
+$catalog-screen_xsm_min: 500px !default;
+
+#region-main div[role='main'] h2.tw-catalog__title {
+  float: left;
+  margin-top: var(--gap-1);
+}
+
+.tw-catalog {
+  clear: both;
+  position: relative;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__aside {
+    width: 100%;
+
+    @media (min-width: $screen-sm-min) {
+      width: 30%;
+      min-width: 230px;
+    }
+
+    @media (min-width: $screen-md-min) {
+      width: 14%;
+      min-width: 200px;
+    }
+  }
+
+  &__primaryFilter {
+    border-bottom: 1px solid var(--catalog-primfilter-border-color);
+    border-top: 1px solid var(--catalog-primfilter-border-color);
+    font-size: font-size-px(18);
+    margin: var(--gap-4) 0;
+    padding: var(--gap-4) 0;
+    width: 100%;
+  }
+
+  &__results {
+    flex-grow: 1;
+
+    &_overview {
+      display: flex;
+      flex-wrap: wrap;
+      padding: var(--gap-2) 0;
+
+      &_row {
+        display: flex;
+        height: 100%;
+        margin-bottom: var(--gap-6);
+        width: 100%;
+      }
+    }
+  }
+
+  &__hidden {
+    display: none;
+  }
+
+  .tw-catalogResultsCount {
+    height: 100%;
+    margin: auto var(--gap-4) auto 0;
+    vertical-align: top;
+
+    &__text {
+      margin: 0;
+    }
+  }
+
+  &__debug {
+    clear: both;
+    margin-top: rem-px(50);
+
+    pre {
+      background: var(--color-neutral-2);
+      border: 1px solid var(--color-neutral-7);
+      font-size: font-size-px(12);
+      padding: var(--gap-4);
+    }
+
+    span {
+      display: block;
+      white-space: pre-line;
+    }
+  }
+
+  &__title {
+    @include font(h1);
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  &__page_heading {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: var(--gap-8);
+    gap: var(--gap-3);
+  }
+
+}
+
+@media (min-width: $catalog-screen_xsm_min) {
+  .tw-catalog {
+    &__aside {
+      padding-right: var(--gap-8);
+    }
+
+    &__results {
+      flex-basis: 0;
+
+      &_overview {
+        flex-wrap: nowrap;
+
+        &_row {
+          flex-grow: 1;
+          margin: auto 0;
+          width: auto;
+
+          &:last-of-type {
+            margin: auto 0 auto auto;
+            max-width: 325px;
+            padding-left: var(--gap-1);
+          }
+
+          &_narrow {
+            flex-grow: 0;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $tui-screen-md) {
+  .tw-catalog {
+    &__page_heading {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+@import 'config_form';
+@import 'item_narrow';
+@import 'item_wide';
+@import 'details';
+@import 'details_link';
+@import 'element_matrix';
+@import 'element_multiple_select';
+@import 'item_style_toggle';
+@import 'loading_overlay';
+@import 'manage_btns';
+@import 'pagination';
+@import 'results_share';
+@import 'results_sort';
+@import 'toggle_filter_panel';

@@ -1,0 +1,16 @@
+query auth_ssosaml_saml_log($input: auth_ssosaml_saml_log_input!) {
+  entries: auth_ssosaml_saml_log(input: $input) {
+    items {
+      type
+      content_request
+      content_response
+      error
+      notice
+      status_label
+      date: created_at(format: DATETIMESECONDS)
+      content_request_time(format: DATETIMESECONDS)
+      content_response_time(format: DATETIMESECONDS)
+    }
+    total
+  }
+}

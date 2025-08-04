@@ -1,0 +1,32 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1441.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1441.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_evidence/src/components/performelement_linked_review/ParticipantContent.vue?vue&type=style&index=0&id=671b8ff5&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-linkedReviewViewEvidence {
+  &__heading {
+    @include font(h4);
+    margin: 0;
+  }
+
+  &__customFields {
+    margin-top: var(--gap-4);
+
+    &-field {
+      @include tui-layout-sidebar(
+        $side-width: rem-px(220),
+        $content-min-width: 60%,
+        $gutter: var(--gap-1),
+        $sidebar-selector: 'dt',
+        $content-selector: 'dd'
+      );
+
+      & + & {
+        margin-top: var(--gap-2);
+      }
+    }
+  }
+
+  &__type {
+    color: var(--color-neutral-6);
+  }
+}
+

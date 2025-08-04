@@ -1,0 +1,507 @@
+"""
+Parameters used to define catalog search query.
+
+Use either query_string or query_structure.
+
+The format of this input matches the URL query parameters used with the Totara 'grid' or 'explore' catalogs, one of which must be enabled to use this API.
+"""
+input totara_catalog_url_query_input {
+  """
+  URL query string. Query string from any existing catalog search can be used here. Use this option for the first page of results only.
+
+  The list of expected query keys for query_string search:
+  - Active filter aliases
+  - objecttype
+  - perpageload
+  - orderbykey
+  """
+  query_string: String
+  """
+  URL query structure as a JSON blob of key-value pairs. Use this option if you need pagination.
+
+  The list of expected query keys for query_structure search:
+  - Active filter aliases
+  - objecttype
+  - perpageload
+  - orderbykey
+  - limitfrom (pagination cursor; only for pages 2 through n)
+  """
+  query_structure: String
+}
+
+"""
+URL query validation result type, provides metadata about a given query.
+"""
+type totara_catalog_url_query_validation_result {
+  """
+  Total number of learning items.
+  """
+  total_count: Int!
+  """
+  The flag to indicate the URL query has error or not.
+  """
+  error: Boolean!
+  """
+  Error message.
+  """
+  error_message: String
+}
+
+"""
+Generic catalog filter option type.
+"""
+type totara_catalog_option {
+  """
+  Option id.
+  """
+  id: String!
+  """
+  Option label.
+  """
+  label: String!
+  """
+  Option is active or not, in other words, it's selected/default or not.
+  """
+  active: Boolean!
+}
+
+"""
+Catalog tree filter option type, used for hierarchical options.
+"""
+type totara_catalog_tree_option {
+  """
+  Node id.
+  """
+  id: String!
+  """
+  Node parent id, might be null if top-level.
+  """
+  parentid: String
+  """
+  Node name.
+  """
+  label: String!
+  """
+  Option is active or not, in other words, it's selected/default or not.
+  """
+  active: Boolean!
+}
+
+"""
+Catalog filter type, collects a named group of options with a defined key for use in catalog queries.
+"""
+type totara_catalog_filter {
+  """
+  Filter key that is catalog url query param eg ?course_type_panel[]=1.
+  """
+  key: String!
+  """
+  Filter title / label.
+  """
+  title: String!
+  """
+  Option type.
+  """
+  type: String!
+  """
+  Filter options.
+  """
+  options: [totara_catalog_filter_option_union]!
+}
+
+"""
+Union type allowing for different types of filter option to be used
+"""
+union totara_catalog_filter_option_union =
+    totara_catalog_option
+  | totara_catalog_tree_option
+
+"""
+Filters query result, lists the active filters and sorting options in the catalog.
+"""
+type totara_catalog_filters_result {
+  """
+  Active filters.
+  """
+  filters: [totara_catalog_filter]
+  """
+  Filter selected as "Browse filter".
+  """
+  browse_filter: totara_catalog_filter
+  """
+  Sort option.
+  """
+  sort: totara_catalog_filter
+}
+
+"""
+Catalog learning items result. Contains a page of learning items which match a query, and metadata about the page and total result set.
+"""
+type totara_catalog_items_result {
+  """
+  Catalog learning items.
+  """
+  items: [totara_catalog_item]!
+  """
+  The cursor to use in query_structure input to fetch the next page of items.
+  """
+  limitfrom: String!
+  """
+  The approximate total number of items in the result set. Due to visibility restrictions, this number may not be an accurate total.
+  """
+  maxcount: Int!
+  """
+  Active filters.
+  """
+  filters: [totara_catalog_filter]
+  """
+  Filter selected as "Browse filter".
+  """
+  browse_filter: totara_catalog_filter
+  """
+  Sort options.
+  """
+  sort: totara_catalog_filter
+  """
+  Flag to indicate whether the query has any filters applied or not.
+  """
+  is_filtered: Boolean!
+  """
+  Flag to indicate if there are any more records to load.
+  """
+  endofrecords: Boolean!
+}
+
+"""
+Catalog learning item type, used to display information about an individual learning item in a card.
+"""
+type totara_catalog_item {
+  """
+  Catalog item database id. This is different from the item's actual course or resource id.
+  """
+  itemid: core_id!
+  """
+  Type of catalog item (singular), e.g. Course
+  """
+  type_label: String!
+  """
+  Item title.
+  """
+  title: String!
+  """
+  'Featured' is enabled or not for this item.
+  """
+  featured: Boolean!
+  """
+  Item URL. This URL may contain additional parameters that redirect the user back to the catalog.
+  """
+  redirecturl: String!
+  """
+  Image is enabled or not for this item.
+  """
+  image_enabled: Boolean!
+  """
+  Item image.
+  """
+  image: totara_catalog_item_image
+  """
+  Item logo, if enabled.
+  """
+  logo: totara_catalog_item_image
+  """
+  Item's learning type.
+  """
+  objecttype: String!
+  """
+  Hero data text is enabled or not for this item.
+  """
+  hero_data_text_enabled: Boolean!
+  """
+  Hero data text.
+  """
+  hero_data_text: String
+  """
+  Hero data type.
+  """
+  hero_data_type: String
+  """
+  Hero data icon is enabled or not for this item.
+  """
+  hero_data_icon_enabled: Boolean!
+  """
+  Hero data icon.
+  """
+  hero_data_icon: totara_catalog_item_icon
+  """
+  Progress bar is enabled or not for this item.
+  """
+  progress_bar_enabled: Boolean!
+  """
+  Progress bar.
+  """
+  progress_bar: totara_catalog_item_progress_bar
+  """
+  Description is enabled or not for this item.
+  """
+  description_enabled: Boolean!
+  """
+  Item short description.
+  """
+  description: String
+  """
+  Text placeholders are enabled or not for this item.
+  """
+  text_placeholders_enabled: Boolean!
+  """
+  Text placeholders.
+  """
+  text_placeholders: [totara_catalog_text_placeholder]
+  """
+  Icon placeholders are enabled or not for this item.
+  """
+  icon_placeholders_enabled: Boolean!
+  """
+  Icon placeholders.
+  """
+  icon_placeholders: [totara_catalog_item_icon]
+}
+
+"""
+Catalog learning item image type.
+"""
+type totara_catalog_item_image {
+  """
+  Image URL.
+  """
+  url: String!
+  """
+  Image alt text.
+  """
+  alt: String!
+}
+
+"""
+Catalog learning item icon type.
+"""
+type totara_catalog_item_icon {
+  """
+  Icon image URL.
+  """
+  url: String
+  """
+  Icon alt text.
+  """
+  alt: String
+  """
+  Icon name.
+  """
+  icon: String
+}
+
+"""
+Catalog learning item action link type.
+"""
+type totara_catalog_item_link {
+  """
+  Button text.
+  """
+  label: String!
+  """
+  Action URL.
+  """
+  url: String!
+}
+
+"""
+Catalog learning item progress bar type.
+"""
+type totara_catalog_item_progress_bar {
+  """
+  Learner's progress, out of 100
+  """
+  progress: Float
+}
+
+"""
+Catalog learning item details type, used to display detailed information about the learning item in a panel.
+"""
+type totara_catalog_item_details {
+  """
+  Item title.
+  """
+  title: String
+  """
+  Manage link.
+  """
+  manage_link: totara_catalog_item_link
+  """
+  Details link block.
+  """
+  details_link: totara_catalog_item_details_link
+  """
+  Main rich text content.
+  """
+  rich_text(format: core_format = PLAIN): String
+  """
+  Item short description.
+  """
+  description: String
+  """
+  Text placeholders.
+  """
+  text_placeholders: [totara_catalog_text_placeholder]
+  """
+  Icon placeholders.
+  """
+  icon_placeholders: [totara_catalog_item_icon]
+}
+
+"""
+Details link block in details panel.
+"""
+type totara_catalog_item_details_link {
+  """
+  Text to display next to button.
+  """
+  description: String
+  """
+  Link button.
+  """
+  button: totara_catalog_item_link
+}
+
+"""
+Catalog learning item text placeholder type.
+"""
+type totara_catalog_text_placeholder {
+  """
+  Data exists or not.
+  """
+  data_exists: Boolean!
+  """
+  Data.
+  """
+  data: String
+  """
+  Show label or not.
+  """
+  show_label: Boolean
+  """
+  label.
+  """
+  label: String
+}
+
+"""
+Catalog learning item details result.
+"""
+type totara_catalog_item_details_result {
+  """
+  Catalog item details.
+  """
+  details: totara_catalog_item_details!
+}
+
+"""
+Search filter options input type.
+"""
+input totara_catalog_search_filter_options_input {
+  """
+  User search term.
+  """
+  search_term: param_text!
+  """
+  Filter key.
+  """
+  filter_key: String!
+}
+
+"""
+Search filter options result type.
+"""
+type totara_catalog_search_filter_options_result {
+  """
+  Filter options.
+  """
+  filter_options: [String]!
+}
+
+"""
+Top grouped items result type, used to display catalog learning items grouped by type.
+"""
+type totara_catalog_top_items_grouped_result {
+  """
+  Item groups.
+  """
+  groups: [totara_catalog_top_items_grouped]
+}
+
+"""
+Grouped items type, a collection of learning items and the type associated with them.
+"""
+type totara_catalog_top_items_grouped {
+  """
+  Object type.
+  """
+  objecttype: String!
+  """
+  Group of items.
+  """
+  items: [totara_catalog_item]!
+}
+
+"""
+Catalog learning item details input type.
+"""
+input totara_catalog_item_details_input {
+  """
+  Item id.
+  """
+  itemid: core_id!
+}
+
+extend type Query {
+  """
+  Query to validate catalog URL query string or structured query JSON.
+  """
+  totara_catalog_url_query_validation(
+    input: totara_catalog_url_query_input!
+  ): totara_catalog_url_query_validation_result!
+
+  """
+  Query to fetch available catalog filters and filter options.
+  """
+  totara_catalog_filters(
+    input: totara_catalog_url_query_input
+  ): totara_catalog_filters_result!
+
+  """
+  Query to fetch a page of catalog learning items.
+  """
+  totara_catalog_items(
+    input: totara_catalog_url_query_input!
+  ): totara_catalog_items_result!
+
+  """
+  Query to get details panel content for a learning item.
+  """
+  totara_catalog_item_details(
+    input: totara_catalog_item_details_input!
+  ): totara_catalog_item_details_result!
+
+  """
+  Query to look up the top 10 matching options for a specific filter. Useful for filters with a lot of options, to narrow down the number of options presented to the user.
+  """
+  totara_catalog_search_filter_options(
+    input: totara_catalog_search_filter_options_input!
+  ): totara_catalog_search_filter_options_result!
+
+  """
+  Query to fetch top catalog learning items grouped by type.
+
+  Only ever fetches the first page of items of each type. Additional pages must be fetched using totara_catalog_items with the objecttype filter set appropriately.
+  """
+  totara_catalog_top_items_grouped(
+    input: totara_catalog_url_query_input!
+  ): totara_catalog_top_items_grouped_result!
+}

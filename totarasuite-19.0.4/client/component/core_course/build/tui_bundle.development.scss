@@ -1,0 +1,162 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-878.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-878.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_course/src/components/cards/CourseCard.vue?vue&type=style&index=0&id=bb4eeaae&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_course-courseCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: var(--gap-4);
+    padding-top: 0;
+
+    > * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__title {
+    @include font(h4);
+
+    &--limitHeight {
+      display: -webkit-box;
+      height: rem-px(63);
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: rem-px(120);
+    background-position: 50%;
+    background-size: cover;
+    border-top-left-radius: var(--card-border-radius);
+    border-top-right-radius: var(--card-border-radius);
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-878.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-878.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_course/src/components/category_tree/CategoryTree.vue?vue&type=style&index=0&id=6c477f3e&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_course-categorySelector {
+  &__categorySelector {
+    margin: var(--gap-2);
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-878.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-878.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_course/src/components/course_adder/Row.vue?vue&type=style&index=0&id=7f09b5a7&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-coreCourseAdderRow {
+  &__image {
+    float: left;
+    width: rem-px(60);
+    height: rem-px(40);
+    margin-right: var(--gap-2);
+    background-position: 50%;
+    background-size: cover;
+  }
+
+  &__name {
+    height: var(--font-body-line-height);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__category {
+    @include font(body-xs);
+    height: 1.1em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-878.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-878.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_course/src/components/course_info/CourseInfo.vue?vue&type=style&index=0&id=4ac1a6f8&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_course-courseInfo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-4);
+  margin-bottom: var(--gap-5);
+  @media (min-width: $tui-screen-xs) {
+    grid-template-columns: auto 1fr;
+  }
+
+  &__image {
+    width: rem-px(240);
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--border-radius-normal);
+  }
+
+  &__summaryFiles,
+  &__contacts {
+    margin: var(--gap-2) 0 0;
+    list-style-type: none;
+
+    > li + li {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__summaryFilesImage {
+    max-width: 100px;
+    max-height: 100px;
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-878.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-878.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_course/src/components/course_picker/CoursePickerModal.vue?vue&type=style&index=0&id=4401e776&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_course-coursePickerModal {
+  &__picker {
+    flex-grow: 1;
+    height: rem-px(500);
+  }
+
+  &__buttons {
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-878.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-878.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_course/src/components/course_picker/Picker.vue?vue&type=style&index=0&id=3cb1f086&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_course-picker {
+  display: flex;
+  flex-direction: column;
+
+  &__table {
+    margin: var(--gap-4) 0;
+  }
+
+  &__selectionInfo {
+    padding-top: var(--gap-3);
+    border-top: var(--border-width-normal) solid var(--color-neutral-5);
+    @include font(body-sm);
+  }
+
+  &__listScroll {
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  &__loadMore {
+    display: flex;
+    justify-content: center;
+    margin: var(--gap-4) 0;
+  }
+}
+

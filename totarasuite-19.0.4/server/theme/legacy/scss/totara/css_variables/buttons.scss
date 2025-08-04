@@ -1,0 +1,129 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2023 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2023 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @author    Simon Chester <simon.chester@totara.com>
+// @package   theme_legacy
+
+:root {
+  --btn-shadow: none;
+  --btn-shadow-focus: none;
+  --btn-shadow-hover: var(--shadow-2);
+  --btn-shadow-active: var(--shadow-3);
+  --btn-font-size: var(--font-body-size);
+  --btn-line-height: var(--font-body-line-height);
+  --btn-border-width: 1px;
+  --btn-padding-h: var(--gap-3);
+  --btn-padding-v: var(--gap-2);
+  --btn-radius: 4px;
+
+  // Button
+  --btn-bg-color: var(--color-neutral-1);
+  --btn-bg-color-disabled: var(--color-neutral-3);
+  --btn-accent-color: var(--color-state);
+  --btn-accent-color-contrast: var(--color-neutral-1);
+  --btn-accent-color-active: var(--color-state-active);
+  --btn-accent-color-hover: var(--color-state-hover);
+  --btn-accent-color-disabled: var(--color-state-disabled);
+  --btn-danger-color: var(--color-prompt-alert);
+  --btn-danger-color-contrast: var(--color-neutral-1);
+  --btn-text-color: var(--btn-accent-color);
+
+  // Button sizes
+  --btn-lg-font-size: var(--font-body-lg-size);
+  --btn-lg-line-height: var(--font-body-lg-line-height);
+  --btn-lg-padding-h: var(--gap-2);
+  --btn-lg-padding-v: var(--gap-2);
+  --btn-lg-radius: 6px;
+  --btn-sm-font-size: var(--font-body-sm-size);
+  --btn-sm-line-height: var(--font-body-sm-line-height);
+  --btn-sm-padding-h: var(--gap-2);
+  --btn-sm-padding-v: var(--gap-1);
+  --btn-sm-radius: 4px;
+  --btn-xs-font-size: var(--font-body-sm-size);
+  --btn-xs-line-height: var(--font-body-sm-line-height);
+  --btn-xs-padding-h: var(--gap-1);
+  // unit is required for calculations
+  /* stylelint-disable-next-line length-zero-no-unit */
+  --btn-xs-padding-v: 0px;
+  --btn-xs-radius: 4px;
+
+  // Deprecated since Totara 19
+  --btn-min-height: #{rem-px(36)};
+  --btn-lg-min-height: #{rem-px(44)};
+  --btn-sm-min-height: #{rem-px(30)};
+  --btn-xs-min-height: #{rem-px(22)};
+  --btn-bg-color-active: var(--color-neutral-1);
+  --btn-bg-color-hover: var(--color-neutral-3);
+  --btn-border-color: var(--btn-accent-color);
+  --btn-border-color-active: var(--btn-accent-color-active);
+  --btn-border-color-disabled: var(--btn-accent-color-disabled);
+  --btn-border-color-hover: var(--btn-accent-color-hover);
+  --btn-loader-color-disabled: var(--color-neutral-6);
+  --btn-text-color-active: var(--btn-accent-color-active);
+  --btn-text-color-disabled: var(--btn-accent-color-disabled);
+  --btn-text-color-hover: var(--btn-accent-color-hover);
+  --btn-prim-accent-color: var(--color-state);
+  --btn-prim-accent-color-active: var(--color-state-active);
+  --btn-prim-accent-color-hover: var(--color-state-hover);
+  --btn-prim-accent-color-disabled: var(--color-state-disabled);
+  --btn-prim-bg-color: var(--btn-prim-accent-color);
+  --btn-prim-bg-color-active: var(--btn-prim-accent-color-active);
+  --btn-prim-bg-color-disabled: var(--btn-prim-accent-color-disabled);
+  --btn-prim-bg-color-hover: var(--btn-prim-accent-color-hover);
+  --btn-prim-border-color: var(--btn-prim-accent-color);
+  --btn-prim-border-color-active: var(--btn-prim-accent-color-active);
+  --btn-prim-border-color-disabled: var(--btn-prim-accent-color-disabled);
+  --btn-prim-border-color-hover: var(--btn-prim-accent-color-hover);
+  --btn-prim-loader-color-disabled: var(--color-neutral-7);
+  --btn-prim-text-color: var(--color-neutral-1);
+  --btn-prim-text-color-active: var(--color-neutral-1);
+  --btn-prim-text-color-disabled: var(--color-neutral-3);
+  --btn-prim-text-color-hover: var(--color-neutral-1);
+  --btn-alert-bg-color: var(--color-prompt-alert);
+  --btn-alert-bg-color-active: var(--color-prompt-alert);
+  --btn-alert-bg-color-disabled: var(--color-neutral-3);
+  --btn-alert-bg-color-hover: var(--color-prompt-alert);
+  --btn-alert-border-color: var(--color-prompt-alert);
+  --btn-alert-border-color-active: var(--color-prompt-alert);
+  --btn-alert-border-color-disabled: var(--color-state-disabled);
+  --btn-alert-border-color-hover: var(--color-prompt-alert);
+  --btn-alert-text-color: var(--color-neutral-1);
+  --btn-alert-text-color-active: var(--color-neutral-1);
+  --btn-alert-text-color-disabled: var(--color-state-disabled);
+  --btn-alert-text-color-hover: var(--color-neutral-1);
+  --btn-toolbar-bg-color: transparent;
+  --btn-toolbar-bg-color-hover: var(--color-neutral-4);
+  --btn-toolbar-bg-color-focus: var(--color-neutral-4);
+  --btn-toolbar-bg-color-selected: var(--color-state-active);
+  --btn-toolbar-text-color: var(--color-neutral-6);
+  --btn-toolbar-text-color-selected: var(--color-neutral-1);
+  --btn-link-bg-color: transparent;
+  --btn-link-bg-color-active: transparent;
+  --btn-link-bg-color-disabled: transparent;
+  --btn-link-bg-color-hover: transparent;
+  --btn-link-border-color: transparent;
+  --btn-link-border-color-active: transparent;
+  --btn-link-border-color-disabled: transparent;
+  --btn-link-border-color-hover: transparent;
+  --btn-link-text-color: var(--link-color);
+  --btn-link-text-color-active: var(--link-color-hover);
+  --btn-link-text-color-disabled: var(--link-color);
+  --btn-link-text-color-hover: var(--link-color-hover);
+}

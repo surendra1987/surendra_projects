@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saml2p:Response xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:xs="http://www.w3.org/2001/XMLSchema" Destination="{response.destination}" ID="id157193248839784901527949315" {response.in_response_to} IssueInstant="{response.issue_instant}" Version="2.0">
+    <saml2:Issuer xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion" Format="{response.issuer.format}">{response.issuer.name}</saml2:Issuer>
+    <saml2p:Status xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol">
+        <saml2p:StatusCode Value="{response.status_code}"></saml2p:StatusCode>
+    </saml2p:Status>
+    {assertion}
+</saml2p:Response>

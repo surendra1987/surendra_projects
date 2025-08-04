@@ -1,0 +1,12 @@
+This files describes API changes in /client/component/format_pathway,
+information provided here is intended especially for developers.
+
+=== 19.0.4 ===
+* Added accessibility fixes on dropdown button's aria-expanded in ActivityToolbar.vue, CourseToolbar.vue
+  * Template changes
+
+=== 19.0 ===
+
+* Updated page padding to be consistent in pages/ActivityView
+* Updated ActivityToolbar.vue and ActivityView.vue to hide back link for guests when guest enrolment is disabled 
+  * Template and JS changes

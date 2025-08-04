@@ -1,0 +1,56 @@
+mutation perform_goal_create_goal($input: perform_goal_create_input) {
+  perform_goal_create_result: perform_goal_create_goal(input: $input) {
+    goal {
+      id
+      context_id
+      owner {
+        id
+        username
+        firstname
+        lastname
+      }
+      user {
+        id
+        username
+        firstname
+        lastname
+      }
+      name
+      id_number
+      description
+      assignment_type
+      start_date
+      target_type
+      target_date
+      target_value
+      current_value
+      current_value_updated_at
+      plugin_name
+      status {
+        id
+        label
+      }
+      status_updated_at
+      closed_at
+      created_at
+      updated_at
+    }
+    raw {
+      available_statuses {
+        id
+        label
+      }
+      description
+      start_date {
+        iso
+      }
+      target_date {
+        iso
+      }
+    }
+    permissions {
+      can_manage
+      can_update_status
+    }
+  }
+}

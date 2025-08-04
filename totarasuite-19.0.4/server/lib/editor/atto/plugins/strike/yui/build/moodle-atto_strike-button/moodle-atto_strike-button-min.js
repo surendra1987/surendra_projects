@@ -1,0 +1,1 @@
+YUI.add("moodle-atto_strike-button",function(t,e){t.namespace("M.atto_strike").Button=t.Base.create("button",t.M.editor_atto.EditorPlugin,[],{initializer:function(){this.addBasicButton({exec:"strikeThrough",icon:"e/strikethrough",tags:"strike"})}})},"@VERSION@",{requires:["moodle-editor_atto-plugin"]});

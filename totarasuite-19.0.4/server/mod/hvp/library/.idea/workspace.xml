@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="661e8e8f-14a3-4a67-bbba-59a3d86a683d" name="Changes" comment="JI-5152 Allow style attributes from CKEditor 5">
+      <change afterPath="$PROJECT_DIR$/fonts/h5p-core-29.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/h5p-core-29.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/h5p-core-29.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/h5p-core-29.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/h5p-core-29.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/h5p-core-30.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/h5p-core-30.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/h5p-core-30.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/h5p-core-30.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/h5p-core-30.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/h5p-table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/h5p-core-28.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/h5p-core-28.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/h5p-core-28.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/h5p-core-28.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/h5p-default-storage.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/h5p-default-storage.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h5p.classes.php" beforeDir="false" afterPath="$PROJECT_DIR$/h5p.classes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/h5p.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/h5p.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/h5p.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/h5p.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../reporting/type-processors/choice-processor.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/../reporting/type-processors/choice-processor.class.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="php-8.1-debug" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2oAyge4S7rLN434AmHEsbHzt5Oi" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "TL-41969/e",
+    "last_opened_file_path": "/Users/nathanielwalmsley/sites/versions/evergreen/server/mod/hvp/library",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23339.16" />
+        <option value="bundled-php-predefined-a98d8de5180a-90914f2295cb-com.jetbrains.php.sharedIndexes-PS-242.23339.16" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="661e8e8f-14a3-4a67-bbba-59a3d86a683d" name="Changes" comment="" />
+      <created>1730326786765</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730326786765</updated>
+      <workItem from="1730326787813" duration="287000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

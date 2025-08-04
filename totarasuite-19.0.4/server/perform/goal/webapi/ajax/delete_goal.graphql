@@ -1,0 +1,6 @@
+mutation perform_goal_delete_goal($goal_reference: perform_goal_reference!) {
+  perform_goal_delete_goal(goal_reference: $goal_reference) {
+    __typename
+    success
+  }
+}

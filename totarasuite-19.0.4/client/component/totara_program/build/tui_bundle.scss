@@ -1,0 +1,199 @@
+.tui-totara_program__requestExtension {
+  &-date {
+    flex-wrap: wrap;
+  }
+
+  &-dateSeparator {
+    display: inline-block;
+    margin-top: var(--gap-2);
+  }
+
+  &-submit {
+    display: none;
+  }
+}
+
+.tui-totaraProgramCloneConfirmationModal {
+  &__form {
+    margin-bottom: var(--gap-2);
+  }
+}
+
+.tui-totara_program-courseSet {
+  &__course {
+    position: relative;
+  }
+
+  &__courseCardProgress {
+    display: flex;
+    align-items: center;
+    height: rem-px(20);
+
+    > * + * {
+      margin-left: var(--gap-2);
+    }
+  }
+
+  &__courseCardProgressLozenge,
+  &__courseCardProgressIndicator {
+    flex-grow: 1;
+  }
+
+  &__courseCardProgressMenu {
+    display: block;
+  }
+
+  &__courseCardLaunch {
+    align-self: flex-end;
+  }
+}
+
+.tui-totara_program-programHeader {
+  margin-bottom: var(--gap-8);
+
+  &__image {
+    width: rem-px(240);
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--border-radius-normal);
+  }
+
+  &__title {
+    @include font(h1);
+    margin: 0 0 var(--gap-8);
+  }
+
+  &__status {
+    margin-top: var(--gap-1);
+    margin-bottom: calc(var(--gap-2) + (var(--gap-1) / 2));
+    margin-left: var(--gap-2);
+    padding-top: calc(var(--gap-1) / 2);
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-4);
+    @media (min-width: $tui-screen-xs) {
+      grid-template-columns: auto 1fr;
+    }
+  }
+
+  &__programStatus {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--gap-2);
+    align-items: center;
+  }
+
+  &__dueDate {
+    &--overdue {
+      color: var(--color-prompt-alert);
+    }
+  }
+
+  &__extensionLink {
+    white-space: nowrap;
+  }
+}
+
+.tui-totaraProgramAffectedCard {
+  display: block;
+  padding: var(--gap-2);
+}
+
+.tui-totaraProgramHeader__fullname {
+  margin-top: 0;
+}
+
+.tui-totara_program-addCourses {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--card-border-radius);
+}
+
+.tui-totara_program-content {
+  & > * + * {
+    margin-top: var(--gap-8);
+  }
+}
+
+.tui-totara_program-courseSet {
+  &__card {
+    flex-direction: column;
+    width: 100%;
+    padding: var(--gap-2);
+
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__cardHeading {
+    display: flex;
+  }
+
+  &__cardHeadingText {
+    flex-grow: 1;
+    margin-top: 0;
+  }
+
+  &__cardForm {
+    width: 100%;
+  }
+
+  & > * + * {
+    margin-top: var(--gap-8);
+  }
+}
+
+.tui-totara_program-courseSetForm {
+  &__helpText {
+    /* remove the gap above the first line the text*/
+    margin-top: calc(var(--gap-4) * -1);
+    white-space: pre-line;
+  }
+
+  &__buttons {
+    float: right;
+  }
+}
+
+.tui-totara_program-coursesGrid {
+  padding: var(--gap-2);
+
+  &__container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(var(--tui-card-default-width), 100%), 1fr)
+    );
+    gap: var(--gap-4);
+  }
+
+  &__addCourseCard {
+    min-width: var(--tui-card-default-width);
+    height: 100%;
+  }
+
+  &__courseDrag {
+    position: absolute;
+    top: var(--gap-2);
+    left: var(--gap-2);
+    display: none;
+  }
+
+  &__course:hover &__courseDrag,
+  &__course--dragging &__courseDrag {
+    display: block;
+  }
+}
+

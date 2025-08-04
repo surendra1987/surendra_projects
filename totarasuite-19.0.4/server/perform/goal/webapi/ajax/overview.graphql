@@ -1,0 +1,46 @@
+query perform_goal_overview($input: perform_goal_overview_input!) {
+  perform_goal_overview(input: $input) {
+    total
+    due_soon
+    state_counts {
+      achieved
+      progressed
+      not_progressed
+      not_started
+    }
+    goals {
+      achieved {
+        ...perform_goal_overview_item_data
+      }
+      progressed {
+        ...perform_goal_overview_item_data
+      }
+      not_progressed {
+        ...perform_goal_overview_item_data
+      }
+      not_started {
+        ...perform_goal_overview_item_data
+      }
+    }
+  }
+}
+
+fragment perform_goal_overview_item_data on perform_goal_overview_item {
+  __typename
+  id
+  raw_id
+  name
+  url
+  description
+  assignment_date
+  achievement_date
+  last_update {
+    date
+    description
+  }
+  due {
+    date
+    due_soon
+    overdue
+  }
+}

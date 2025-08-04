@@ -1,0 +1,106 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1421.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1421.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_criteria/src/components/achievements/CompetencyAchievementDisplay.vue?vue&type=style&index=0&id=00c6bf4d&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-criteriaCompetencyAchievement {
+  &__title {
+    margin: 0;
+    text-align: center;
+    -webkit-hyphens: manual;
+            hyphens: manual;
+  }
+
+  &__goal {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  &__summary {
+    padding: var(--gap-2) var(--gap-2) 0;
+
+    &-header {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-body {
+      margin-top: var(--gap-4);
+    }
+
+    &-button {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-xs) {
+  .tui-criteriaCompetencyAchievement {
+    &__completion {
+      &-notComplete {
+        @include sr-only();
+      }
+    }
+    &__level {
+      &-notAvailable {
+        @include sr-only();
+      }
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1421.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1421.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_criteria/src/components/achievements/CourseAchievementDisplay.vue?vue&type=style&index=0&id=2b90c0ea&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-criteriaCourseAchievement {
+  &__title {
+    @include font(h4);
+    margin: 0;
+    text-align: center;
+    -webkit-hyphens: manual;
+            hyphens: manual;
+  }
+
+  &__goal {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  &__progress {
+    margin: auto 0;
+
+    &-bar {
+      width: 100%;
+    }
+  }
+
+  &__summary {
+    padding: var(--gap-2) var(--gap-2) 0;
+
+    &-header {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-body {
+      margin-top: var(--gap-4);
+    }
+
+    &-button {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-xs) {
+  .tui-criteriaCourseAchievement {
+    &__completion {
+      &-notComplete {
+        @include sr-only();
+      }
+    }
+  }
+}
+

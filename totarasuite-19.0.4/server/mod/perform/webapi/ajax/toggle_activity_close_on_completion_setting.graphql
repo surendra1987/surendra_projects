@@ -1,0 +1,13 @@
+# @deprecated since Totara 16.0 - use mod_perform_update_activity_workflow_settings
+mutation mod_perform_toggle_activity_close_on_completion_setting(
+  $input: toggle_activity_setting!
+    @deprecated(
+      reason: "Use mod_perform_update_activity_workflow_settings instead"
+    )
+) {
+  mod_perform_toggle_activity_close_on_completion_setting(input: $input) {
+    settings {
+      close_on_completion
+    }
+  }
+}

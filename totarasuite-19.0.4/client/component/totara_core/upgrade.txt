@@ -1,0 +1,6 @@
+This file describes API changes in /client/component/totara_core,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+* Removed the click event on the card in ParticipantContent.vue as the title is already clickable. This also aligns better with the other review item types
+    * Template and JS changes

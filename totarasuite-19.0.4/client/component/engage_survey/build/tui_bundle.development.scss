@@ -1,0 +1,490 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/CreateSurvey.vue?vue&type=style&index=0&id=a9924e36&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageCreateSurvey {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/box/RadioBox.vue?vue&type=style&index=0&id=23488603&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyRadioBox {
+  .tui-radioGroup {
+    padding: 0;
+    overflow: auto;
+  }
+
+  .tui-radioGroup > * + * {
+    margin-top: 0;
+  }
+
+  &__radio {
+    margin-bottom: var(--gap-4);
+
+    .tui-radio__label {
+      line-height: var(--form-radio-size);
+      overflow-wrap: break-word;
+    }
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/box/SquareBox.vue?vue&type=style&index=0&id=ee032a6a&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveySquareBox {
+  .tui-checkbox {
+    min-height: var(--gap-4);
+  }
+  .tui-checkboxGroup > * + * {
+    margin-top: 0;
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/card/SurveyCard.vue?vue&type=style&index=0&id=e48cd9ec&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyCard {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: column;
+
+  &__cardWrapper {
+    flex-grow: 1;
+
+    &:hover {
+      .tui-engageSurveyCard__drag {
+        display: block;
+      }
+    }
+  }
+
+  &__drag {
+    position: absolute;
+    top: var(--gap-2);
+    left: var(--gap-2);
+    display: none;
+  }
+
+  &__subtitleRow {
+    display: flex;
+    flex-flow: row wrap;
+    gap: gap(1);
+  }
+
+  &__subtitle {
+    @include font(body-sm);
+    flex: 1;
+  }
+
+  &__content {
+    margin: auto 0;
+    padding: var(--gap-4) 0;
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/card/SurveyCardBody.vue?vue&type=style&index=0&id=9e81f268&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyCardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  padding: var(--gap-2) var(--gap-4) var(--gap-2) var(--gap-4);
+  overflow: hidden;
+
+  &__title {
+    @include font(h3);
+    flex-grow: 1;
+    min-width: 0;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    overflow-wrap: break-word;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: flex-end;
+  }
+
+  &__text {
+    @include font(h6);
+    margin-top: 0;
+    margin-bottom: var(--gap-4);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    align-self: flex-end;
+    margin-right: -3px;
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/card/SurveyCardImage.vue?vue&type=style&index=0&id=2a8a25be&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyImage {
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/card/SurveyResultBody.vue?vue&type=style&index=0&id=529d334e&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyResultBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+
+  &__title {
+    @include font(h4);
+    margin-bottom: var(--gap-6);
+    color: var(--color-text);
+    overflow-wrap: break-word;
+  }
+
+  &__progress {
+    flex-basis: 90%;
+  }
+
+  &__footer {
+    display: flex;
+    flex-basis: 10%;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__text {
+    @include font(body-sm);
+  }
+
+  &__icon {
+    align-self: flex-end;
+    margin-right: -5px;
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/card/result/SurveyQuestionResult.vue?vue&type=style&index=0&id=5954f8bf&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyQuestionResult {
+  &__progressBar {
+    margin-bottom: var(--gap-2);
+  }
+
+  &__progress {
+    display: flex;
+    align-items: center;
+    margin-top: var(--gap-4);
+  }
+
+  &__cardProgress {
+    display: flex;
+    align-items: center;
+  }
+
+  &__bar {
+    width: 100%;
+  }
+
+  &__count {
+    @include font(body);
+    margin-left: var(--gap-2);
+    text-align: end;
+  }
+
+  &__answer {
+    @include font(body);
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &Percent {
+      margin-right: var(--gap-2);
+      color: var(--color-secondary);
+      font-weight: bold;
+    }
+  }
+
+  &__votes {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--gap-4);
+    font-weight: var(--label-weight);
+  }
+
+  &__participant {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--gap-2);
+    font-weight: bold;
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/content/SurveyResultContent.vue?vue&type=style&index=0&id=421937ad&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyResultContent {
+  &__participant {
+    @include font(body);
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--gap-2);
+    font-weight: bold;
+  }
+
+  &__participantnumber {
+    @include font(body);
+    padding-right: var(--gap-1);
+    font-weight: bold;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/content/SurveyVoteTitle.vue?vue&type=style&index=0&id=3d599b1f&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyVoteTitle {
+  display: flex;
+  flex-direction: column;
+
+  &__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    > :last-child {
+      margin-left: var(--gap-2);
+    }
+  }
+
+  &__title {
+    @include font(h1);
+    width: 90%;
+    margin: 0;
+    overflow-wrap: break-word;
+
+    @media (max-width: $tui-screen-sm) {
+      width: 100%;
+    }
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/form/SurveyForm.vue?vue&type=style&index=0&id=7ce50aec&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyForm {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  &__title {
+    display: flex;
+    padding-bottom: var(--gap-2);
+  }
+
+  &__optionType {
+    width: 200px;
+  }
+
+  &__options {
+    margin-top: var(--gap-8);
+
+    &__input {
+      display: flex;
+    }
+  }
+
+  &__repeater {
+    .tui-repeater__row {
+      .tui-engageSurveyForm__optionInput {
+        width: 80%;
+        .tui-formField {
+          width: 100%;
+          input[type='text'].tui-formInput {
+            width: 100%;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &__buttons {
+    flex-grow: 1;
+    align-items: flex-end;
+    margin-top: var(--gap-6);
+    button.tui-engageSurveyForm__cancelButton {
+      margin-bottom: 0;
+    }
+    &--left {
+      justify-content: flex-start;
+    }
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/icon/SurveyIcon.vue?vue&type=style&index=0&id=c9dad12c&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyIcon {
+  text-align: center;
+
+  &__img {
+    width: 40px;
+    height: 40px;
+    color: var(--color-primary);
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/info/Author.vue?vue&type=style&index=0&id=0ef7a3a6&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyAuthor {
+  display: flex;
+  align-items: center;
+
+  &__userLink {
+    margin-left: var(--gap-2);
+    font-size: font-size-px(13);
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/components/sidepanel/SurveySidePanel.vue?vue&type=style&index=0&id=1aef095c&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveySidePanel {
+  padding: var(--gap-8);
+
+  &__profile {
+    margin-bottom: var(--gap-8);
+  }
+
+  &__timeDescription {
+    @include font(body-sm);
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/pages/SurveyEditView.vue?vue&type=style&index=0&id=d0b476e4&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyEditView {
+  .tui-grid-item {
+    min-height: var(--engageSurvey-min-height);
+  }
+
+  &__navBar {
+    margin-top: var(--gap-4);
+    margin-left: var(--gap-4);
+  }
+
+  &__layout {
+    display: flex;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0 0 var(--gap-12) 0;
+    @media (max-width: $tui-screen-sm) {
+      max-width: 80vw;
+      margin-left: var(--gap-8);
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/pages/SurveyView.vue?vue&type=style&index=0&id=3f5a87e4&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyView {
+  .tui-grid-item {
+    min-height: var(--engageSurvey-min-height);
+  }
+
+  &__navBar {
+    margin-top: var(--gap-4);
+    margin-left: var(--gap-4);
+  }
+
+  &__layout {
+    display: flex;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 0 var(--gap-12) 0;
+
+    @media (max-width: $tui-screen-sm) {
+      width: 70vw;
+      margin-left: var(--gap-8);
+    }
+  }
+
+  &__title {
+    margin-bottom: var(--gap-4);
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-998.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-998.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/engage_survey/src/pages/SurveyVoteView.vue?vue&type=style&index=0&id=4f6ac96e&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSurveyVoteView {
+  .tui-grid-item {
+    min-height: var(--engageSurvey-min-height);
+  }
+
+  &__navBar {
+    margin-top: var(--gap-4);
+    margin-left: var(--gap-4);
+  }
+
+  &__layout {
+    display: flex;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 0 var(--gap-12) 0;
+    @media (max-width: $tui-screen-sm) {
+      width: 70vw;
+      margin-left: var(--gap-8);
+    }
+  }
+
+  &__title {
+    margin-bottom: var(--gap-4);
+  }
+}
+

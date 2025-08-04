@@ -1,0 +1,53 @@
+{
+  "title": "form_title_label",
+  "description": "archive_workflow_warning_message",
+  "shortname": "test",
+  "revision": "1.0",
+  "version": "2021030200",
+  "language": "en-US",
+  "component": "mod_approval",
+  "fields": [
+    {
+      "key": "activity",
+      "line": "A",
+      "label": "activity",
+      "type": "text"
+    }
+  ],
+  "sections": [
+    {
+      "key": "applications",
+      "line": "stage_start",
+      "label": "all_applications",
+      "fields": [
+        {
+          "key": "applicant",
+          "line": "1",
+          "label": "This is a non-langstring label!",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "complete",
+          "line": "1",
+          "label": "overall_progress",
+          "required": false,
+          "type": "select_one",
+          "default": null,
+          "attrs": {
+            "choices": [
+              {
+                "key": "completed",
+                "label": "overall_progress_finished"
+              },
+              {
+                "key": "in_progress",
+                "label": "overall_progress_in_progress"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

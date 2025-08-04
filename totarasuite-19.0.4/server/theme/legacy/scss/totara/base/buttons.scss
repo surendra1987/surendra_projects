@@ -1,0 +1,72 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2023 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2023 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @author    Simon Chester <simon.chester@totara.com>
+// @package   theme_legacy
+
+.btn {
+  @include button;
+}
+
+.btn-primary {
+  @include button-primary;
+}
+
+.btn-danger {
+  --local-btn-color: var(--btn-danger-color);
+  --local-btn-color-hover: var(--btn-danger-color);
+  --local-btn-color-active: var(--btn-danger-color);
+  --local-btn-color-contrast: var(--btn-danger-color-contrast);
+}
+
+.btn-link {
+  --local-btn-color: var(--link-color);
+  --local-btn-color-hover: var(--link-color);
+  --local-btn-color-active: var(--link-color);
+  --local-btn-color-contrast: var(--color-neutral-7);
+  background: transparent;
+  border-color: transparent;
+
+  &:hover,
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.btn-lg {
+  @include button-sz('lg');
+}
+
+.btn-sm {
+  @include button-sz('sm');
+}
+
+.btn-xs {
+  @include button-sz('xs');
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-block + .btn-block {
+  margin-top: var(--gap-1);
+}

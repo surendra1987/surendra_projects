@@ -1,0 +1,68 @@
+query mod_approval_manageable_workflows(
+  $query_options: mod_approval_manageable_workflows_input!
+) {
+  mod_approval_manageable_workflows(query_options: $query_options) {
+    items {
+      __typename
+      id
+      id_number
+      name
+      created
+      updated
+      workflow_type {
+        __typename
+        id
+        name
+      }
+      applications_count
+      assignments_count
+      latest_version {
+        __typename
+        id
+        status
+        status_label
+      }
+      default_assignment {
+        __typename
+        id
+        assignment_type
+        assignment_type_label
+        assigned_to {
+          ... on totara_hierarchy_position {
+            __typename
+            id
+            fullname
+          }
+          ... on core_cohort {
+            __typename
+            id
+            fullname: name
+          }
+          ... on core_context {
+            __typename
+            id
+            fullname: name
+          }
+          ... on totara_hierarchy_organisation {
+            __typename
+            id
+            fullname
+          }
+        }
+      }
+      interactor {
+        can_activate
+        can_archive
+        can_unarchive
+        can_clone
+        can_edit
+        can_delete
+        can_publish
+        can_view_applications_report
+      }
+      tenant_id
+    }
+    total
+    next_cursor
+  }
+}

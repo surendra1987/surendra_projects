@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="perform/goal/db" VERSION="20240108" COMMENT="XMLDB file for Moodle perform/goal"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="perform_goal_category" COMMENT="This table maps a semantic name to a goaltype sub-plugin.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="plugin_name" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Must be equal to the sub plugin folder name."/>
+        <FIELD NAME="name" TYPE="char" LENGTH="1024" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="id_number" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="active" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="active_ix" UNIQUE="false" FIELDS="active"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="perform_goal" COMMENT="The main table for perform goals">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="context_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="category_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="owner_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="The subject user of the goal"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="1024" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="id_number" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="start_date" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="target_type" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="target_date" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="target_value" TYPE="number" LENGTH="20" NOTNULL="true" SEQUENCE="false" DECIMALS="5"/>
+        <FIELD NAME="current_value" TYPE="number" LENGTH="20" NOTNULL="true" SEQUENCE="false" DECIMALS="5"/>
+        <FIELD NAME="current_value_updated_at" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="status_updated_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="closed_at" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="updated_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="user_id_fk" TYPE="foreign" FIELDS="user_id" REFTABLE="user" REFFIELDS="id" ONDELETE="restrict"/>
+        <KEY NAME="context_id_fk" TYPE="foreign" FIELDS="context_id" REFTABLE="context" REFFIELDS="id" ONDELETE="cascade"/>
+        <KEY NAME="owner_id_fk" TYPE="foreign" FIELDS="owner_id" REFTABLE="user" REFFIELDS="id" ONDELETE="restrict"/>
+        <KEY NAME="category_id_fk" TYPE="foreign" FIELDS="category_id" REFTABLE="perform_goal_category" REFFIELDS="id" ONDELETE="restrict"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="id_number_idx" UNIQUE="false" FIELDS="id_number"/>
+        <INDEX NAME="start_date_idx" UNIQUE="false" FIELDS="start_date"/>
+        <INDEX NAME="target_date_idx" UNIQUE="false" FIELDS="target_date"/>
+        <INDEX NAME="status_idx" UNIQUE="false" FIELDS="status"/>
+        <INDEX NAME="status_updated_at_idx" UNIQUE="false" FIELDS="status_updated_at"/>
+        <INDEX NAME="closed_at_idx" UNIQUE="false" FIELDS="closed_at"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="perform_goal_activity" COMMENT="For recording goal activity">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="goal_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timestamp" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="activity_type" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="activity_info" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="goal_id_fk" TYPE="foreign" FIELDS="goal_id" REFTABLE="perform_goal" REFFIELDS="id" ONDELETE="cascade"/>
+        <KEY NAME="user_id_fk" TYPE="foreign" FIELDS="user_id" REFTABLE="user" REFFIELDS="id" ONDELETE="restrict"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="timestamp_idx" UNIQUE="false" FIELDS="timestamp"/>
+        <INDEX NAME="activity_type_idx" UNIQUE="false" FIELDS="activity_type"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="perform_goal_perform_status_change" COMMENT="Records changes to a performance activity's goal">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="goal_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="subject_user_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="char" LENGTH="255" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="current_value" TYPE="number" LENGTH="10" NOTNULL="true" SEQUENCE="false" DECIMALS="5"/>
+        <FIELD NAME="activity_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="subject_instance_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="status_changer_user_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="status_changer_relationship_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="goal_id_fk" TYPE="foreign" FIELDS="goal_id" REFTABLE="perform_goal" REFFIELDS="id" ONDELETE="cascade"/>
+        <KEY NAME="subject_user_id_fk" TYPE="foreign" FIELDS="subject_user_id" REFTABLE="user" REFFIELDS="id" ONDELETE="setnull"/>
+        <KEY NAME="activity_id_fk" TYPE="foreign" FIELDS="activity_id" REFTABLE="perform" REFFIELDS="id" ONDELETE="cascade"/>
+        <KEY NAME="subject_instance_id_fk" TYPE="foreign" FIELDS="subject_instance_id" REFTABLE="perform_subject_instance" REFFIELDS="id" ONDELETE="cascade"/>
+        <KEY NAME="status_changer_user_id_fk" TYPE="foreign" FIELDS="status_changer_user_id" REFTABLE="user" REFFIELDS="id" ONDELETE="restrict"/>
+        <KEY NAME="status_changer_relationship_id_fk" TYPE="foreign" FIELDS="status_changer_relationship_id" REFTABLE="totara_core_relationship" REFFIELDS="id" ONDELETE="setnull"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="perform_goal_task" COMMENT="A goal can have a number of tasks">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="goal_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="The goal id that this task belongs to"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="completed_at" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Records the time the task is marked as complete"/>
+        <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="updated_at" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="goal_id_fk" TYPE="foreign" FIELDS="goal_id" REFTABLE="perform_goal" REFFIELDS="id" ONDELETE="cascade"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="perform_goal_task_resource" COMMENT="Objects from other tables can be attached to a task (e.g. course)">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="task_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="The task id this resource belongs to"/>
+        <FIELD NAME="resource_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Points to the record id of the given resource type. If null indicates the record does not exist"/>
+        <FIELD NAME="resource_type" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false" COMMENT="Numerical code for the resource type corresponding to constants in the back end code"/>
+        <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="task_id_fk" TYPE="foreign" FIELDS="task_id" REFTABLE="perform_goal_task" REFFIELDS="id" ONDELETE="cascade"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

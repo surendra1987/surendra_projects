@@ -1,0 +1,209 @@
+"""
+Allowed perform perform overview item states.
+"""
+enum perform_goal_overview_state {
+  not_started
+  not_progressed
+  progressed
+  achieved
+}
+
+"""
+Describes perform goal target date details.
+"""
+type perform_goal_overview_due {
+  """
+  Target date.
+  """
+  date(format: core_date_format = DATELONG): core_date
+  """
+  Whether the goal is due soon ie within the week.
+  """
+  due_soon: Boolean!
+  """
+  Whether the goal is past the target date.
+  """
+  overdue: Boolean!
+}
+
+"""
+Last update information for a perform goal overview item.
+"""
+type perform_goal_overview_last_update {
+  """
+  Last updated timestamp.
+  """
+  date(format: core_date_format = DATELONG): core_date
+  """
+  What changed at the last update.
+  """
+  description(format: core_format = PLAIN): String
+}
+
+"""
+Goal overview items according to their state.
+"""
+type perform_goal_overview_by_states {
+  achieved: [perform_goal_overview_item!]!
+  progressed: [perform_goal_overview_item!]!
+  not_progressed: [perform_goal_overview_item!]!
+  not_started: [perform_goal_overview_item!]!
+}
+
+"""
+Overview item counts according to their state.
+"""
+type perform_goal_overview_state_counts {
+  achieved: Int!
+  progressed: Int!
+  not_progressed: Int!
+  not_started: Int!
+}
+
+"""
+Overview item details.
+"""
+type perform_goal_overview_item {
+  """
+  For historical reasons, this is needed as a counter. It is not related to
+  anything else.
+  """
+  id: Int!
+  """
+  Perform goal id.
+  """
+  raw_id: Int!
+  """
+  Goal name.
+  """
+  name(format: core_format = PLAIN): String!
+  """
+  Goal description.
+  """
+  description(format: core_text_format = HTML): String
+  """
+  Link to perform goal if it is allowed.
+  """
+  url(format: core_format = PLAIN): String
+  """
+  Goal achievement date.
+  """
+  achievement_date(format: core_date_format = DATELONG): core_date
+  """
+  Goal started date.
+  """
+  assignment_date(format: core_date_format = DATELONG): core_date!
+  """
+  Goal last modified time details.
+  """
+  last_update: perform_goal_overview_last_update! @cache(merge: true)
+  """
+  Goal target date details.
+  """
+  due: perform_goal_overview_due! @cache(merge: true)
+}
+
+"""
+Main overview results.
+"""
+type perform_goal_overview_result {
+  """
+  Total number of overview items retrieved for all states.
+  """
+  total: Int!
+  """
+  How many goals are due soon ie within a week.
+  """
+  due_soon: Int!
+  """
+  Individual overview item counts per state.
+  """
+  state_counts: perform_goal_overview_state_counts!
+  """
+  Overview items.
+  """
+  goals: perform_goal_overview_by_states!
+}
+
+"""
+Overview goals by state
+"""
+type perform_goal_overview_by_state_result {
+  """
+  Total number of overview items retrieved across all pages.
+  """
+  total: Int!
+  """
+  Retrieved overview items.
+  """
+  goals: [perform_goal_overview_item!]!
+}
+
+"""
+Overview query filters.
+"""
+input perform_goal_overview_filters {
+  """
+  User id for whom to get overview data.
+  """
+  id: core_id!
+  """
+  Indicates the start of the overview period. The overview period is from this
+  time days ago in the past to today.
+  """
+  period: param_integer!
+  """
+  Targetted overview state (required for the perform_goal_overview_by_state query)
+  """
+  status: perform_goal_overview_state
+}
+
+"""
+Overview query parameters.
+"""
+input perform_goal_overview_input {
+  """
+  Filter values.
+  """
+  filters: perform_goal_overview_filters!
+  """
+  Attribute on which to sort retrieved overview data.
+  Valid columns for sorting are: id, name, target_date and last_updated.
+  """
+  sort: [core_sort_input]
+}
+
+"""
+Overview query by state parameters.
+"""
+input perform_goal_overview_by_state_input {
+  """
+  Filter values
+  """
+  filters: perform_goal_overview_filters!
+  """
+  Attribute on which to sort retrieved overview data
+  Valid columns for sorting are: id, name, target_date and last_updated.
+  """
+  sort: [core_sort_input]
+  """
+  Pagination details
+  """
+  pagination: core_pagination_input!
+}
+
+extend type Query {
+  """
+  Perform goal overview.
+  """
+  perform_goal_overview(
+    input: perform_goal_overview_input!
+  ): perform_goal_overview_result!
+
+  """
+  Perform goal overview by state.
+  """
+  perform_goal_overview_by_state(
+    input: perform_goal_overview_by_state_input!
+  ): perform_goal_overview_by_state_result!
+}

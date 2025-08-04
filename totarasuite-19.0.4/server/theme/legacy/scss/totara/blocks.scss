@@ -1,0 +1,408 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2019 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2019 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @copyright 2015 Bas Brands <www.sonsbeekmedia.nl>
+// @author    Bas Brands
+// @author    David Scotson
+// @author    Joby Harding <joby.harding@totaralearning.com>
+// @author    Rob Tyler <rob.tyler@totaralearning.com>
+// @package   theme_legacy
+
+@mixin block-root() {
+  position: relative;
+  background-color: $panel-bg;
+  border: 1px solid $block-border-color;
+  border-radius: $block-border-radius;
+  margin-bottom: var(--gap-4);
+}
+
+.block {
+  @include block-root();
+  &.invisible {
+    border-color: var(--color-border);
+    .header {
+      background-color: $panel-default-heading-bg;
+      h2 {
+        color: $panel-default-text;
+      }
+    }
+  }
+  .block_action {
+    float: right;
+    text-align: right;
+    margin-top: calc((var(--font-h4-line-height) - 1em) / 2);
+    display: flex;
+
+    a {
+      text-decoration: none;
+    }
+  }
+  .block-header {
+    min-height: rem-px(50);
+    padding: $block-header-padding-vertical;
+    padding-bottom: 0;
+    color: $block-actions-text-color;
+
+    h2 {
+      @include bs-panel-title();
+      word-wrap: break-word;
+      vertical-align: middle;
+      @include font(h4);
+      font-weight: 500;
+    }
+  }
+  .block-title {
+    width: 100%;
+    padding-bottom: $block-header-padding-vertical;
+    min-height: 30px;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      left: calc(#{$block-header-padding-vertical} * -1);
+      right: calc(#{$block-header-padding-vertical} * -1);
+      bottom: 0;
+      height: 1px;
+      box-shadow: inset 0 -1px 0 $block-border-color;
+    }
+  }
+  &.hidden .block-title::after {
+    display: none;
+  }
+  .content {
+    word-wrap: break-word;
+    padding: var(--gap-4);
+    margin: 0;
+    hr {
+      margin: 5px 0;
+    }
+    .userpicture {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
+    .list {
+      li.listentry {
+        clear: both;
+      }
+      .c0 {
+        display: inline;
+      }
+      .c1 {
+        margin-left: 5px;
+        display: inline;
+      }
+    }
+  }
+  .footer {
+    margin: 0;
+  }
+  .panel-footer {
+    border-top: 1px solid $block-border-color;
+    border-bottom-left-radius: calc(#{$block-border-radius} - 1px);
+    border-bottom-right-radius: calc(#{$block-border-radius} - 1px);
+  }
+  .blockannotation {
+    font-size: 0.75em;
+    margin: -1em 0 1em;
+  }
+  .singleselect select {
+    @include bs-form-control();
+  }
+
+  // Reset.
+  .moodle-actionmenu > ul {
+    line-height: var(--font-body-line-height);
+    display: inline;
+  }
+
+  // Displayed when edit mode is switched on.
+  .block-control-actions {
+    margin: calc(#{$block-header-padding-vertical} * -1);
+    margin-bottom: $block-header-padding-vertical;
+    border-top-left-radius: calc(#{$block-border-radius} - 1px);
+    border-top-right-radius: calc(#{$block-border-radius} - 1px);
+    > ul {
+      > li {
+        display: inline;
+        .toggle-display,
+        .editing_move,
+        .moodle-core-dragdrop-draghandle {
+          display: inline-block;
+          padding: $padding-large-vertical;
+          border-left: 1px solid $block-border-color;
+        }
+      }
+    }
+
+    background-color: $block-actions-bg;
+    box-shadow: inset 0 -3px rgb(212, 215, 218);
+
+    // Override white knockout.
+    ul[role='menubar'] {
+      .ft-stack-suffix {
+        text-shadow: -1px 0 0 $block-actions-bg, 1px 0 0 $block-actions-bg,
+          0 -1px $block-actions-bg, 0 1px 0 $block-actions-bg,
+          2px 2px 0 $block-actions-bg;
+      }
+    }
+  }
+
+  &.hidden {
+    .header,
+    .title {
+      box-shadow: none;
+    }
+  }
+
+  &.chromeless {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    &.block {
+      box-shadow: none;
+    }
+    .block-header {
+      padding: 0;
+      .block-control-actions {
+        margin: 0;
+      }
+    }
+    .title.block-title {
+      padding: $panel-body-padding 0;
+    }
+    .block-title::after {
+      left: 0;
+      right: 0;
+    }
+    .content {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.editing {
+  .block {
+    .header {
+      .commands {
+        clear: both;
+        text-align: right;
+
+        > a {
+          margin: 0 3px;
+        }
+        .icon img {
+          width: 12px;
+          height: 12px;
+        }
+        img.actionmenu {
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+.block.list_block {
+  .unlist {
+    & > li {
+      & > .column {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.blockmovetarget,
+.block.beingmoved {
+  border-width: 2px;
+  border-style: dashed;
+}
+
+.blockmovetarget {
+  display: block;
+  height: 1em;
+  margin-bottom: 1em;
+}
+
+.block .moveto {
+  display: flex;
+}
+
+.block .block-hider-show,
+.block .block-hider-hide {
+  display: flex;
+  cursor: pointer;
+}
+
+.block .block-hider-show,
+.block.hidden .block-hider-hide {
+  display: none;
+}
+
+.block.hidden .block-hider-show {
+  display: flex;
+}
+
+.block.hidden .content {
+  display: none;
+}
+
+.block_calendar_upcoming {
+  .footer {
+    margin-top: 0.5em;
+  }
+  .content {
+    .date {
+      padding-left: 22px;
+    }
+    .footer {
+      padding-top: 10px;
+      padding-left: 0;
+    }
+  }
+}
+
+.blogsearchform,
+.searchform {
+  input[type='text'] {
+    @include bs-form-group();
+    @include bs-form-control();
+  }
+  fieldset {
+    width: 100%;
+  }
+}
+
+.block_rss_client {
+  .content li {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid $blockquote-border-color;
+    border-radius: $border-radius-base;
+    .link {
+      font-weight: inherit;
+    }
+  }
+  .list li:first-child {
+    border-top-width: 1px; // undo the style provided by the block's styles.css
+  }
+}
+
+.block_myprofile {
+  .content {
+    .email {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+  }
+}
+
+.block_news_items .content {
+  .newlink {
+    padding-bottom: 10px;
+  }
+  ul li {
+    border-top: 1px solid $blockquote-border-color;
+    padding: 2px;
+    display: table;
+    width: 100%;
+    .info {
+      display: table-header-group;
+    }
+    .date {
+      font-size: var(--font-body-sm-size);
+      display: inline;
+    }
+    .name {
+      font-size: var(--font-body-sm-size);
+      padding-left: 1ex;
+      display: inline;
+    }
+  }
+  .footer {
+    padding-top: 10px;
+    padding-left: 0;
+  }
+}
+
+.block.block_settings .footer {
+  margin: var(--gap-4) 0 0 0;
+}
+
+.block.block_totara_quicklinks .content ul {
+  margin: 0;
+}
+
+.block.block_calendar_month .content {
+  padding: 0 var(--gap-4) var(--gap-4) var(--gap-4);
+}
+
+// The headers need to be an appropriate size for
+// use within the block so use the standard font size.
+.block .content h1,
+.block .content h2,
+.block .content h3,
+.block .content h4,
+.block .content h5,
+.block .content h6 {
+  font-size: var(--font-body-size);
+  margin-top: 0;
+  margin-bottom: ($line-height-computed / 2);
+}
+
+// Ensure the headings in the html block are the correct size
+.block_html .content {
+  h1 {
+    @include font(h1);
+  }
+
+  h2 {
+    @include font(h2);
+  }
+
+  h3 {
+    @include font(h3);
+  }
+
+  h4 {
+    @include font(h4);
+  }
+
+  h5 {
+    @include font(h5);
+  }
+
+  h6 {
+    @include font(h6);
+  }
+}
+
+// Ensure the Administration block search extends to
+// full width when using a mobile device.
+.block_settings #adminsearchquery {
+  width: 100%;
+  max-width: none;
+}
+
+.jsenabled .moodle-actionmenu[data-enhance] .toggle-display {
+  display: inline-block;
+}

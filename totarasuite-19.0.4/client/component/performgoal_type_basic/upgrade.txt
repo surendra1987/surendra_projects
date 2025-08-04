@@ -1,0 +1,6 @@
+This file describes API changes in /client/component/performgoal_type_basic,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Added optional prop "canUpdate" to PerformGoalLinkedReviewChangeStatus.vue for disabling the update progress button

@@ -1,0 +1,5 @@
+{
+  "component": "core_my",
+  "vendor": "totara",
+  "dependencies": ["tui_charts", "totara_reportbuilder"]
+}

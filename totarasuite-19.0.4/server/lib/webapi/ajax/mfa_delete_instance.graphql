@@ -1,0 +1,3 @@
+mutation core_mfa_delete_instance($input: core_mfa_delete_instance_input!) {
+  result: core_mfa_delete_instance(input: $input)
+}

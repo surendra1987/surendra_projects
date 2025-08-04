@@ -1,0 +1,658 @@
+"""
+A type that represents the result of validating credentials, containing data about whether
+the validation was successful or not.
+"""
+type bi_intellidata_validate_credentials_result {
+  """
+  The result data from the validation operation.
+  """
+  data: String!
+}
+
+"""
+Details about the Intelliboard integration plugin export logs.
+"""
+type bi_intellidata_export_logs_log {
+  """
+  ID identifying the bi_intellidata_export_log.
+  """
+  id: core_id!
+  """
+  The data source for the export log, usually a table.
+  """
+  datatype: String
+  """
+  The most recent time the log was exported.
+  """
+  last_exported_time(format: core_date_format = TIMESTAMP): core_date
+  """
+  The maximum ID in the data source when the log was last exported.
+  """
+  last_exported_id: core_id
+  """
+  The migration status value, i.e.
+  0 = inprogress,
+  1 = completed,
+  2 = pending.
+  """
+  migrated: Int
+  """
+  The time the migration task began.
+  """
+  timestart(format: core_date_format = TIMESTAMP): core_date
+  """
+  Count of migrated records.
+  """
+  recordsmigrated: Int
+  """
+  Count of records.
+  """
+  recordscount: Int
+  """
+  The type the plugin the plugin assigns the data source / table, i.e.
+  required = 0,
+  optional = 1,
+  logs = 2.
+  """
+  tabletype: Int
+  """
+  The time the export_log record was created. This may be null and not recorded.
+  """
+  timecreated(format: core_date_format = TIMESTAMP): core_date
+  """
+  The time the export_log record was altered. This may be null and not recorded.
+  """
+  timemodified(format: core_date_format = TIMESTAMP): core_date
+  """
+  The ID of the user who altered the export_log record.
+  """
+  usermodified: Int
+}
+
+"""
+Contains a list of export log record items.
+"""
+type bi_intellidata_export_logs_result {
+  """
+  Export log records.
+  """
+  items: [bi_intellidata_export_logs_log]!
+}
+
+"""
+The input data required for validating credentials.
+"""
+input bi_intellidata_validate_credentials_input {
+  """
+  The code containing the client identifier.
+  """
+  code: String!
+}
+
+"""
+Moodle configure type, containing basic moodle information
+"""
+type bi_intellidata_moodleconfig {
+  """
+  Moodle version
+  """
+  version: String!
+  """
+  Moodle release date
+  """
+  release: String!
+  """
+  Database type
+  """
+  dbtype: String!
+  """
+  Moodle workplace exists or not
+  """
+  moodleworkplace: Boolean
+  """
+  Totara version
+  """
+  totaraversion: String!
+}
+
+"""
+Cron configure type that maps into table 'task_scheduled'
+"""
+type bi_intellidata_cronconfig {
+  """
+  Id
+  """
+  id: Int!
+  """
+  Component
+  """
+  component: String
+  """
+  Classname
+  """
+  classname: String
+  """
+  Last run time
+  """
+  lastruntime(format: core_date_format = TIMESTAMP): core_date
+  """
+  Next run time
+  """
+  nextruntime(format: core_date_format = TIMESTAMP): core_date
+  """
+  Blocking
+  """
+  blocking: String
+  """
+  Minute
+  """
+  minute: String
+  """
+  Hour
+  """
+  hour: String
+  """
+  Day
+  """
+  day: String
+  """
+  Month
+  """
+  month: String
+  """
+  Day of week
+  """
+  dayofweek: String
+  """
+  Fail delay
+  """
+  faildelay: String
+  """
+  Disabled
+  """
+  disabled: Int
+  """
+  Customised
+  """
+  customised: Int
+}
+
+"""
+The Intelliboard plugin's configuration settings.
+"""
+type bi_intellidata_pluginconfig {
+  """
+  Configuration title.
+  """
+  title: String!
+  """
+  Configuration settings.
+  """
+  items: [bi_intellidata_pluginconfig_setting!]!
+}
+
+"""
+An Intelliboard plugin configuration setting.
+"""
+type bi_intellidata_pluginconfig_setting {
+  """
+  Type
+  """
+  type: String!
+  """
+  Subtype that represents setting, eg. checkbox.
+  """
+  subtype: String!
+  """
+  Title
+  """
+  title: String!
+  """
+  Name
+  """
+  name: String!
+  """
+  Group title for each setting section name. Note: this could be null.
+  """
+  grouptitle: String
+  """
+  Setting value. If the value is an array it will be encoded into a string.
+  If the subtype is 'checkbox', the value will be 1 or 0.
+  """
+  value: String!
+}
+
+"""
+Plugin config result type, containing moodle config, bi_intellidata config and cron config.
+"""
+type bi_intellidata_plugin_config_result {
+  """
+  Moodle configure
+  """
+  moodleconfig: bi_intellidata_moodleconfig!
+  """
+  Cron configure
+  """
+  cronconfig: [bi_intellidata_cronconfig]!
+  """
+  bi_intellidata plugin configure
+  """
+  pluginconfig: bi_intellidata_pluginconfig!
+  """
+  Plugin version
+  """
+  pluginversion: String!
+}
+
+"""
+A type that represents a field in a unified table of a database schema.
+"""
+type bi_intellidata_dbschema_unified_table_field {
+  """
+  The name of the field.
+  """
+  field_name: String!
+  """
+  The data type of the field.
+  """
+  type: String!
+  """
+  A description of the field.
+  """
+  description: String
+  """
+  The default value of the field.
+  """
+  default: String
+  """
+  Whether the field can be null.
+  """
+  null: Boolean
+}
+
+"""
+A type that represents a unified table in a database schema.
+"""
+type bi_intellidata_dbschema_unified_table {
+  """
+  The name of the entity that the table represents.
+  """
+  name: String!
+  """
+  The fields that the table has.
+  """
+  fields: [bi_intellidata_dbschema_unified_table_field!]!
+}
+
+"""
+A type that represents the result of a unified database schema query.
+"""
+type bi_intellidata_dbschema_unified_result {
+  items: [bi_intellidata_dbschema_unified_table!]!
+}
+
+"""
+The response after a request was made to set the enable/disable status of the IntelliBoard plugin.
+"""
+type bi_intellidata_enable_processing_result {
+  """
+  If the enable setting was successful, this should be 'ok'.
+  """
+  data: String!
+}
+
+"""
+The parameters to go in a request to enable_processing.
+"""
+input bi_intellidata_enable_processing_input {
+  """
+  1 or 0. 1 - Enable, 0 - Disable.
+  """
+  status: Int!
+  """
+  The URL to send a callback request to Intelliboard Next.
+  """
+  callbackurl: String
+}
+
+"""
+The input data for querying by datatype.
+"""
+input bi_intellidata_live_data_input {
+  """
+  The 'data source', usually a database table, for querying. Datatypes allowed are: 'roles', 'categories', 'courses' .
+  """
+  datatype: String!
+}
+
+"""
+Response type for a live data query.
+"""
+type bi_intellidata_live_data_result {
+  """
+  A JSON-encoded string representing live data records.
+  """
+  data: String!
+}
+
+"""
+A type that represents a field in a custom table of a database schema.
+"""
+type bi_intellidata_dbschema_custom_table_field {
+  """
+  The data type of the field.
+  """
+  type: String!
+  """
+  The name of the field.
+  """
+  name: String!
+  """
+  Whether the field has default value.
+  """
+  has_default: Boolean
+  """
+  The maximum length of the field.
+  """
+  max_length: Int
+  """
+  Whether the field is primary key.
+  """
+  primary_key: Boolean
+  """
+  Whether the field cannot be null.
+  """
+  not_null: Boolean
+  """
+  Whether the field can auto increment.
+  """
+  auto_increment: Boolean
+  """
+  The default value of the field.
+  """
+  default_value: String
+}
+
+"""
+A type that represents a table key in a custom table of a database schema.
+"""
+type bi_intellidata_dbschema_custom_table_key {
+  """
+  The type of key, eg. primary.
+  """
+  name: String!
+  """
+  The fields that the key is related to.
+  """
+  fields: [String!]!
+  """
+  The table the key refers to
+  """
+  reftable: String
+  """
+  The fields the key refers to
+  """
+  reffields: [String]!
+}
+
+"""
+A type that represents a custom table in a database schema.
+"""
+type bi_intellidata_dbschema_custom_table {
+  """
+  The name of the table.
+  """
+  name: String!
+  """
+  The fields that the table has.
+  """
+  fields: [bi_intellidata_dbschema_custom_table_field!]!
+  """
+  The plugin type.
+  """
+  plugintype: String
+  """
+  The plugin name.
+  """
+  plugin: String
+  """
+  The keys that the table has.
+  """
+  keys: [bi_intellidata_dbschema_custom_table_key]!
+}
+
+"""
+A type that represents the result of a custom database schema query.
+"""
+type bi_intellidata_dbschema_custom_result {
+  items: [bi_intellidata_dbschema_custom_table]!
+}
+
+"""
+Input data for fetching data files.
+"""
+input bi_intellidata_data_files_input {
+  """
+  Start time.
+  """
+  timestart: core_date
+  """
+  End time.
+  """
+  timeend: core_date
+  """
+  Data type filter.
+  """
+  datatype: String
+}
+
+"""
+Metadata type for data files.
+"""
+type bi_intellidata_data_files_metadata {
+  """
+  Last migration date.
+  """
+  lastmigrationdate(format: core_date_format = TIMESTAMP): core_date!
+  """
+  Last export date.
+  """
+  lastexportdate(format: core_date_format = TIMESTAMP): core_date!
+  """
+  Plugin version.
+  """
+  pluginversion: String!
+}
+
+"""
+Type representing a single data file.
+"""
+type bi_intellidata_data_files_file_instance {
+  """
+  File name.
+  """
+  filename: String!
+  """
+  File area.
+  """
+  filearea: String!
+  """
+  Item ID.
+  """
+  itemid: Int!
+  """
+  File path.
+  """
+  filepath: String!
+  """
+  MIME type.
+  """
+  mimetype: String
+  """
+  File size.
+  """
+  filesize: Int!
+  """
+  Time last modified.
+  """
+  timemodified(format: core_date_format = TIMESTAMP): core_date
+  """
+  Indicates whether the file is external or not.
+  """
+  isexternalfile: Boolean!
+  """
+  File URL.
+  """
+  fileurl: String!
+  """
+  Repository type, if the file is external.
+  """
+  repositorytype: String
+}
+
+"""
+Type representing a collection of data files.
+"""
+type bi_intellidata_data_files_file {
+  """
+  Data type filter.
+  """
+  datatype: String!
+  """
+  List of files.
+  """
+  files: [bi_intellidata_data_files_file_instance]!
+  """
+  List of migration files.
+  """
+  migration_files: [bi_intellidata_data_files_file_instance]!
+}
+
+"""
+Type representing the result of a data_files query.
+"""
+type bi_intellidata_data_files_result {
+  """
+  List of data files.
+  """
+  items: [bi_intellidata_data_files_file]!
+  """
+  Metadata for the data files.
+  """
+  metadata: bi_intellidata_data_files_metadata!
+}
+
+"""
+Type representing the result of a export_data mutation.
+"""
+type bi_intellidata_export_data_result {
+  """
+  List of data files.
+  """
+  items: [bi_intellidata_data_files_file]!
+  """
+  Metadata for the data files.
+  """
+  metadata: bi_intellidata_data_files_metadata!
+}
+
+"""
+Trigger to export files after inserting custom table. 0 = do not process migration, 1 = create an ad-hoc task to process export with the next cron run. Default value is 0.
+"""
+input bi_intellidata_set_datatype_input {
+  """
+  Custom table name(s)
+  """
+  datatypes: [String!]!
+  """
+  Trigger to export files after inserting custom table
+  0 - do not process migration
+  1 - create ad-hoc task to process export with next cron run
+  Default value is 0
+  """
+  exportfiles: Int
+  """
+  Callback URL to send request when export completed.
+  Working only if not empty and exportfiles = 1
+  """
+  callbackurl: String
+}
+
+"""
+The result of attempting to set a custom datatype.
+"""
+type bi_intellidata_set_datatype_result {
+  """
+  The operation result message.
+  """
+  data: String!
+}
+
+extend type Query {
+  """
+  Fetches Totara and plugin version and configuration information.
+  """
+  bi_intellidata_plugin_config: bi_intellidata_plugin_config_result!
+  """
+  Validates IntelliBoard keys and setup.
+  """
+  bi_intellidata_validate_credentials(
+    """
+    The input data for validating credentials.
+    """
+    input: bi_intellidata_validate_credentials_input!
+  ): bi_intellidata_validate_credentials_result!
+  """
+  Fetches the intellidata plugin export logs information, i.e. for the migration / export logs.
+  """
+  bi_intellidata_export_logs: bi_intellidata_export_logs_result!
+  """
+  Returns the fields schema for unified tables, i.e. the list and fields structure for all Required Tables.
+  """
+  bi_intellidata_dbschema_unified: bi_intellidata_dbschema_unified_result!
+  """
+  Returns the results of a query for live data records.
+  """
+  bi_intellidata_live_data(
+    """
+    Fetches live data for a specific datatype. Allowed datatypes are: 'roles', 'categories', 'courses'.
+    """
+    input: bi_intellidata_live_data_input!
+  ): bi_intellidata_live_data_result!
+
+  """
+  Returns the result of the custom database schema query.
+  """
+  bi_intellidata_dbschema_custom: bi_intellidata_dbschema_custom_result!
+
+  """
+  Returns the result of a data files schema query.
+  """
+  bi_intellidata_data_files(
+    input: bi_intellidata_data_files_input
+  ): bi_intellidata_data_files_result!
+}
+
+extend type Mutation {
+  """
+  This endpoint is for enabling/disabling Data processing on the Totara side via the IntelliBoard plugin.
+  """
+  bi_intellidata_enable_processing(
+    """
+    The input data for the enable_processing request.
+    """
+    input: bi_intellidata_enable_processing_input!
+  ): bi_intellidata_enable_processing_result!
+
+  """
+  This endpoint processes exporting data from the 'temp' location to storage.
+  """
+  bi_intellidata_export_data: bi_intellidata_export_data_result!
+
+  """
+  Adds or updates (resets) new custom table to the export mechanism.
+  """
+  bi_intellidata_set_datatype(
+    input: bi_intellidata_set_datatype_input!
+  ): bi_intellidata_set_datatype_result!
+}

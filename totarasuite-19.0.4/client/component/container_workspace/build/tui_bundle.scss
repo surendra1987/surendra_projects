@@ -1,0 +1,1290 @@
+.tui-workspacePrimaryAction {
+  display: flex;
+  width: 100%;
+
+  @media (min-width: $tui-screen-xs) {
+    justify-content: flex-end;
+  }
+
+  &--initialise {
+    justify-content: center;
+    padding: var(--gap-2);
+  }
+
+  &__dropdown {
+    width: 100%;
+    margin-top: var(--gap-2);
+
+    @media (min-width: $tui-screen-xs) {
+      width: auto; /* IE support.*/
+      margin-top: 0;
+    }
+
+    &-button {
+      width: 100%;
+
+      @media (min-width: $tui-screen-xs) {
+        /* IE support - :(*/
+        width: auto;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    @media (min-width: $tui-screen-xs) {
+      /* IE Support - :(*/
+      width: auto;
+    }
+  }
+}
+
+.tui-workspaceDiscussionCard {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--gap-4);
+  color: var(--color-neutral-7);
+  border: var(--border-width-thin) solid var(--color-neutral-5);
+
+  &__pinBox {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: var(--gap-2);
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &__card {
+    display: flex;
+    padding: var(--gap-4);
+    padding-top: 0;
+  }
+
+  &__avatar {
+    margin-right: var(--gap-2);
+  }
+
+  &__content {
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  &__head {
+    display: flex;
+    flex: 1;
+    align-items: baseline;
+    margin-bottom: var(--gap-4);
+    padding-top: 2px;
+
+    a {
+      @include font(body);
+      color: var(--color-state);
+      font-weight: bold;
+    }
+
+    p {
+      @include font(body-sm);
+      margin: 0;
+      margin-left: var(--gap-2);
+      color: var(--color-neutral-7);
+    }
+  }
+
+  &__body {
+    &--deleted {
+      @include font(body-sm);
+      font-style: italic;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    margin-top: var(--gap-4);
+
+    &-comment {
+      display: flex;
+      margin-left: var(--gap-4);
+    }
+  }
+}
+
+.tui-workspaceDiscussionContentResultCard {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--gap-4);
+  color: var(--color-neutral-7);
+  border: var(--border-width-thin) solid var(--color-neutral-5);
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-neutral-3);
+  }
+
+  &__card {
+    display: flex;
+    padding: var(--gap-4);
+    padding-top: 0;
+  }
+
+  &__avatar {
+    margin-right: var(--gap-2);
+  }
+
+  &__content {
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  &__head {
+    display: flex;
+    flex: 1;
+    align-items: flex-end;
+    margin-bottom: var(--gap-4);
+    padding-top: 2px;
+
+    a {
+      @include font(body);
+      color: var(--color-state);
+      font-weight: bold;
+    }
+
+    p {
+      @include font(body-sm);
+      margin: 0;
+      margin-left: var(--gap-2);
+      color: var(--color-neutral-7);
+    }
+  }
+
+  &__actions {
+    display: flex;
+
+    &-comment {
+      display: flex;
+      margin-left: var(--gap-4);
+    }
+  }
+}
+
+.tui-workspaceDiscussionWithCommentCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__comments {
+    width: 100%;
+    &.tui-commentBox {
+      &--withBorder {
+        /* Remove the border-top of the comment box.*/
+        border-top: none;
+      }
+    }
+  }
+}
+
+.tui-workspaceMemberRequestCard {
+  display: flex;
+  flex-direction: column;
+  padding: var(--gap-4);
+
+  &__body {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    @media (max-width: $tui-screen-sm) {
+      display: block;
+    }
+
+    &-content {
+      margin-right: var(--gap-4);
+      overflow-wrap: break-word;
+      @media screen and (max-width: $tui-screen-sm) {
+        margin-right: 0;
+        margin-bottom: var(--gap-4);
+      }
+    }
+  }
+
+  &__decision {
+    white-space: nowrap;
+  }
+}
+
+.tui-originalSpaceCard {
+  &__pendingText {
+    color: var(--color-neutral-1);
+  }
+}
+
+.tui-workspaceContributeCard {
+  width: 100%;
+  height: calc(var(--engage-card-height) + 11px);
+
+  .tui-card {
+    /* Overiding cards border*/
+    border: 2px dashed var(--color-primary);
+  }
+
+  &__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__icon {
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+}
+
+.tui-workspaceMemberCard {
+  &__profileCard {
+    width: 100%;
+
+    &-audiencesIcon {
+      margin-left: var(--gap-2);
+    }
+  }
+
+  &__tagRow {
+    display: flex;
+    align-items: center;
+  }
+
+  &__ownerLabel {
+    @include tui-font-body-x-small();
+    color: var(--color-neutral-6);
+  }
+}
+
+.tui-workspaceMemberRequestList {
+  &__title {
+    @include font(h4);
+    margin: 0;
+    padding: 0 var(--gap-4) var(--gap-4) var(--gap-4);
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card {
+    border: var(--border-width-thin) solid var(--color-neutral-5);
+    &:not(:last-child) {
+      margin-bottom: var(--gap-2);
+    }
+  }
+}
+
+.tui-workspaceAudiencesTab {
+  margin-bottom: var(--gap-8);
+
+  &__filter {
+    display: flex;
+    margin-bottom: var(--gap-4);
+    padding-bottom: var(--gap-4);
+    padding-left: var(--gap-4);
+    border-bottom: var(--border-width-thin) solid var(--color-neutral-5);
+
+    @media (min-width: $tui-screen-sm) {
+      justify-content: flex-end;
+      padding-right: var(--gap-4);
+    }
+  }
+
+  &__table {
+    margin-bottom: var(--gap-4);
+  }
+
+  &__actions {
+    display: flex;
+
+    &-stackedButton {
+      margin-top: var(--gap-3);
+    }
+  }
+
+  &__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--gap-8);
+    text-align: center;
+  }
+}
+
+.tui-workspaceDiscussionTab {
+  display: flex;
+  flex-direction: column;
+
+  &__filter {
+    margin-bottom: var(--gap-4);
+  }
+
+  &__card {
+    margin-bottom: var(--gap-8);
+  }
+
+  &__loadMoreContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: var(--gap-8);
+  }
+
+  &__viewedDiscussions {
+    display: flex;
+    align-self: center;
+    margin-bottom: var(--gap-1);
+  }
+
+  &__loadMore {
+    display: flex;
+    align-self: center;
+  }
+
+  &__message {
+    @include font(body);
+  }
+
+  .tui-workspaceDiscussionTab__resultList {
+    margin-bottom: var(--gap-8);
+  }
+  .tui-workspaceDiscussionTab__resultCard {
+    margin-top: -1px;
+  }
+}
+
+.tui-workspaceLibraryTab {
+  .tui-contributionFilter__sort {
+    margin-top: var(--gap-8);
+  }
+
+  &--small {
+    .tui-contributionBaseContent__cards {
+      padding: 0;
+    }
+    .tui-contributionBaseContent__counterContainer {
+      padding-left: 0;
+    }
+  }
+
+  &__filter {
+    padding-top: var(--gap-4);
+  }
+}
+
+@mixin head-container {
+  display: flex;
+  margin-bottom: var(--gap-4);
+  padding-bottom: var(--gap-4);
+  padding-left: var(--gap-4);
+  border-bottom: var(--border-width-thin) solid var(--color-neutral-5);
+}
+.tui-workspaceMembersTab {
+  &__list {
+    width: 100%;
+    margin-bottom: var(--gap-8);
+  }
+
+  &__content {
+    padding-left: var(--gap-4);
+
+    @media (min-width: $tui-screen-sm) {
+      padding-left: 0;
+    }
+  }
+
+  &__head {
+    @include head-container;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--gap-4);
+  }
+
+  &__searchHead {
+    @include head-container;
+
+    @media (min-width: $tui-screen-sm) {
+      justify-content: flex-end;
+      padding-left: 0;
+    }
+  }
+
+  &__title {
+    @include font(h4);
+    margin: 0;
+  }
+
+  &__message {
+    @include font(body);
+  }
+
+  &__member {
+    margin-bottom: var(--gap-2);
+  }
+
+  &__loadMoreContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: var(--gap-6);
+    padding-bottom: var(--gap-8);
+  }
+
+  &__viewedMembers {
+    display: flex;
+    align-self: center;
+    margin-bottom: var(--gap-1);
+  }
+
+  &__loadMore {
+    display: flex;
+    align-self: center;
+  }
+}
+
+.tui-workspaceDiscussionFilter {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--gap-4) * -1);
+  margin-bottom: var(--gap-8);
+
+  & > * {
+    display: flex;
+    margin-top: var(--gap-4);
+  }
+
+  &__search {
+    align-items: center;
+
+    &-filesLink {
+      margin: 0 var(--gap-8);
+    }
+  }
+
+  &__sortBox {
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+}
+
+.tui-workspaceFileFilter {
+  display: flex;
+  flex-direction: column;
+  &__sortFilter {
+    align-self: flex-end;
+    margin-top: var(--gap-8);
+    padding-bottom: var(--gap-2);
+    .tui-formLabel {
+      @include font(body-sm, var(--label-weight));
+    }
+
+    @media (max-width: 765px) {
+      padding: var(--gap-4);
+    }
+  }
+
+  &__label {
+    .tui-formLabel {
+      @include font(body-sm, var(--label-weight));
+    }
+  }
+}
+
+.tui-workspaceFilter {
+  &__sortFilter {
+    margin-top: var(--gap-8);
+  }
+
+  &__total {
+    @include font(h4);
+  }
+}
+
+.tui-yourWorkspaceFilter {
+  &__sortFilter {
+    margin-top: var(--gap-8);
+  }
+
+  &__total {
+    @include font(h4);
+  }
+}
+
+.tui-workspacePostDiscussionForm {
+  display: flex;
+
+  &__avatar {
+    display: none;
+  }
+
+  &__form {
+    flex-grow: 1;
+    width: 100%;
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-workspacePostDiscussionForm {
+    &__avatar {
+      display: block;
+    }
+
+    &__form {
+      padding-left: var(--gap-2);
+    }
+  }
+}
+
+.tui-workspaceDiscussionForm {
+  display: flex;
+  flex-direction: column;
+
+  &__buttonGroup {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.tui-workspaceForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+
+    @media (min-width: $tui-screen-sm) {
+      flex-direction: row;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $tui-screen-sm) {
+      width: 66%;
+    }
+  }
+
+  &__unhiddenRow {
+    margin-top: var(--gap-8);
+    &-box {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    &-helpText {
+      @include font(body-sm);
+      margin: 0;
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__formRow {
+    /* Overriding the margin*/
+    &.tui-formRow {
+      margin-bottom: 0;
+
+      &:not(:first-child) {
+        margin-top: var(--gap-6);
+      }
+    }
+  }
+
+  &__editor {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+
+    &-tip {
+      display: flex;
+      margin-top: var(--gap-2);
+
+      &-text {
+        @include font(body-sm);
+      }
+    }
+  }
+
+  &__imagePicker {
+    /* This will let us to have our custom FORM input :)*/
+    width: rem-px(150);
+    height: rem-px(150);
+
+    @media (min-width: $tui-screen-sm) {
+      width: calc(100% - (66% + var(--gap-4)));
+      height: rem-px(308);
+    }
+
+    &.tui-formRow {
+      /* Reset margin*/
+      margin-top: var(--gap-2);
+      margin-bottom: var(--gap-8);
+
+      @media (min-width: $tui-screen-sm) {
+        margin: 0;
+        margin-left: var(--gap-4);
+      }
+
+      .tui-formRow {
+        &__desc {
+          /* Hiding description part.*/
+          display: none;
+        }
+
+        &__action {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &__buttonGroup {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: var(--gap-6);
+
+    &.tui-formBtnGroup {
+      /* Overriding the margin*/
+      & > :not(:first-child) {
+        margin: 0;
+        margin-left: var(--gap-4);
+      }
+    }
+  }
+}
+
+.tui-workspaceTransferOwnerForm {
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__helpText {
+    @include font(body-sm);
+    margin: 0;
+    margin-bottom: var(--gap-4);
+  }
+
+  &__buttonGroup {
+    justify-content: flex-end;
+    margin-top: var(--gap-6);
+  }
+}
+
+.tui-spaceImagePicker {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+
+  padding: var(--gap-2);
+  border: var(--border-width-thin) solid var(--color-neutral-5);
+
+  &--loading {
+    align-items: center;
+    justify-content: center;
+    border: none;
+  }
+
+  &__image {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--border-radius-normal);
+
+    &--progressing {
+      align-items: stretch;
+    }
+  }
+
+  &__loader {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__editButton {
+    margin-bottom: var(--gap-4);
+  }
+}
+
+.tui-spaceCardsGrid {
+  &__row {
+    /* Override the margin.*/
+    &.tui-grid {
+      margin-bottom: var(--gap-4);
+    }
+  }
+
+  &__card {
+    height: var(---engage-card-height);
+  }
+
+  &__loadMoreContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: var(--gap-6);
+    padding-bottom: var(--gap-8);
+  }
+
+  &__emptyResult {
+    @include font(body);
+  }
+
+  &__viewedSpaces {
+    display: flex;
+    align-self: center;
+    margin-bottom: var(--gap-1);
+  }
+
+  &__loadMore {
+    display: flex;
+    align-self: center;
+  }
+}
+
+.tui-emptySpacesHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    margin: 0;
+    margin-bottom: var(--gap-12);
+    text-align: center;
+  }
+
+  &__actionBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      @include font(body);
+      margin: 0;
+      margin-bottom: var(--gap-8);
+    }
+  }
+
+  &__actionLink {
+    margin-bottom: var(--gap-4);
+  }
+}
+
+:root {
+  --workspace-header-small-height: 55px;
+  --workspace-header-medium-height: 88px;
+
+  /* Large screen width and height*/
+  --workspace-header-large-height: 135px;
+  --workspace-header-large-width: 135px;
+}
+.tui-workspacePageHeader {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media (min-width: $tui-screen-sm) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__img {
+    width: 100%;
+    height: var(--workspace-header-small-height);
+    margin-bottom: var(--gap-2);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media (min-width: $tui-screen-xs) {
+      height: var(--workspace-header-medium-height);
+      margin-bottom: var(--gap-6);
+    }
+
+    @media (min-width: $tui-screen-sm) {
+      width: 50%;
+      max-width: var(--workspace-header-large-width);
+      height: var(--workspace-header-large-height);
+      margin-right: var(--gap-4);
+      margin-bottom: 0;
+      border-radius: var(--border-radius-normal);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__head {
+    padding: 0 var(--gap-4);
+
+    @media (min-width: $tui-screen-sm) {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+
+    &-text {
+      width: 100%;
+      margin: 0;
+
+      overflow-wrap: break-word;
+
+      @media (min-width: $tui-screen-xs) {
+        @include font(h1);
+      }
+    }
+
+    &-buttonIcon {
+      margin-left: var(--gap-2);
+    }
+  }
+
+  &__subTitle {
+    display: flex;
+    align-items: center;
+
+    &-text {
+      @include font(body);
+      margin-top: var(--gap-2);
+      color: var(--color-neutral-6);
+    }
+
+    &-button {
+      margin-left: var(--gap-4);
+    }
+  }
+
+  &__menu {
+    padding: var(--gap-8) 0;
+    background-color: var(--color-neutral-3);
+    border: var(--border-width-thin) solid var(--color-neutral-5);
+  }
+}
+
+.tui-workspaceEditModal {
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__form {
+    flex-grow: 1;
+    height: 100%;
+  }
+}
+
+:root {
+  --workspaceFileViewModal-minHeight: 240px;
+  --workspaceFileViewModal-maxHeight: 500px;
+}
+.tui-workspaceFileViewModal {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: var(--gap-4);
+  }
+
+  &__title {
+    @include font(h4);
+    width: 60%;
+    padding-right: var(--gap-4);
+  }
+
+  &__links {
+    @include font(body);
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+  }
+
+  &__link {
+    padding-right: var(--gap-2);
+  }
+
+  &__area {
+    @include font(body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: var(--workspaceFileViewModal-minHeight);
+    border: 1px solid var(--filter-bar-border-color);
+
+    &-icon {
+      margin-bottom: var(--gap-8);
+      color: var(--color-neutral-6);
+      font-size: 60px;
+    }
+  }
+
+  &__media {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    min-height: var(--workspaceFileViewModal-minHeight);
+    max-height: var(--workspaceFileViewModal-maxHeight);
+  }
+
+  &__media.tui-videoBlock {
+    margin: 0;
+  }
+
+  &__audio {
+    display: inline-block;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.tui-workspaceModal {
+  &__form {
+    flex-grow: 1;
+    height: 100%;
+  }
+}
+
+.tui-workspaceTransferOwnerModal {
+  &__modalContent {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__form {
+    flex-grow: 1;
+  }
+}
+
+.tui-workspaceWarningModal {
+  .tui-modalContent {
+    /* Overriding the spacing of modal content.*/
+    margin-top: 0;
+  }
+
+  &__container {
+    display: flex;
+  }
+
+  &__box {
+    margin-left: var(--gap-4);
+  }
+
+  &__title {
+    @include font(h4);
+    margin-top: 0;
+    margin-bottom: var(--gap-2);
+  }
+
+  &__content {
+    @include font(body);
+  }
+}
+
+.tui-recommendedSpaces {
+  &__head {
+    display: block;
+    margin-bottom: var(--gap-4);
+  }
+
+  &__title {
+    @include font(h3);
+    margin: 0;
+  }
+
+  @media screen and (min-width: $tui-screen-sm) {
+    &__head {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.tui-workspaceControlMenu {
+  display: flex;
+  width: 100%;
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    padding: var(--gap-4) var(--gap-4) 0 var(--gap-4);
+  }
+
+  &__title {
+    @include font(h3);
+    margin: 0;
+  }
+
+  &__menuButton {
+    margin-left: var(--gap-2);
+  }
+
+  &__menu {
+    padding: var(--gap-8) 0;
+    background-color: var(--color-neutral-3);
+    border: var(--border-width-thin) solid var(--color-neutral-5);
+  }
+}
+
+.tui-workspaceDescription {
+  &__time {
+    @include font(body-sm);
+    margin-bottom: var(--gap-4);
+  }
+}
+
+.tui-workspaceMenu {
+  width: 100%;
+  max-height: 100%;
+
+  &__separator {
+    width: 18%;
+    margin-left: var(--gap-8);
+    border: var(--border-width-thin) dashed var(--color-neutral-5);
+  }
+}
+
+.tui-workspaceFileTable {
+  @media (max-width: 764px) {
+    padding: var(--gap-4);
+  }
+
+  &__action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__loadMoreContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--gap-8);
+  }
+
+  &__viewedFiles {
+    display: flex;
+    align-self: center;
+    margin-bottom: var(--gap-1);
+  }
+
+  &__loadMore {
+    display: flex;
+    align-self: center;
+  }
+}
+
+.tui-emptySpacesPage {
+  display: flex;
+  flex-direction: column;
+
+  /* Overriding the height here.*/
+  .tui-responsive {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__sideMenu {
+    display: none;
+  }
+
+  &__content {
+    padding-right: var(--gap-4);
+    padding-left: var(--gap-4);
+  }
+
+  &__header {
+    margin-top: calc(var(--gap-12) * 2);
+    margin-bottom: var(--gap-12);
+  }
+
+  &__recommendedSpaces {
+    margin-top: var(--gap-8);
+  }
+
+  @media screen and (min-width: $tui-screen-sm) {
+    &__sideMenu {
+      display: block;
+    }
+
+    &__content {
+      padding-right: var(--gap-8);
+      padding-left: 0;
+    }
+  }
+}
+
+.tui-spacesPage {
+  &__filter {
+    margin-top: var(--gap-8);
+  }
+
+  &__grid {
+    margin-top: var(--gap-4);
+  }
+}
+
+.tui-workspaceDiscussionPage {
+  &__discussion {
+    margin: var(--gap-8) 0;
+  }
+
+  &__title {
+    @include font(h4);
+    margin: 0;
+    margin-bottom: var(--gap-4);
+  }
+
+  &__commentBox {
+    position: relative;
+  }
+}
+
+.tui-workspaceEmptyPage {
+  display: flex;
+  width: 100%;
+  margin-top: var(--gap-6);
+  padding: 0 var(--gap-6);
+
+  &__text {
+    @include font(body);
+  }
+}
+
+.tui-workspaceFilePage {
+  display: flex;
+  flex-direction: column;
+
+  &__message {
+    @include font(body);
+    margin: var(--gap-8) 0;
+  }
+}
+
+.tui-workspacePage {
+  &__primaryAction {
+    display: flex;
+    width: 100%;
+    padding: 0 var(--gap-4);
+
+    @media (min-width: $tui-screen-sm) {
+      justify-content: flex-end;
+    }
+
+    @media (min-width: $tui-screen-sm) {
+      padding-left: var(--gap-4);
+    }
+
+    &-action {
+      width: 100%;
+
+      @media (min-width: $tui-screen-sm) {
+        width: inherit;
+      }
+    }
+  }
+
+  &__backLink {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__backIcon {
+    margin-right: var(--gap-2);
+  }
+
+  &__tabs {
+    padding: var(--gap-4);
+
+    @media (min-width: $tui-screen-sm) {
+      padding: 0;
+    }
+
+    &-text {
+      @include font(body);
+    }
+
+    &-discussionTab {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+.tui-yourWorkspace {
+  &__filter {
+    margin-top: var(--gap-8);
+  }
+
+  &__grid {
+    margin-top: var(--gap-4);
+  }
+
+  &__recommendedSpaces {
+    margin-top: var(--gap-12);
+  }
+}
+

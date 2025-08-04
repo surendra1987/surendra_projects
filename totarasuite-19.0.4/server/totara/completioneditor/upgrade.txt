@@ -1,0 +1,14 @@
+This file describes API changes for code that uses the completioneditor API,
+information provided here is intended especially for developers.
+
+=== 18.0 ===
+
+* Added new fields "Maximum Grade" and "Minimum Grade" to be filled when creating or editing historic course completions in the completion editor.
+
+=== 14.0 ===
+
+=== 13.0 ===
+
+=== 12.0 ===
+
+* rb_source_course_membership::rb_display_edit_completion has been deprecated, please call totara_completioneditor\rb\display\completioneditor_edit_completion::display() instead.

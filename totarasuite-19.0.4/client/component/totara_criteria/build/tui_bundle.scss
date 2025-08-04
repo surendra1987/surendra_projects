@@ -1,0 +1,100 @@
+.tui-criteriaCompetencyAchievement {
+  &__title {
+    margin: 0;
+    text-align: center;
+    -webkit-hyphens: manual;
+            hyphens: manual;
+  }
+
+  &__goal {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  &__summary {
+    padding: var(--gap-2) var(--gap-2) 0;
+
+    &-header {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-body {
+      margin-top: var(--gap-4);
+    }
+
+    &-button {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-xs) {
+  .tui-criteriaCompetencyAchievement {
+    &__completion {
+      &-notComplete {
+        @include sr-only();
+      }
+    }
+    &__level {
+      &-notAvailable {
+        @include sr-only();
+      }
+    }
+  }
+}
+
+.tui-criteriaCourseAchievement {
+  &__title {
+    @include font(h4);
+    margin: 0;
+    text-align: center;
+    -webkit-hyphens: manual;
+            hyphens: manual;
+  }
+
+  &__goal {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  &__progress {
+    margin: auto 0;
+
+    &-bar {
+      width: 100%;
+    }
+  }
+
+  &__summary {
+    padding: var(--gap-2) var(--gap-2) 0;
+
+    &-header {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-body {
+      margin-top: var(--gap-4);
+    }
+
+    &-button {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-xs) {
+  .tui-criteriaCourseAchievement {
+    &__completion {
+      &-notComplete {
+        @include sr-only();
+      }
+    }
+  }
+}
+

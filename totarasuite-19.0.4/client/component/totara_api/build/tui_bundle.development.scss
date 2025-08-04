@@ -1,0 +1,82 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1361.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1361.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_api/src/components/form/Duration.vue?vue&type=style&index=0&id=20c8eb26&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_api-duration {
+  @include tui-stack-vertical(var(--gap-2));
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1361.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1361.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_api/src/pages/AddClient.vue?vue&type=style&index=0&id=6a74afde&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_api-addClient {
+  &__requiredStar {
+    color: var(--color-prompt-alert);
+    font-weight: bold;
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1361.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1361.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_api/src/pages/Clients.vue?vue&type=style&index=0&id=9d85c8e6&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_api-clients {
+  &__client {
+    margin-bottom: 2px;
+    &--invalid {
+      margin-top: 2px;
+      color: var(--color-prompt-warning);
+    }
+  }
+  &__form {
+    margin-top: var(--gap-4);
+    margin-bottom: var(--gap-6);
+    overflow-wrap: break-word;
+  }
+  &__formDesc {
+    margin-top: var(--gap-6);
+  }
+  &__monospaceFont {
+    font-family: var(--font-family-monospace);
+  }
+  &__deleteBody {
+    overflow-wrap: break-word;
+  }
+  &__serviceaccount {
+    margin-right: var(--gap-2);
+  }
+  &__inputGroupBtn {
+    min-width: rem-px(60);
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1361.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1361.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_api/src/pages/EditClient.vue?vue&type=style&index=0&id=15986480&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_api-editClient {
+  &__requiredStar {
+    color: var(--color-prompt-alert);
+    font-weight: bold;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1361.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1361.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/tui/src/components/form/InputSizedText.vue?vue&type=style&index=0&id=043dca3c&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-formInputSizedText {
+  padding: tui-input-v-padding-borderless() 0;
+  line-height: var(--form-input-line-height);
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1361.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1361.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_api/src/pages/EditClientSettings.vue?vue&type=style&index=0&id=464d797a&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_api-editClientSettings {
+  &__defaultInfo {
+    color: var(--form-defaults-text-color);
+    @include font(body-sm);
+  }
+  &__requiredStar {
+    color: var(--color-prompt-alert);
+    font-weight: bold;
+  }
+}
+

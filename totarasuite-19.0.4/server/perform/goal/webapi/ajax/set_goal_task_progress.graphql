@@ -1,0 +1,25 @@
+mutation perform_goal_set_goal_task_progress(
+  $input: perform_goal_task_set_progress_input
+) {
+  perform_goal_task_upsert_result: perform_goal_set_goal_task_progress(
+    input: $input
+  ) {
+    goal_task {
+      __typename
+      id
+      goal_id
+      description
+      completed_at
+      created_at
+      updated_at
+      resource {
+        __typename
+        id
+        task_id
+        resource_id
+        resource_type
+        created_at
+      }
+    }
+  }
+}

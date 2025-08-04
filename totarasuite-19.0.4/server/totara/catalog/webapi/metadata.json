@@ -1,0 +1,292 @@
+{
+  "OBJECT": {
+    "totara_catalog_url_query_validation_result": {
+      "fields": {
+        "total_count": {
+          "documentation": {
+            "example": 7
+          }
+        },
+        "error": {
+          "documentation": {
+            "example": false
+          }
+        },
+        "error_message": {
+          "documentation": {
+            "example": null
+          }
+        }
+      }
+    },
+    "totara_catalog_search_filter_options_result": {
+      "fields": {
+        "filter_options": {
+          "documentation": {
+            "example": ["basketball", "football"]
+          }
+        }
+      }
+    },
+    "totara_catalog_option": {
+      "fields": {
+        "id": {
+          "documentation": {
+            "example": "Courses"
+          }
+        },
+        "label": {
+          "documentation": {
+            "example": "course"
+          }
+        },
+        "active": {
+          "documentation": {
+            "example": false
+          }
+        }
+      }
+    },
+    "totara_catalog_tree_option": {
+      "fields": {
+        "id": {
+          "documentation": {
+            "example": 3
+          }
+        },
+        "label": {
+          "documentation": {
+            "example": "Miscellaneous"
+          }
+        },
+        "parentid": {
+          "documentation": {
+            "example": 0
+          }
+        },
+        "active": {
+          "documentation": {
+            "example": false
+          }
+        }
+      }
+    },
+    "totara_catalog_filter": {
+      "fields": {
+        "key": {
+          "documentation": {
+            "example": "catalog_learning_type_panel"
+          }
+        },
+        "title": {
+          "documentation": {
+            "example": "Learning type"
+          }
+        },
+        "type": {
+          "documentation": {
+            "example": "multi"
+          }
+        }
+      }
+    },
+    "totara_catalog_items_result": {
+      "fields": {
+        "limitfrom": {
+          "documentation": {
+            "example": "677c3ee51363c"
+          }
+        },
+        "maxcount": {
+          "documentation": {
+            "example": 100
+          }
+        },
+        "is_filtered": {
+          "documentation": {
+            "example": false
+          }
+        }
+      }
+    },
+    "totara_catalog_item": {
+      "fields": {
+        "itemid": {
+          "documentation": {
+            "example": 20
+          }
+        },
+        "title": {
+          "documentation": {
+            "example": "Security essentials"
+          }
+        },
+        "redirecturl": {
+          "documentation": {
+            "example": "http://localhost/course/view.php?id=115"
+          }
+        },
+        "image_enabled": {
+          "documentation": {
+            "example": true
+          }
+        },
+        "objecttype": {
+          "documentation": {
+            "example": "course"
+          }
+        },
+        "hero_data_text_enabled": {
+          "documentation": {
+            "example": true
+          }
+        },
+        "hero_data_text": {
+          "documentation": {
+            "example": "hero"
+          }
+        },
+        "hero_data_type": {
+          "documentation": {
+            "example": "text"
+          }
+        },
+        "hero_data_icon_enabled": {
+          "documentation": {
+            "example": false
+          }
+        },
+        "progress_bar_enabled": {
+          "documentation": {
+            "example": true
+          }
+        },
+        "description_enabled": {
+          "documentation": {
+            "example": true
+          }
+        },
+        "description": {
+          "documentation": {
+            "example": "<p>The course description</p>"
+          }
+        },
+        "text_placeholders_enabled": {
+          "documentation": {
+            "example": false
+          }
+        },
+        "icon_placeholders_enabled": {
+          "documentation": {
+            "example": true
+          }
+        }
+      }
+    },
+    "totara_catalog_item_image": {
+      "fields": {
+        "url": {
+          "documentation": {
+            "example": "http://localhost/pluginfile.php/988/totara_program/images/224/1024px-Metrobaan_Duikerlaan_-_panoramio.jpg?preview=totara_catalog_medium&theme=inspire"
+          }
+        },
+        "alt": {
+          "documentation": {
+            "example": "Image"
+          }
+        }
+      }
+    },
+    "totara_catalog_item_icon": {
+      "fields": {
+        "url": {
+          "documentation": {
+            "example": "http://localhost/theme/image.php/inspire/totara_core/1732046708/programicons/default"
+          }
+        },
+        "alt": {
+          "documentation": {
+            "example": "Icon"
+          }
+        },
+        "icon": {
+          "documentation": {
+            "example": null
+          }
+        }
+      }
+    },
+    "totara_catalog_item_details": {
+      "fields": {
+        "title": {
+          "documentation": {
+            "example": "Swimming program"
+          }
+        },
+        "rich_text": {
+          "documentation": {
+            "example": "<div class=\"text_to_html\">Program summary here.</div>"
+          }
+        },
+        "description": {
+          "documentation": {
+            "example": null
+          }
+        }
+      }
+    },
+    "totara_catalog_item_link": {
+      "fields": {
+        "label": {
+          "documentation": {
+            "example": "How to swim"
+          }
+        },
+        "url": {
+          "documentation": {
+            "example": "http://localhost/course/view.php?id=115"
+          }
+        }
+      }
+    },
+    "totara_catalog_top_items_grouped": {
+      "fields": {
+        "objecttype": {
+          "documentation": {
+            "example": "Certification"
+          }
+        }
+      }
+    }
+  },
+  "INPUT_OBJECT": {
+    "totara_catalog_url_query_input": {
+      "inputFields": {
+        "query_string": {
+          "documentation": {
+            "example": "catalog_learning_type_panel[0]=course&course_type_panel[0]=0&course_acttyp_panel[0]=7&catalog_cat_panel=3&contentmarketplace_provider_panel[0]=0&tag_panel_1[0]=9&course_format_panel[0]=singleactivity&article_timeview_panel[0]=2&perpageload=10"
+          }
+        },
+        "query_structure": {
+          "documentation": {
+            "example": "{\"catalog_cat_browse\":\"1259\",\"catalog_learning_type_panel\":[\"certification\",\"course\"],\"tag_panel_1\":[\"31\"],\"limitfrom\":\"abc123def0\"}"
+          }
+        }
+      }
+    },
+    "totara_catalog_search_filter_options_input": {
+      "inputFields": {
+        "search_term": {
+          "documentation": {
+            "example": "text_to_search"
+          }
+        },
+        "filter_key": {
+          "documentation": {
+            "example": "tag_panel_1"
+          }
+        }
+      }
+    }
+  }
+}

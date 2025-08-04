@@ -1,0 +1,67 @@
+<?php
+/**
+ * This file is part of Totara Learn
+ *
+ * Copyright (C) 2021 onwards Totara Learning Solutions LTD
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author Tatsuhiro Kirihara <tatsuhiro.kirihara@totaralearning.com>
+ * @package mod_approval
+ */
+
+namespace mod_approval\model\application\activity;
+
+use mod_approval\event\level_rejected as level_rejected_event;
+use mod_approval\model\application\application;
+use mod_approval\model\application\application_activity;
+use mod_approval\notification_helper;
+use mod_approval\totara_notification\resolver\level_rejected as level_rejected_resolver;
+
+/**
+ * Type 23: level_rejected.
+ */
+final class level_rejected extends activity {
+    /**
+     * @param application_activity $activity
+     */
+    protected function __construct(application_activity $activity) {
+        $this->by_user('model_application_activity_type_level_rejected_desc', $activity->user);
+    }
+
+    public static function get_type(): int {
+        return 23;
+    }
+
+    protected static function get_label_key(): string {
+        return 'model_application_activity_type_level_rejected';
+    }
+
+    public static function trigger_event(application $application, ?int $actor_id, array $activity_info): void {
+        $event = level_rejected_event::create_from_application($application, $actor_id);
+        $event->trigger();
+
+        // Trigger the notification.
+        notification_helper::trigger_notification(
+            level_rejected_resolver::class,
+            [
+                'application_id' => $event->get_data()['objectid'],
+                'workflow_stage_id' => $event->other['workflow_stage_id'],
+                'approval_level_id' => $event->other['approval_level_id'],
+                'time_rejected' => $event->get_data()['timecreated'],
+            ],
+            $application
+        );
+    }
+}

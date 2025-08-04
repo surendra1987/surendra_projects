@@ -1,0 +1,114 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2019 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2019 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @author    Kevin Hottinger <kevin.hottinger@totaralearning.com>
+// @package   theme_legacy
+
+.totaraNav_sub {
+  display: none;
+  background: var(--nav-sub-bg-color);
+  border-top: var(--border-width-thin) solid var(--nav-sub-border-color);
+
+  &--list {
+    display: flex;
+    margin: 0;
+
+    &_item {
+      margin-bottom: -1px;
+      border-bottom: var(--border-width-normal) solid transparent;
+
+      &:focus,
+      &:hover {
+        background: var(--nav-sub-tab-bg-color-focus);
+        border-bottom-color: var(--nav-tab-border-inner-color-focus);
+      }
+
+      &:hover {
+          background: var(--nav-sub-tab-bg-color-focus);
+      }
+
+      // Doing this allows Safari (which doesn't support focus-visible until v15.4) to still show outline for accessibility
+      &:not(:focus-visible) {
+        outline: none;
+      }
+
+      &_label {
+        font-size: var(--font-body-size);
+      }
+
+      &_link {
+        display: flex;
+        padding: var(--gap-4) var(--gap-1);
+        color: var(--nav-sub-tab-text-color);
+
+        &:focus,
+        &:hover {
+          color: var(--nav-sub-tab-text-color-focus);
+          text-decoration: none;
+        }
+      }
+
+      &_externalLink &_link,
+      &_hasChildren &_link {
+        padding-right: var(--gap-2);
+      }
+
+      &_hasChildren &_link {
+        .totaraNav--expand_indent {
+          display: inline-block;
+        }
+      }
+
+      &_selected {
+        font-weight: 500;
+        border-bottom-color: var(--nav-tab-border-inner-color-selected);
+
+        &:focus,
+        &:hover {
+          border-bottom-color: var(--nav-tab-border-inner-color-selected);
+          background: var(--nav-sub-tab-bg-color-focus);
+        }
+      }
+    }
+
+    > * + * {
+      margin-left: var(--gap-6);
+    }
+  }
+
+  .totaraNav--expand_indent {
+    display: none;
+    order: 2;
+    min-width: 1.2em;
+    text-align: right;
+  }
+
+  .totaraNav--list_item_expanded {
+    > a {
+      background: var(--nav-sub-tab-expand-bg-color-selected);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-md) {
+  .totaraNav_sub {
+    display: block;
+  }
+}

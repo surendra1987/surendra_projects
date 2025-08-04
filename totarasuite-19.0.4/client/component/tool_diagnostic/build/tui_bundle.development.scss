@@ -1,0 +1,46 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1351.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1351.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/tool_diagnostic/src/components/modal/DiagnosticSuccessModal.vue?vue&type=style&index=0&id=5fee5ef8&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-diagnosticSuccessModal {
+  &__container {
+    display: flex;
+
+    &-title {
+      @include font(h4);
+    }
+
+    &-box {
+      gap: var(--gap-2);
+      padding-left: var(--gap-4);
+      overflow-wrap: anywhere;
+    }
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1351.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1351.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/tool_diagnostic/src/pages/Providers.vue?vue&type=style&index=0&id=658dfcba&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-diagnosticProviders {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-8);
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-8);
+  }
+
+  &__table {
+    &-whitelist {
+      background: none;
+    }
+  }
+
+  &__loader {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-8);
+  }
+}
+

@@ -1,0 +1,208 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1298.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1298.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/performgoal_type_basic/src/components/manage/PerformGoalActionModalDetails.vue?vue&type=style&index=0&id=4ccf63c0&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalActionModalDetails {
+  &__updated {
+    @include font(body-sm);
+    color: var(--color-neutral-6);
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1298.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1298.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/performgoal_type_basic/src/components/view/PerformGoalActivityCreationDetails.vue?vue&type=style&index=0&id=1058058f&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalActivityCreationDetails {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--gap-6);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-6);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2);
+
+    &-heading {
+      margin: 0;
+      @include font(h6);
+    }
+  }
+
+  &__bar {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: var(--gap-4);
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-2);
+    }
+
+    &-listItem {
+      display: flex;
+      gap: var(--gap-2);
+    }
+
+    &-heading {
+      margin: 0;
+      @include font(h6);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performGoalActivityCreationDetails {
+    &__bar {
+      flex-direction: row;
+      justify-content: space-between;
+
+      &-list {
+        flex-direction: row;
+        gap: var(--gap-6);
+      }
+    }
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1298.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1298.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/performgoal_type_basic/src/components/view/PerformGoalLinkedReviewChangeStatus.vue?vue&type=style&index=0&id=cfbfddf0&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalLinkedReviewChangeStatus {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+
+  &__currentStatus {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+
+    &-message {
+      font-style: italic;
+    }
+
+    &-progress {
+      @include font(body-sm);
+      color: var(--color-neutral-6);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performGoalLinkedReviewChangeStatus {
+    flex-direction: row;
+    gap: var(--gap-8);
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1298.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1298.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/performgoal_type_basic/src/components/view/PerformGoalLinkedReviewPreview.vue?vue&type=style&index=0&id=d608cc1c&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalLinkedReviewPreview {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--gap-4);
+
+  &__status {
+    display: flex;
+    gap: var(--gap-3);
+    align-items: center;
+    min-width: 28%;
+
+    &-progress {
+      width: rem-px(120);
+    }
+
+    &-value {
+      padding-left: var(--gap-2);
+      font-weight: bold;
+    }
+  }
+
+  &__due {
+    display: flex;
+    gap: var(--gap-2);
+
+    &-value {
+      font-weight: bold;
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performGoalLinkedReviewPreview {
+    flex-direction: row;
+
+    &__group {
+      padding-left: var(--gap-3);
+      border-color: var(--color-neutral-5);
+      border-style: solid;
+      border-width: 0 0 0 var(--border-width-thin);
+
+      .dir-rtl & {
+        padding-right: var(--gap-3);
+        border-width: 0 var(--border-width-thin) 0 0;
+      }
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1298.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1298.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/performgoal_type_basic/src/components/view/PerformGoalLinkedReviewStatusResponse.vue?vue&type=style&index=0&id=8c65d0ce&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalLinkedReviewStatusResponse {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+
+  &__progress {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    gap: var(--gap-1);
+    width: 25%;
+
+    &-label {
+      font-weight: var(--label-weight);
+    }
+
+    &-value {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-1);
+    }
+
+    &-valueProgress {
+      width: rem-px(120);
+    }
+
+    &-valueLabel {
+      @include font(body-sm);
+    }
+  }
+
+  &__status {
+    display: flex;
+    flex-direction: column;
+
+    &-label {
+      font-weight: var(--label-weight);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performGoalLinkedReviewStatusResponse {
+    flex-direction: row;
+  }
+}
+

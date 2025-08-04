@@ -1,0 +1,9 @@
+query totara_catalog_url_query_validation(
+  $input: totara_catalog_url_query_input!
+) {
+  totara_catalog_url_query_validation(input: $input) {
+    total_count
+    error
+    error_message
+  }
+}

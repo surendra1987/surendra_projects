@@ -1,0 +1,13 @@
+"""
+Context type object, containing information about a context.
+"""
+type core_context {
+  """
+  Internal database id of the context.
+  """
+  id: core_id!
+  """
+  Name the context.
+  """
+  name: String!
+}

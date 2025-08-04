@@ -1,0 +1,9 @@
+query tool_diagnostic_get_providers {
+  providers: tool_diagnostic_get_providers {
+    id
+    name
+    description
+    enabled
+    whitelist
+  }
+}

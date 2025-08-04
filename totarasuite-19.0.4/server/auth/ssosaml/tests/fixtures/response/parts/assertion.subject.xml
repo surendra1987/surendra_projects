@@ -1,0 +1,6 @@
+<saml2:Subject xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion">
+    <saml2:NameID Format="{subject.nameid_format}">{subject.nameid}</saml2:NameID>
+    <saml2:SubjectConfirmation Method="{subject.confirmation.method}">
+        {subject.confirmation.data}
+    </saml2:SubjectConfirmation>
+</saml2:Subject>

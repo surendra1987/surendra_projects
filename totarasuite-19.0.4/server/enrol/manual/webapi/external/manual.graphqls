@@ -1,0 +1,119 @@
+"""
+Result object for mutation enrol_manual_unenrol_user.
+"""
+type enrol_manual_unenrol_user_result {
+  """
+  User object for the user that is unenrolled from the course.
+  """
+  user: core_user!
+  """
+  Course object.
+  """
+  course: core_course!
+  """
+  Whether all manual enrolments on this course have been removed for the user. Note that the user may still be enrolled via other methods.
+  """
+  success: Boolean!
+  """
+  Whether the user had any manual enrolments on the course before this mutation.
+  """
+  user_had_manual_enrolment: Boolean!
+}
+
+"""
+Result object for mutation 'enrol_manual_enrol_user'.
+"""
+type enrol_manual_enrol_user_result {
+  """
+  User object for the user that is enrolled into the course.
+  """
+  user: core_user!
+  """
+  Course object.
+  """
+  course: core_course!
+  """
+  Role object.
+  """
+  role: core_role!
+  """
+  User enrolment object.
+  """
+  enrolment: core_user_enrolment!
+  """
+  Whether the enrolment was successful.
+  """
+  success: Boolean!
+  """
+  Whether the user was already enrolled in the course.
+  """
+  was_already_enrolled: Boolean!
+}
+
+"""
+Input required when unenrolling a user.
+"""
+input enrol_manual_unenrol_user_input {
+  """
+  Target user who will be unenroled from the course.
+  """
+  user: core_user_user_reference!
+  """
+  Target course.
+  """
+  course: core_course_course_reference!
+}
+
+"""
+Input required when enrolling a user.
+"""
+input enrol_manual_enrol_user_input {
+  """
+  The target user to enrol in the course.
+  """
+  user: core_user_user_reference!
+  """
+  The target course to enrol the user in.
+  """
+  course: core_course_course_reference!
+  """
+  The role for the enrolment. If no role is provided then the default role for this enrol will be used. In most cases that would be the Learner role.
+  """
+  role: core_role_role_reference
+  """
+  The start date for the enrolment.
+  """
+  timestart: core_date
+  """
+  The end date for the enrolment.
+  """
+  timeend: core_date
+  """
+  Whether the enrolment is suspended.
+  """
+  suspended: Boolean
+}
+
+extend type Mutation {
+  """
+  Remove any manual enrolments for the target user from the target course. If multiple manual enrolments (with different roles)
+  exist for the same user, they will all be removed. Does not affect other enrolment types, such as self-enrolment.
+  """
+  enrol_manual_unenrol_user(
+    """
+    Input object specifying data for unenrolling the user.
+    """
+    input: enrol_manual_unenrol_user_input!
+  ): enrol_manual_unenrol_user_result!
+
+  """
+  Add a manual enrolment into the target course for the target user.
+  The API User role must be able to assign the corresponding role to the enrolled user.
+  """
+  enrol_manual_enrol_user(
+    """
+    Input object specifying data for enrolling the user.
+    """
+    input: enrol_manual_enrol_user_input!
+  ): enrol_manual_enrol_user_result!
+}

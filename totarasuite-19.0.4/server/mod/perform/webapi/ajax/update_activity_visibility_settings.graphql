@@ -1,0 +1,11 @@
+mutation mod_perform_update_activity_visibility_settings(
+  $input: mod_perform_update_activity_visibility_settings_input!
+) {
+  mod_perform_update_activity_visibility_settings(input: $input) {
+    anonymous_responses
+    visibility_condition {
+      name
+      value
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.format-pathway #region-main .notifications .alert {
+  margin: var(--gap-4);
+  margin-bottom: 0;
+}
+
+@media (min-width: $screen-md-max) {
+  .format-pathway #region-main .notifications .alert {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.format-pathway {
+  h2,
+  .h2 {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Test Form",
+  "shortname": "test",
+  "revision": "1.0",
+  "version": "2021030200",
+  "language": "en-US",
+  "description": "This is plain text! With <h1>html!</h1>"
+}

@@ -1,0 +1,82 @@
+.tui-pathwayLearningPlanAchievement {
+  &__empty {
+    font-size: font-size-px(16);
+    @include text-hint();
+  }
+
+  &__comment {
+    &-header {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-body {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__overview {
+    max-width: 100%;
+  }
+
+  &__summary {
+    &-header {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-body {
+      margin-top: var(--gap-4);
+    }
+
+    &-button {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    text-align: center;
+  }
+
+  &__noValue {
+    margin-top: var(--gap-4);
+    @include text-hint();
+  }
+
+  &__rater {
+    display: flex;
+
+    &-name {
+      margin: auto 0 auto var(--gap-2);
+    }
+  }
+
+  &__rating {
+    display: flex;
+
+    &-icon {
+      position: relative;
+      top: -1px;
+    }
+
+    &-value {
+      margin-right: var(--gap-1);
+    }
+  }
+
+  &__value {
+    margin-top: var(--gap-4);
+
+    &-title {
+      font-weight: bold;
+    }
+  }
+
+  &__content {
+    padding: var(--gap-4);
+    border: var(--border-width-thin) solid var(--color-neutral-5);
+    border-radius: 6px;
+  }
+}
+

@@ -1,0 +1,166 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-888.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-888.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_mfa/src/components/factors/FactorChooser.vue?vue&type=style&index=0&id=01fd0b32&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_mfa-factorChooser {
+  $border-width: var(--border-width-thin);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: $border-width;
+  isolation: isolate; /* create a new stacking context for our z-index on focus*/
+
+  &__option {
+    display: flex;
+    gap: var(--gap-4);
+    align-items: center;
+    justify-content: space-between;
+    margin-top: calc(#{$border-width} * -1);
+    padding: var(--gap-4);
+    color: unset;
+    background: var(--color-neutral-1);
+    border: $border-width solid var(--card-border-color);
+    -webkit-user-select: none;
+            user-select: none;
+
+    &:first-child {
+      margin-top: 0;
+      border-top-left-radius: var(--card-border-radius);
+      border-top-right-radius: var(--card-border-radius);
+    }
+
+    &:last-child {
+      border-bottom-right-radius: var(--card-border-radius);
+      border-bottom-left-radius: var(--card-border-radius);
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: unset;
+      text-decoration: none;
+    }
+
+    &:focus {
+      @include tui-focus();
+      z-index: 1;
+    }
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2);
+  }
+
+  &__heading {
+    @include font(h4);
+  }
+
+  &__description {
+    @include font(body-sm);
+    color: var(--color-text-hint);
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-888.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-888.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_mfa/src/pages/UserPreferences.vue?vue&type=style&index=0&id=9680da70&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_mfa-userPreferences {
+  &__subtitle {
+    margin-top: var(--gap-2);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-8);
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-888.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-888.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_mfa/src/pages/Verify.vue?vue&type=style&index=0&id=dfad72a4&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-auth_ssosaml-verify {
+  @include font(body);
+  display: flex;
+  justify-content: center;
+  padding-top: var(--gap-4);
+  padding-bottom: var(--gap-12);
+
+  &__col {
+    display: flex;
+    flex: 0 1 rem-px(500);
+    flex-direction: column;
+    gap: var(--gap-4);
+  }
+
+  &__contentWrapper {
+    position: relative;
+  }
+
+  &__screen {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-6);
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__verify-alternatives {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-3);
+    align-items: flex-start;
+  }
+
+  &__transition-next,
+  &__transition-back {
+    &-enter-active,
+    &-leave-active {
+      $time: 0.25s;
+      $fn: cubic-bezier(0, 0.1, 0, 1);
+      transition: transform $time $fn, opacity $time $fn;
+    }
+    &-enter,
+    &-leave-active {
+      opacity: 0;
+    }
+    &-leave-active {
+      position: absolute;
+    }
+    &-enter {
+      transform: translateX(rem-px(500));
+    }
+    &-leave-active {
+      transform: translateX(rem-px(-500));
+    }
+  }
+
+  &__transition-back {
+    &-enter {
+      transform: translateX(rem-px(-500));
+    }
+    &-leave-active {
+      transform: translateX(rem-px(500));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__transition-next,
+    &__transition-back {
+      &-enter-active,
+      &-leave-active {
+        /* stylelint-disable-next-line time-min-milliseconds*/
+        transition-duration: 0.001ms;
+      }
+    }
+  }
+}
+

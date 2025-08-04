@@ -1,0 +1,5 @@
+This files describes API changes in the tool_behat code.
+
+=== 19.0 ===
+
+* Updated tool_behat_renderer::generic_info to use page_main_heading() instead of heading()

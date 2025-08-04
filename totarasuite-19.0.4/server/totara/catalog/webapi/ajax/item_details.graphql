@@ -1,0 +1,30 @@
+query totara_catalog_item_details($input: totara_catalog_item_details_input!) {
+  totara_catalog_item_details(input: $input) {
+    details {
+      title
+      manage_link {
+        url
+        label
+      }
+      details_link {
+        description
+        button {
+          url
+          label
+        }
+      }
+      rich_text(format: HTML)
+      description
+      text_placeholders {
+        data
+        label
+        show_label
+      }
+      icon_placeholders {
+        icon
+        url
+        alt
+      }
+    }
+  }
+}

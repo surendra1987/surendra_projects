@@ -1,0 +1,28 @@
+mutation perform_goal_create_goal_task($input: perform_goal_task_create_input) {
+  perform_goal_task_upsert_result: perform_goal_create_goal_task(
+    input: $input
+  ) {
+    goal_task {
+      __typename
+      id
+      goal_id
+      description
+      completed_at
+      created_at
+      updated_at
+      resource {
+        __typename
+        id
+        task_id
+        resource_id
+        resource_type
+        created_at
+      }
+    }
+    success
+    errors {
+      code
+      message
+    }
+  }
+}

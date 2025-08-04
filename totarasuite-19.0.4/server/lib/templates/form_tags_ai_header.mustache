@@ -1,0 +1,44 @@
+{{!
+   This file is part of Totara LMS
+
+   Copyright (C) 2023 onwards Totara Learning Solutions LTD
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/form_tags_ai_header
+
+    Totara form_trags_ai_header template.
+
+    The purpose of this template is to render the header containing content related to AI.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * is_loading True if the api is fetching data.
+    * trigger_id The button element id to trigger the api call.
+
+    Example context (json):
+    { "is_loading": false, "trigger_id": 1 }
+}}
+{{#is_loading}}
+  {{#flex_icon}}loading, , loading , ft-size-300 ft-state-success{{/flex_icon}}
+{{/is_loading}}
+{{^is_loading}}
+    <button id="{{trigger_id}}" type="button" class="button"></button>
+{{/is_loading}}

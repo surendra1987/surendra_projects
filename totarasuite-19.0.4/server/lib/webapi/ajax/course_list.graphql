@@ -1,0 +1,11 @@
+query core_course_list($query: [core_id!]) {
+  core_course_list(course_ids: $query) {
+    id
+    fullname
+    idnumber
+    image
+    category {
+      full_path
+    }
+  }
+}

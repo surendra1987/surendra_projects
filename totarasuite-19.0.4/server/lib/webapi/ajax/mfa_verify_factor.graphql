@@ -1,0 +1,6 @@
+mutation core_mfa_verify_factor($input: core_mfa_verify_factor_input!) {
+  result: core_mfa_verify_factor(input: $input) {
+    success
+    next_url
+  }
+}

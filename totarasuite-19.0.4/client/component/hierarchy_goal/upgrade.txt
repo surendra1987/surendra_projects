@@ -1,0 +1,6 @@
+This file describes API changes in /client/component/hierarchy_goal,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Added optional prop "canUpdate" to ChangeStatusForm.vue for disabling the submit button

@@ -1,0 +1,299 @@
+extend type Query {
+  """
+  Query to retrieve all sections and their related modules/activities in a given course
+  """
+  format_pathway_get_course_navigation(
+    """
+    The subject course ID
+    """
+    course_id: core_id!
+  ): format_pathway_course_navigation!
+
+  """
+  Query to retrieve the current users activity completion statuses for a given course
+  """
+  format_pathway_get_my_course_activity_completions(
+    """
+    The subject course ID
+    """
+    course_id: core_id!
+  ): [format_pathway_course_activity_completion!]
+
+  """
+  Query to retrieve the current users course navigation for a given course
+  """
+  format_pathway_get_course_user_navigation(
+    """
+    The subject course ID
+    """
+    course_id: core_id!
+  ): [format_pathway_get_course_user_navigation!]
+
+  """
+  This query retrieves the information for a pathway course header
+  """
+  format_pathway_get_course_header_info(
+    """
+    The subject course ID
+    """
+    course_id: core_id!
+  ): format_pathway_course_header_info!
+
+  """
+  This query returns the completion information for users enrolled in a given pathway course
+  """
+  format_pathway_get_course_completion_for_header(
+    """
+    The subject course ID
+    """
+    course_id: core_id!
+  ): format_pathway_course_completion_for_header!
+
+  """
+  This query returns course interactor for a learner
+  """
+  format_pathway_get_course_interactor(
+    """
+    The subject course ID
+    """
+    course_id: core_id!
+  ): core_course_interactor!
+}
+
+"""
+Constants for the type of activity completion tracking.
+Note: This is just the tracking type and doesn't contain the conditions for automatic completion.
+"""
+enum format_pathway_course_activity_completion_tracking {
+  NONE
+  MANUAL
+  AUTOMATIC
+}
+
+"""
+This type represents the data required by the requested by the `get_course_navigation` query
+"""
+type format_pathway_course_navigation {
+  """
+  An array of course_section objects. The array is a mandatory field, but it may be empty.
+  """
+  sections: [format_pathway_course_section]!
+}
+
+"""
+The first nested layer in the `get_course_navigation` query. This layer represents the topics
+in the navigation bar on the left-hand side.
+"""
+type format_pathway_course_section {
+  """
+  The section (topic) ID
+  """
+  id: core_id!
+  """
+  The formal title of the course section
+  """
+  title: String
+  """
+  Whether there are any restrictions set on the section that would prevent access
+  """
+  available: Boolean!
+  """
+  Any reasons given why a course would not be available
+  """
+  availablereason(format: core_format = HTML): [String]
+  """
+  Whether a user can view the course (if the course is hidden, or empty, for example)
+  """
+  visible: Boolean!
+  """
+  An array of objects representing the modules associated with each topic.
+  """
+  modules: [format_pathway_course_module]
+}
+
+"""
+The second nested layer in the `get_course_navigation` query. This layer represents the modules
+and activities used by individual topics.
+"""
+type format_pathway_course_module {
+  """
+  The module ID
+  """
+  id: core_id!
+  """
+  The formal name of this module
+  """
+  name: String!
+  """
+  The type of module (assignment, quiz, etc)
+  """
+  modtype: String!
+  """
+  Whether there are any restrictions set on the section that would prevent access
+  """
+  available: Boolean!
+  """
+  Any reasons given why a course would not be available
+  """
+  availablereason(format: core_format = HTML): [String]
+  """
+  Whether a user can view the course (if the course is hidden, or empty, for example)
+  """
+  visible: Boolean!
+  """
+  The completion settings of the course module
+  """
+  completion: String
+  """
+  Whether completion is enabled for the course module
+  """
+  completionenabled: Boolean!
+  """
+  Whether this activity type is blacklisted in pathway format
+  """
+  blacklisted: Boolean!
+  """
+  The URL to follow to view this module
+  """
+  viewurl: String!
+}
+
+"""
+The completion status of a course module
+"""
+type format_pathway_course_activity_completion {
+  """
+  The course module id
+  """
+  cmid: core_id!
+  """
+  Does the course module have completion enabled
+  """
+  activitycompletionenabled: Boolean!
+  """
+  The type of completion tracking the course module uses.
+  """
+  activitycompletiontracking: format_pathway_course_activity_completion_tracking!
+  """
+  Has the course module been completed
+  """
+  completionstatus: Boolean!
+  """
+  The activity url
+  """
+  activity_url: String
+  """
+  Course module completion status description
+  """
+  completion_status_description: String
+}
+
+"""
+The user course navigation
+"""
+type format_pathway_get_course_user_navigation {
+  """
+  The course user navigation name
+  """
+  name: String!
+  """
+  The course user navigation url
+  """
+  url: String!
+  """
+  The course user navigation title
+  """
+  title: String!
+}
+
+"""
+The header information to display when a pathway course is loaded
+"""
+type format_pathway_course_header_info {
+  """
+  The course ID that confirms the same course that was requested was returned
+  """
+  id: core_id!
+  """
+  The display name of the course in the header
+  """
+  full_name(format: core_format = PLAIN): String!
+  """
+  A link to the header image of the course
+  """
+  image_url: String
+}
+
+"""
+Key completion information to be displayed in a pathway course header
+"""
+type format_pathway_course_completion_for_header {
+  """
+  The enablecompletion (enable completion tracking) flag for the course.
+  This is set to false when the user does not have access to the course (e.g. not enrolled)
+  """
+  completionenabled: Boolean!
+  """
+  An array of course completion information. We present this information in the same way
+  as it is returned by the core_course type, for consistency.
+  When the user does not have access to the course, this field is an empty array.
+  """
+  completion: format_pathway_course_completion_for_header_substring_information
+}
+
+"""
+Key completion information for a single course. This information will be displayed in a pathway course header.
+"""
+type format_pathway_course_completion_for_header_substring_information {
+  """
+  This is the mapped enum value corresponding to the statuskey below.
+  """
+  status: String!
+  """
+  This is the readable key for the status. It indicates which lozenge will appear in the header.
+  """
+  statuskey: String!
+  """
+  A percentage value between 0.00 and 100.00 representing the completion of the course.
+  """
+  progress: Float!
+}
+
+"""
+Result of non interactive enrolment.
+"""
+type format_pathway_request_non_interactive_enrol_result {
+  """
+  Whether to enrol the course.
+  """
+  success: Boolean!
+  """
+  Redirect application url.
+  """
+  redirect_url: String!
+}
+
+extend type Mutation {
+  """
+  Mutation to request non interative self enrolment for the pathway format course.
+  """
+  format_pathway_request_non_interactive_enrol(
+    """
+    The subject course ID
+    """
+    course_id: core_id!
+  ): Boolean!
+    @deprecated(
+      reason: "Using format_pathway_request_non_interactive_enrol_v2 instead"
+    )
+
+  """
+  Mutation to request non interative self enrolment for the pathway format course.
+  """
+  format_pathway_request_non_interactive_enrol_v2(
+    """
+    The subject course ID
+    """
+    course_id: core_id!
+  ): format_pathway_request_non_interactive_enrol_result!
+}

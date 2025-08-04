@@ -1,0 +1,7 @@
+{
+  "component": "format_pathway",
+  "vendor": "totara",
+  "dependencies": [
+    "core_course"
+  ]
+}

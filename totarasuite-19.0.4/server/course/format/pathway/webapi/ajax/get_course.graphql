@@ -1,0 +1,7 @@
+query format_pathway_get_course($course_id: core_id!) {
+  core_course: format_pathway_get_course_header_info(course_id: $course_id) {
+    id
+    full_name
+    image_url
+  }
+}

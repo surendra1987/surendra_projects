@@ -1,0 +1,891 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/browser/SamplesPage.vue?vue&type=style&index=0&id=55313d90&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samples {
+  &__filter {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__results {
+    display: flex;
+    flex-direction: column;
+    max-height: 50vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  &__result {
+    display: block;
+    padding: var(--gap-1) var(--gap-2);
+    color: var(--color-state);
+    border-radius: 3px;
+
+    &--selected,
+    &--selected:focus {
+      color: var(--color-neutral-1);
+      background-color: var(--color-state);
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-neutral-1);
+      background-color: var(--color-state-hover);
+    }
+  }
+
+  &__resultGroupHeader {
+    margin-top: var(--gap-1);
+    color: var(--color-neutral-6);
+    font-weight: bold;
+    font-size: font-size-px(11);
+    text-transform: uppercase;
+  }
+
+  &--highlight {
+    color: pink;
+    background: pink;
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/sample_parts/misc/SamplesCode.vue?vue&type=style&index=0&id=6955f2a7&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samplesCode {
+  &__box {
+    margin: var(--gap-4) 0;
+    padding: var(--gap-4);
+    background-color: var(--color-neutral-3);
+    border: 1px solid var(--color-neutral-5);
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/sample_parts/misc/SamplesExample.vue?vue&type=style&index=0&id=467559c0&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samplesExample {
+  margin-top: var(--gap-4);
+
+  &__box {
+    padding: var(--gap-4);
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/sample_parts/misc/SamplesPropCtl.vue?vue&type=style&index=0&id=c45a1b24&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samplesCtl {
+  &__box {
+    margin: var(--gap-4) 0;
+    padding: var(--gap-4);
+    background-color: var(--color-neutral-3);
+    border: 1px solid var(--color-neutral-5);
+  }
+
+  &__optional {
+    margin: var(--gap-4) 0;
+    padding-bottom: var(--gap-1);
+    border-bottom: 1px solid var(--color-neutral-5);
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/core_course/CourseAdder.vue?vue&type=style&index=0&id=433ff8ee&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samplesCourseAdder {
+  &__selected {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/editor_weka/Weka.vue?vue&type=style&index=0&id=66c67523&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-sample-weka {
+  &__json {
+    white-space: pre;
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/totara_engage/navigation/NavigationPill.vue?vue&type=style&index=0&id=f003c328&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samples-navigationPill {
+  &__pillBar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-3);
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/MiniProfileCard.vue?vue&type=style&index=0&id=d2c404b6&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samples-miniProfileCard {
+  display: flex;
+  flex-direction: column;
+
+  &__card {
+    margin-bottom: var(--gap-3);
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/OverflowDetector.vue?vue&type=style&index=0&id=a9371556&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-sampleOverflow {
+  &__items {
+    display: flex;
+  }
+
+  &__item {
+    flex-shrink: 0;
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/Popover.vue?vue&type=style&index=0&id=61241a48&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samplePopover {
+  &__buttonRow {
+    display: flex;
+    > * + * {
+      margin-left: var(--gap-4);
+    }
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/ProgressBar.vue?vue&type=style&index=0&id=7b528c49&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-testProgressBar {
+  width: 400px;
+  padding: rem-px(10);
+  background-color: #767676;
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/Responsive.vue?vue&type=style&index=0&id=b1796a3e&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-responsive-example .tui-grid {
+  background-color: var(--color-secondary);
+  * {
+    background-color: var(--color-state);
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/TagList.vue?vue&type=style&index=0&id=56d0b17b&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-tagListWrapper {
+  width: 700px;
+}
+.tui-customTag {
+  padding: rem-px(4);
+  border: 1px solid var(--btn-text-color);
+  border-radius: 6px;
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/VirtualScroll.vue?vue&type=style&index=0&id=4b17239b&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-sample-virtualScroll {
+  &__container {
+    height: 600px;
+    overflow: auto;
+  }
+
+  &__row {
+    margin-bottom: var(--gap-4);
+    padding: var(--gap-4);
+    background-color: #ddd;
+  }
+
+  /* add margin between grid rows (except last)*/
+  &__grid-row:not(:last-child) {
+    margin-bottom: var(--gap-5);
+  }
+
+  &__grid-card {
+    height: rem-px(200);
+    padding: var(--gap-4);
+    background-color: #ddd;
+  }
+
+  &__loader-wrapper {
+    padding: 1em;
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/adder/IndividualAdder.vue?vue&type=style&index=0&id=ccb8c852&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samplesIndividualsAdder {
+  &__selected {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/buttons/ActionLink.vue?vue&type=style&index=0&id=73aaf9cb&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-testActionLink {
+  h3 {
+    margin-top: var(--gap-6);
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/buttons/ButtonAria.vue?vue&type=style&index=0&id=462e2f54&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samples-buttonAriaSimple {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--gap-1) var(--gap-2);
+  color: var(--color-neutral-1);
+  background: var(--color-neutral-6);
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-user-select: none;
+          user-select: none;
+
+  &:hover,
+  &:active {
+    background: var(--color-neutral-7);
+  }
+
+  &:focus-visible {
+    @include tui-focus();
+  }
+
+  &[aria-disabled='true'] {
+    background: var(--color-neutral-5);
+    cursor: default;
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/buttons/FormRowActionButtons.vue?vue&type=style&index=0&id=77ca19d0&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-testButton {
+  h3 {
+    margin-top: var(--gap-6);
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/card/CardScroller.vue?vue&type=style&index=0&id=73a9202c&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samples-cardScroller {
+  display: flex;
+  flex-flow: column;
+  gap: var(--gap-4);
+
+  &__item {
+    min-width: var(--tui-card-default-width);
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/card/LearningCard.vue?vue&type=style&index=0&id=4a2823e0&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-learningCard-example {
+  &__cardContainer {
+    &--size-default {
+      width: var(--tui-card-default-width);
+    }
+
+    &--size-sm {
+      width: var(--tui-card-sm-width);
+    }
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/decor/Arrow.vue?vue&type=style&index=0&id=36352c02&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-testArrow {
+  &--box {
+    position: relative;
+    width: 50%;
+    height: 100px;
+    background: var(--color-neutral-1);
+    border: 1px solid var(--color-neutral-5);
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/drag_drop/DragDrop.vue?vue&type=style&index=0&id=3a736076&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-sampleDragDrop {
+  &--scrollAll &__droppables {
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+
+  &__table-toggle {
+    margin-top: var(--gap-2);
+  }
+
+  &__dragLists {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__dragList {
+    width: 200px;
+    margin-right: 50px;
+    padding: var(--gap-2);
+    background: var(--color-neutral-4);
+    transition: background-color 0.15s;
+
+    &--valid {
+      background: #d2edf9;
+    }
+
+    > [data-tui-draggable-placeholder] {
+      margin-bottom: var(--gap-2);
+    }
+  }
+
+  &__draggableItem {
+    margin-bottom: var(--gap-2);
+    padding: var(--gap-4);
+    background: white;
+    border: 1px solid black;
+    transition: box-shadow 0.15s;
+    -webkit-user-select: none;
+            user-select: none;
+
+    &--dragging {
+      box-shadow: var(--shadow-3);
+    }
+  }
+
+  &__dragGrid {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+
+    &-item {
+      position: relative;
+      display: flex;
+      flex-grow: 0;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+      height: 180px;
+      margin: var(--gap-2);
+      padding: var(--gap-4);
+      background: white;
+      border: 1px solid black;
+      transition: box-shadow 0.15s;
+      -webkit-user-select: none;
+              user-select: none;
+
+      &-moveIcon {
+        position: absolute;
+        top: var(--gap-2);
+        left: var(--gap-2);
+        display: none;
+      }
+
+      &:hover &-moveIcon,
+      &--dragging &-moveIcon {
+        display: block;
+      }
+    }
+
+    &-item-transition-move {
+      transition: transform 0.25s;
+    }
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/dropdown/Dropdown.vue?vue&type=style&index=0&id=73e78d72&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-testDropdown__wrapper {
+  display: flex;
+
+  & > * + * {
+    margin-left: var(--gap-1);
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/editor/Editor.vue?vue&type=style&index=0&id=f6038a1c&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-sampleEditor {
+  &__editor {
+    height: 100%;
+  }
+
+  &__source {
+    white-space: pre;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/form/InputGroup.vue?vue&type=style&index=0&id=321f833a&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-testInputGroup {
+  &__button {
+    min-width: rem-px(60);
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/form/Range.vue?vue&type=style&index=0&id=2e8e721f&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-testRange {
+  &__code {
+    display: inline-block;
+    margin: 0 2px -1px;
+    padding: 0 3px;
+    text-decoration: inherit;
+    vertical-align: baseline;
+    background-color: #f4f5f7;
+    background-clip: padding-box;
+    border: 1px solid #dfe1e6;
+    border-radius: 3px;
+  }
+  &__description {
+    ul {
+      margin: 10px 0 0;
+    }
+    li {
+      margin-left: 20px;
+    }
+  }
+  &__selectedValue {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/grid/Grid.vue?vue&type=style&index=0&id=97aa9edc&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-grid-example {
+  .tui-grid-item {
+    position: relative; /* parental control of popover trigger position */
+    display: flex;
+    background-color: var(--color-neutral-4);
+
+    textarea {
+      overflow: hidden;
+    }
+
+    .tui-popoverFrame {
+      width: 500px;
+      max-width: 500px;
+    }
+  }
+
+  &__itemOptions {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 1;
+  }
+
+  .tui-grid--debug .tui-grid-item {
+    border-color: var(--color-prompt-info);
+
+    &--wrapped-gap .tui-grid-item--wrapped {
+      border-color: var(--color-prompt-info);
+    }
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/loader/SkeletonContent.vue?vue&type=style&index=0&id=fbd4d646&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-sampleSkeletonContent {
+  &__wrap {
+    display: flex;
+
+    & > * + * {
+      margin-left: var(--gap-4);
+    }
+  }
+
+  &__img {
+    width: 180px;
+    height: 99px;
+    background: var(--color-neutral-3);
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__title {
+    margin-top: 0;
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/notifications/NotificationBanner.vue?vue&type=style&index=0&id=1989d22a&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-sampleNotificationBannerCard {
+  align-items: center;
+  justify-content: center;
+  padding: var(--gap-4);
+
+  & > * + * {
+    margin-left: var(--gap-2);
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/progressTracker/ProgressTrackerNav.vue?vue&type=style&index=0&id=3b60a96e&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samples__ProgressTracker__wrapper {
+  display: flex;
+  gap: 50px;
+
+  &--vertical {
+    flex-direction: row;
+
+    .tui-samples__ProgressTracker__content {
+      width: calc(50% - 50px);
+    }
+  }
+  &--horizontal {
+    flex-direction: column;
+  }
+}
+.tui-samples__ProgressTracker__icon--done {
+  width: rem-px(16);
+  height: rem-px(16);
+  margin-top: 2px;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/sidePanel/SidePanel.vue?vue&type=style&index=0&id=2ca2e324&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-sidePanelExample {
+  height: 100%;
+
+  &__content {
+    padding: var(--gap-8);
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/sidePanel/SidePanelNav.vue?vue&type=style&index=0&id=49393685&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-sidePanelNavExample {
+  @include font(body);
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/tree/Tree.vue?vue&type=style&index=0&id=9d9ab0dc&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-sample__tree {
+  max-width: 300px;
+
+  &-side {
+    display: flex;
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/treeview/TreeView.vue?vue&type=style&index=0&id=4bcc49d2&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-sample__treeView {
+  max-width: 300px;
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/variables/Colours.vue?vue&type=style&index=0&id=ef6da71c&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-colourSamplesBox {
+  width: 30px;
+  height: 30px;
+}
+
+.tui-colourSamplesBox--primary {
+  background: var(--color-primary);
+}
+
+.tui-colourSamplesBox--secondary {
+  background: var(--color-secondary);
+}
+
+.tui-colourSamplesBox--tertiary {
+  background: var(--color-tertiary);
+}
+
+.tui-colourSamplesBox--state {
+  background: var(--color-state);
+}
+
+.tui-colourSamplesBox--stateHover {
+  background: var(--color-state-hover);
+}
+
+.tui-colourSamplesBox--stateFocus {
+  background: var(--color-state-focus);
+}
+
+.tui-colourSamplesBox--stateActive {
+  background: var(--color-state-active);
+}
+
+.tui-colourSamplesBox--stateHighlight {
+  background: var(--color-state-highlight-neutral);
+}
+
+.tui-colourSamplesBox--stateDisabled {
+  background: var(--color-state-disabled);
+}
+
+.tui-colourSamplesBox--promptInfo {
+  background: var(--color-prompt-info);
+}
+
+.tui-colourSamplesBox--promptInfoBg {
+  background: var(--color-prompt-info-bg);
+}
+
+.tui-colourSamplesBox--promptAlert {
+  background: var(--color-prompt-alert);
+}
+
+.tui-colourSamplesBox--promptAlertBg {
+  background: var(--color-prompt-alert-bg);
+}
+
+.tui-colourSamplesBox--promptWarning {
+  background: var(--color-prompt-warning);
+}
+
+.tui-colourSamplesBox--promptWarningBg {
+  background: var(--color-prompt-warning-bg);
+}
+
+.tui-colourSamplesBox--promptSuccess {
+  background: var(--color-prompt-success);
+}
+
+.tui-colourSamplesBox--promptSuccessBg {
+  background: var(--color-prompt-success-bg);
+}
+
+.tui-colourSamplesBox--neutralOne {
+  background: var(--color-neutral-1);
+}
+
+.tui-colourSamplesBox--neutralTwo {
+  background: var(--color-neutral-2);
+}
+
+.tui-colourSamplesBox--neutralThree {
+  background: var(--color-neutral-3);
+}
+
+.tui-colourSamplesBox--neutralFour {
+  background: var(--color-neutral-4);
+}
+
+.tui-colourSamplesBox--neutralFive {
+  background: var(--color-neutral-5);
+}
+
+.tui-colourSamplesBox--neutralSix {
+  background: var(--color-neutral-6);
+}
+
+.tui-colourSamplesBox--neutralSeven {
+  background: var(--color-neutral-7);
+}
+
+.tui-colourSamplesBox--chartOne {
+  background: var(--color-chart-background-1);
+}
+
+.tui-colourSamplesBox--chartOneLight {
+  background: var(--color-chart-transparent-1);
+}
+
+.tui-colourSamplesBox--chartTwo {
+  background: var(--color-chart-background-2);
+}
+
+.tui-colourSamplesBox--chartTwoLight {
+  background: var(--color-chart-transparent-2);
+}
+
+.tui-colourSamplesBox--chartThree {
+  background: var(--color-chart-background-3);
+}
+
+.tui-colourSamplesBox--chartThreeLight {
+  background: var(--color-chart-transparent-3);
+}
+
+.tui-colourSamplesBox--chartFour {
+  background: var(--color-chart-background-4);
+}
+
+.tui-colourSamplesBox--chartFourLight {
+  background: var(--color-chart-transparent-4);
+}
+
+.tui-colourSamplesBox--chartFive {
+  background: var(--color-chart-background-5);
+}
+
+.tui-colourSamplesBox--chartFiveLight {
+  background: var(--color-chart-transparent-5);
+}
+
+.tui-colourSamplesBox--chartSix {
+  background: var(--color-chart-background-6);
+}
+
+.tui-colourSamplesBox--chartSixLight {
+  background: var(--color-chart-transparent-6);
+}
+
+.tui-colourSamplesBox--chartSeven {
+  background: var(--color-chart-background-7);
+}
+
+.tui-colourSamplesBox--chartSevenLight {
+  background: var(--color-chart-transparent-7);
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/variables/Gaps.vue?vue&type=style&index=0&id=09aa6422&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-gapSamplesBox {
+  height: 30px;
+  background: var(--color-state);
+
+  &--one {
+    width: var(--gap-1);
+  }
+
+  &--two {
+    width: var(--gap-2);
+  }
+
+  &--three {
+    width: var(--gap-3);
+  }
+
+  &--four {
+    width: var(--gap-4);
+  }
+
+  &--five {
+    width: var(--gap-5);
+  }
+
+  &--six {
+    width: var(--gap-6);
+  }
+
+  &--seven {
+    width: var(--gap-7);
+  }
+
+  &--eight {
+    width: var(--gap-8);
+  }
+
+  &--nine {
+    width: var(--gap-9);
+  }
+
+  &--ten {
+    width: var(--gap-10);
+  }
+
+  &--eleven {
+    width: var(--gap-11);
+  }
+
+  &--twelve {
+    width: var(--gap-12);
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui/variables/Typography.vue?vue&type=style&index=0&id=0ca99e34&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-samples-typography {
+  display: flex;
+  flex-flow: column;
+  gap: var(--gap-12);
+
+  $fonts: h1, h2, h3, h4, h5, h6, display-lg, display-md, display-sm, display-xs,
+    body-xl, body-lg, body, body-sm, body-xs;
+
+  @each $font in $fonts {
+    &__#{$font} {
+      @include font($font);
+    }
+  }
+
+  &__codeCol {
+    display: flex;
+    flex-flow: column;
+    gap: var(--gap-1);
+    font-family: var(--font-family-monospace);
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui_charts/ChartJs.vue?vue&type=style&index=0&id=0d9e47ac&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-exampleChartJs {
+  display: flex;
+  flex-direction: column;
+
+  & > * + * {
+    margin-top: rem-px(70);
+  }
+
+  &__chart {
+    align-self: center;
+    width: 515px;
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1309.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1309.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/samples/src/components/samples/tui_charts/PercentageDoughnut.vue?vue&type=style&index=0&id=6c2a4129&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-exampleChartJs {
+  display: flex;
+  flex-direction: column;
+
+  & > * + * {
+    margin-top: rem-px(70);
+  }
+
+  &__chart {
+    align-self: center;
+    width: 515px;
+  }
+}
+

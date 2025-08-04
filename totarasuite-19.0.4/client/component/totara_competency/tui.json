@@ -1,0 +1,8 @@
+{
+  "component": "totara_competency",
+  "vendor": "totara",
+  "entry": "./src/js/internal/entry.js",
+  "dependencies": [
+    "tui_charts"
+  ]
+}

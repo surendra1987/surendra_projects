@@ -1,0 +1,11 @@
+This files describes API changes in /client/component/totara_program,
+information provided here is intended especially for developers.
+
+=== 19.0.4 ===
+* Added accessibility fixes on dropdown button's aria-expanded in CourseSet.vue
+  * Template changes
+
+=== 19.0 ===
+
+* Updated CoursesGrid.vue to use learning card component and css grid
+  * Template, JS & SCSS changes

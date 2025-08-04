@@ -1,0 +1,118 @@
+"""
+Filters for retrieving subject instance overview items
+"""
+input mod_perform_subject_instance_overview_filters {
+  id: param_integer!
+  period: param_integer!
+}
+
+"""
+Parameters to retrieve a set of subject instance overview items
+"""
+input mod_perform_subject_instance_overview_input {
+  filters: mod_perform_subject_instance_overview_filters!
+}
+
+"""
+A list of state counts for subject instance overview items
+"""
+type mod_perform_subject_instance_overview_state_counts {
+  completed: Int!
+  progressed: Int!
+  not_progressed: Int!
+  not_started: Int!
+}
+
+"""
+Last update information for a subject instance overview item
+"""
+type mod_perform_subject_instance_overview_item_last_update {
+  date(format: core_date_format = DATELONG): core_date
+  description(format: core_format = PLAIN): String
+}
+
+"""
+Due date information for a subject instance overview item
+"""
+type mod_perform_subject_instance_overview_item_due {
+  date(format: core_date_format = DATELONG): core_date
+  due_soon: Boolean!
+  overdue: Boolean!
+}
+
+"""
+A subject instance overview item
+"""
+type mod_perform_subject_instance_overview_item {
+  id: Int!
+  name(format: core_format = PLAIN): String!
+  url(format: core_format = PLAIN): String
+  completion_date(format: core_date_format = DATELONG): core_date
+  description(format: core_format = PLAIN): String
+  assignment_date(format: core_date_format = DATELONG): core_date!
+  job_assignment(format: core_format = PLAIN): String
+  last_update: mod_perform_subject_instance_overview_item_last_update!
+    @cache(merge: true)
+  due: mod_perform_subject_instance_overview_item_due! @cache(merge: true)
+}
+
+"""
+A collection of subject instance overview items
+"""
+type mod_perform_subject_instance_overview_items {
+  completed: [mod_perform_subject_instance_overview_item!]!
+  progressed: [mod_perform_subject_instance_overview_item!]!
+  not_progressed: [mod_perform_subject_instance_overview_item!]!
+  not_started: [mod_perform_subject_instance_overview_item!]!
+}
+
+"""
+Result type for subject instance overview
+"""
+type mod_perform_subject_instance_overview_result {
+  total: Int!
+  due_soon: Int!
+  state_counts: mod_perform_subject_instance_overview_state_counts!
+  activities: mod_perform_subject_instance_overview_items!
+}
+
+"""
+Perform overview results
+"""
+type mod_perform_subject_instance_overview_by_status_result {
+  total: Int!
+  activities: [mod_perform_subject_instance_overview_item!]!
+}
+
+"""
+Parameters of the filter to retrieve a set of performance activities by status
+"""
+input mod_perform_subject_instance_overview_by_status_filters_input {
+  id: param_integer!
+  period: param_integer!
+  status: param_text!
+}
+
+"""
+Parameters to retrieve a set of performance activities by status
+"""
+input mod_perform_subject_instance_overview_by_status_input {
+  filters: mod_perform_subject_instance_overview_by_status_filters_input!
+  pagination: core_pagination_input!
+}
+
+extend type Query {
+  """
+  Query for subject instance overview
+  """
+  mod_perform_subject_instance_overview(
+    input: mod_perform_subject_instance_overview_input!
+  ): mod_perform_subject_instance_overview_result
+
+  """
+  Query for subject instances filter by the status
+  """
+  mod_perform_subject_instance_overview_by_status(
+    input: mod_perform_subject_instance_overview_by_status_input!
+  ): mod_perform_subject_instance_overview_by_status_result
+}

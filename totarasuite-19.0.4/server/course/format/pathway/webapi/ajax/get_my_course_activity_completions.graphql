@@ -1,0 +1,9 @@
+query format_pathway_get_my_course_activity_completions($course_id: core_id!) {
+  format_pathway_get_my_course_activity_completions(course_id: $course_id) {
+    cmid
+    activitycompletiontracking
+    completionstatus
+    activity_url
+    completion_status_description
+  }
+}
