@@ -1,0 +1,94 @@
+<?php
+/*
+ * This file is part of Totara LMS
+ *
+ * Copyright (C) 2018 onwards Totara Learning Solutions LTD
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author Nathan Lewis <nathan.lewis@totaralearning.com>
+ * @package totara_catalog
+ */
+
+/**
+ * Local database upgrade script
+ *
+ * @param   integer $oldversion Current (pre-upgrade) local db version timestamp
+ * @return  boolean $result
+ */
+function xmldb_totara_catalog_upgrade($oldversion) {
+    global $DB;
+
+    $dbman = $DB->get_manager();
+
+    // Totara 13.0 release line.
+
+    if ($oldversion < 2021031000) {
+        global $DB;
+
+        // Find and remove catalog previews for GIF images.
+        $query = "
+            SELECT DISTINCT preview.*
+              FROM {files} AS preview
+              JOIN {files} AS origin
+                ON preview.filename = origin.contenthash
+             WHERE preview.component = 'core'
+               AND preview.filearea = 'preview'
+               AND preview.filepath = '/totara_catalog_medium/ventura/'
+               AND origin.id IS NOT NULL
+               AND origin.component IN ('course', 'totara_program', 'engage_article')
+               AND origin.filearea IN ('images', 'image')
+               AND origin.mimetype = 'image/gif'
+        ";
+
+        $fstorage = get_file_storage();
+        $records = $DB->get_records_sql($query);
+        foreach ($records as $record) {
+            $fstorage->get_file_instance($record)->delete();
+        }
+
+        upgrade_plugin_savepoint(true, 2021031000, 'totara', 'catalog');
+    }
+
+    if ($oldversion < 2024111900) {
+        // default value of placeholders is changing -- keep it as is for existing installs
+        if (!get_config('totara_catalog', 'item_additional_text')) {
+            $value = json_encode([
+                'course' => ['catalog_learning_type', 'course_category'],
+                'certification' => ['catalog_learning_type', 'course_category'],
+                'program' => ['catalog_learning_type', 'course_category'],
+            ]);
+            set_config('item_additional_text', $value, 'totara_catalog');
+        }
+
+        upgrade_plugin_savepoint(true, 2024111900, 'totara', 'catalog');
+    }
+
+    if ($oldversion < 2025032701) {
+        $table = new xmldb_table('catalog_exclusions');
+
+        $table->add_field('id', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, XMLDB_SEQUENCE);
+        $table->add_field('objectid', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL);
+        $table->add_field('objecttype', XMLDB_TYPE_CHAR, '100', null, XMLDB_NOTNULL);
+        $table->add_key('primary', XMLDB_KEY_PRIMARY, array('id'));
+
+        if (!$dbman->table_exists($table)) {
+            $dbman->create_table($table);
+        }
+
+        upgrade_plugin_savepoint(true, 2025032701, 'totara', 'catalog');
+    }
+
+    return true;
+}

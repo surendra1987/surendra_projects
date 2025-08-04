@@ -1,0 +1,17 @@
+.memory-usage-line {
+    fill: none;
+    stroke: var(--color-chart-background-1);
+    stroke-width: 2px;
+}
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: 10rem;
+    padding: var(--gap-1) var(--gap-2);
+    @include font(body-sm);
+    background: black;
+    color: white;
+    border: 0;
+    border-radius: var(--border-radius-normal);
+    pointer-events: none;
+}

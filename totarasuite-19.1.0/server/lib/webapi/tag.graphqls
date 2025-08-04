@@ -1,0 +1,13 @@
+"""
+Tag type object, containing information about a tag.
+"""
+type core_tag {
+  """
+  Name of tag.
+  """
+  name: String!
+  """
+  Rawname of tag.
+  """
+  rawname: String!
+}

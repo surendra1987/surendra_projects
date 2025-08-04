@@ -1,0 +1,27 @@
+query perform_goal_get_goal_tasks($goal_reference: perform_goal_reference!) {
+  perform_goal_get_goal_tasks(goal_reference: $goal_reference) {
+    goal_id
+    tasks {
+      __typename
+      id
+      goal_id
+      description
+      completed_at
+      created_at
+      updated_at
+      resource_exists
+      resource_can_view
+      resource {
+        __typename
+        id
+        task_id
+        resource_id
+        resource_type
+        created_at
+        resource_custom_data
+      }
+    }
+    total
+    completed
+  }
+}

@@ -1,0 +1,39 @@
+extend type Query {
+  """
+  Get the ID of all courses shared to the workspace.
+  """
+  engage_course_ids_shared_to_workspace(
+    """
+    ID of the workspace.
+    """
+    workspace_id: core_id!
+  ): [core_id!]!
+
+  """
+  Get the ID of all courses shared to the playlist.
+  """
+  engage_course_ids_added_to_playlist(
+    """
+    ID of the playlist.
+    """
+    playlist_id: core_id!
+  ): [core_id!]!
+}
+
+extend type Mutation {
+  """
+  Share courses to the recipient.
+  """
+  engage_course_share_with_recipient_by_ids(
+    ids: [core_id!]!
+    recipient: totara_engage_recipient_in!
+  ): Boolean!
+
+  """
+  Share courses to the playlist.
+  """
+  engage_course_add_to_playlist(
+    playlist_id: core_id!
+    ids: [core_id!]!
+  ): Boolean!
+}

@@ -1,0 +1,522 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/ExplorePage.vue?vue&type=style&index=0&id=4eedf615&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-explore {
+  margin-bottom: var(--gap-6);
+
+  &__subtitle {
+    @include font(body-lg);
+    margin: var(--gap-2) 0 var(--gap-6) 0;
+    color: var(--color-neutral-6);
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: column;
+    gap: var(--gap-4);
+    margin-top: var(--gap-3);
+  }
+
+  &__loadMoreContainer {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/filtering/FilterBar.vue?vue&type=style&index=0&id=78f39f2e&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-filterBar {
+  &__browseButtons {
+    display: flex;
+    padding: calc(var(--gap-base) * 1);
+
+    &::before {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      border-top: var(--border-width-thin) solid var(--filter-bar-border-color);
+      content: '';
+    }
+
+    &-reset {
+      margin: var(--gap-4) 0 var(--gap-1) var(--gap-1);
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/filtering/SortBar.vue?vue&type=style&index=0&id=1f27ed03&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-sortBar {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--gap-3) var(--gap-6);
+  align-items: center;
+  justify-content: space-between;
+
+  &__start {
+    display: flex;
+    gap: var(--gap-2);
+    align-items: center;
+
+    &-suggestion > a {
+      cursor: pointer;
+    }
+  }
+
+  &__copy {
+    flex: 1;
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: column;
+    gap: var(--gap-2);
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/filtering/TreeFilter.vue?vue&type=style&index=0&id=d6385d90&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-treeFilter {
+  padding: gap(1);
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/filtering/filter_bar/FilterBarExplore.vue?vue&type=style&index=0&id=c16e59ae&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-filterBarExplore {
+  display: flex;
+  flex-direction: column;
+
+  &__bar {
+    display: flex;
+    flex-direction: row;
+    height: rem-px(64);
+    background-color: var(--color-neutral-3);
+    border-radius: var(--border-radius-curved);
+  }
+
+  &:has(&__search input:focus) &__bar {
+    @include tui-focus;
+    background-color: var(--color-background);
+    outline-offset: 0;
+  }
+
+  &--small &__bar {
+    height: rem-px(52);
+  }
+
+  &__search {
+    display: flex;
+    flex: 1;
+    gap: gap(4);
+    padding-right: gap(2);
+  }
+
+  &__section {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    padding-block: gap(3);
+  }
+
+  &__sectionInner {
+    display: flex;
+    flex: 1;
+    border-left: var(--border-width-thin) solid var(--color-neutral-4);
+    padding-inline: gap(3);
+  }
+
+  &--small &__sectionInner {
+    padding-inline: gap(2);
+  }
+
+  &__section--only &__sectionInner {
+    border-left: none;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/filtering/filter_bar/FiltersPopover.vue?vue&type=style&index=0&id=2a8a8c0a&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-filterBarAreaPopover {
+  white-space: nowrap;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-6);
+    padding: 0 var(--gap-1) var(--gap-1) var(--gap-1);
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding-top: var(--gap-4);
+    padding-bottom: var(--gap-1);
+
+    &::before {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      border-top: var(--border-width-thin) solid var(--filter-bar-border-color);
+      content: '';
+    }
+
+    &-reset {
+      display: flex;
+      flex-grow: 1;
+      padding: var(--gap-5) var(--gap-1) 0;
+    }
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/filtering/filter_bar/SearchFilter.vue?vue&type=style&index=0&id=3528c651&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-searchFilter {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+
+  &__search {
+    flex: 1;
+    padding: 0 gap(10) 0 gap(14);
+    font-size: var(--form-input-font-size);
+    line-height: var(--form-input-line-height);
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      background-color: transparent;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: #717171;
+    }
+  }
+
+  &--small &__search {
+    padding-left: gap(4);
+  }
+
+  &__icon {
+    position: absolute;
+    left: gap(6);
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: var(--filter-search-icon-color);
+    pointer-events: none;
+  }
+
+  &__clearContainer {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    @include flex-center;
+  }
+
+  &__clearIcon {
+    color: var(--filter-search-clear-icon-color);
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/items/CatalogGrid.vue?vue&type=style&index=0&id=48bf3e43&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-catalogGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(var(--tui-card-default-width), 100%), 1fr)
+  );
+  gap: calc(var(--gap-card-grid) * 1.5) var(--gap-card-grid);
+
+  &__item-transition {
+    &-move,
+    &-enter-active,
+    &-leave-active {
+      transition: all 0.2s ease;
+      @media (prefers-reduced-motion: reduce) {
+        transition-duration: 0s;
+      }
+    }
+
+    &-enter-from,
+    &-leave-to {
+      transform: scale(0.8);
+      opacity: 0;
+      @media (prefers-reduced-motion: reduce) {
+        transform: unset;
+        opacity: unset;
+      }
+    }
+
+    &-leave-active {
+      display: none;
+    }
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/items/CatalogItemCard.vue?vue&type=style&index=0&id=068f1ac0&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-itemCard {
+  &__hero-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    aspect-ratio: 1;
+    padding: gap(1);
+    background: var(--color-neutral-1);
+    border-radius: 100%;
+
+    > img {
+      width: 1.5rem;
+      height: 1.5rem;
+      object-fit: contain;
+    }
+  }
+
+  &__mediaBottomOverlay {
+    display: flex;
+    flex-flow: column;
+    gap: gap(2);
+  }
+
+  &__logo {
+    align-self: end;
+    padding: gap(2);
+    background: var(--color-neutral-1);
+
+    & > img {
+      max-height: 1rem;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-flow: column;
+    gap: gap(2);
+    @include font(body-sm);
+  }
+
+  &__subtitleRow {
+    display: flex;
+    flex-flow: row wrap;
+    gap: gap(2);
+    justify-content: space-between;
+  }
+
+  &__iconPlaceholders {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Hide the placeholder icons until hover if hover is available*/
+  @media (hover: hover) {
+    &__iconPlaceholders {
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &:focus-within &__iconPlaceholders,
+    &:hover &__iconPlaceholders {
+      opacity: 1;
+    }
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/items/CatalogItemModal.vue?vue&type=style&index=0&id=5de43cad&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-itemModal {
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 0;
+    padding: gap(2);
+    overflow-y: auto;
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--color-neutral-4);
+    border-radius: calc(var(--modal-border-radius) - #{gap(2)});
+  }
+
+  &__close {
+    position: absolute;
+    top: gap(6);
+    right: gap(6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-backdrop-contrast);
+    background-color: var(--color-backdrop-standard);
+    border: none;
+    border-radius: 100%;
+
+    &:hover {
+      background-color: var(--color-backdrop-heavy);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: column;
+    gap: gap(6);
+    margin-top: gap(2);
+    padding: gap(4);
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: rem-px(583);
+    color: var(--color-neutral-6);
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__detailsLink {
+    display: flex;
+    gap: gap(2);
+    align-items: center;
+    padding: gap(4);
+    background: var(--color-neutral-2);
+    border: var(--border-width-thin) solid var(--color-neutral-5);
+    border-radius: var(--border-radius-normal);
+
+    &-description {
+      flex: 1;
+    }
+  }
+
+  &__placeholders {
+    display: flex;
+    flex-flow: column;
+    gap: gap(4);
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/items/placeholders/IconPlaceholders.vue?vue&type=style&index=0&id=b319cd68&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-iconPlaceholders {
+  display: flex;
+  flex-flow: row wrap;
+  gap: gap(2);
+
+  &__item > img {
+    width: 1.4rem;
+    height: 1.4rem;
+    object-fit: contain;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/items/placeholders/TextPlaceholders.vue?vue&type=style&index=0&id=02d83a00&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-textPlaceholders {
+  display: flex;
+  flex-flow: column;
+  gap: gap(2);
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/ui/EmptyState.vue?vue&type=style&index=0&id=975a221c&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-emptyState {
+  &__icon {
+    margin-bottom: var(--gap-6);
+    color: var(--color-neutral-6);
+    text-align: center;
+  }
+  &__text {
+    color: var(--color-neutral-7);
+    text-align: center;
+    &-result {
+      @include font(display-xs);
+      margin-bottom: var(--gap-3);
+    }
+    &-hint {
+      @include font(body-lg);
+      color: var(--color-neutral-6);
+    }
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/ui/FilterBarButton.vue?vue&type=style&index=0&id=72552962&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-filterBarButton {
+  $min-height: calc(var(--btn-line-height) + (var(--btn-padding-v)) * 2);
+
+  display: inline-flex;
+  gap: gap(2);
+  align-items: center;
+  justify-content: center;
+  min-width: $min-height;
+  max-width: 100%;
+  min-height: $min-height;
+  padding: var(--btn-padding-v) var(--btn-padding-h);
+  color: var(--color-text);
+  font-size: var(--btn-font-size);
+  line-height: var(--btn-line-height);
+  overflow-wrap: break-word;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+  transition: tui-transitions('button', background-color border-color);
+
+  &__content {
+    @include flex-center;
+  }
+
+  &:focus-visible {
+    @include tui-focus();
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &:active {
+    background-color: rgba(0, 0, 0, 0.07);
+  }
+
+  &__iconBefore {
+    @include flex-center;
+  }
+
+  &__iconAfter {
+    @include flex-center;
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1391.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1391.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_catalog/src/explore/ui/HeaderButtons.vue?vue&type=style&index=0&id=722fc414&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_catalog-exploreHeaderButtons {
+  display: flex;
+  gap: var(--gap-1);
+}
+

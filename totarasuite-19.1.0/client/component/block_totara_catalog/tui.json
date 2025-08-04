@@ -1,0 +1,7 @@
+{
+  "component": "block_totara_catalog",
+  "vendor": "totara",
+  "dependencies": [
+    "totara_catalog"
+  ]
+}

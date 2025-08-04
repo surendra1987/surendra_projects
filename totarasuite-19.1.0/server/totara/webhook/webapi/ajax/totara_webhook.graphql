@@ -1,0 +1,19 @@
+query totara_webhook_totara_webhook(
+  $input: totara_webhook_totara_webhook_reference!
+) {
+  totara_webhook: totara_webhook_totara_webhook(input: $input) {
+    item {
+      __typename
+      id
+      name
+      endpoint
+      events
+      immediate
+      created_at
+      updated_at
+      status
+      auth_config
+      auth_class
+    }
+  }
+}

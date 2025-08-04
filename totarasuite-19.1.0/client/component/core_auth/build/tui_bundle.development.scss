@@ -1,0 +1,233 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-888.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-888.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_auth/src/components/layout/Footer.vue?vue&type=style&index=0&id=672fd9b1&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_auth-footer {
+  display: flex;
+  flex-flow: column;
+  gap: var(--gap-2);
+  margin-top: var(--gap-6);
+  padding: var(--gap-6) var(--gap-8);
+  color: var(--footer-text-color);
+  background: var(--footer-bg-color);
+
+  p {
+    margin-bottom: var(--gap-2);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  &__poweredBy {
+    font-size: font-size-px(12);
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-888.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-888.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_auth/src/components/layout/LanguageSelect.vue?vue&type=style&index=0&id=1806040a&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_auth-languageSelect {
+  &__button {
+    display: flex;
+    align-items: center;
+    padding: var(--gap-2);
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    -webkit-user-select: none;
+            user-select: none;
+
+    &:focus {
+      @include tui-focus();
+      outline-color: currentColor;
+    }
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-888.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-888.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_auth/src/components/layout/LoginLayout.vue?vue&type=style&index=0&id=290e5ccd&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_auth-loginLayout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  &__panels {
+    flex-grow: 1;
+  }
+
+  &__panel-interface {
+    display: flex;
+    flex: auto;
+    flex-flow: column;
+    min-height: 100%;
+  }
+
+  &__panel-graphic {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    width: 50%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__contentWrap {
+    display: flex;
+    flex: auto;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--gap-8);
+  }
+
+  &__main {
+    width: 100%;
+    max-width: rem-px(400);
+  }
+
+  @media (min-width: $tui-screen-md) {
+    &--hasBackground &__panels {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &--hasBackground &__panel-interface {
+      width: 50%;
+    }
+
+    &--hasBackground &__panel-graphic {
+      display: flex;
+    }
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-888.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-888.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_auth/src/components/layout/LoginNav.vue?vue&type=style&index=0&id=14ff3210&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_auth-loginNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--gap-8);
+  color: var(--nav-text-color);
+  background-color: var(--nav-bg-color);
+
+  &__image {
+    height: rem-px(28);
+  }
+
+  &__lang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 0;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-888.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-888.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_auth/src/components/login/LoginForm.vue?vue&type=style&index=0&id=75bc8038&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_auth-loginForm {
+  &__options {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--gap-2);
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  &__submitWrap {
+    display: flex;
+    flex-flow: column;
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: column;
+    gap: var(--gap-6);
+  }
+
+  &__help {
+    display: flex;
+  }
+
+  &__heading {
+    @include font(h3);
+    margin-bottom: var(--gap-4);
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-888.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-888.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_auth/src/components/ui/StackChooser.vue?vue&type=style&index=0&id=b4b76502&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_auth-stackChooser {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-2);
+
+  &__option {
+    @include font(h4);
+    display: flex;
+    gap: var(--gap-4);
+    align-items: center;
+    justify-content: space-between;
+    padding: rem-px(10);
+    color: unset;
+    background: var(--color-neutral-1);
+    border: var(--border-width-thin) solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+    -webkit-user-select: none;
+            user-select: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: unset;
+      text-decoration: none;
+    }
+
+    &:focus {
+      @include tui-focus();
+    }
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2);
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-888.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-888.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/core_auth/src/pages/Login.vue?vue&type=style&index=0&id=7296fa04&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-core_auth-login {
+  display: flex;
+  flex-flow: column;
+  gap: var(--gap-6);
+
+  &__separator {
+    border: 1px solid var(--color-neutral-5);
+    border-width: 1px 0 0 0;
+  }
+
+  &__errorInner {
+    display: inline-flex;
+    @include font(body-sm);
+    padding: var(--gap-3);
+    color: var(--color-prompt-alert);
+    background-color: var(--color-prompt-alert-bg);
+    border-radius: 8px;
+  }
+
+  &__title {
+    margin: 0;
+  }
+}
+

@@ -1,0 +1,3 @@
+This files describes API changes in /ai/openai,
+information provided here is intended especially for developers.
+

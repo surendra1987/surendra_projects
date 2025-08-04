@@ -1,0 +1,10 @@
+query totara_comment_get_actor {
+  user: totara_comment_actor {
+    __typename
+    id
+    fullname
+    profileurl
+    profileimageurl
+    profileimagealt
+  }
+}

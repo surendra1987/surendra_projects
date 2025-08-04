@@ -1,0 +1,15 @@
+mutation perform_goal_update_progress(
+  $goal_reference: perform_goal_reference!
+  $input: perform_goal_update_progress_input!
+) {
+  perform_goal_update_progress_result: perform_goal_update_progress(
+    goal_reference: $goal_reference
+    input: $input
+  ) {
+    current_value
+    status {
+      id
+      label
+    }
+  }
+}

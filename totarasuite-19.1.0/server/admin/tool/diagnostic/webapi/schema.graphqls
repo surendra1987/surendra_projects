@@ -1,0 +1,34 @@
+"""
+Information about a provider.
+"""
+type tool_diagnostic_provider {
+  id: String!
+  name: String!
+  description: String!
+  enabled: Boolean!
+  whitelist: String!
+}
+
+"""
+Result about running the diagnostics
+"""
+type tool_diagnostic_run_diagnostics_result {
+  download_url: String!
+  download_filesize: Int!
+}
+
+extend type Query {
+  """
+  Get all providers.
+  """
+  tool_diagnostic_get_providers: [tool_diagnostic_provider!]!
+}
+
+extend type Mutation {
+  """
+  Run providers and return location to file created.
+  """
+  tool_diagnostic_run_diagnostics(
+    excluded_provider_ids: [param_alphanumext!]
+  ): tool_diagnostic_run_diagnostics_result!
+}

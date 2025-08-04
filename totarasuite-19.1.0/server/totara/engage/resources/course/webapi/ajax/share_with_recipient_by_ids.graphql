@@ -1,0 +1,9 @@
+mutation engage_course_share_with_recipient_by_ids(
+  $ids: [core_id!]!
+  $recipient: totara_engage_recipient_in!
+) {
+  shared: engage_course_share_with_recipient_by_ids(
+    ids: $ids
+    recipient: $recipient
+  )
+}

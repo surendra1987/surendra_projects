@@ -1,0 +1,506 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/action/CommentAction.vue?vue&type=style&index=0&id=046f8cca&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentAction {
+  display: flex;
+  justify-content: flex-start;
+
+  &__replyBox {
+    display: flex;
+
+    &-text {
+      &--small {
+        @include font(body-sm);
+      }
+    }
+  }
+
+  &__likeButton + &__replyBox {
+    margin-left: var(--gap-4);
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/action/CommentActionLink.vue?vue&type=style&index=0&id=6613aae4&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentActionLink {
+  &__link {
+    &--small {
+      @include font(body-sm);
+    }
+
+    &--disabled {
+      color: var(--color-neutral-5);
+      cursor: not-allowed;
+
+      &:hover,
+      &:focus {
+        color: var(--color-neutral-5);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/box/CommentBox.vue?vue&type=style&index=0&id=b6914844&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentBox {
+  height: 100%;
+
+  /* The parent that using this box should be able to override its padding.*/
+  padding: 0;
+
+  &--withBorder {
+    background-color: var(--color-neutral-3);
+    border: var(--border-width-thin) solid var(--color-neutral-5);
+
+    &.tui-commentBox--noForm {
+      /* When the form is not available for the comment box, it will leave us a trailing border. Therefore, this*/
+      /* modifier is in place in order to prevent that traing border.*/
+      border-bottom: none;
+    }
+  }
+
+  &__comments {
+    flex-grow: 1;
+  }
+
+  &__commentForm {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-top: var(--gap-4);
+
+    &--withBorder {
+      padding: var(--gap-4);
+      padding-top: 0;
+    }
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/box/CommentThread.vue?vue&type=style&index=0&id=1e49bcc7&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentThread {
+  &__actionLink {
+    &--withBorder {
+      margin-top: var(--gap-4);
+      margin-left: var(--gap-4);
+    }
+  }
+
+  &__comment {
+    &--large {
+      padding: 0 var(--gap-4);
+      padding-bottom: var(--gap-4);
+    }
+
+    &--withBorderBottom {
+      border-bottom: var(--border-width-thin) solid var(--color-neutral-5);
+    }
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--gap-4);
+    color: var(--color-neutral-6);
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/box/ReplyBox.vue?vue&type=style&index=0&id=40906373&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentReplyBox {
+  display: flex;
+  flex-direction: column;
+
+  &__replyLinkBox {
+    display: flex;
+    margin-top: var(--gap-2);
+    padding-top: var(--gap-2);
+
+    &--withSeparator {
+      border-top: var(--border-width-thin) solid var(--color-neutral-4);
+    }
+
+    &--withoutSeparator {
+      /* Hide the line, but keep the position as same.*/
+      border-top: var(--border-width-thin) solid transparent;
+    }
+
+    &-link {
+      @include font(body-sm);
+
+      &--disabled {
+        color: var(--color-neutral-5);
+        cursor: not-allowed;
+        &:hover,
+        &:focus {
+          color: var(--color-neutral-5);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &__reply {
+    padding-top: var(--gap-4);
+    border-top: var(--border-width-thin) solid var(--color-neutral-5);
+
+    &--large {
+      /* Override the margin-top for the reply card.*/
+      &.tui-commentReply {
+        margin-top: var(--gap-6);
+      }
+    }
+  }
+
+  &__replyForm {
+    width: 100%;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/box/SidePanelCommentBox.vue?vue&type=style&index=0&id=d9165692&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-sidePanelCommentBox {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  /* Overriding the comment box to make it fit with the sidepanel.*/
+  &__header {
+    margin: 0;
+    margin-bottom: var(--gap-4);
+    padding: 0;
+    padding-bottom: var(--gap-2);
+    font-size: font-size-px(14);
+    border-bottom: var(--border-width-normal) solid var(--color-neutral-5);
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .tui-commentBox {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      /* Overriding the comment thread to make it fit with the sidepanel*/
+      &__comments {
+        position: relative;
+        padding-right: var(--gap-2);
+        overflow: auto;
+
+        /* This is not support by IE or Edge.*/
+        scroll-behavior: smooth;
+
+        .tui-commentThread {
+          &__comment {
+            &:not(:first-child) {
+              padding-top: var(--gap-4);
+              border-top: var(--border-width-thin) solid var(--color-neutral-5);
+            }
+          }
+        }
+      }
+
+      &__commentForm {
+        padding-top: var(--gap-4);
+        border-top: var(--border-width-normal) solid var(--color-neutral-5);
+      }
+    }
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/card/CommentCard.vue?vue&type=style&index=0&id=489e6c04&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentCard {
+  display: flex;
+  flex-direction: column;
+
+  &__comment {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__profilePicture {
+    margin-right: var(--gap-2);
+  }
+
+  &__body {
+    flex: 1 1 auto;
+  }
+
+  &__header {
+    margin-bottom: var(--gap-2);
+  }
+
+  &__content {
+    margin-bottom: var(--gap-2);
+    padding-right: var(--gap-2);
+    overflow-wrap: break-word;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/card/CommentReplyHeader.vue?vue&type=style&index=0&id=4b116fce&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentReplyHeader {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  &__content {
+    flex-basis: 94%;
+
+    &--inline {
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+
+  &__link {
+    margin-bottom: var(--gap-2);
+
+    &--inline {
+      margin: 0;
+    }
+  }
+
+  &__timeDescription {
+    margin: 0;
+    @include font(body-sm);
+
+    &--inline {
+      margin-left: var(--gap-4);
+    }
+
+    span:not(:first-child) {
+      margin-left: var(--gap-4);
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/card/ReplyCard.vue?vue&type=style&index=0&id=8295056e&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentReplyCard {
+  display: flex;
+  align-items: flex-start;
+
+  &__profilePicture {
+    margin-right: var(--gap-2);
+  }
+
+  &__body {
+    flex: 1 1 auto;
+  }
+
+  &__header {
+    margin-bottom: var(--gap-2);
+  }
+
+  &__content {
+    margin-bottom: var(--gap-2);
+    padding-right: var(--gap-2);
+    overflow-wrap: break-word;
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/comment/Comment.vue?vue&type=style&index=0&id=14434cf1&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-comment {
+  margin-top: var(--gap-4);
+
+  &__replyBox {
+    padding-left: var(--gap-8);
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/content/CommentReplyContent.vue?vue&type=style&index=0&id=7b3e8b4c&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentReplyContent {
+  margin: 0;
+
+  &__content {
+    max-width: 100%;
+
+    .tui-rendered {
+      p {
+        @include font(body);
+        /* Reset margin of paragraph in tui-rendered content.*/
+        margin: 0;
+      }
+    }
+
+    &--deleted {
+      /* Deleted comment should not have any .tui-rendered element*/
+      @include font(body-sm);
+      font-style: italic;
+    }
+
+    &--reply {
+      @include font(body-sm);
+
+      .tui-rendered {
+        p {
+          @include font(body-sm);
+        }
+      }
+    }
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/form/CommentForm.vue?vue&type=style&index=0&id=76cbe934&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentForm {
+  &__form {
+    flex: 1;
+    max-width: 100%;
+  }
+
+  &__editor {
+    flex: 1;
+    max-width: 100%;
+
+    .tui-weka__editorHost {
+      max-height: 200px;
+    }
+  }
+
+  &__buttonGroup {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--gap-4);
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/form/EditCommentReplyForm.vue?vue&type=style&index=0&id=37479946&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-editCommentReplyForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+
+  &__editor {
+    max-width: 100%;
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/form/ReplyForm.vue?vue&type=style&index=0&id=89b4c89e&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentReplyForm {
+  margin-top: var(--gap-4);
+  padding-right: var(--gap-2);
+
+  &__form {
+    flex: 1;
+    max-width: 100%;
+  }
+
+  &__editor {
+    flex: 1;
+    max-width: 100%;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/form/box/ResponseBox.vue?vue&type=style&index=0&id=30587c29&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentResponseBox {
+  display: flex;
+  align-content: flex-start;
+
+  &__profilePicture {
+    margin-right: var(--gap-2);
+  }
+
+  &__formBox {
+    flex: 1 1 auto;
+    width: 100%;
+    overflow-wrap: break-word;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/form/group/SubmitCancelButtonsGroup.vue?vue&type=style&index=0&id=08f9f10d&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentSubmitCancelButtonGroup {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--gap-4);
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/modal/ConfirmDeleteCommentReplyModal.vue?vue&type=style&index=0&id=7adaddb2&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-confirmDeleteCommentReplyModal {
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__textBox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    &-text {
+      @include font(body);
+      margin: 0;
+      margin-left: var(--gap-4);
+    }
+  }
+
+  &__content {
+    .tui-modalContent {
+      &__title {
+        padding: 0;
+      }
+    }
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/profile/CommentUserLink.vue?vue&type=style&index=0&id=73a3c240&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentUserLink {
+  &--smallLink {
+    @include font(body-sm);
+    font-weight: bold;
+  }
+
+  &--largeLink {
+    font-weight: bold;
+  }
+
+  &--smallText {
+    @include font(body-sm);
+    font-weight: bold;
+  }
+
+  &--largeText {
+    @include font(body);
+    font-weight: bold;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1401.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1401.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_comment/src/components/reply/Reply.vue?vue&type=style&index=0&id=14363072&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-commentReply {
+  margin-top: var(--gap-4);
+}
+

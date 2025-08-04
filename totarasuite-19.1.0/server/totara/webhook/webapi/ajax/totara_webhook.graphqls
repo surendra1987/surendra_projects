@@ -1,0 +1,357 @@
+"""
+An instance of a webhook resource.
+
+Webhook for sending event data to an external source
+"""
+type totara_webhook_totara_webhook {
+  """
+  The internal database id of the webhook.
+  """
+  id: core_id!
+
+  """
+  Name of the webhook
+  """
+  name: String!
+
+  """
+  URL the webhook data will be sent to
+  """
+  endpoint: String!
+
+  """
+  Events that the webhook is subscribed to
+  """
+  events: [String]
+
+  """
+  Unix timestamp when the record was created.
+  """
+  created_at(format: core_date_format = TIMESTAMP): core_date
+
+  """
+  Unix timestamp when the record was last updated.
+  """
+  updated_at(format: core_date_format = TIMESTAMP): core_date
+
+  """
+  Is the webhook enable/disabled - enabled = true
+  """
+  status: Boolean
+
+  """
+  Do we send the payload immediately after the event
+  """
+  immediate: Boolean
+
+  """
+  The authentication method this webhook uses (e.g. webhook_hmac_auth)
+  """
+  auth_class: String
+
+  """
+  The authentication data required by the auth_class to authenticate webhook payloads
+  """
+  auth_config: String
+}
+
+"""
+Input for identifying a webhook.
+
+The webhook must be specified by providing one of the following:
+
+* The internal database id
+"""
+input totara_webhook_totara_webhook_reference {
+  """
+  Internal database id of the webhook.
+  """
+  id: core_id
+}
+
+"""
+A paginated result set from a query for a list of webhooks.
+"""
+type totara_webhook_totara_webhooks_result implements core_pageable_result {
+  """
+  List of webhooks in this page.
+  """
+  items: [totara_webhook_totara_webhook!]!
+
+  """
+  Total number of webhooks across all pages.
+  """
+  total: Int!
+
+  """
+  The cursor indicates where the returned result ends, and where the next query should begin.
+  """
+  next_cursor: String!
+}
+
+"""
+Input for querying a list of webhooks.
+"""
+input totara_webhook_totara_webhooks_input {
+  """
+  Optional set of filters to apply to the query.
+  """
+  filters: totara_webhook_totara_webhooks_filters_input
+
+  """
+  The sort order for the query.
+  """
+  sort: [core_sort_input!]
+
+  """
+  The pagination object contains information about the number of items to be returned, and the cursor offset to start
+  from.
+  """
+  pagination: core_pagination_input
+}
+
+"""
+Input for filtering a list of webhooks.
+"""
+input totara_webhook_totara_webhooks_filters_input {
+  """
+  Filter to records where the given string is part of the webhook's name field.
+  """
+  name: String
+
+  """
+  Filter to records where the given string is part of the webhook's endpoint field.
+  """
+  endpoint: String
+
+  """
+  Filter to records where the webhook's creation time is after the specified time.
+  """
+  created_at_after: core_date
+
+  """
+  Filter to records where the webhook's last update time is after the specified time.
+  """
+  updated_at_after: core_date
+}
+
+"""
+Result from a query for a single webhook.
+"""
+type totara_webhook_totara_webhook_result {
+  """
+  Indicates whether the webhook was found or not.
+  """
+  success: Boolean!
+
+  """
+  Contains the webhook if it was found or null otherwise.
+  """
+  item: totara_webhook_totara_webhook
+}
+
+"""
+Result from a query for the list of events a webhook can subscribe to.
+"""
+type totara_webhook_totara_webhook_events_result {
+  """
+  The list of events which a webhook can subscribe to
+  """
+  events: [totara_webhook_totara_webhook_event]
+}
+
+"""
+The event which a webhook is subscribed/subscribing to
+"""
+type totara_webhook_totara_webhook_event {
+  """
+  The user friendly name of the event - pulled from the events get_name function
+  """
+  name: String
+
+  """
+  The full namespaced class of the event E.g. core\event\user_profile_viewed
+  """
+  class: String!
+}
+
+"""
+Input for creating a new webhook.
+"""
+input totara_webhook_create_totara_webhook_input {
+  """
+  Name of the webhook
+  """
+  name: String!
+
+  """
+  URL the webhook data will be sent to
+  """
+  endpoint: String!
+
+  """
+  Events the webhook is subscribing to
+  """
+  events: [String]
+
+  """
+  Is the webhook enable/disabled - enabled = true
+  """
+  status: param_boolean
+
+  """
+  Do we send the payload immediately after the event
+  """
+  immediate: param_boolean
+
+  """
+  The authorisation class to use for webhooks (e.g. webhook_hmac_auth).
+  When given, the class must be full namespace of a class which implements the
+  webhook_auth interface. Default is totara_webhook\auth\webhook_hmac_auth.
+  """
+  auth_class: String
+}
+
+"""
+Result from creating a new webhook.
+"""
+type totara_webhook_create_totara_webhook_result {
+  """
+  The newly created webhook.
+  """
+  item: totara_webhook_totara_webhook
+}
+
+"""
+Input for updating an existing webhook.
+"""
+input totara_webhook_update_totara_webhook_input {
+  """
+  Reference object specifying the webhook to update.
+  """
+  reference: totara_webhook_totara_webhook_reference!
+
+  """
+  New value for name for the webhook resource.
+  """
+  name: String
+
+  """
+  New value for endpoint for the webhook resource.
+  """
+  endpoint: String
+
+  """
+  Events the webhook is subscribing to
+  """
+  events: [String]
+
+  """
+  Is the webhook enable/disabled - enabled = true
+  """
+  status: param_boolean
+
+  """
+  Do we send the payload immediately after the event
+  """
+  immediate: param_boolean
+
+  """
+  The authorisation class to use for webhooks (e.g. webhook_hmac_auth).
+  When given, the class must be full namespace of a class which implements the
+  webhook_auth interface. Default is totara_webhook\auth\webhook_hmac_auth.
+  """
+  auth_class: String
+}
+
+"""
+Result from updating an existing webhook.
+"""
+type totara_webhook_update_totara_webhook_result {
+  """
+  The updated webhook.
+  """
+  item: totara_webhook_totara_webhook
+}
+
+"""
+Result from deleting an existing webhook.
+"""
+type totara_webhook_delete_totara_webhook_result {
+  """
+  The ID of the deleted webhook.
+  """
+  deleted_id: Int
+}
+
+extend type Query {
+  """
+  Query for a paginated list of webhooks, with optional filtering and/or sorting.
+
+  Supports both cursor-based and page-based pagination. If "cursor" is specified, the "page"
+  parameter is ignored.
+  """
+  totara_webhook_totara_webhooks(
+    """
+    Input type used when requesting a list of webhooks. Supports filtering, sorting and pagination.
+    """
+    input: totara_webhook_totara_webhooks_input
+  ): totara_webhook_totara_webhooks_result!
+
+  """
+  Query for a single webhook by a unique identifier.
+  """
+  totara_webhook_totara_webhook(
+    """
+    Input type used for referencing a specific webhook.
+    """
+    input: totara_webhook_totara_webhook_reference!
+  ): totara_webhook_totara_webhook_result!
+
+  """
+  Query for getting a list of all events that exist in the system.
+  """
+  totara_webhook_totara_webhook_events: totara_webhook_totara_webhook_events_result!
+}
+
+extend type Mutation {
+  """
+  Create a new Webhook.
+  """
+  totara_webhook_create_totara_webhook(
+    """
+    Input type used used when creating a new webhook.
+    """
+    input: totara_webhook_create_totara_webhook_input!
+  ): totara_webhook_create_totara_webhook_result!
+
+  """
+  Update an existing webhook.
+  """
+  totara_webhook_update_totara_webhook(
+    """
+    Input type used used when updating a webhook.
+    """
+    input: totara_webhook_update_totara_webhook_input!
+  ): totara_webhook_update_totara_webhook_result!
+
+  """
+  Delete an existing webhook.
+  """
+  totara_webhook_delete_totara_webhook(
+    """
+    Reference input used to specify which webhook to delete.
+    """
+    reference: totara_webhook_totara_webhook_reference!
+  ): totara_webhook_delete_totara_webhook_result!
+
+  """
+  Rotate a webhook's client secret.
+  """
+  totara_webhook_rotate_auth_config_totara_webhook(
+    """
+    Reference input used to specify which webhook to delete.
+    """
+    reference: totara_webhook_totara_webhook_reference!
+  ): totara_webhook_totara_webhook_result!
+}

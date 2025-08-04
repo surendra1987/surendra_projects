@@ -1,0 +1,12 @@
+query format_pathway_get_course_completion($course_id: core_id!) {
+  core_course: format_pathway_get_course_completion_for_header(
+    course_id: $course_id
+  ) {
+    completionenabled
+    completion {
+      status
+      statuskey
+      progress
+    }
+  }
+}

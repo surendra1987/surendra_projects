@@ -1,0 +1,5 @@
+{
+  "component": "totara_useraction",
+  "vendor": "totara",
+  "entry": "./src/js/internal/entry.js"
+}

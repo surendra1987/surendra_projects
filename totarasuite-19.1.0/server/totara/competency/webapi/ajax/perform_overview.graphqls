@@ -1,0 +1,193 @@
+"""
+Allowed competency overview item states
+"""
+enum totara_competency_perform_overview_state {
+  not_started
+  not_progressed
+  progressed
+  achieved
+}
+
+"""
+Last update information for a competency overview item
+"""
+type totara_competency_perform_overview_item_last_update {
+  """
+  Last updated timestamp
+  """
+  date(format: core_date_format = DATELONG): core_date
+  """
+  What changed at the last update.
+  """
+  description(format: core_format = PLAIN): String
+}
+
+"""
+Competency overview item counts according to their state
+"""
+type totara_competency_perform_overview_state_counts {
+  achieved: Int!
+  progressed: Int!
+  not_progressed: Int!
+  not_started: Int!
+}
+
+"""
+Competency overview competency details
+"""
+type totara_competency_perform_overview_item {
+  """
+  Competency achievement id
+  """
+  id: core_id!
+  """
+  Competency id
+  """
+  raw_id: core_id!
+  """
+  Competency name
+  """
+  name(format: core_format = PLAIN): String!
+  """
+  Link to competency assignment
+  """
+  url(format: core_format = PLAIN): String!
+  """
+  Competency description
+  """
+  description(format: core_format = HTML): String
+  """
+  Competency assignment date
+  """
+  assignment_date(format: core_date_format = DATELONG): core_date!
+  """
+  Assignment type
+  """
+  assignment_type(format: core_format = PLAIN): String!
+  """
+  Competency achievement last updated details
+  """
+  last_update: totara_competency_perform_overview_item_last_update!
+    @cache(merge: false)
+  """
+  Competency achievement level
+  """
+  achievement_level(format: core_format = PLAIN): String!
+  """
+  Competency achievement date
+  """
+  achievement_date(format: core_date_format = DATELONG): core_date!
+}
+
+"""
+Competency overview items according to their state
+"""
+type totara_competency_perform_overview_items_by_state {
+  achieved: [totara_competency_perform_overview_item!]!
+  progressed: [totara_competency_perform_overview_item!]!
+  not_progressed: [totara_competency_perform_overview_item!]!
+  not_started: [totara_competency_perform_overview_item!]!
+}
+
+"""
+Competencies overview
+"""
+type totara_competency_perform_overview_result {
+  """
+  Total number of overview items retrieved for all states
+  """
+  total: Int!
+  """
+  Individual overview item counts per state
+  """
+  state_counts: totara_competency_perform_overview_state_counts!
+  """
+  Competency overview items
+  """
+  competencies: totara_competency_perform_overview_items_by_state!
+  """
+  Whether there are any competencies for the user that have pending changes
+  """
+  pending_changes: Boolean!
+}
+
+"""
+Overview competencies by state
+"""
+type totara_competency_perform_overview_by_state_result {
+  """
+  Total number of overview items retrieved across all pages
+  """
+  total: Int!
+  """
+  Retrieved overview items
+  """
+  items: [totara_competency_perform_overview_item!]!
+}
+
+"""
+Overview query filters
+"""
+input totara_competency_perform_overview_filters {
+  """
+  User id for whom to get overview data
+  """
+  id: core_id!
+  """
+  Indicates the start of the overview period. The overview period is from this
+  time days ago in the past to today.
+  """
+  period: param_integer!
+  """
+  Targetted overview state (required for the totara_competency_perform_overview_by_state query)
+  """
+  status: totara_competency_perform_overview_state
+}
+
+"""
+Overview query parameters
+"""
+input totara_competency_perform_overview_input {
+  """
+  Filter values
+  """
+  filters: totara_competency_perform_overview_filters!
+  """
+  Attribute on which to sort retrieved overview data
+  """
+  sort_by: param_text
+}
+
+"""
+Overview query by state parameters
+"""
+input totara_competency_perform_overview_by_state_input {
+  """
+  Filter values
+  """
+  filters: totara_competency_perform_overview_filters!
+  """
+  Attribute on which to sort retrieved overview data
+  """
+  sort_by: param_text
+  """
+  Pagination details
+  """
+  pagination: core_pagination_input!
+}
+
+extend type Query {
+  """
+  Perform overview for competencies
+  """
+  totara_competency_perform_overview(
+    input: totara_competency_perform_overview_input!
+  ): totara_competency_perform_overview_result
+
+  """
+  Perform overview by state for competencies
+  """
+  totara_competency_perform_overview_by_state(
+    input: totara_competency_perform_overview_by_state_input!
+  ): totara_competency_perform_overview_by_state_result
+}

@@ -1,0 +1,37 @@
+{
+  "name": "totaralms",
+  "private": true,
+  "description": "Totara LMS",
+  "devDependencies": {
+    "@graphql-eslint/eslint-plugin": "^3.20.1",
+    "@lodder/grunt-postcss": "3.1.1",
+    "@xmldom/xmldom": "0.8.10",
+    "async": "3.2.5",
+    "autoprefixer": "10.4.19",
+    "eslint": "8.57.0",
+    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-totara": "file:tooling/eslint/plugin",
+    "gherkin-lint": "4.2.4",
+    "grunt": "1.6.1",
+    "grunt-contrib-less": "1.3.0",
+    "grunt-contrib-uglify": "5.2.2",
+    "grunt-contrib-watch": "1.1.0",
+    "grunt-eslint": "24.3.0",
+    "grunt-sass": "3.1.0",
+    "grunt-stylelint": "0.18.0",
+    "postcss": "8.4.38",
+    "postcss-less": "6.0.0",
+    "postcss-scss": "4.0.9",
+    "prettier": "1.19.1",
+    "rtlcss": "4.1.1",
+    "sass": "1.26.9",
+    "semver": "7.6.0",
+    "shifter": "https://github.com/andrewnicols/shifter/archive/v1.2.0_moodle-0.tar.gz",
+    "stylelint": "14.9.1",
+    "stylelint-checkstyle-formatter": "0.1.2",
+    "xpath": "0.0.27"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,8 @@
+mutation totara_program_request_extension(
+  $input: totara_program_request_extension_input!
+) {
+  totara_program_request_extension(input: $input) {
+    success
+    message
+  }
+}

@@ -1,0 +1,2 @@
+This is a test file for uploading to the sample remote file implementation.
+It contains some sample text that will be used in the upload test.

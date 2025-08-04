@@ -1,0 +1,6 @@
+This file describes API changes in /client/component/core_my,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+* In OverviewItemDueDate.vue Replaced Popover component with the Tooltip component
+    * Template changes

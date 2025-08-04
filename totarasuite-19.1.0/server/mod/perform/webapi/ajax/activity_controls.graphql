@@ -1,0 +1,12 @@
+query mod_perform_activity_controls(
+  $input: mod_perform_activity_controls_input
+) {
+  mod_perform_activity_controls(input: $input) {
+    controls
+    success
+    errors {
+      code
+      message
+    }
+  }
+}

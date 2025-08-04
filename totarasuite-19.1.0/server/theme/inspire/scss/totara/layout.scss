@@ -1,0 +1,54 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2024 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2024 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @author    Brian Barnes <brian.barnes@totara.com>
+// @author    Simon Chester <simon.chester@totara.com>
+// @package   theme_inspire
+
+.page-layout {
+  flex-grow: 1;
+  display: flex;
+}
+
+.page-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.skiplinks {
+  a.skip:focus,
+  a.skip:active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--color-background);
+    padding: var(--gap-2);
+    z-index: var(--zindex-skiplinks);
+  }
+}
+
+.container-fluid {
+  padding: 0 var(--page-content-padding);
+  @media (min-width: $tui-screen-md) {
+    padding: 0 var(--page-content-padding-desktop);
+  }
+}

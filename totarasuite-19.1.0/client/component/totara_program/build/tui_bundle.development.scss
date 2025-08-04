@@ -1,0 +1,324 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/RequestExtension.vue?vue&type=style&index=0&id=7819fcc3&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_program__requestExtension {
+  &-date {
+    flex-wrap: wrap;
+  }
+
+  &-dateSeparator {
+    display: inline-block;
+    margin-top: var(--gap-2);
+  }
+
+  &-submit {
+    display: none;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/clone/ConfirmationModal.vue?vue&type=style&index=0&id=3acf22c3&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totaraProgramCloneConfirmationModal {
+  &__form {
+    margin-bottom: var(--gap-2);
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/learner/CourseSet.vue?vue&type=style&index=0&id=310e9566&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_program-courseSet {
+  &__course {
+    position: relative;
+  }
+
+  &__courseCardProgress {
+    display: flex;
+    align-items: center;
+    height: rem-px(20);
+
+    > * + * {
+      margin-left: var(--gap-2);
+    }
+  }
+
+  &__courseCardProgressLozenge,
+  &__courseCardProgressIndicator {
+    flex-grow: 1;
+  }
+
+  &__courseCardProgressMenu {
+    display: block;
+  }
+
+  &__courseCardLaunch {
+    align-self: flex-end;
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/learner/ProgramHeader.vue?vue&type=style&index=0&id=9468f660&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_program-programHeader {
+  margin-bottom: var(--gap-8);
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 var(--gap-8);
+  }
+
+  &__image {
+    width: rem-px(240);
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--border-radius-normal);
+  }
+
+  &__title {
+    @include font(h1);
+    margin: 0;
+  }
+
+  &__status {
+    margin-top: var(--gap-1);
+    margin-bottom: calc(var(--gap-2) + (var(--gap-1) / 2));
+    margin-left: var(--gap-2);
+    padding-top: calc(var(--gap-1) / 2);
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-4);
+    @media (min-width: $tui-screen-xs) {
+      grid-template-columns: auto 1fr;
+    }
+  }
+
+  &__programStatus {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--gap-2);
+    align-items: center;
+  }
+
+  &__dueDate {
+    &--overdue {
+      color: var(--color-prompt-alert);
+    }
+  }
+
+  &__extensionLink {
+    white-space: nowrap;
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/learner/self_enrolment/EnrolConfirmationModal.vue?vue&type=style&index=0&id=9350e7e2&scoped=true&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.totara_program-enrolment-confirmation-modal__description {
+  padding-bottom: var(--gap-4);
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/learner/self_enrolment/EnrolmentOptionCard.vue?vue&type=style&index=0&id=1eda907c&scoped=true&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_program-enrolment-option-card {
+  &_item {
+    display: grid;
+    grid-template-columns: 5fr auto;
+    gap: var(--gap-4);
+    align-items: baseline;
+    width: 100%;
+    margin: var(--gap-1);
+    padding: var(--gap-2);
+    background-color: #f9f9f9;
+    border-radius: var(--border-radius-normal);
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-2);
+    }
+
+    &-label {
+      display: flex;
+      gap: var(--gap-2);
+      align-items: baseline;
+
+      &__name {
+        font-weight: 501;
+        font-size: font-size-px(16);
+        line-height: line-height-px(24);
+      }
+
+      &__assignment_type {
+        @include font(body-md);
+      }
+    }
+
+    button {
+      max-height: var(--gap-4);
+
+      &:hover {
+        box-shadow: unset;
+      }
+    }
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/learner/self_enrolment/EnrolmentOptionsModal.vue?vue&type=style&index=0&id=299ba946&scoped=true&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_program-enrolment {
+  &-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2);
+
+    &__label {
+      font-weight: bold;
+    }
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/learner/self_enrolment/EnrolmentOptionsWrapper.vue?vue&type=style&index=0&id=69a133ec&scoped=true&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_program-enrolment {
+  &-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+    padding-top: var(--gap-4);
+
+    &__subheading {
+      font-weight: 700;
+      font-size: var(--font-body-lg-size);
+    }
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/manage_program/AffectedCard.vue?vue&type=style&index=0&id=bb4ed0b4&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totaraProgramAffectedCard {
+  display: block;
+  padding: var(--gap-2);
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/manage_program/Header.vue?vue&type=style&index=0&id=4adaa4e2&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totaraProgramHeader__fullname {
+  margin-top: 0;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/manage_program/content/AddCourses.vue?vue&type=style&index=0&id=9a7f61a2&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_program-addCourses {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--card-border-radius);
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/manage_program/content/Content.vue?vue&type=style&index=0&id=0562f35e&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_program-content {
+  & > * + * {
+    margin-top: var(--gap-8);
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/manage_program/content/CourseSet.vue?vue&type=style&index=0&id=0e38751f&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_program-courseSet {
+  &__card {
+    flex-direction: column;
+    width: 100%;
+    padding: var(--gap-2);
+
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__cardHeading {
+    display: flex;
+  }
+
+  &__cardHeadingText {
+    flex-grow: 1;
+    margin-top: 0;
+  }
+
+  &__cardForm {
+    width: 100%;
+  }
+
+  & > * + * {
+    margin-top: var(--gap-8);
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/manage_program/content/CourseSetForm.vue?vue&type=style&index=0&id=2a376efa&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_program-courseSetForm {
+  &__helpText {
+    /* remove the gap above the first line the text*/
+    margin-top: calc(var(--gap-4) * -1);
+    white-space: pre-line;
+  }
+
+  &__buttons {
+    float: right;
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1531.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1531.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_program/src/components/manage_program/content/CoursesGrid.vue?vue&type=style&index=0&id=9043c314&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_program-coursesGrid {
+  padding: var(--gap-2);
+
+  &__container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(var(--tui-card-default-width), 100%), 1fr)
+    );
+    gap: var(--gap-4);
+  }
+
+  &__addCourseCard {
+    min-width: var(--tui-card-default-width);
+    height: 100%;
+  }
+
+  &__courseDrag {
+    position: absolute;
+    top: var(--gap-2);
+    left: var(--gap-2);
+    display: none;
+  }
+
+  &__course:hover &__courseDrag,
+  &__course--dragging &__courseDrag {
+    display: block;
+  }
+}
+

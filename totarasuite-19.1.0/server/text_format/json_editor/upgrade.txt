@@ -1,0 +1,7 @@
+This file describes API changes for code that uses the json_editor API,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Removed $siblings_count property when creating a language block from nodes in lang_block::from_node
+  This property is not used or defined in any place.

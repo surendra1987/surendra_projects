@@ -1,0 +1,65 @@
+<!--
+  This file is part of Totara Enterprise Extensions.
+
+  Copyright (C) 2021 onwards Totara Learning Solutions LTD
+
+  Totara Enterprise Extensions is provided only to Totara
+  Learning Solutions LTD's customers and partners, pursuant to
+  the terms and conditions of a separate agreement with Totara
+  Learning Solutions LTD or its affiliate.
+
+  If you do not have an agreement with Totara Learning Solutions
+  LTD, you may not access, use, modify, or distribute this software.
+  Please contact [licensing@totaralearning.com] for more information.
+
+  @author Jack Humphrey <jack.humphrey@totaralearning.com>
+  @module mod_approval
+-->
+
+<template>
+  <ConfirmationModal
+    :open="open"
+    :title="$str('delete_workflow_warning_title', 'mod_approval')"
+    :confirm-button-text="$str('delete', 'core')"
+    @confirm="$emit('confirm')"
+    @cancel="$emit('cancel')"
+  >
+    <p>
+      {{ $str('delete_workflow_warning_message_1', 'mod_approval', name) }}
+    </p>
+    <p v-if="workflowAssignmentsCount < 2">
+      {{
+        $str('delete_workflow_warning_message_applications', 'mod_approval', {
+          applications_count: workflowApplicationsCount,
+        })
+      }}
+    </p>
+    <p v-else>
+      {{
+        $str('delete_workflow_warning_message_assignments', 'mod_approval', {
+          assignment_overrides_count: workflowAssignmentsCount - 1,
+          applications_count: workflowApplicationsCount,
+        })
+      }}
+    </p>
+  </ConfirmationModal>
+</template>
+
+<script>
+import ConfirmationModal from 'tui/components/modal/ConfirmationModal';
+
+export default {
+  components: {
+    ConfirmationModal,
+  },
+
+  props: {
+    open: Boolean,
+    name: String,
+    workflowApplicationsCount: Number,
+    workflowAssignmentsCount: Number,
+  },
+
+  emits: ['confirm', 'cancel'],
+};
+</script>

@@ -1,0 +1,22 @@
+query perform_goal_select_goals_for_add(
+  $input: perform_goal_select_goals_for_add_input
+) {
+  perform_goal_select_goals_for_add(input: $input) {
+    items {
+      current_value
+      description
+      id
+      name
+      plugin_name
+      status {
+        id
+        label
+      }
+      target_date
+      target_value
+      updated_at
+    }
+    total
+    next_cursor
+  }
+}

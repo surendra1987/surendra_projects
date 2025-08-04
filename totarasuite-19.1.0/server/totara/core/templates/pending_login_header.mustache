@@ -1,0 +1,48 @@
+{{!
+   This file is part of Totara Talent Experience Platform
+
+   Copyright (C) 2024 onwards Totara Learning Solutions LTD
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See  the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template totara_core/masthead_login
+
+    Constructs the totara masthead for the modern login screens.
+
+    Classes required for JS:
+    * totaraNav
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * masthead_lang: Has masthead language data
+    * masthead_logo: Has masthead_logo data
+}}
+<div class="totaraNav totaraNav--login">
+
+    <nav class="totaraNav_prim" aria-label="{{#str}}primarynavigation, totara_core{{/str}}">
+        <div class="container-fluid">
+            {{! Logo here }}
+            {{#masthead_logo}}{{> totara_core/masthead_logo }}{{/masthead_logo}}
+
+            <div class="totaraNav_prim--side">
+
+              {{! Language button here }}
+              {{#masthead_lang}}{{> totara_core/masthead_lang }}{{/masthead_lang}}
+            </div>
+        </div>
+    </nav>
+</div>

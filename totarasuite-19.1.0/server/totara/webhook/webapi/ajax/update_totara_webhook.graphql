@@ -1,0 +1,10 @@
+mutation totara_webhook_update_totara_webhook(
+  $input: totara_webhook_update_totara_webhook_input!
+) {
+  totara_webhook: totara_webhook_update_totara_webhook(input: $input) {
+    item {
+      __typename
+      id
+    }
+  }
+}

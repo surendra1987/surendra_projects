@@ -1,0 +1,57 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1268.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1268.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/performelement_numeric_rating_scale/src/components/NumericRatingScaleAdminView.vue?vue&type=style&index=0&id=272c1862&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-numericRatingScaleAdminView {
+  &__input {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+
+    & > * + * {
+      margin-left: var(--gap-4);
+    }
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1268.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1268.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/performelement_numeric_rating_scale/src/components/NumericRatingScaleParticipantForm.vue?vue&type=style&index=0&id=7efc2012&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-elementEditNumericRatingScaleParticipantForm {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+  & > * + * {
+    margin-left: var(--gap-4);
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1268.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1268.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/performelement_numeric_rating_scale/src/components/NumericRatingScaleParticipantPrint.vue?vue&type=style&index=0&id=e7a38a62&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-numericRatingScaleParticipantPrint {
+  &__description {
+    margin-top: var(--gap-2);
+  }
+
+  &__formattedResponse {
+    margin-top: var(--gap-8);
+  }
+
+  &__notepadLines {
+    margin-top: var(--gap-4);
+  }
+
+  &--withDescription {
+    .tui-numericRatingScaleParticipantPrint {
+      &__formattedResponse {
+        margin-top: var(--gap-12);
+      }
+
+      &__notepadLines {
+        margin-top: var(--gap-8);
+      }
+    }
+  }
+}
+

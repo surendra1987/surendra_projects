@@ -1,0 +1,752 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/adder/PerformGoalAdder.vue?vue&type=style&index=0&id=25298523&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-filterBar {
+  &__filters {
+    &-icon {
+      margin-right: var(--gap-4);
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/comments/PerformGoalComments.vue?vue&type=style&index=0&id=53bfd935&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalDetailsComments {
+  height: 100%;
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/manage/PerformGoalForm.vue?vue&type=style&index=0&id=a439b514&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalForm {
+  &__timeframe {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-3);
+  }
+
+  &__descriptionMessage {
+    @include font(body-sm);
+    color: var(--color-neutral-6);
+  }
+
+  &__measurement {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap-3);
+  }
+
+  &__descriptionEditor {
+    max-height: 45vh;
+  }
+
+  @media (min-width: $tui-screen-xs) {
+    &__timeframe {
+      flex-direction: row;
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/manage/PerformGoalStatusForm.vue?vue&type=style&index=0&id=c91d67f0&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalStatusForm {
+  margin-top: var(--gap-4);
+
+  &__progressDetails {
+    color: var(--color-neutral-6);
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/performelement_linked_review/ChangeStatusForm.vue?vue&type=style&index=0&id=8dfdc9ba&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalChangeStatusForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+  max-width: 1200px;
+  padding: var(--gap-4) 0;
+  border-bottom: var(--border-width-normal) solid var(--color-neutral-7);
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2);
+    margin: 0;
+
+    &-title {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-titleRequired {
+      color: var(--color-prompt-alert);
+      font-weight: var(--label-weight);
+    }
+
+    &-updatedBy {
+      @include font(body-sm);
+      color: var(--color-neutral-6);
+    }
+  }
+
+  &__changeStatus {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/performelement_linked_review/ChangeStatusFormPreview.vue?vue&type=style&index=0&id=43b60f55&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalLinkedReviewChangeStatusPreview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-3);
+  padding: var(--gap-4) 0;
+  border-top: var(--border-width-thin) solid var(--color-neutral-7);
+  border-bottom: var(--border-width-normal) solid var(--color-neutral-7);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+
+    &-progress {
+      @include font(body-sm);
+      color: var(--color-neutral-6);
+    }
+  }
+
+  &__title {
+    @include font(h4);
+    margin: 0;
+
+    &-required {
+      color: var(--color-prompt-alert);
+      font-weight: var(--label-weight);
+    }
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/performelement_linked_review/ParticipantContent.vue?vue&type=style&index=0&id=b0610ffa&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-linkedReviewViewPerformGoal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+
+  &__title {
+    @include font(h4);
+    margin: 0;
+  }
+
+  &__overview {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+
+    &-updatedAt {
+      @include font(body-sm);
+    }
+
+    &-box {
+      display: flex;
+      padding: var(--gap-4);
+      background: var(--color-neutral-1);
+      border: var(--border-width-thin) solid var(--color-neutral-5);
+    }
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/performelement_linked_review/PerformGoalLinkedReviewPreview.vue?vue&type=style&index=0&id=707de540&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalLinkedReviewPreviewView {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--gap-4);
+
+  &__status {
+    display: flex;
+    gap: var(--gap-3);
+    align-items: center;
+    min-width: 28%;
+
+    &-progress {
+      width: rem-px(120);
+    }
+
+    &-value {
+      padding-left: var(--gap-2);
+      font-weight: bold;
+    }
+  }
+
+  &__due {
+    display: flex;
+    gap: var(--gap-2);
+
+    &-value {
+      font-weight: bold;
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performGoalLinkedReviewPreviewView {
+    flex-direction: row;
+
+    &__group {
+      padding-left: var(--gap-3);
+      border-color: var(--color-neutral-5);
+      border-style: solid;
+      border-width: 0 0 0 var(--border-width-thin);
+
+      .dir-rtl & {
+        padding-right: var(--gap-3);
+        border-width: 0 var(--border-width-thin) 0 0;
+      }
+    }
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/tasks/PerformGoalTaskCourseCard.vue?vue&type=style&index=0&id=43a23b2a&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalTaskCourseCard {
+  display: flex;
+  gap: var(--gap-2);
+  width: 100%;
+  padding: var(--gap-2);
+
+  &__image {
+    min-width: 36px;
+    height: 36px;
+    background: var(--color-neutral-3);
+    background-position: center;
+    background-size: cover;
+    border-radius: var(--border-radius-small);
+  }
+
+  &__invalid {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: var(--gap-1);
+    width: 0;
+    overflow: hidden;
+    @include font(body-sm);
+
+    &-label {
+      color: var(--color-neutral-6);
+    }
+
+    &-title {
+      overflow: hidden;
+      color: var(--color-neutral-7);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &-titleLink {
+      color: var(--color-neutral-7);
+
+      &:hover,
+      &:focus {
+        color: var(--color-neutral-7);
+      }
+    }
+  }
+
+  &__closeButton {
+    margin-left: auto;
+  }
+
+  &__progress {
+    margin-left: auto;
+    @include font(body-sm);
+    color: var(--color-neutral-6);
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/tasks/PerformGoalTaskForm.vue?vue&type=style&index=0&id=23e27238&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalDetailsTaskForm {
+  display: flex;
+
+  &__checkbox {
+    margin-top: var(--gap-2);
+  }
+
+  &__content {
+    display: flex;
+    flex-grow: 1;
+    gap: var(--gap-4);
+    justify-content: space-between;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-3);
+    width: 100%;
+
+    &-input {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: var(--gap-2);
+    }
+
+    &-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--gap-3);
+      justify-content: space-between;
+      margin: 0;
+    }
+
+    &-barButtons {
+      display: flex;
+      flex-grow: 1;
+      gap: var(--gap-4);
+      justify-content: flex-end;
+      margin-top: auto;
+    }
+
+    &-barResource {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    &-barResourceCard {
+      min-width: 234px;
+      max-width: 340px;
+    }
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/tasks/PerformGoalTaskItem.vue?vue&type=style&index=0&id=180275b3&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalDetailsTaskItem {
+  display: flex;
+
+  &__checkbox label {
+    cursor: pointer;
+  }
+
+  &__content {
+    display: flex;
+    flex-grow: 1;
+    gap: var(--gap-4);
+    justify-content: space-between;
+
+    &-left {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: var(--gap-2);
+      word-break: break-word;
+    }
+
+    &-label {
+      font-weight: 500;
+      &--complete {
+        color: var(--color-neutral-6);
+        text-decoration: line-through;
+      }
+    }
+
+    &-resource {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    &-resourceCard {
+      min-width: 234px;
+      max-width: 340px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      display: flex;
+    }
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/tasks/PerformGoalTaskList.vue?vue&type=style&index=0&id=2207edbe&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalDetailsTaskList {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--gap-1);
+
+  &__tasks {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+
+    &-progress {
+      @include font(body-sm);
+      color: var(--color-neutral-6);
+    }
+
+    &-items {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      list-style: none;
+    }
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/view/PerformGoalActionModalHeader.vue?vue&type=style&index=0&id=c9583dfc&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalActionModalHeader {
+  display: flex;
+  flex-grow: 1;
+  gap: var(--gap-4);
+  justify-content: space-between;
+
+  &__title {
+    @include font(h4);
+    display: flex;
+    gap: var(--gap-2);
+
+    &-icon {
+      position: relative;
+      top: -1px;
+      display: flex;
+      align-items: center;
+      align-self: flex-start;
+      color: var(--color-primary);
+    }
+  }
+
+  &__status {
+    display: inline-flex;
+  }
+
+  &__left {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    gap: var(--gap-4);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__side {
+    position: relative;
+    right: calc(var(--gap-2) * -1);
+    display: flex;
+    gap: var(--gap-4);
+    align-items: center;
+    align-self: flex-start;
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/view/PerformGoalCard.vue?vue&type=style&index=0&id=291491fc&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalCard {
+  $block: #{&};
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--gap-4);
+  justify-content: space-between;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--gap-1);
+
+    &-bar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-2);
+      @include font(body-sm);
+      color: var(--color-neutral-6);
+    }
+
+    &-name {
+      @include font(h4);
+      margin: 0;
+      color: var(--btn-text-color);
+
+      #{$block}:focus & {
+        color: var(--color-state-focus);
+      }
+
+      #{$block}:hover & {
+        color: var(--color-state-hover);
+      }
+
+      #{$block}:active &,
+      #{$block}:active:hover &,
+      #{$block}:active:focus & {
+        color: var(--color-state-active);
+      }
+    }
+
+    &-nameBtn {
+      word-break: break-word;
+
+      &:focus-visible {
+        @include tui-focus();
+      }
+    }
+
+    &-comments,
+    &-tasks {
+      display: flex;
+      gap: var(--gap-1);
+      align-items: center;
+    }
+
+    &-commentsIcon,
+    &-tasksIcon {
+      font-size: inherit;
+    }
+  }
+
+  &__status {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: var(--gap-1) var(--gap-4);
+    align-items: baseline;
+
+    &-label {
+      width: rem-px(120);
+    }
+
+    &-progress {
+      position: relative;
+      left: -1px;
+      width: rem-px(120);
+    }
+  }
+}
+
+@media screen and (min-width: $tui-screen-sm) {
+  .tui-performGoalCard {
+    flex-direction: row;
+
+    &__status {
+      flex-direction: row;
+
+      &-progress {
+        left: 0;
+      }
+    }
+
+    &__details {
+      &-bar {
+        flex-direction: row;
+        gap: 0;
+        @include tui-separator-pipe();
+
+        & > * {
+          &:before {
+            color: var(--color-neutral-5);
+          }
+        }
+      }
+    }
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/view/PerformGoalDetails.vue?vue&type=style&index=0&id=2e576c40&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalDetailsView {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-6);
+  height: calc(100% - var(--gap-4));
+  margin-top: var(--gap-4);
+
+  &__name {
+    @include font(h3);
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+
+  &__progress {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2);
+    padding: var(--gap-4);
+    background-color: var(--color-neutral-3);
+
+    &-current {
+      position: relative;
+      left: 1px;
+    }
+
+    &-bar {
+      position: relative;
+      left: -1px;
+    }
+
+    &-date {
+      position: relative;
+      left: 1px;
+      display: flex;
+      gap: var(--gap-1);
+      @include font(body-sm);
+    }
+
+    &-dateIcon {
+      color: var(--color-neutral-6);
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/view/PerformGoalDetailsExtra.vue?vue&type=style&index=0&id=1d7e2440&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalDetailsExtra {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .tui-tabs__panels {
+    height: 100%;
+  }
+
+  &__tab {
+    height: 100%;
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/view/PerformGoalsList.vue?vue&type=style&index=0&id=0bd79fcf&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+
+  &__card {
+    &-content {
+      display: flex;
+      flex-grow: 1;
+      padding: var(--gap-4);
+    }
+
+    &-actions {
+      align-self: flex-start;
+      padding: var(--gap-4);
+    }
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/components/view/PerformGoalsSortBar.vue?vue&type=style&index=0&id=4f089374&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalsSortBar {
+  &__count {
+    &--hidden {
+      visibility: hidden;
+    }
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1178.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1178.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/perform_goal/src/pages/Goals.vue?vue&type=style&index=0&id=57c53804&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoals {
+  min-height: 500px;
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+    align-items: center;
+
+    &-icon {
+      color: var(--color-primary);
+      font-size: rem-px(64);
+    }
+
+    &-text {
+      @include font(h4);
+      text-align: center;
+    }
+  }
+
+  &__goals {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+
+    &-heading {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-cardContent {
+      padding: var(--gap-4);
+    }
+
+    &-cardActions {
+      align-self: flex-start;
+      padding: var(--gap-4);
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-8);
+    }
+
+    &-results {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-4);
+    }
+  }
+}
+
+@media screen and (min-width: $tui-screen-xs) {
+  .tui-performGoals {
+    &__empty {
+      &-icon {
+        font-size: rem-px(88);
+      }
+
+      &-text {
+        @include font(h3);
+      }
+    }
+  }
+}
+

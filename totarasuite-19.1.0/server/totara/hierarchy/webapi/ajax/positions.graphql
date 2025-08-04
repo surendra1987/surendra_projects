@@ -1,0 +1,36 @@
+query totara_hierarchy_positions($query: totara_hierarchy_position_query) {
+  totara_hierarchy_positions(query: $query) {
+    items {
+      id
+      fullname
+      visible
+      path
+      idnumber
+      parent {
+        id
+        fullname
+        path
+        idnumber
+        type {
+          id
+          fullname
+        }
+      }
+      children {
+        id
+        fullname
+        idnumber
+        type {
+          id
+          fullname
+        }
+      }
+      type {
+        id
+        fullname
+      }
+    }
+    next_cursor
+    total
+  }
+}

@@ -1,0 +1,194 @@
+"""
+Result returned from the core_cohort_static_cohorts query.
+Contains a page of results along with pagination information.
+"""
+type core_cohort_static_cohorts_result implements core_pageable_result {
+  """
+  Array of one page of audiences returned by the query.
+  """
+  items: [core_cohort]!
+  """
+  Total number of users from this query (across all pages).
+  """
+  total: Int!
+  """
+  Cursor to request the next set of results for this query.
+  """
+  next_cursor: String!
+}
+
+"""
+Input type used when querying for a list of audiences. Specifies pagination and sorting information that can impact the
+structure of the results.
+"""
+input core_cohort_static_cohorts_query {
+  """
+  Pagination information such as which page to return and the number of results requested.
+  """
+  pagination: core_pagination_input
+  """
+  The sort order of the query.
+  """
+  sort: [core_sort_input!]
+  """
+  The filter for querying static cohorts.
+  """
+  filter: core_cohort_static_cohorts_filter
+}
+
+"""
+Input type for filtering static cohorts.
+"""
+input core_cohort_static_cohorts_filter {
+  """
+  Raw name of a tag.
+  """
+  tag_filter: String
+  """
+  Unix creation timestamp of tag including an integer timestamp, numeric string or an ISO-8601 string.
+  """
+  since_timecreated: core_date
+  """
+  Unix timemodification timestamp of tag including an integer timestamp, numeric string or an ISO-8601 string.
+  """
+  since_timemodified: core_date
+}
+
+"""
+Result returned from the core_cohort_is_user_member query.
+"""
+type core_cohort_is_user_member_result {
+  """
+  Whether the user is the member of the target audience.
+  """
+  user_is_member: Boolean!
+}
+
+"""
+Input for identifying a audience.
+
+The user must be specified by providing one of the following:
+
+* The audience's internal database id
+* The audience's idnumber
+"""
+input core_cohort_cohort_reference {
+  """
+  Internal database id of the audience.
+  """
+  id: core_id
+  """
+  The id number of the audience.
+  """
+  idnumber: String
+}
+
+"""
+The result of the add_cohort_member mutation.
+This object contains:
+- the user object that was requested
+- the audience object to which the user should be added
+- whether the operation to add the user to the audience was successful
+- whether the user was already a member of the audience
+Note that if the user was already a member of the selected audience,
+the 'success' field will be 'False' since the user was not added as a result of this request.
+"""
+type core_cohort_add_cohort_member_result {
+  """
+  User object for the user that is added to the audience.
+  """
+  user: core_user!
+  """
+  Audience object.
+  """
+  cohort: core_cohort!
+  """
+  Whether the user is added into audience by this request.
+  """
+  success: Boolean!
+  """
+  Whether the user was already a member of the audience.
+  If so, this operation will technically have failed, but the end result is the same as if it had succeeded.
+  """
+  was_already_member: Boolean!
+}
+
+"""
+Result returned from the core_cohort_remove_cohort_member mutation.
+Contains audience information and flags to let you know whether
+the member was removed from the audience.
+"""
+type core_cohort_remove_cohort_member_result {
+  """
+  User object for the user that is removed from the audience.
+  """
+  user: core_user!
+  """
+  Audience object.
+  """
+  cohort: core_cohort!
+  """
+  Whether the user was removed from the audience as a result of this request.
+  """
+  success: Boolean!
+  """
+  Whether the user was the member of the audience.
+  If so, this operation will technically have failed, but the end result is the same as if it had succeeded.
+  """
+  user_was_member: Boolean!
+}
+
+extend type Query {
+  """
+  Return a paginated list of static audiences in the system.
+  """
+  core_cohort_static_cohorts(
+    """
+    Sort and pagination information to control the data returned.
+    """
+    query: core_cohort_static_cohorts_query
+  ): core_cohort_static_cohorts_result!
+  """
+  Return result that indicates the user is the member of the audience.
+  """
+  core_cohort_is_user_member(
+    """
+    Target user who is the member of the audience.
+    """
+    user: core_user_user_reference!
+    """
+    Target audience.
+    """
+    cohort: core_cohort_cohort_reference!
+  ): core_cohort_is_user_member_result!
+}
+
+extend type Mutation {
+  """
+  Add a given user to a target audience.
+  """
+  core_cohort_add_cohort_member(
+    """
+    Target user who will be added to the audience.
+    """
+    user: core_user_user_reference!
+    """
+    The audience to which the user should be added.
+    """
+    cohort: core_cohort_cohort_reference!
+  ): core_cohort_add_cohort_member_result!
+
+  """
+  Remove a given member from a target audience.
+  """
+  core_cohort_remove_cohort_member(
+    """
+    Target user who will be removed from the audience.
+    """
+    user: core_user_user_reference!
+    """
+    The audience from which to remove the user.
+    """
+    cohort: core_cohort_cohort_reference!
+  ): core_cohort_remove_cohort_member_result!
+}

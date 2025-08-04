@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    {
+      "name": "totara_topic"
+    },
+    {
+      "name": "totara_reaction"
+    },
+    {
+      "name": "core_course"
+    }
+  ]
+}

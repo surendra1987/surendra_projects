@@ -1,0 +1,7 @@
+This files describes API changes in core libraries and APIs,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Removed setting 'block_html_allowcssclasses' in favour of a new 'customclass' setting in the base block class.
+* Function block_html::html_attributes() is removed from class 'block_html'.

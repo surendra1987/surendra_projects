@@ -1,0 +1,8 @@
+mutation mod_resource_sync_completion(
+  $input: totara_mobile_sync_completion_input!
+) {
+  result: mod_resource_sync_completion(input: $input) {
+    success
+    error
+  }
+}

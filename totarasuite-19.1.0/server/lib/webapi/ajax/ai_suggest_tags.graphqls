@@ -1,0 +1,33 @@
+"""
+Collection of tags returned by the AI prompt
+"""
+type core_ai_suggest_tags_result {
+  items: [core_tag!]!
+  total: Int!
+}
+
+"""
+Input of on-the-fly course data to prompt for.
+"""
+input core_ai_suggest_tags_course {
+  fullname: param_text!
+  shortname: param_text!
+  description: param_text
+  description_format: core_text_format
+}
+
+"""
+Input for making a request for suggested tags.
+If course_id is provided, info will be read from the course.
+Any info provided in course will override.
+"""
+input core_ai_suggest_tags_input {
+  course_id: core_id
+  course: core_ai_suggest_tags_course
+}
+
+extend type Query {
+  core_ai_course_suggest_tags(
+    input: core_ai_suggest_tags_input!
+  ): core_ai_suggest_tags_result
+}

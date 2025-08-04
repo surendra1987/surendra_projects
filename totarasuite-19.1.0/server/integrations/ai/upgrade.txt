@@ -1,0 +1,22 @@
+This files describes API changes in core_ai,
+information provided here is intended especially for developers.
+
+Note that core_ai is considered experimental and subject to breaking changes.
+
+=== 19.1.0 ===
+
+* This subsystem remains experimental
+* Changed method signature of core_ai\interaction::run(). It has been refactored to use typed Data Transfer Object (DTO) interfaces instead of unstructured arrays.
+    * required change: all classes that extend the core_ai\interaction class must now be changed to use the new method signature.
+    * created core_tag\ai\interaction\suggest_tags_input dto that implements the new interface core_ai/feature/interaction_input_interface.php
+    * created core_tag\ai\interaction\suggest_tags_output dto that implements the new interface core_ai/feature/interaction_output_interface.php
+    * core_tag\ai\interaction\suggest_tags was updated to use the new method signature
+* Refactored class structure and naming to better distinguish between base classes and implementations.
+    * core_ai\feature is renamed core\ai\feature\feature_base
+    * core_ai\feature\generative_prompt is renamed core_ai\feature\generative_prompt\generative_prompt_feature
+    * core_ai\feature\request is renamed core\ai\feature\request_base
+    * core_ai\feature\response is renamed core\ai\feature\response_base
+* AI connector plugins should implement plugininfo::get_base_url()
+* All request, response, and prompt classes have been refactored to extend a new core_ai\data_transfer_object_base abstract class
+    * The get_data() method has been renamed to to_array()
+    * A to_json() method has also been added, which should be used in place of calling json_encode() on an instance

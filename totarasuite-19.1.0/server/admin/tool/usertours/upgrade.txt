@@ -1,0 +1,21 @@
+This files describes API changes in /admin/usertours/.
+
+=== 19.1.0 ===
+
+* Fixed the calculation of backdrop's top, left value for position:fixed usertour target
+* Changed the usertour's z-index to be at least higher than Inspire navigation bar
+* Changed the usertour popper's overflow boundary to 'window'
+* Unset the css 'right' value added to popper's arrow in RTL mode
+
+=== 16.0 ===
+
+* Upgraded flexitour to 0.12.3
+
+=== 14.0 ===
+
+* Updated tool_usertours/resettour template, changing the link to a button
+
+=== 13.0 ===
+
+* Updated tool_usertours/tourstep template
+* Updated tool_usertours/resettour template

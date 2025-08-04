@@ -1,0 +1,5 @@
+mutation totara_program_delete_courseset(
+  $input: totara_program_delete_courseset_input!
+) {
+  totara_program_delete_courseset(input: $input)
+}

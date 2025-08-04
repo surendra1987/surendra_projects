@@ -1,0 +1,59 @@
+query totara_catalog_filters($input: totara_catalog_url_query_input) {
+  totara_catalog_filters(input: $input) {
+    filters {
+      __typename
+      key
+      type
+      title
+      type
+      options {
+        ... on totara_catalog_option {
+          __typename
+          id
+          label
+          active
+        }
+        ... on totara_catalog_tree_option {
+          __typename
+          id
+          parentid
+          label
+          active
+        }
+      }
+    }
+    browse_filter {
+      __typename
+      key
+      title
+      type
+      options {
+        ... on totara_catalog_option {
+          __typename
+          id
+          label
+          active
+        }
+        ... on totara_catalog_tree_option {
+          __typename
+          id
+          parentid
+          label
+          active
+        }
+      }
+    }
+    sort {
+      key
+      title
+      options {
+        ... on totara_catalog_option {
+          __typename
+          id
+          label
+          active
+        }
+      }
+    }
+  }
+}

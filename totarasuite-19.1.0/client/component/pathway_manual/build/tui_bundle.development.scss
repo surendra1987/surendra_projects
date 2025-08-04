@@ -1,0 +1,221 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1158.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1158.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_manual/src/components/FrameworkGroup.vue?vue&type=style&index=0&id=517cec53&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-bulkManualRatingFrameworkGroup {
+  &:not(:last-child) {
+    margin-bottom: var(--gap-7);
+  }
+
+  &__headerWithHelp {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1158.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1158.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_manual/src/components/LastRatingBlock.vue?vue&type=style&index=0&id=893fdb90&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-bulkManualRatingLastRatingBlock {
+  @media (min-width: $tui-screen-xs) {
+    &__blocks {
+      & > span {
+        display: block;
+      }
+    }
+
+    &__neverRated {
+      display: none;
+    }
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1158.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1158.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_manual/src/components/RateUserCompetencies.vue?vue&type=style&index=0&id=0084e0d8&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-bulkManualRatingRateUserCompetencies {
+  & > * + * {
+    margin-top: var(--gap-5);
+  }
+
+  &__frameworks {
+    & > * + * {
+      margin-top: var(--gap-5);
+    }
+  }
+
+  &__noCompetencies {
+    @include text-hint;
+  }
+
+  &__submitButtons {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1158.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1158.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_manual/src/components/RateUsersList.vue?vue&type=style&index=0&id=6033c304&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-bulkManualRatingRateUsersList {
+  display: block;
+
+  &__avatar {
+    margin-right: var(--gap-1);
+  }
+
+  &__flexRow {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__search {
+    @media (min-width: $tui-screen-sm) {
+      width: 50%;
+    }
+    margin-top: var(--gap-4);
+    margin-bottom: var(--gap-4);
+  }
+
+  &__noUsers {
+    @include text-hint;
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1158.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1158.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_manual/src/components/RatingCell.vue?vue&type=style&index=0&id=21bd8fd1&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-bulkManualRatingCell {
+  &__newRating {
+    @media (min-width: $tui-screen-sm) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    margin-right: var(--gap-2);
+
+    &-hasComment {
+      margin-left: var(--gap-2);
+    }
+
+    &-noValue {
+      @include text-hint;
+    }
+
+    &-valueName {
+      font-weight: var(--label-weight);
+    }
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1158.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1158.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_manual/src/components/RatingPopover.vue?vue&type=style&index=0&id=5d9ec2f4&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-bulkManualRatingPopover {
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__comment,
+  &__textarea,
+  &__divider {
+    width: 100%;
+  }
+
+  &__divider {
+    border-top: 1px solid var(--color-neutral-5);
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1158.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1158.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_manual/src/components/RoleSelector.vue?vue&type=style&index=0&id=5eb58027&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-bulkManualRatingRoleSelector {
+  display: flex;
+  align-items: center;
+
+  &__ratingAs {
+    @include font(h4);
+  }
+
+  &__selectRole {
+    margin-left: var(--gap-2);
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1158.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1158.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_manual/src/components/UserCompetenciesFilters.vue?vue&type=style&index=0&id=1125c6b3&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-bulkManualUserCompetenciesFilters {
+  &__singleCompetencyMessage {
+    &-text {
+      margin-right: var(--gap-2);
+      @include text-hint;
+    }
+
+    @media (max-width: $tui-screen-sm) {
+      display: flex;
+      align-content: space-between;
+
+      &-text {
+        margin-right: var(--gap-4);
+      }
+
+      &-button {
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1158.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1158.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_manual/src/components/achievements/AchievementDisplay.vue?vue&type=style&index=0&id=57751f5c&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-pathwayManualAchievement {
+  & > * + * {
+    margin-top: var(--gap-6);
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1158.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1158.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_manual/src/components/achievements/AchievementDisplayRater.vue?vue&type=style&index=0&id=9afc1274&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-pathwayManualAchievementRater {
+  margin-top: var(--gap-2);
+  padding: var(--gap-4);
+  border: var(--border-width-thin) solid var(--color-neutral-5);
+  border-radius: 6px;
+
+  &__overview {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+
+    &-role {
+      font-weight: bold;
+    }
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1158.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1158.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_manual/src/pages/RateCompetencies.vue?vue&type=style&index=0&id=600cb91d&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-rateCompetencies {
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1158.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1158.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_manual/src/pages/RateUsers.vue?vue&type=style&index=0&id=efa915d4&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-rateUserCompetencies {
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+}
+

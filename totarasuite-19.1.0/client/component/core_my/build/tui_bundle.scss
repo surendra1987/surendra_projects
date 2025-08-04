@@ -1,0 +1,471 @@
+.tui-performOverviewPageLayoutTwoColumn {
+  @include font(body);
+
+  & > * + * {
+    margin-top: var(--gap-8);
+  }
+
+  &__heading {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__body {
+    &--flush {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+.tui-overviewActivitiesSection {
+  &__chart {
+    min-width: 100px;
+    max-width: 320px;
+    margin: auto;
+  }
+
+  &__content {
+    & > * + * {
+      margin-top: var(--gap-6);
+    }
+
+    &--stacked {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+.tui-overviewCompetenciesSection {
+  &__chart {
+    min-width: 100px;
+    max-width: 320px;
+    margin: auto;
+  }
+
+  &__content {
+    & > * + * {
+      margin-top: var(--gap-6);
+    }
+
+    &--stacked {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__noCompetencies {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+.tui-overviewCount {
+  display: flex;
+  width: 100%;
+  margin-top: var(--gap-2);
+  padding-bottom: var(--gap-4);
+
+  &__items,
+  &__due {
+    width: 50%;
+    text-align: center;
+  }
+
+  &__itemsContent,
+  &__dueContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-count {
+      @include font(h1);
+      color: var(--color-neutral-7);
+    }
+
+    &-text {
+      @include font(body-sm);
+      color: var(--color-neutral-6);
+    }
+
+    &-overdueIcon {
+      color: var(--color-prompt-warning);
+    }
+  }
+}
+
+.tui-overviewGoalsSection {
+  &__chart {
+    min-width: 100px;
+    max-width: 320px;
+    margin: auto;
+  }
+
+  &__content {
+    & > * + * {
+      margin-top: var(--gap-6);
+    }
+
+    &--stacked {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__noGoals {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+.tui-myPerformOverviewItemDueDate {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: gap(0.5);
+
+  & > * + * {
+    margin-left: calc(var(--gap-1) / 2);
+  }
+
+  &__button {
+    @include font(body-sm);
+  }
+
+  &__icon {
+    top: 1px;
+
+    &--dueSoon {
+      color: var(--color-prompt-warning);
+
+      &:active,
+      &:focus,
+      &:active:focus,
+      &:active:hover,
+      &:hover {
+        color: var(--color-prompt-warning);
+      }
+    }
+
+    &--overdue {
+      color: var(--color-prompt-alert);
+
+      &:active,
+      &:focus,
+      &:active:focus,
+      &:active:hover,
+      &:hover {
+        color: var(--color-prompt-alert);
+      }
+    }
+  }
+
+  &__iconText {
+    @include font(body-sm);
+  }
+
+  &__date {
+    &--overdue {
+      color: var(--color-prompt-alert);
+    }
+  }
+}
+
+.tui-myPerformOverviewItemUpdated {
+  -webkit-hyphens: none;
+          hyphens: none;
+
+  &__button {
+    @include font(body-sm);
+  }
+
+  &__content {
+    display: flex;
+
+    & > * + * {
+      margin-left: var(--gap-2);
+    }
+  }
+}
+
+.tui-myPerformOverviewRequiredAction {
+  width: 100%;
+  padding: var(--gap-4);
+
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__header {
+    @include font(h3);
+    margin: 0;
+  }
+
+  &__body {
+    & > * + * {
+      margin-top: var(--gap-6);
+    }
+  }
+
+  &__activitiesAboutOthers,
+  &__participantsSelection {
+    &-icon {
+      color: var(--color-prompt-info);
+    }
+  }
+
+  &--stacked {
+    .tui-myPerformOverviewRequiredAction__header {
+      @include font(h4);
+    }
+  }
+}
+
+.tui-myPerformOverviewRequiredActionSection {
+  -webkit-hyphens: none;
+          hyphens: none;
+
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__header {
+    @include font(h5);
+    display: flex;
+    margin: 0;
+    padding-bottom: var(--gap-2);
+    border-bottom: var(--border-width-thin) solid var(--color-neutral-7);
+
+    & > * + * {
+      margin-left: var(--gap-1);
+    }
+
+    &-icon {
+      display: flex;
+      > * {
+        flex-shrink: 0;
+        margin: 0 2px 0 1px;
+      }
+    }
+  }
+
+  &__content {
+    & > * + * {
+      margin-top: var(--gap-4);
+      padding-top: var(--gap-4);
+      border-top: var(--border-width-thin) solid var(--color-neutral-5);
+    }
+  }
+}
+
+.tui-myPerformOverviewRequiredActionSectionItem {
+  display: flex;
+
+  & > * + * {
+    margin-left: var(--gap-4);
+  }
+
+  &--stacked {
+    flex-direction: column;
+  }
+
+  &__action {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: flex-end;
+    min-width: 20%;
+
+    &--stacked {
+      justify-content: flex-start;
+      margin: var(--gap-2) 0 0;
+    }
+  }
+}
+
+.tui-myPerformOverviewSection {
+  width: 100%;
+  padding: var(--gap-4);
+
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__header {
+    @include font(h3);
+    margin: 0;
+
+    &--stacked {
+      @include font(h4);
+    }
+  }
+
+  &__chartArea {
+    min-height: 184px;
+    padding-right: var(--gap-4);
+    border-right: var(--border-width-thin) solid var(--color-neutral-5);
+
+    &-content {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    &--stacked {
+      padding-right: 0;
+      border-right: none;
+      border-bottom: var(--border-width-thin) solid var(--color-neutral-5);
+    }
+  }
+
+  &__toggle {
+    margin: 0 auto;
+    padding-top: var(--gap-2);
+  }
+}
+
+.tui-overviewStatusTable {
+  &__header {
+    @include font(h4);
+    margin: 0;
+
+    &-count {
+      display: inline-flex;
+    }
+
+    &-countButton {
+      font-size: inherit;
+    }
+
+    &--stacked {
+      @include font(h5);
+    }
+  }
+
+  &__item {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+
+    &-name {
+      @include font(h5);
+      margin: 0;
+      overflow: hidden;
+      font-weight: var(--label-weight);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &-content {
+      @include font(body-sm);
+      color: var(--color-neutral-6);
+
+      & > * + * {
+        margin-top: var(--gap-2);
+      }
+
+      &--separator {
+        @include tui-separator-pipe();
+        margin-top: var(--gap-1);
+
+        & > * + * {
+          margin-top: 0;
+
+          &:before {
+            color: var(--color-neutral-5);
+          }
+        }
+      }
+    }
+
+    &-descriptionText {
+      @include font(body-sm);
+      margin-top: var(--gap-2);
+    }
+  }
+}
+
+.tui-overviewViewAllModal {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: rem-px(500);
+  margin-top: var(--gap-3);
+
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__content {
+    flex-grow: 1;
+    padding-bottom: var(--gap-2);
+    overflow: scroll;
+
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+
+    &-loadMore {
+      text-align: center;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.tui-myPerformOverview {
+  &__period {
+    display: flex;
+    flex-wrap: wrap;
+
+    &-label {
+      margin: auto 0;
+    }
+  }
+
+  &__content {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__side {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+.tui-core_my-reports {
+  &__headerButtons {
+    display: flex;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-8);
+  }
+
+  &__reports {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+  }
+
+  &__scheduledReports {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+  }
+
+  &__sectionHeading {
+    margin: 0;
+  }
+
+  &__scheduledReportAdd {
+    margin-top: var(--gap-2);
+  }
+}
+

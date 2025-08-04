@@ -1,0 +1,93 @@
+"""
+Query type to downloadable resource information
+"""
+type mod_resource_resource_instance implements totara_mobile_download_activity {
+  """
+  Course module id
+  """
+  id: core_id!
+  """
+  Module id
+  """
+  instanceid: core_id!
+  """
+  The name of the resource
+  """
+  name: String!
+  """
+  The description of the resource
+  """
+  intro(format: core_format = HTML): String
+  """
+  The description format
+  """
+  introformat: core_format
+  """
+  File attachments from activity description
+  """
+  attachments: [totara_mobile_download_attachment_info]!
+  """
+  Whether the course module displays the description or not
+  """
+  showdescription: Boolean
+  """
+  The completion settings of the course module
+  """
+  completion: String
+  """
+  Whether completion is enabled or not for the course module
+  """
+  completionenabled: Boolean!
+  """
+  The completion status of the current user in the course module
+  """
+  completionstatus: String
+  """
+  The resource display type
+  """
+  display_type: String!
+  """
+  File url and size
+  """
+  file: mod_resource_file_info
+  """
+  Extra information including file type, size and upload time that based on the appearance settings.
+  """
+  extra_info: String
+  """
+  The total number of download file size
+  """
+  downloadsize: Int!
+}
+
+"""
+File info.
+"""
+type mod_resource_file_info {
+  """
+  File download URL
+  """
+  file_url: String!
+  """
+  File size
+  """
+  file_size: Int!
+}
+
+extend type Query {
+  """
+  Query to get downloadable resource information
+  """
+  mod_resource_download(
+    input: totara_mobile_download_activity_input!
+  ): mod_resource_resource_instance!
+}
+
+extend type Mutation {
+  """
+  Mutation to sync resource completion
+  """
+  mod_resource_sync_completion(
+    input: totara_mobile_sync_completion_input!
+  ): totara_mobile_sync_completion_result!
+}

@@ -1,0 +1,24 @@
+query mobile_completedlearning_my_items($pointer: Int) {
+  completedLearningPage: mobile_completedlearning_my_items(pointer: $pointer) {
+    pointer
+    total
+    completedLearning {
+      id
+      itemtype
+      itemcomponent
+      shortname
+      fullname
+      summary: description(format: MOBILE)
+      summaryFormat: description_format
+      progress
+      urlView: url_view
+      duedate(format: ISO8601)
+      duedateState: duedate_state
+      native: mobile_coursecompat
+      imageSrc: mobile_image
+      download_friendly
+      __typename
+    }
+    __typename
+  }
+}

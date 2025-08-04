@@ -1,0 +1,37 @@
+query perform_goal_user_goals($input: perform_goal_user_goals_input) {
+  perform_goal_user_goals(input: $input) {
+    items {
+      goal {
+        current_value
+        description
+        id
+        name
+        plugin_name
+        status {
+          id
+          label
+        }
+        target_date
+        target_value
+        updated_at
+        comment_count
+        goal_tasks_metadata {
+          total_count
+          completed_count
+        }
+      }
+      permissions {
+        can_manage
+        can_update_status
+      }
+    }
+    success
+    errors {
+      code
+      message
+    }
+    total
+    next_cursor
+    has_goals
+  }
+}

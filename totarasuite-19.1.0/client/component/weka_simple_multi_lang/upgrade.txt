@@ -1,0 +1,7 @@
+This files describes API changes in /client/component/weka_simple_multi_lang,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Updated SimpleMultiLangForm.vue to pass a label to Weka
+  * Template changes

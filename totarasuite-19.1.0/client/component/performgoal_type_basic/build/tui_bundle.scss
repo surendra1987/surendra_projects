@@ -1,0 +1,313 @@
+.tui-performGoalTypeBasic {
+  &__loading {
+    flex: 1;
+  }
+}
+
+.tui-performGoalActionModalDetails {
+  &__updated {
+    @include font(body-sm);
+    color: var(--color-neutral-6);
+  }
+}
+
+.tui-performGoalTypeBasic-goalWizardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--gap-8);
+  text-align: center;
+
+  &__icon {
+    margin-bottom: gap(2);
+    font-size: rem-px(48);
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: var(--gap-2);
+    line-height: 1.75;
+  }
+
+  &__subtitle {
+    max-width: 26rem;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: var(--gap-4);
+    margin-left: auto;
+    color: var(--color-text-hint);
+    line-height: 1.25;
+  }
+}
+
+.tui-performGoalTypeBasic-methodChooser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--gap-8);
+  text-align: center;
+
+  &__sectionTitle {
+    margin-bottom: var(--gap-6);
+    line-height: 1.5;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 352px;
+  }
+
+  &__option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: var(--gap-4);
+    text-align: left;
+    background-color: transparent;
+    border: var(--border-width-thin) solid var(--color-neutral-5);
+    border-radius: var(--border-radius-curved);
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-color: var(--color-neutral-6);
+    }
+
+    &Icon {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      width: rem-px(40);
+      height: rem-px(40);
+      margin-right: var(--gap-4);
+
+      .tui-performGoalTypeBasic-methodChooser__icon {
+        display: inline-block;
+        font-size: rem-px(28);
+      }
+    }
+
+    &Text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &Title {
+      display: flex;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    &Description {
+      color: var(--color-text-hint);
+    }
+  }
+
+  &__separator {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: var(--gap-4) 0;
+
+    &::before,
+    &::after {
+      flex-grow: 1;
+      height: 1px;
+      margin: 0 var(--gap-2);
+      background-color: var(--color-neutral-5);
+      content: '';
+    }
+  }
+}
+
+.tui-performGoalActivityCreationDetails {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--gap-6);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-6);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2);
+
+    &-heading {
+      margin: 0;
+      @include font(h6);
+    }
+  }
+
+  &__bar {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: var(--gap-4);
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-2);
+    }
+
+    &-listItem {
+      display: flex;
+      gap: var(--gap-2);
+    }
+
+    &-heading {
+      margin: 0;
+      @include font(h6);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performGoalActivityCreationDetails {
+    &__bar {
+      flex-direction: row;
+      justify-content: space-between;
+
+      &-list {
+        flex-direction: row;
+        gap: var(--gap-6);
+      }
+    }
+  }
+}
+
+.tui-performGoalLinkedReviewChangeStatus {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+
+  &__currentStatus {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+
+    &-message {
+      font-style: italic;
+    }
+
+    &-progress {
+      @include font(body-sm);
+      color: var(--color-neutral-6);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performGoalLinkedReviewChangeStatus {
+    flex-direction: row;
+    gap: var(--gap-8);
+  }
+}
+
+.tui-performGoalLinkedReviewPreview {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--gap-4);
+
+  &__status {
+    display: flex;
+    gap: var(--gap-3);
+    align-items: center;
+    min-width: 28%;
+
+    &-progress {
+      width: rem-px(120);
+    }
+
+    &-value {
+      padding-left: var(--gap-2);
+      font-weight: bold;
+    }
+  }
+
+  &__due {
+    display: flex;
+    gap: var(--gap-2);
+
+    &-value {
+      font-weight: bold;
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performGoalLinkedReviewPreview {
+    flex-direction: row;
+
+    &__group {
+      padding-left: var(--gap-3);
+      border-color: var(--color-neutral-5);
+      border-style: solid;
+      border-width: 0 0 0 var(--border-width-thin);
+
+      .dir-rtl & {
+        padding-right: var(--gap-3);
+        border-width: 0 var(--border-width-thin) 0 0;
+      }
+    }
+  }
+}
+
+.tui-performGoalLinkedReviewStatusResponse {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+
+  &__progress {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    gap: var(--gap-1);
+    width: 25%;
+
+    &-label {
+      font-weight: var(--label-weight);
+    }
+
+    &-value {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-1);
+    }
+
+    &-valueProgress {
+      width: rem-px(120);
+    }
+
+    &-valueLabel {
+      @include font(body-sm);
+    }
+  }
+
+  &__status {
+    display: flex;
+    flex-direction: column;
+
+    &-label {
+      font-weight: var(--label-weight);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performGoalLinkedReviewStatusResponse {
+    flex-direction: row;
+  }
+}
+

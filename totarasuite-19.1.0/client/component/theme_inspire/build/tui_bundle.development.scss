@@ -1,0 +1,384 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1351.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1351.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/theme_inspire/src/components/navigation/NavItem.vue?vue&type=style&index=0&id=444772b6&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-theme_inspire-navItem {
+  --tui-theme_inspire-navItem-height: #{rem-px(44)};
+  --tui-theme_inspire-navItem-indicator-height: #{rem-px(32)};
+  --tui-theme_inspire-navItem-top-level-nav-item-padding: 10px;
+  --tui-theme_inspire-navItem-nav-item-padding: 6px;
+
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  height: var(--tui-theme_inspire-navItem-height);
+  padding-top: gap(1);
+  color: var(--nav-tab-text-color);
+
+  &--navExpanded {
+    height: 100%;
+  }
+
+  &__icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin: auto;
+    &--navExpanded {
+      margin: gap(3) auto auto gap(3);
+    }
+  }
+
+  .tui-theme_inspire-navItem {
+    padding-top: 0;
+  }
+
+  &--selected {
+    color: var(--nav-selected-color);
+
+    &:before {
+      height: var(--tui-theme_inspire-navItem-indicator-height);
+      margin-top: gap(1);
+      border-right: gap(1) solid var(--nav-selected-color);
+      border-top-right-radius: gap(1);
+      border-bottom-right-radius: gap(1);
+      content: '';
+
+      .tui-theme_inspire-navItem & {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &--link {
+    flex-wrap: nowrap;
+  }
+
+  &__heading {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-start;
+    padding: 0;
+    background-color: inherit;
+    border: none;
+    border-radius: var(--btn-radius);
+
+    &--childSelected {
+      color: var(--nav-selected-color);
+    }
+
+    &--depth-0 {
+      margin-left: gap(5);
+      font-weight: 600;
+
+      &.tui-theme_inspire-navItem__heading--navExpanded {
+        margin-left: gap(3);
+      }
+
+      &.tui-theme_inspire-navItem__heading--selected {
+        margin-left: gap(4);
+
+        &.tui-theme_inspire-navItem__heading--navExpanded {
+          margin-left: gap(2);
+        }
+      }
+
+      .tui-theme_inspire-navItem__headingAction {
+        margin: gap(2);
+      }
+    }
+
+    &--depth-1 {
+      margin-left: gap(10);
+      font-weight: 400;
+
+      &.tui-theme_inspire-navItem__heading--selected {
+        margin-left: gap(9);
+      }
+    }
+
+    &--depth-2 {
+      margin-left: gap(13);
+
+      &.tui-theme_inspire-navItem__heading--selected {
+        margin-left: gap(12);
+      }
+    }
+
+    &--link {
+      color: var(--nav-tab-text-color);
+
+      &:hover,
+      &:focus {
+        color: var(--nav-tab-text-color);
+        text-decoration: none;
+      }
+
+      &.tui-theme_inspire-navItem__heading--selected {
+        color: var(--nav-selected-color);
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: color-mix(
+          in srgb,
+          var(--nav-tab-text-color) 10%,
+          transparent
+        );
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--nav-tab-text-color);
+    }
+  }
+
+  &__headingText {
+    flex-grow: 1;
+    margin: auto;
+    padding: var(--tui-theme_inspire-navItem-nav-item-padding) gap(1)
+      var(--tui-theme_inspire-navItem-nav-item-padding) gap(3);
+    text-align: left;
+    overflow-wrap: anywhere;
+    -webkit-hyphens: auto;
+            hyphens: auto;
+
+    &--depth-0 {
+      padding: var(--tui-theme_inspire-navItem-top-level-nav-item-padding)
+        gap(1) var(--tui-theme_inspire-navItem-top-level-nav-item-padding)
+        gap(3);
+    }
+  }
+
+  &__headingAction {
+    flex-basis: rem-px(24);
+    flex-shrink: 0;
+    height: rem-px(24);
+    margin: gap(1) gap(2);
+    padding: var(--tui-theme_inspire-navItem-nav-item-padding);
+    color: var(--nav-tab-text-color);
+  }
+
+  &__children {
+    flex-basis: 100%;
+    margin-bottom: gap(2);
+    margin-left: 0;
+    list-style: none;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1351.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1351.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/theme_inspire/src/components/navigation/Navigation.vue?vue&type=style&index=0&id=d3d7fd38&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* Expand/overlay toggle button*/
+/**/
+/* We use a different button for expanding and overlaying as they execute different functions, even though they look identical*/
+/* Ovelay is hidden on mobile, while expand is hidden on desktop*/
+.tui-theme_inspire-navigation__toggle {
+  &--overlay {
+    display: block;
+  }
+  &--expand {
+    display: none;
+  }
+
+  /* Desktop width*/
+  @media (min-width: $tui-screen-md) {
+    &--overlay {
+      display: none;
+    }
+    &--expand {
+      display: block;
+    }
+
+    left: var(--nav-collapsed-width);
+    &--navExpanded {
+      left: var(--nav-width);
+    }
+    margin-left: gap(5);
+  }
+
+  position: absolute;
+  z-index: 1;
+  width: var(--nav-button-size);
+  height: var(--nav-button-size);
+  margin: gap(4);
+  color: var(--color-text);
+
+  &--navHidden {
+    left: 0;
+  }
+}
+
+/*
+  The approach to the styling here is to provide a modifier to the entire
+  nav depending on the current state. This means a bit of repetition in
+  favour of clarity and easier modification in the future around the different states.
+  No modifier means the nav is in the "collapsed" state.
+
+  The different states for the navigation are:
+
+    - Hidden (desktop and mobile)
+    - Collapsed (desktop only)
+    - Overlaid (desktop and mobile)
+    - Expanded (desktop only)
+
+  The default "-navigation" rule set sets various properties shared across all states,
+  which are then overridden in subsequent states where needed.
+*/
+
+/*
+  COLLAPSED (base styles)
+
+  Hidden on mobile
+*/
+.tui-theme_inspire-navigation {
+  position: relative;
+  z-index: var(--zindex-navbar);
+  display: none;
+  flex-direction: column;
+  overflow: visible;
+
+  /* Desktop width*/
+  @media (min-width: $tui-screen-md) {
+    display: flex;
+    width: var(--nav-collapsed-width);
+  }
+
+  .tui-theme_inspire-navigation__nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: var(--nav-collapsed-width);
+    height: 100%;
+    background-color: var(--nav-bg-color);
+    border-right: 1px inset var(--nav-border-colour);
+  }
+
+  .tui-theme_inspire-navigation__heading {
+    margin: auto;
+    border-bottom: 1px inset var(--nav-border-colour);
+  }
+
+  .tui-theme_inspire-navigation__headingLogo {
+    max-width: var(--nav-logomark-width);
+    max-height: var(--nav-logomark-height);
+    margin: gap(8) 0;
+  }
+
+  .tui-theme_inspire-navigation__collapse {
+    float: right;
+    width: var(--nav-button-size);
+    height: var(--nav-button-size);
+    margin-top: gap(4);
+    margin-right: gap(-3);
+    color: var(--nav-tab-text-color);
+
+    &:focus-visible {
+      outline: 2px solid var(--nav-tab-text-color);
+    }
+  }
+
+  .tui-theme_inspire-navigation__items {
+    display: flex;
+    flex-direction: column;
+    gap: gap(1);
+    height: 100%;
+    margin: 0;
+    padding: gap(5) gap(5) gap(5) 0;
+    overflow-y: auto;
+    list-style: none;
+  }
+}
+
+/*
+  OVERLAID
+*/
+.tui-theme_inspire-navigation--overlaid {
+  position: fixed;
+  z-index: var(--zindex-nav-overlay);
+  display: flex;
+  width: var(--nav-width);
+
+  /* Desktop width*/
+  @media (min-width: $tui-screen-md) {
+    position: relative;
+    width: var(--nav-collapsed-width);
+  }
+
+  .tui-theme_inspire-navigation__nav {
+    width: var(--nav-width);
+  }
+
+  .tui-theme_inspire-navigation__heading {
+    margin: 0 gap(6);
+  }
+
+  .tui-theme_inspire-navigation__headingLogo {
+    max-width: var(--nav-logo-width);
+    max-height: var(--nav-logo-height);
+  }
+
+  .tui-theme_inspire-navigation__items {
+    padding: gap(5) gap(3) gap(5) 0;
+  }
+}
+
+/*
+  EXPANDED
+
+  Hidden on mobile
+*/
+.tui-theme_inspire-navigation--desktopExpanded {
+  display: none;
+
+  /* Desktop width*/
+  @media (min-width: $tui-screen-md) {
+    display: flex;
+    width: var(--nav-width);
+
+    .tui-theme_inspire-navigation__nav {
+      width: var(--nav-width);
+    }
+
+    .tui-theme_inspire-navigation__heading {
+      margin: 0 gap(6);
+    }
+
+    .tui-theme_inspire-navigation__headingLogo {
+      max-width: var(--nav-logo-width);
+      max-height: var(--nav-logo-height);
+    }
+
+    .tui-theme_inspire-navigation__items {
+      padding: gap(5) gap(3) gap(5) 0;
+    }
+  }
+}
+
+/*
+  HIDDEN
+*/
+.tui-theme_inspire-navigation--hidden {
+  display: none;
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1351.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1351.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/theme_inspire/src/overrides/tui/components/theme_settings/SettingsFormCustom.vue?vue&type=style&index=0&id=7de984d2&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-settingsFormBrand__testEmailInfoButton {
+  align-self: center;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1351.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1351.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/theme_inspire/src/pages/overrides/tui/ThemeSettings.vue?vue&type=style&index=0&id=d9f51e58&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-themeSettings {
+  &__content {
+    margin-top: var(--gap-8);
+  }
+
+  &__forms {
+    @include tui-stack-vertical(var(--gap-8));
+  }
+}
+

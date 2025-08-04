@@ -1,0 +1,93 @@
+"""
+Result object for query 'core_course_is_user_enrolled_result'.
+"""
+type core_course_is_user_enrolled_result {
+  """
+  Whether the user is enrolled a course.
+  """
+  user_currently_enrolled: Boolean!
+}
+
+"""
+Input type used when querying for a list of courses. Specifies filters to be applied to the results.
+"""
+input core_course_courses_filters {
+  """
+  Unix creation timestamp of tag including an integer timestamp, numeric string or an ISO-8601 string.
+  """
+  since_timecreated: core_date
+  """
+  Unix timemodification timestamp of tag including an integer timestamp, numeric string or an ISO-8601 string.
+  """
+  since_timemodified: core_date
+  """
+  Raw name of a tag.
+  """
+  tag_filter: String
+}
+
+"""
+Input type for retrieving the list of all available courses.
+The query parameter includes pagination and sorting information for
+organising results.
+"""
+input core_course_courses_query {
+  """
+  The pagination object contains information about the number of items
+  to be returned, and the page offset to start from.
+  """
+  pagination: core_pagination_input
+  """
+  The sort order for the query. The query is currently only able to sort by one order.
+  """
+  sort: [core_sort_input!]
+  """
+  The filters for querying course.
+  """
+  filters: core_course_courses_filters
+}
+
+"""
+The result of the courses query.
+"""
+type core_course_courses_result implements core_pageable_result {
+  """
+  A list of vector course items.
+  """
+  items: [core_course]!
+  """
+  The number of returned courses.
+  """
+  total: Int!
+  """
+  The cursor indicates where the returned result ends,
+  and where the next query should begin.
+  """
+  next_cursor: String!
+}
+
+extend type Query {
+  """
+  Query to check whether the user is enrolled a course.
+  """
+  core_course_is_user_enrolled(
+    """
+    Target course.
+    """
+    course: core_course_course_reference!
+    """
+    Target user.
+    """
+    user: core_user_user_reference!
+  ): core_course_is_user_enrolled_result!
+
+  """
+  Retrieve a paginated list of all available courses.
+  """
+  core_course_courses(
+    """
+    The query parameter contains pagination and sorting information.
+    """
+    query: core_course_courses_query
+  ): core_course_courses_result!
+}

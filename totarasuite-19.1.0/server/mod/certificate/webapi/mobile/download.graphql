@@ -1,0 +1,26 @@
+query mod_certificate_download($input: totara_mobile_download_activity_input!) {
+  mod_certificate_download(input: $input) {
+    id
+    instanceid
+    name
+    introformat
+    intro(format: MOBILE)
+    attachments {
+      file_url
+      file_size
+      __typename
+    }
+    showdescription
+    completionstatus
+    completion
+    completionenabled
+    certificate_issues {
+      issue_date
+      grade
+      __typename
+    }
+    certificate_content
+    downloadsize
+    __typename
+  }
+}

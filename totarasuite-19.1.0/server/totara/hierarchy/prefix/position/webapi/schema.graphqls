@@ -1,0 +1,472 @@
+"""
+Position item object.
+
+The position structure defines the job roles that a company has defined.
+"""
+type hierarchy_position_position implements totara_hierarchy_item {
+  """
+  Internal database id of the position.
+  """
+  id: core_id!
+  """
+  Full name of the position.
+  """
+  fullname(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = PLAIN
+  ): String!
+  """
+  Unique reference used to represent the position across multiple systems.
+  """
+  idnumber: String
+  """
+  The short name of the position. Only used as additional information if admin setting 'showhierarchyshortnames' is enabled.
+  """
+  shortname(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = PLAIN
+  ): String
+  """
+  Rich-text description of the position.
+  """
+  description(
+    """
+    Output format this field should be formatted for.
+    Please note: RAW format is only available to users with the capability 'totara/hierarchy:updateposition' in the
+    system context, as its purpose is for editing.
+    """
+    format: core_format = HTML
+  ): String
+  """
+  The internal database id of the position framework this position belongs to.
+  Please note: viewing this position's frameworkid requires the capability 'totara/hierarchy:viewpositionframeworks'
+  """
+  frameworkid: core_id
+  """
+  The position framework this position belongs to.
+  Please note: viewing this position's framework requires the capability 'totara/hierarchy:viewpositionframeworks'
+  """
+  framework: hierarchy_position_framework
+  """
+  An ordered list of parent database ids for this position, indicating the hierarchy of parent items. Includes the
+  current item and separated by forward slashes, e.g. item with id=6 might be: /1/4/6
+  This is a computed value.
+  """
+  path: String!
+  """
+  The id of this position's immediate parent in the framework hierarchy. Set to 0 if this is a top-level position.
+  """
+  parentid: core_id
+  """
+  The parent position in the hierarchy. Null if a top-level item.
+  """
+  parent: hierarchy_position_position
+  """
+  Collection of positions that are immediately below this one in the framework hierarchy. Empty if this position
+  has no children.
+  """
+  children: [hierarchy_position_position!]!
+  """
+  The id of the position type, or 0 if this is a generic position.
+  """
+  typeid: core_id
+  """
+  Position type object.
+  """
+  type: hierarchy_position_type
+  """
+  Timestamp of when the position was last modified.
+  Available since Totara 19.0.1.
+  """
+  timemodified(format: core_date_format = TIMESTAMP): core_date!
+  """
+  Flag determining whether the position is visible to users or not.
+  """
+  visible: Boolean!
+  """
+  Custom fields relating to the position
+  """
+  custom_fields: [totara_customfield_field!]
+}
+
+"""
+Input for identifying a position.
+"""
+input hierarchy_position_position_reference {
+  """
+  Identify a position by internal database id.
+  """
+  id: core_id
+  """
+  Identify a position by its idnumber. `idnumber` is a unique reference used to represent the position across multiple systems.
+  """
+  idnumber: String
+}
+
+"""
+Input provided when creating a position.
+"""
+input hierarchy_position_create_position_input {
+  """
+  Full name of the position.
+  """
+  fullname: String!
+  """
+  Unique reference used to represent the position across multiple systems.
+  """
+  idnumber: String
+  """
+  Rich-text description of the position.
+  """
+  description: String
+  """
+  The position framework this position belongs to.
+  """
+  framework: hierarchy_position_framework_reference!
+  """
+  The parent position in the hierarchy.
+  """
+  parent: hierarchy_position_position_reference
+  """
+  Position type.
+  """
+  type: hierarchy_position_type_reference
+  """
+  Flag determining whether the position is visible to end users or not.
+  If not given, will default to visible.
+  """
+  visible: Boolean
+  """
+  Optional array of position type custom field data (each array element describes a single custom field value for this position).
+  """
+  custom_fields: [totara_customfield_input!]
+}
+
+"""
+Input provided when updating a position.
+"""
+input hierarchy_position_update_position_input {
+  """
+  Full name of the position.
+  """
+  fullname: String
+  """
+  Unique reference used to represent the position across multiple systems.
+  """
+  idnumber: String
+  """
+  Rich-text description of the position.
+  """
+  description: String
+  """
+  The position framework this position belongs to.
+  """
+  framework: hierarchy_position_framework_reference
+  """
+  The parent position in the hierarchy.
+  """
+  parent: hierarchy_position_position_reference
+  """
+  Position type.
+  """
+  type: hierarchy_position_type_reference
+  """
+  Flag determining whether the position is visible to end users or not.
+  """
+  visible: Boolean
+  """
+  Optional array of position type custom field data (each array element describes a single custom field value for this position).
+  """
+  custom_fields: [totara_customfield_input!]
+}
+
+"""
+Position filter
+
+Properties to filter out positions.
+"""
+input hierarchy_position_positions_filter {
+  """
+  The internal ID of a framework to filter on.
+  """
+  framework_id: param_integer
+  """
+  The internal ID of a parent position to filter on.
+  """
+  parent_id: param_integer
+  """
+  A list of internal IDs of positions to filter on.
+  """
+  ids: [param_integer!]
+  """
+  Filter based on the name of the positions.
+  """
+  name: param_text
+  """
+  The internal ID of a type to filter on.
+  """
+  type_id: param_integer
+  """
+  The timestamp of when the position was last modified.
+  Handles the following formats: integer timestamp, numeric string or an ISO-8601 string.
+  Available since Totara 19.0.1.
+  """
+  since_timemodified: core_date
+}
+
+"""
+Input type for the positions query.
+"""
+input hierarchy_position_positions_query {
+  """
+  The pagination object contains information about the number of items
+  to be returned, and the page offset to start from.
+  """
+  pagination: core_pagination_input
+  """
+  The sort order for the query. The query is currently only able to sort by one order.
+  """
+  sort: [core_sort_input!]
+  """
+  The filters for querying positions.
+  """
+  filters: hierarchy_position_positions_filter
+}
+
+"""
+Mutation result type returned after creation of a new position. Returns the position that was created.
+"""
+type hierarchy_position_position_created_result {
+  """
+  Position object for the position that was created as part of the operation.
+  """
+  position: hierarchy_position_position
+}
+
+"""
+Mutation result type returned after updates to an existing position. Returns the position that was updated.
+"""
+type hierarchy_position_position_updated_result {
+  """
+  Position object for the position that was updated as part of the operation.
+  """
+  position: hierarchy_position_position
+}
+
+"""
+Represents a single position result.
+"""
+type hierarchy_position_position_result {
+  """
+  Whether or not the position is found.
+  This may return false if the record doesn't exist within Totara or if the API client doesn't have access to the record.
+  """
+  found: Boolean
+  """
+  The found position. This will be null if the position couldn't be found.
+  """
+  position: hierarchy_position_position
+}
+
+"""
+Mutation result type returned after deletion of a position. Returns the id of deleted position if it was deleted successfully.
+"""
+type hierarchy_position_position_deleted_result {
+  """
+  Internal database id of the position that was just deleted from the system.
+  """
+  position_id: core_id!
+}
+
+"""
+Position result
+
+Result type for a collection of positions.
+"""
+type hierarchy_position_positions_result implements core_pageable_result {
+  """
+  Array of one page of positions returned by the query.
+  """
+  items: [hierarchy_position_position!]!
+  """
+  Total number of positions from this query (across all pages).
+  """
+  total: Int!
+  """
+  Cursor to request the next set of results for this query.
+  """
+  next_cursor: String!
+}
+
+"""
+Input for identifying a position type.
+"""
+input hierarchy_position_type_reference {
+  """
+  Identify a position type by internal database id.
+  """
+  id: core_id
+  """
+  Identify a position type by its idnumber. `idnumber` is a unique reference used to represent the position type across multiple systems.
+  """
+  idnumber: String
+}
+
+"""
+Position type object. A position type is a user-defined classification which can be assigned to positions
+leading to certain custom fields being available on that position.
+"""
+type hierarchy_position_type implements totara_hierarchy_type {
+  """
+  Internal database id of the position type.
+  """
+  id: core_id!
+  """
+  Position type full name.
+  """
+  fullname(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = PLAIN
+  ): String!
+  """
+  Unique reference used to represent the position type across multiple systems.
+  """
+  idnumber: String
+  """
+  The short name of the position type. Only used as additional information if admin setting 'showhierarchyshortnames' is enabled.
+  """
+  shortname(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = PLAIN
+  ): String
+  """
+  Rich-text description of the position type.
+  """
+  description(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = HTML
+  ): String
+}
+
+"""
+Input for identifying a position framework.
+"""
+input hierarchy_position_framework_reference {
+  """
+  Identify a position framework by internal database id.
+  """
+  id: core_id
+  """
+  Identify a position framework by its idnumber. `idnumber` is a unique reference used to represent the position framework across multiple systems.
+  """
+  idnumber: String
+}
+
+"""
+Position framework object. A position framework is a collection of positions arranged in a tree.
+"""
+type hierarchy_position_framework implements totara_hierarchy_framework {
+  """
+  Internal database id of the position framework.
+  """
+  id: core_id!
+  """
+  Full name of the position framework.
+  """
+  fullname(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = PLAIN
+  ): String!
+  """
+  Unique reference used to represent the position framework across multiple systems.
+  """
+  idnumber: String
+  """
+  Short name of the position framework, only used if admin setting 'showhierarchyshortnames' is enabled.
+  """
+  shortname(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = PLAIN
+  ): String
+  """
+  Rich-text description of the position framework.
+  """
+  description(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = HTML
+  ): String
+}
+
+extend type Query {
+  """
+  Return a specific position.
+  """
+  hierarchy_position_position(
+    """
+    Input object specifying data for the existing position.
+    """
+    reference: hierarchy_position_position_reference!
+  ): hierarchy_position_position_result!
+
+  """
+  Return a list of positions.
+  """
+  hierarchy_position_positions(
+    query: hierarchy_position_positions_query
+  ): hierarchy_position_positions_result!
+}
+
+extend type Mutation {
+  """
+  Creates a new position.
+  Please note: creating positions requires the capability 'totara/hierarchy:createposition'
+  """
+  hierarchy_position_create_position(
+    """
+    Input object specifying data for creating the new position.
+    """
+    input: hierarchy_position_create_position_input!
+  ): hierarchy_position_position_created_result!
+
+  """
+  Updates a specific target position with new properties.
+  Please note: updating positions requires the capability 'totara/hierarchy:updateposition'
+  """
+  hierarchy_position_update_position(
+    """
+    The position that should be updated.
+    """
+    target_position: hierarchy_position_position_reference!
+    """
+    Input object specifying data for updating the position.
+    """
+    input: hierarchy_position_update_position_input!
+  ): hierarchy_position_position_updated_result
+
+  """
+  Mutation to delete an position.
+  Please note: deleting positions requires the capability 'totara/hierarchy:deleteposition'
+  """
+  hierarchy_position_delete_position(
+    """
+    Input provided for identifying the position.
+    """
+    target_position: hierarchy_position_position_reference!
+  ): hierarchy_position_position_deleted_result!
+}

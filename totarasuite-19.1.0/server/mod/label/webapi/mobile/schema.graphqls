@@ -1,0 +1,66 @@
+"""
+Query type to label information
+"""
+type mod_label_label implements totara_mobile_download_activity {
+  """
+  Course module id
+  """
+  id: core_id!
+  """
+  Module id
+  """
+  instanceid: core_id!
+  """
+  The name of the label
+  """
+  name: String!
+  """
+  The description of the label
+  """
+  intro(format: core_format = HTML): String
+  """
+  The description format
+  """
+  introformat: core_format
+  """
+  File attachments
+  """
+  attachments: [totara_mobile_download_attachment_info]!
+  """
+  Whether the course module displays the description or not
+  """
+  showdescription: Boolean
+  """
+  The completion settings of the course module
+  """
+  completion: String
+  """
+  Whether completion is enabled or not for the course module
+  """
+  completionenabled: Boolean!
+  """
+  The completion status of the current user in the course module
+  """
+  completionstatus: String
+  """
+  The total number of download file size
+  """
+  downloadsize: Int!
+}
+
+extend type Query {
+  """
+  Query to get downloadable label information
+  """
+  mod_label_download(
+    input: totara_mobile_download_activity_input!
+  ): mod_label_label!
+}
+extend type Mutation {
+  """
+  Save label completion
+  """
+  mod_label_sync_completion(
+    input: totara_mobile_sync_completion_input!
+  ): totara_mobile_sync_completion_result!
+}

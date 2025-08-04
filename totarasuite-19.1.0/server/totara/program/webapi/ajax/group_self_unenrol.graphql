@@ -1,0 +1,9 @@
+mutation totara_program_group_self_unenrol(
+  $input: totara_program_group_reference!
+) {
+  result: totara_program_group_self_unenrol(input: $input) {
+    success
+    message
+    code
+  }
+}

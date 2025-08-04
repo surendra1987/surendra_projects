@@ -1,0 +1,101 @@
+"""
+Represents a status change made in the subject instance.
+"""
+type perform_goal_perform_status_change {
+  """
+  Id of the perform_goal_perform_change_status record.
+  """
+  id: core_id
+  """
+  Id of the perform_goal record.
+  """
+  goal_id: core_id
+  """
+  Id of the review subject user.
+  """
+  subject_user_id: core_id
+  """
+  The goal status values.
+  """
+  status: perform_goal_status
+  """
+  The value towards the goal currently achieved so far.
+  """
+  current_value: Float
+  """
+  The performance activity id.
+  """
+  activity_id: core_id
+  """
+  The ID for the performance activity subject instance where the status change originated.
+  """
+  subject_instance_id: core_id
+  """
+  The id of user who changed the status.
+  """
+  status_changer_user_id: core_id
+  """
+  The user who changed the status.
+  """
+  status_changer_user: core_user
+  """
+  The core_relationship ID of the user who changed the status.
+  """
+  status_changer_relationship_id: core_id
+  """
+  The datetime the record was created.
+  """
+  created_at(format: core_date_format = DATELONG): core_date
+}
+
+"""
+The response returned from a perform_goal_perform_change_status request.
+"""
+type perform_goal_perform_change_status_result {
+  """
+  A perform_goal_perform_status_change record's values.
+  """
+  perform_status_change: perform_goal_perform_status_change
+  """
+  Whether the perform_goal_perform_status_change record existed previously.
+  """
+  already_exists: Boolean
+}
+
+"""
+Input provided when making a request to update a linked review goal's status.
+"""
+input perform_goal_perform_change_status_input {
+  """
+  The linked review's participant instance.
+  """
+  participant_instance_id: core_id!
+  """
+  Id of the review goal.
+  """
+  goal_id: core_id!
+  """
+  The value towards the goal currently achieved so far.
+  """
+  current_value: Float!
+  """
+  The id string of the goal status, e.g. 'in_progress'.
+  """
+  status: String!
+  """
+  The linked review section's element id.
+  """
+  section_element_id: core_id!
+}
+
+extend type Mutation {
+  """
+  An operation to update and record changes to a linked review goal's status.
+  """
+  perform_goal_perform_change_status(
+    """
+    Input values to update a linked review goal's status.
+    """
+    input: perform_goal_perform_change_status_input!
+  ): perform_goal_perform_change_status_result!
+}

@@ -1,0 +1,27 @@
+query mod_resource_download($input: totara_mobile_download_activity_input!) {
+  mod_resource_download(input: $input) {
+    id
+    instanceid
+    name
+    introformat
+    intro(format: MOBILE)
+    attachments {
+      file_url
+      file_size
+      __typename
+    }
+    showdescription
+    completionstatus
+    completion
+    completionenabled
+    display_type
+    extra_info
+    downloadsize
+    file {
+      file_url
+      file_size
+      __typename
+    }
+    __typename
+  }
+}

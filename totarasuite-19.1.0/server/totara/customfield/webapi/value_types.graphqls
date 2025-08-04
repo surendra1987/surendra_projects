@@ -1,0 +1,227 @@
+"""
+Defines the different supported types available for custom fields.
+If a specific type has not been defined for custom fields, the totara_customfield_type_generic type will be used.
+When requesting fields on types used in a union it is a good idea to use aliases for the properties (e.g. value is a field on a datetime type and on a text type, specifying an
+alias for the field will help ensure you get back the expected field for the expected type).
+
+Note: custom fields with type 'TEXTAREA' will utilise the totara_customfield_type_generic type due to there currently being a lack of support for formatting editor content in Totara.
+
+Example of use in a query:
+```graphql
+custom_fields {
+    value {
+        __typename
+        ... on totara_customfield_value_type_generic {
+            raw_value
+        }
+        ... on totara_customfield_value_type_multiselect {
+            options {
+                option
+            }
+        }
+        ...on totara_customfield_value_type_datetime {
+            datetime_value: value (format: ISO8601)
+        }
+        ... on totara_customfield_value_type_text {
+            text_value: value
+        }
+    }
+}
+```
+"""
+union totara_customfield_value_type =
+    totara_customfield_value_type_generic
+  | totara_customfield_value_type_checkbox
+  | totara_customfield_value_type_text
+  | totara_customfield_value_type_multiselect
+  | totara_customfield_value_type_datetime
+  | totara_customfield_value_type_integer
+  | totara_customfield_value_type_decimal
+  | totara_customfield_value_type_location
+  | totara_customfield_value_type_url
+  | totara_customfield_value_type_menu
+
+"""
+Generic custom field type. Used to handle unknown custom field types.
+"""
+type totara_customfield_value_type_generic {
+  """
+  The raw value of the custom field. Raw string representation of the data stored.
+  """
+  raw_value: String
+}
+
+"""
+Multiselect custom field.
+
+* When options have been selected for a particular item, this will return an array of the selected options.
+* For default values, this will return null due to a limitation of how multiselect stores default options.
+"""
+type totara_customfield_value_type_multiselect {
+  """
+  The options for the multiselect field.
+  """
+  options: [totara_customfield_value_type_multiselect_option]
+}
+
+"""
+A single option value for a multiselect.
+"""
+type totara_customfield_value_type_multiselect_option {
+  """
+  The value of the option.
+  """
+  option: String
+}
+
+"""
+The checkbox custom field type.
+"""
+type totara_customfield_value_type_checkbox {
+  """
+  Whether or not the option is checked.
+  """
+  checked: Boolean
+}
+
+"""
+The integer custom field type.
+"""
+type totara_customfield_value_type_integer {
+  """
+  The value of the integer.
+  """
+  value: Int
+}
+
+"""
+The decimal custom field type.
+"""
+type totara_customfield_value_type_decimal {
+  """
+  The value of the decimal.
+  """
+  value: Float
+}
+
+"""
+The location custom field type.
+
+For type location, the default value (including raw_default_value) will be null, regardless of configuration.
+"""
+type totara_customfield_value_type_location {
+  """
+  A user editable textarea field specifying an address.
+  """
+  address: String
+  """
+  A display property for Google maps. Defines the level of zoom when displaying Google maps.
+  """
+  zoom: Int
+  """
+  A display property for Google maps. Defines the size of the Google maps canvas.
+  """
+  size: totara_customfield_value_type_location_size
+  """
+  A display property for Google maps. Defines the type of view Google maps should display.
+  """
+  view: totara_customfield_value_type_location_view
+  """
+  A display property for the custom field. Defines which fields to show for the custom field (maps, address or both).
+  """
+  display: totara_customfield_value_type_location_display
+  """
+  The geographical coordinates (longitude and latitude) for a given location.
+  """
+  coordinates: totara_customfield_value_type_location_coordinates
+}
+
+"""
+Defines the geographical coordinates for the location custom field.
+"""
+type totara_customfield_value_type_location_coordinates {
+  """
+  Longitude is a geographic coordinate that specifies the east–west position of a point on the surface of the Earth
+  """
+  longitude: Float
+  """
+  Latitude is a geographic coordinate that specifies the north-south position of a point on the surface of the Earth
+  """
+  latitude: Float
+}
+
+"""
+Defines the content displayed for the location custom field.
+"""
+enum totara_customfield_value_type_location_display {
+  BOTH
+  MAP
+  ADDRESS
+}
+
+"""
+Defines the Google maps display size for the location custom field.
+"""
+enum totara_customfield_value_type_location_size {
+  SMALL
+  MEDIUM
+  LARGE
+}
+
+"""
+Defines the Google maps view options for the location custom field.
+"""
+enum totara_customfield_value_type_location_view {
+  MAP
+  SATELLITE
+  HYBRID
+}
+
+"""
+The datetime custom field type.
+"""
+type totara_customfield_value_type_datetime {
+  """
+  Formatted value of the date time value.
+  Raw value is stored as a UNIX timestamp.
+
+  Formats as TIMESTAMP by default.
+  """
+  value(format: core_date_format = TIMESTAMP): core_date
+}
+
+"""
+The text custom field type.
+"""
+type totara_customfield_value_type_text {
+  """
+  The value of the text field.
+  """
+  value: String
+}
+
+"""
+The URL custom field type.
+"""
+type totara_customfield_value_type_url {
+  """
+  The URL value of the custom field.
+  """
+  url: String
+  """
+  The text value of the custom field.
+
+  Due to a limitation of how this value is stored on custom field definitions, this returns null for default values and values which use the default.
+  """
+  text: String
+}
+
+"""
+The menu custom field type.
+"""
+type totara_customfield_value_type_menu {
+  """
+  The value of the option selected.
+  """
+  option: String
+}

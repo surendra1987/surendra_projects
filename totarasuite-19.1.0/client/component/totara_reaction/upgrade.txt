@@ -1,0 +1,10 @@
+This files describes API changes in /client/component/totara_reaction,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Updated LikeRecordsModal to use an h2 instead of an h1
+
+=== 14.0 ===
+
+* Removed the close button in the popover from SidePanelLike.vue component

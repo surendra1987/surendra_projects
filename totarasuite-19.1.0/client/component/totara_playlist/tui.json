@@ -1,0 +1,10 @@
+{
+  "component": "totara_playlist",
+  "vendor": "totara",
+  "entry": "./src/js/internal/entry.js",
+  "dependencies": [
+    "totara_engage",
+    "totara_comment",
+    "editor_weka"
+  ]
+}

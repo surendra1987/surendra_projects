@@ -1,0 +1,40 @@
+.tui-diagnosticSuccessModal {
+  &__container {
+    display: flex;
+
+    &-title {
+      @include font(h4);
+    }
+
+    &-box {
+      gap: var(--gap-2);
+      padding-left: var(--gap-4);
+      overflow-wrap: anywhere;
+    }
+  }
+}
+
+.tui-diagnosticProviders {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-8);
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-8);
+  }
+
+  &__table {
+    &-whitelist {
+      background: none;
+    }
+  }
+
+  &__loader {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-8);
+  }
+}
+

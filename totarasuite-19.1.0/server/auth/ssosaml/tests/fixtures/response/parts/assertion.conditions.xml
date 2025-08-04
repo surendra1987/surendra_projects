@@ -1,0 +1,5 @@
+<saml2:Conditions xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion" NotBefore="{conditions.notbefore}" NotOnOrAfter="{conditions.notonorafter}">
+    <saml2:AudienceRestriction>
+        <saml2:Audience>{conditions.audience}</saml2:Audience>
+    </saml2:AudienceRestriction>
+</saml2:Conditions>

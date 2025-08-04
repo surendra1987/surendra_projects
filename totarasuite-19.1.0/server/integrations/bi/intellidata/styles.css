@@ -1,0 +1,30 @@
+.intellidata-configuration > div {
+    display: inline-block;
+    float: right;
+    line-height: 40px;
+}
+
+.intellidata-configuration__data {
+    border-top: 2px solid #ddd;
+}
+
+.intellidata-configuration__nodata {
+    text-align: center;
+}
+
+.ib-single-button {
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.ib-form-group {
+    margin-bottom: 10px;
+}
+
+button.ib-search-button {
+    margin-bottom: 4px;
+}
+
+.ib-small-indent {
+    margin-left: 4px;
+}

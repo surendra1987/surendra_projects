@@ -1,0 +1,3 @@
+query engage_course_ids_added_to_playlist($playlist_id: core_id!) {
+  ids: engage_course_ids_added_to_playlist(playlist_id: $playlist_id)
+}

@@ -1,0 +1,1280 @@
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/buttons/DoneCancelGroup.vue?vue&type=style&index=0&id=83cc24b6&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-doneCancelGroup {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: var(--gap-2);
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/callout/EngageCallout.vue?vue&type=style&index=0&id=b5b9e140&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageCallout {
+  display: flex;
+  padding: var(--gap-4);
+  border-top: var(--border-width-thin) solid var(--color-neutral-5);
+  border-right: var(--border-width-thin) solid var(--color-neutral-5);
+  border-bottom: var(--border-width-thin) solid var(--color-neutral-5);
+  border-left: var(--gap-1) solid var(--color-prompt-warning);
+  border-radius: 6px;
+
+  &__info {
+    @include font(body);
+    margin-left: var(--gap-4);
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/card/BaseCard.vue?vue&type=style&index=0&id=57371350&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageBaseCard {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: column;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/card/CardHeader.vue?vue&type=style&index=0&id=39161bcc&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageCardHeader {
+  &__first {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__second {
+    * {
+      margin: 0;
+    }
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/card/Footnotes.vue?vue&type=style&index=0&id=91b54958&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-cardFootnotes {
+  margin: var(--gap-2) 0;
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/card/ImageHeader.vue?vue&type=style&index=0&id=41b4796e&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageImageHeader {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: calc(var(--card-border-radius) - 1px);
+  border-top-right-radius: calc(var(--card-border-radius) - 1px);
+
+  &__actionContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border-top-left-radius: calc(var(--card-border-radius) - 1px);
+    border-top-right-radius: calc(var(--card-border-radius) - 1px);
+  }
+
+  &__imageBox {
+    &--covered,
+    &--noCovered {
+      width: 100%;
+      height: 100%;
+      border-top-left-radius: calc(var(--card-border-radius) - 1px);
+      border-top-right-radius: calc(var(--card-border-radius) - 1px);
+    }
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/card/footnote/SharedByFootnote.vue?vue&type=style&index=0&id=bad1df28&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-cardSharedByFootnote {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/contribution/BaseContent.vue?vue&type=style&index=0&id=77e8f4e9&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-contributionBaseContent {
+  &__counterContainer {
+    padding: var(--gap-4) 0;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--gap-3);
+    align-items: flex-start;
+    margin: var(--gap-4) 0;
+
+    > :last-child {
+      align-self: center;
+    }
+  }
+
+  &__title {
+    @include font(h1);
+    flex-basis: auto;
+    flex-grow: 1;
+  }
+
+  &__filter {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--gap-4);
+    margin-bottom: var(--gap-4);
+  }
+
+  &__cards {
+    margin-top: var(--gap-1);
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__loadMoreContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__viewedResources {
+    display: flex;
+    align-self: center;
+    margin-bottom: var(--gap-1);
+  }
+
+  &__loadMore {
+    display: flex;
+    align-self: center;
+  }
+
+  &__counter {
+    @include font(h4);
+  }
+
+  &__emptyText {
+    @include font(body);
+    margin-top: var(--gap-2);
+  }
+
+  &__header + &__counterContainer {
+    margin-top: var(--gap-10);
+    padding-bottom: 0;
+  }
+  &__header + .tui-contributionFilter {
+    margin-top: var(--gap-12);
+  }
+  .tui-contributionFilter + &__counterContainer {
+    padding-top: var(--gap-4);
+  }
+  .tui-contributionFilter--hasSortBy + &__counterContainer {
+    margin-top: calc(var(--gap-7) * -1);
+    padding-top: 0;
+  }
+  &__header + .tui-totara_engage-filterBarArea {
+    margin-top: var(--gap-12);
+  }
+  .tui-totara_engage-filterBarArea + &__counterContainer {
+    padding-top: var(--gap-4);
+  }
+  .tui-totara_engage-filterBarArea--hasSortBy + &__counterContainer {
+    margin-top: calc(var(--gap-7) * -1);
+    padding-top: 0;
+  }
+
+  &--small {
+    .tui-contributionBaseContent__header {
+      margin: var(--gap-4);
+    }
+
+    .tui-contributionBaseContent__counterContainer {
+      padding: var(--gap-4);
+    }
+
+    .tui-contributionBaseContent__cards {
+      padding: 0 var(--gap-4);
+    }
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/contribution/CardsGrid.vue?vue&type=style&index=0&id=6dd850ec&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageCardsGrid {
+  position: relative;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(var(--tui-card-default-width), 100%), 1fr)
+  );
+  gap: var(--gap-card-grid);
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/contribution/Contribute.vue?vue&type=style&index=0&id=6bcf337c&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageContribute {
+  display: flex;
+  align-items: center;
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/contribution/Filter.vue?vue&type=style&index=0&id=557c2687&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-contributionFilter {
+  .tui-formLabel {
+    @include font(body-sm, var(--label-weight));
+  }
+
+  &__sort {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: var(--gap-4);
+    margin-right: 0;
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/contribution/FilterBarArea.vue?vue&type=style&index=0&id=7b194ae9&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_engage-filterBarArea {
+  &__sort {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: var(--gap-4);
+    margin-right: 0;
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/contribution/SavedResources.vue?vue&type=style&index=0&id=c2452f26&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-contributionSavedResources {
+  .tui-contributionBaseContent__counter {
+    position: relative;
+    top: 0;
+    padding-bottom: var(--gap-2);
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/contribution/SearchResults.vue?vue&type=style&index=0&id=24143722&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-contributionSearchResults {
+  .tui-contributionBaseContent__title {
+    @include font(h1);
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/contribution/YourLibrary.vue?vue&type=style&index=0&id=18a6f989&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_engage-yourLibrary {
+  &__navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-3);
+    margin: var(--gap-4) 0;
+  }
+
+  &__title {
+    margin: 0;
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/form/AccessForm.vue?vue&type=style&index=0&id=161854a3&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageAccessForm {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+
+  &__options {
+    &--withTagList {
+      flex-basis: 35%;
+    }
+
+    &--withoutTagLists {
+      flex-basis: 90%;
+      flex-grow: 1;
+    }
+  }
+
+  &__time {
+    margin-top: var(--gap-4);
+  }
+
+  &__tagLists {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-top: var(--gap-4);
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--gap-6);
+  }
+
+  &__back {
+    margin-right: auto;
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/form/InlineEditing.vue?vue&type=style&index=0&id=89c6c998&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-inlineEditing {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--gap-1) 0;
+  border: 2px solid transparent;
+
+  &--fullWidth {
+    width: 100%;
+  }
+
+  &--updateAble {
+    padding-right: var(--gap-5);
+    padding-left: var(--gap-1);
+
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+    }
+
+    &:hover,
+    &:focus-within,
+    &.tui-focusWithin {
+      border: 2px solid var(--color-secondary);
+      cursor: pointer;
+      & .tui-inlineEditing__btn {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: rem-px(15);
+        outline: none;
+      }
+    }
+  }
+
+  &:not(:hover) {
+    .tui-inlineEditing__btn:not(:focus) {
+      @include sr-only();
+    }
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/form/SharedBoard.vue?vue&type=style&index=0&id=9e2d2b94&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSharedBoardForm {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  &__label {
+    display: inline-flex;
+    margin-top: var(--gap-2);
+    @include font(body-sm);
+  }
+
+  &__content {
+    flex-basis: 1px;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 60px;
+    padding: var(--gap-1);
+    padding-left: 0;
+    overflow-y: auto;
+
+    &Container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &Tags {
+      margin: 0 0 var(--gap-1) var(--gap-1);
+      list-style-type: none;
+    }
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/form/access/RecipientsSelector.vue?vue&type=style&index=0&id=553a128e&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSharedRecipientsSelector {
+  &__label {
+    margin-top: var(--gap-4);
+  }
+  &__recipient {
+    display: flex;
+    > :first-child {
+      margin-right: var(--gap-2);
+    }
+
+    &-summary {
+      margin: 0;
+      list-style-type: none;
+      > :first-child {
+        font-weight: var(--label-weight);
+      }
+      > :last-child {
+        @include font(body-sm);
+      }
+    }
+
+    &-badge {
+      align-self: flex-end;
+      margin-left: auto;
+      > :last-child {
+        @include font(body-sm);
+      }
+    }
+  }
+
+  &__profileContainer {
+    position: relative;
+    &-badge {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+
+      > :last-child {
+        @include font(body-sm);
+
+        padding-left: var(--gap-1);
+      }
+    }
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/header/ResourceNavigationBar.vue?vue&type=style&index=0&id=7bef26ef&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-resourceNavigationBar {
+  display: flex;
+
+  &__backLink {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding: var(--gap-2) var(--gap-12) var(--gap-2) 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__backIcon {
+    margin-right: var(--gap-2);
+  }
+
+  &--disabled {
+    color: var(--color-state-disabled);
+  }
+
+  &__previousLink {
+    margin-right: var(--gap-1);
+  }
+
+  &__nextLink {
+    margin-left: var(--gap-1);
+  }
+
+  & > * {
+    margin: auto;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/icons/BookmarkActiveIcon.vue?vue&type=style&index=0&id=4cb7574a&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageIconBookmarkActive {
+  color: var(--color-state);
+  &:hover {
+    color: var(--color-state-hover);
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/icons/Star.vue?vue&type=style&index=0&id=7a545367&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageStarIcon {
+  display: block;
+  margin-right: var(--gap-1);
+
+  &__polygon {
+    stroke: var(--color-neutral-6);
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/icons/StarRating.vue?vue&type=style&index=0&id=91dc9938&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageStarRating {
+  position: relative;
+  display: flex;
+
+  &--rtl {
+    direction: rtl;
+  }
+
+  &--inline {
+    display: inline-flex;
+  }
+
+  &__srOnly {
+    @include sr-only();
+  }
+
+  &__star {
+    &--pointer {
+      cursor: pointer;
+    }
+  }
+}
+
+/* IE11 is doing a poor job of handling flex here, and a min-height on child*/
+/* Nodes is not correcting things, so resort to simpler styles that achieve the*/
+/* same thing (in a deleteable style block).*/
+.ie {
+  .tui-engageStarRating {
+    display: block;
+    &__star {
+      display: inline-block;
+    }
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/icons/StatIcon.vue?vue&type=style&index=0&id=23ae23fc&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageStatIcon {
+  display: flex;
+  gap: gap(1);
+  align-items: center;
+
+  &__statNumber {
+    font-size: font-size-px(12);
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    outline: none;
+    cursor: default;
+    &--clickable {
+      cursor: pointer;
+    }
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/icons/access/Private.vue?vue&type=style&index=0&id=5c4c016d&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageIconPrivate {
+  &--color {
+    color: var(--color-prompt-alert);
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/icons/access/Public.vue?vue&type=style&index=0&id=ab1c7922&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageIconPublic {
+  &--color {
+    color: var(--color-prompt-success);
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/icons/access/Restricted.vue?vue&type=style&index=0&id=43a4ad3e&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageIconRestricted {
+  &--color {
+    color: var(--color-secondary);
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/modal/AccessModal.vue?vue&type=style&index=0&id=7a246137&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageAccessModal {
+  &__content {
+    .tui-modalContent__content {
+      position: relative;
+      display: flex;
+      flex-basis: 100%;
+      flex-direction: column;
+      min-height: 450px;
+    }
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/modal/ContributeModal.vue?vue&type=style&index=0&id=3211d164&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageContributeModal {
+  position: relative;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: rem-px(650);
+  }
+
+  &__adderContainer {
+    margin-bottom: var(--gap-4);
+    padding: var(--gap-2) var(--gap-3);
+    background-color: var(--color-neutral-2);
+    border: var(--border-width-thin) solid var(--color-neutral-4);
+    border-radius: var(--border-radius-normal);
+  }
+
+  &__orCreateText {
+    margin-bottom: var(--gap-4);
+    font-weight: 600;
+  }
+
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    padding-bottom: var(--gap-6);
+  }
+
+  &__componentContent {
+    position: relative;
+    display: flex;
+    flex-basis: 0;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 0;
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/modal/EngagePrivacyWarningModal.vue?vue&type=style&index=0&id=5c823686&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageWarningModal {
+  &__container {
+    display: flex;
+  }
+
+  &__title {
+    @include font(h4);
+    margin-bottom: var(--gap-2);
+  }
+
+  &__box {
+    padding-left: var(--gap-4);
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/modal/NameListModal.vue?vue&type=style&index=0&id=bb245e1c&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageArticleNameListModal {
+  &-title {
+    @include font(h4);
+
+    margin: 0;
+    padding: var(--gap-8) var(--gap-8) var(--gap-2);
+    border-bottom: var(--border-width-thin) solid var(--color-primary);
+  }
+
+  &-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: var(--gap-3);
+  }
+
+  &-content {
+    max-height: 50vh;
+    overflow-y: auto;
+
+    &-list {
+      @include font(body-sm);
+      margin: 0;
+      color: var(--color-state);
+      list-style-type: none;
+
+      li {
+        padding: var(--gap-2) var(--gap-8);
+
+        + li {
+          border-top: var(--border-width-thin) solid var(--color-neutral-5);
+        }
+
+        & > :first-child {
+          margin-right: var(--gap-1);
+        }
+      }
+    }
+
+    &-loadmore {
+      padding: var(--gap-2) var(--gap-8);
+      border-top: var(--border-width-thin) solid var(--color-neutral-5);
+    }
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/navigation/NavigationPill.vue?vue&type=style&index=0&id=6b0dd878&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_engage-navigationPill {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+  display: inline-flex;
+  align-items: center;
+  height: var(--engage-nav-pill-height);
+  padding: 0 var(--gap-4);
+  color: var(--color-neutral-7);
+  font-size: font-size-px(14);
+  white-space: nowrap;
+  background-color: var(--color-neutral-1);
+  border: 0;
+  border-radius: var(--engage-nav-pill-border-radius);
+  cursor: pointer;
+
+  &:focus-visible {
+    @include tui-focus();
+  }
+  &:hover {
+    color: var(--color-state);
+  }
+  &:active {
+    color: var(--color-state-active);
+  }
+
+  &--selected {
+    color: var(--color-neutral-1);
+    background-color: var(--color-state);
+    &:hover {
+      color: var(--color-neutral-1);
+      background-color: var(--color-state-hover);
+    }
+    &:active {
+      color: var(--color-neutral-1);
+      background-color: var(--color-state-active);
+    }
+  }
+
+  &[disabled] {
+    color: var(--color-neutral-6);
+    cursor: default;
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/page/LayoutOneColumnContentWithSidePanel.vue?vue&type=style&index=0&id=22797640&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engagelayoutOneColumnContentWithSidepanel {
+  padding: gap(4);
+  @include layout-page-padding();
+
+  &__toolbar {
+    flex-grow: 1;
+
+    &--content {
+      margin-bottom: gap(12);
+    }
+  }
+
+  &__grid {
+    & > :nth-child(2) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__sidePanel {
+    flex-grow: 1;
+    max-height: 90vh;
+    margin-top: gap(2);
+
+    &--wide {
+      top: auto;
+      min-height: 100vh;
+    }
+  }
+
+  &__sidebar {
+    display: flex;
+    justify-content: flex-end;
+    margin: gap(0.5) 0;
+
+    &--expanded {
+      margin: 0;
+    }
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/page/LayoutOneColumnWithMultiSidePanel.vue?vue&type=style&index=0&id=3092ae0c&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engagelayoutOneColumnWithMultiSidePanel {
+  display: flex;
+  max-width: 100%;
+
+  &__responsiveContainer {
+    display: flex;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  &__outerRight {
+    position: relative;
+    display: flex;
+  }
+  &__rightSidePanelContainer {
+    height: 100%;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/page/LayoutOneColumnWithSidePanel.vue?vue&type=style&index=0&id=50d49176&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engagelayoutOneColumnWithSidepanel {
+  padding: gap(4);
+  @include layout-page-padding();
+
+  /* Prevents the button edges from being hidden which would prevent the user*/
+  /* from selecting the button again*/
+  &--onSmallScreen {
+    > .tui-responsive > .tui-grid > .tui-grid-item {
+      .tui-sidePanel {
+        overflow: visible;
+        &--closed {
+          .tui-sidePanel__inner {
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+
+  &__grid {
+    & > :nth-child(2) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__sidePanel {
+    flex-grow: 1;
+    max-height: 90vh;
+    margin-top: gap(2);
+
+    &--wide {
+      top: auto;
+      min-height: 100vh;
+    }
+  }
+
+  &__toolbar {
+    margin-bottom: gap(12);
+  }
+
+  &__sidebar {
+    display: flex;
+    justify-content: flex-end;
+    margin: gap(0.5) 0;
+
+    &--expanded {
+      margin: 0;
+    }
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/sidepanel/EngageSidePanel.vue?vue&type=style&index=0&id=32acb9fa&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSidePanel {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: var(--gap-4);
+
+  @media (min-width: $tui-screen-sm) {
+    padding: var(--gap-8);
+  }
+
+  &__tabs {
+    display: flex;
+    flex: 1 0 1px;
+    flex-direction: column;
+    padding-top: var(--gap-6);
+
+    @media (min-width: $tui-screen-sm) {
+      padding-top: var(--gap-8);
+      overflow: auto;
+    }
+
+    .tui-tabs__panels {
+      flex-basis: 0;
+      flex-grow: 1;
+      flex-shrink: 0;
+
+      @media (min-width: $tui-screen-sm) {
+        min-height: 0;
+      }
+    }
+
+    /* Overriding the fallback select list when there isn't enough space*/
+    .tui-formRow__action {
+      width: 200px;
+    }
+  }
+
+  &__commentBox {
+    height: 100%;
+
+    @media (min-width: $tui-screen-sm) {
+      /* Since the tab is already having a padding which it is '--gap-4'.*/
+      /* Therefore we just need another '--gap-4'.*/
+      height: calc(100% - var(--gap-4));
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__overviewBox {
+    /* Since the tab is already having a padding which it is '--gap-4'.*/
+    /* Therefore we just need another '--gap-4'.*/
+    margin-top: var(--gap-4);
+  }
+
+  &__related {
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/sidepanel/NavigationPanel.vue?vue&type=style&index=0&id=6c99f7be&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageNavigationPanel {
+  &__selected {
+    margin-top: var(--gap-6);
+    margin-bottom: var(--gap-2);
+  }
+
+  &__menu {
+    height: 100%;
+    overflow: auto;
+  }
+
+  &__category {
+    @include font(h4);
+    display: flex;
+    align-items: center;
+    margin: var(--gap-8) var(--gap-4);
+    margin-bottom: var(--gap-3);
+
+    & > span {
+      padding-right: var(--gap-2);
+    }
+  }
+
+  &__header {
+    @include font(h4);
+    margin-top: 0;
+    margin-bottom: 0;
+    & .tui-engageNavigationPanel__btn {
+      @include font(h3);
+      color: var(--color-text);
+      .tui-caret {
+        color: var(--color-state);
+      }
+    }
+  }
+
+  &__contribute {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: var(--gap-1) var(--gap-4);
+
+    a {
+      text-decoration: none;
+    }
+
+    &--inactive {
+      .tui-engageNavigationPanel__link-text {
+        color: var(--color-state-focus);
+      }
+
+      &:hover,
+      &:focus {
+        background-color: var(--color-state-highlight-neutral);
+      }
+    }
+
+    &--active {
+      background-color: var(--color-state-active);
+
+      .tui-engageNavigationPanel__link-text {
+        color: var(--color-neutral-1);
+
+        &:hover,
+        &:focus {
+          color: var(--color-neutral-1);
+        }
+      }
+    }
+  }
+
+  /* Vertical grid styles */
+  &__vertical {
+    border-bottom: 1px solid var(--color-neutral-5);
+
+    .tui-engageNavigationPanel {
+      &__selected {
+        padding: 0 var(--gap-4);
+      }
+
+      &__search {
+        margin-bottom: var(--gap-8);
+      }
+
+      &__link {
+        padding: var(--gap-2) var(--gap-4);
+        border-bottom: 1px solid var(--color-neutral-4);
+
+        &--first {
+          border-top: 1px solid var(--color-neutral-4);
+        }
+      }
+
+      &__menu {
+        z-index: var(--zindex-dropdown-menu);
+        width: 100%;
+        margin-bottom: var(--gap-4);
+        background-color: var(--color-neutral-3);
+        border: 1px solid var(--color-neutral-5);
+      }
+    }
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/sidepanel/access/AccessDisplay.vue?vue&type=style&index=0&id=7b2ca1d6&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageAccessDisplay {
+  &__accessIcon {
+    display: flex;
+    &-icons {
+      display: flex;
+      align-items: center;
+      > :first-child {
+        margin-right: var(--gap-2);
+      }
+    }
+    &-shareButton {
+      margin-left: var(--gap-4);
+
+      @media (max-width: $tui-screen-md) {
+        margin-left: var(--gap-2);
+      }
+    }
+  }
+
+  &__timeView {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: var(--gap-2);
+    > :first-child {
+      margin-right: var(--gap-2);
+    }
+  }
+
+  &__topics {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: var(--gap-2);
+    line-height: normal;
+
+    > :first-child {
+      margin-right: var(--gap-2);
+      color: var(--color-neutral-6);
+    }
+  }
+
+  &__topic {
+    @include font(body-sm);
+    margin-top: var(--gap-1);
+    margin-right: var(--gap-1);
+  }
+
+  &__editSettings {
+    margin-top: var(--gap-2);
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/sidepanel/media/LazyList.vue?vue&type=style&index=0&id=c71b5f02&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageSidepanelLazylist {
+  &__list {
+    margin: 0;
+    list-style-type: none;
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/sidepanel/media/MediaSetting.vue?vue&type=style&index=0&id=c0ddfece&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-mediaSetting {
+  display: inline-flex;
+  margin-top: var(--gap-8);
+  > * {
+    margin-right: var(--gap-3);
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/sidepanel/media/Share.vue?vue&type=style&index=0&id=5370d33c&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+:root {
+  --shareSetting-min-height: 250px;
+}
+
+.tui-shareSetting {
+  &__buttonLabel {
+    &-hoverContent {
+      text-align: center;
+      -webkit-hyphens: none;
+              hyphens: none;
+    }
+  }
+  &__recipient {
+    display: flex;
+    flex-direction: column;
+    min-height: var(--shareSetting-min-height);
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/sidepanel/navigation/SearchLibrary.vue?vue&type=style&index=0&id=1e73310c&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageNavigationPanelSearchLibrary {
+  margin: var(--gap-4);
+  margin-bottom: var(--gap-6);
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/sidepanel/navigation/YourResources.vue?vue&type=style&index=0&id=78bd3d39&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-navigationYourResources {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/table/AdderBrowseAllTable.vue?vue&type=style&index=0&id=5af163b4&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageAdderBrowseTable {
+  &__img {
+    width: 65px;
+    height: 45px;
+    overflow: hidden;
+
+    @media (min-width: $tui-screen-sm) {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/components/table/AdderSelectedTable.vue?vue&type=style&index=0&id=99ed3db4&lang=scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageAdderSelectedTable {
+  &__img {
+    width: 100%;
+    height: 45px;
+    overflow: hidden;
+  }
+
+  &__title {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/pages/EngageUnavailableResource.vue?vue&type=style&index=0&id=aa52490e&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-engageUnavailableResource {
+  width: 100%;
+  padding: 0 var(--gap-6);
+
+  &__text {
+    @include font(body);
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1461.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1461.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_engage/src/pages/OtherUserLibrary.vue?vue&type=style&index=0&id=5d723b54&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-otherUserLibrary {
+  &__header {
+    padding-left: 0;
+  }
+
+  &__backArrow {
+    margin-right: gap(2);
+  }
+}
+

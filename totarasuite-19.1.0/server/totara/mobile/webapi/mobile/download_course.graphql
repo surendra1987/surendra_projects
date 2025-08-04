@@ -1,0 +1,77 @@
+query totara_mobile_download_course($input: totara_mobile_course_input!) {
+  content: totara_mobile_download_course(input: $input) {
+    id
+    fullname
+    shortname
+    summary(format: MOBILE)
+    summaryformat
+    startdate(format: ISO8601)
+    enddate(format: ISO8601)
+    lang
+    format
+    attachments {
+      file_url
+      file_size
+      __typename
+    }
+    image {
+      file_url
+      file_size
+      __typename
+    }
+    criteriaaggregation
+    criteria {
+      id
+      type
+      typeaggregation
+      criteria
+      requirement
+      status
+      complete
+      completiondate(format: ISO8601)
+      __typename
+    }
+    showGrades: showgrades
+    completionEnabled: completionenabled
+    gradeFinal: formatted_gradefinal
+    gradeMax: formatted_grademax
+    completion {
+      id
+      statuskey
+      progress
+      timecompleted(format: ISO8601)
+      __typename
+    }
+    sections {
+      id
+      title(format: PLAIN)
+      summary(format: MOBILE)
+      summaryformat
+      attachments {
+        file_url
+        file_size
+        __typename
+      }
+      modules {
+        id
+        instanceid
+        modtype
+        name(format: PLAIN)
+        viewurl
+        showdescription
+        description(format: MOBILE)
+        descriptionformat
+        downloadable
+        downloadsize
+        attachments {
+          file_url
+          file_size
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}

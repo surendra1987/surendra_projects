@@ -1,0 +1,43 @@
+enum totara_program_completion_type {
+  """
+  Complete all courses to progress
+  """
+  ALL
+  """
+  Any one course in this set must be completed.
+  """
+  ANY
+  """
+  Some courses
+  """
+  SOME
+  """
+  All courses are optional
+  """
+  OPTIONAL
+}
+
+"""
+Input schema for saving courseset
+"""
+input totara_program_save_courseset_input {
+  id: core_id
+  label: String
+  program_id: core_id!
+  course_ids: [core_id]!
+  completion_type: totara_program_completion_type!
+  min_courses: Int
+  course_sum_field: core_id
+  course_sum_field_total: Int
+  time_allowed: Int
+  sort_order: Int
+}
+
+extend type Mutation {
+  """
+  Create a courseset.
+  """
+  totara_program_save_courseset(
+    input: totara_program_save_courseset_input
+  ): totara_program_program_courseset!
+}

@@ -1,0 +1,26 @@
+"""
+Input schema for move courseset
+"""
+input totara_program_move_courseset_input {
+  """
+  The id of the course set being moved.
+  """
+  id: core_id
+  """
+  The id of the program the course set belongs to.
+  """
+  program_id: core_id
+  """
+  The new sortorder for the course set within the program.
+  """
+  new_sortorder: Int!
+}
+
+extend type Mutation {
+  """
+  Move the given courseset.
+  """
+  totara_program_move_courseset(
+    input: totara_program_move_courseset_input
+  ): Boolean!
+}

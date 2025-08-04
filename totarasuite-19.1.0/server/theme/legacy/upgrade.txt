@@ -1,0 +1,107 @@
+This file describes API changes for 'theme_legacy'.
+
+=== 19.1.0 ===
+* Added top and bottom padding to the chromeless block by only resetting the left and right padding
+* Changed forms.scss to remove column style from .form-description in admin settings, due to a template change.
+
+=== 19.0 ===
+* Wrapped .fitem fieldset legends in a `flegend` class and moved the help icon outside of the legend.
+* Changed dashboard layout to include a page heading
+* The following typography-related variables and mixins are now deprecated. Please use the indicated replacement. This is also flagged by stylelint.
+  * --font-body-large-size: --font-body-lg-size, @include font(body-xl), or @include font(body-lg)
+  * --font-body-small-size: --font-body-sm-size or @include font(body-sm)
+  * --font-body-x-small-size: --font-body-sm-size or @include font(body-sm)
+  * --font-body-xx-small-size: --font-body-xs-size or @include font(body-xs)
+  * --font-heading-large-size: --font-display-lg-size or @include font(display-lg)
+  * --font-heading-size: <h1>, --font-h1-size, @include font(h1), --font-display-sm-size, or @include font(display-sm)
+  * --font-heading-small-size: <h3>, --font-h3-size, @include font(h3), --font-body-xl-size, or @include font(body-xl)
+  * --font-heading-x-small-size: <h4>, --font-h4-size, @include font(h4), --font-body-lg-size, or @include font(body-lg)
+  * --font-body-large-line-height: --font-body-lg-line-height
+  * --font-body-small-line-height: --font-body-sm-line-height
+  * --font-body-x-small-line-height: --font-body-sm-line-height
+  * --font-body-xx-small-line-height: --font-body-xs-line-height
+  * --font-heading-large-line-height: --font-display-lg-line-height
+  * --font-heading-line-height: --font-h1-line-height or --font-display-sm-line-height
+  * --font-heading-small-line-height: --font-h3-line-height or --font-body-xl-line-height
+  * --font-heading-x-small-line-height: --font-h4-line-height or --font-body-lg-line-height
+  * --font-size-X: font-size-px(X) (where X is a number)
+  * --font-size-heading-level-1: --font-h1-size
+  * --font-size-heading-level-2: --font-h2-size
+  * --font-size-heading-level-3: --font-h3-size
+  * --font-size-heading-level-4: --font-h4-size
+  * --font-size-heading-level-5: --font-h5-size
+  * --font-size-heading-level-6: --font-h6-size
+  * @include tui-font-body: @include font(body)
+  * @include tui-font-body-small: @include font(body-sm)
+  * @include tui-font-body-x-small: @include font(body-sm)
+  * @include tui-font-body-xx-small: @include font(body-xs)
+  * @include tui-font-body-disabled: color: var(--color-text-disabled)
+  * @include tui-font-body-placeholder: color: var(--color-text-hint)
+  * @include tui-font-heavy: font-weight: bold
+  * @include tui-font-monospace: font-family: var(--font-family-monospace)
+  * @include tui-font-heading-medium: @include font(h1)
+  * @include tui-font-heading-small: @include font(h3)
+  * @include tui-font-heading-small-regular: @include font(h3)
+  * @include tui-font-heading-x-small: @include font(h4)
+  * @include tui-font-heading-label: @include font(h4), @include font(h5), or font-weight: var(--label-weight)
+  * @include tui-font-heading-label-small: @include font(h6) or @include font(body-sm, var(--label-weight))
+  * @include tui-font-heading-page-title: @include font(h1)
+  * @include tui-font-heading-page-title-small: @include font(h2)
+  * @include tui-font-hint: @include text-hint()
+* Removed padding added to legacynolayout at small screen sizes.
+
+=== 18.0 ===
+* Button, input, and select styles now no longer apply to plain buttons, inputs, and selects.
+  * Add `btn btn-default`, `form-control`, or `custom-select` classes (respectively) to elements you need to be styled.
+* The Bootstrap implementation of button and form styling has been replaced with a custom one, compatible with the same classes,
+  but with improved styles aligned with the Tui Design System.
+* Removed float positioning from .path-course-view .completionprogress
+* Fixed sidebar card width on medium screen
+* Updated catalog page layout to use flex; (catalog.scss) .tw-catalog__content is now a flex container
+* Updated manage buttons layout to use flex; (manage_btns.scss) .tw-catalogManageBtns is now a flex container
+* Updated tw-grid to use CSS grid; (grids.scss) .tw-grid is now a CSS grid container
+* Updated myreports grid to use CSS grid; (reports.scss) .totara_core__myreports__list--grid is now a CSS grid container
+* Deprecated CSS variable --nav-quick-border-top-color
+* Added CSS variable --nav-quick-border-color
+* Updated quick access menu padding and alignment
+* Updated quick access menu footer to use CSS grid; .totara_core__QuickAccess_footer is now a CSS grid container
+* Updated navigation icons to use flex; (side.scss) .nav-link is now a flex container
+* Updated usertext to use flex; (side.scss) .usertext is now a flex container
+* Deprecated CSS variable --nav-sub-tab-bg-color-selected
+* Deprecated CSS variable --nav-sub-tab-border-color-selected
+* The HTML and CSS structure of the footer has changed. You may have to adjust your theme styles targetting the footer.
+* Removed buttons when nonavbar is set to true
+* Blocks UI was restyled
+
+=== 17.0 ===
+* Added "white-space" css for rename button to align text in file picker.
+* Added overflow ellipsis to all option tags inside criteria_course_value
+
+=== 15.0 ===
+* Fixed colours used in mustache template "server/theme/legacy/templates/core/email_html.mustache".
+
+=== 14 ===
+* Added intermediate "accent" variables for button colours to support styling through theme settings.
+
+=== 13.2 ===
+* Dropped !important background pseudo reset style on print media query from bootstrap _print.scss
+
+=== 13.0 (changes from roots/basis) ===
+
+* "secure" page layout now uses layout/secure.php
+* Styling changes applied to login page tui/styles/totara/login.scss
+* Updated tool_usertours/tourstep template
+* Upgraded Bootstrap to 3.4.1
+* Deprecated CSS file totara-menu was dropped
+* Removed tag argument for regions so that they render as divs
+
+=== BTNS ===
+=== Buttons have been switched over to new mixins to help with consistency between legacy & ventura
+* Switched the buttons in the following files from using local colour variables to common global colours
+* /totara/login.scss Login page button
+* /totaracatalog/details_link
+* /totaracatalog/manage_btns
+* /totara/catalog/results_share.scss
+* /totara/add_block_popover_content.scss
+
+* course.scss pagination yui button colours switched

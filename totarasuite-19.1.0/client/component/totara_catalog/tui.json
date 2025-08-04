@@ -1,0 +1,5 @@
+{
+  "component": "totara_catalog",
+  "vendor": "totara",
+  "entry": "./src/internal/entry.js"
+}

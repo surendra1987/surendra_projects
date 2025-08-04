@@ -1,0 +1,10 @@
+mutation tool_diagnostic_run_diagnostics(
+  $excluded_provider_ids: [param_alphanumext!]
+) {
+  tool_diagnostic_run_diagnostics(
+    excluded_provider_ids: $excluded_provider_ids
+  ) {
+    download_url
+    download_filesize
+  }
+}

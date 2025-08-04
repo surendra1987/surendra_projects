@@ -1,0 +1,1 @@
+YUI.add("moodle-atto_italic-button",function(t,i){t.namespace("M.atto_italic").Button=t.Base.create("button",t.M.editor_atto.EditorPlugin,[],{initializer:function(){this.addBasicButton({exec:"italic",keys:"73",tags:"i"})}})},"@VERSION@",{requires:["moodle-editor_atto-plugin"]});

@@ -1,0 +1,27 @@
+This files describes API changes for code that uses the question API,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+* Removed '$question->places[$placeno]->fieldname = $fieldname' in qtype_ddtoimage_renderer_base::formulation_and_controls()
+* Renamed incorrectly named property $matchingquestions on qformat_examview to $matching_questions. This fixes a deprecation in PHP 8.2.
+
+=== 14.0 ===
+
+=== 13.0 ===
+
+=== 12.0 ===
+
+* core_question_renderer::get_flag_html() has changed.
+* qtype_renderer::feedback_image() has changed.
+
+=== 10.0 ===
+
+* The argument $requirecourseid was removed from question_edit_setup() and
+   is no longer respected. The behaviour was found to be buggy and now throws
+   debugging notices if passed.
+* The following renderers have been deprecated in favour of the renderable
+  core_question\output\qbank_chooser and associated render_* method.
+   * qbank_chooser
+   * qbank_chooser_types
+   * qbank_chooser_qtype
+   * qbank_chooser_title

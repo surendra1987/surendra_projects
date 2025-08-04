@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    {
+      "name": "tui_charts"
+    },
+    {
+      "name": "totara_reportbuilder"
+    }
+  ]
+}

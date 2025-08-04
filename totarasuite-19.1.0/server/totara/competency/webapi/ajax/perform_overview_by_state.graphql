@@ -1,0 +1,22 @@
+query totara_competency_perform_overview_by_state(
+  $input: totara_competency_perform_overview_by_state_input!
+) {
+  totara_competency_perform_overview_by_state(input: $input) {
+    total
+    items {
+      id
+      raw_id
+      name
+      url
+      description
+      assignment_date
+      assignment_type
+      achievement_level
+      achievement_date
+      last_update {
+        date
+        description
+      }
+    }
+  }
+}

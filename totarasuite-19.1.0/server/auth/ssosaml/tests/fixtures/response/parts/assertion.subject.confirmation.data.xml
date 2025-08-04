@@ -1,0 +1,1 @@
+<saml2:SubjectConfirmationData InResponseTo="{subject.confirmation.data.inresponseto}" NotOnOrAfter="{subject.confirmation.data.notonorafter}" {subject.confirmation.data.address} {subject.confirmation.data.notbefore} Recipient="{subject.confirmation.data.recipient}"></saml2:SubjectConfirmationData>

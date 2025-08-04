@@ -1,0 +1,44 @@
+{{!
+    This file is part of Totara Talent Experience Platform
+
+    Copyright (C) 2024 onwards Totara Learning Solutions LTD
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    @author Aaron Machin <aaron.machin@totara.com>
+    @package tool_usagedata
+}}
+
+<div class="tool_usagedata-page">
+  <h1>{{#str}}page_title,tool_usagedata{{/str}}</h1>
+  {{#opt_out_enabled}}
+    <p>{{#str}}page_state_not_enabled,tool_usagedata{{/str}}</p>
+  {{/opt_out_enabled}}
+  {{^opt_out_enabled}}
+    <p>{{#str}}page_state_enabled,tool_usagedata{{/str}}</p>
+  {{/opt_out_enabled}}
+
+  <h2>{{#str}}page_how_is_data_used,tool_usagedata{{/str}}</h2>
+  {{#str}}page_explaination,tool_usagedata{{/str}}
+
+  <h2>{{#str}}page_what_is_collected,tool_usagedata{{/str}}</h2>
+  {{>tool_usagedata/list}}
+
+  <h2>{{#str}}data_being_shared, tool_usagedata{{/str}}</h2>
+  <div>
+    <p>{{#str}}view_data_shared, tool_usagedata{{/str}}</p>
+    <code>{{#str}}export_cli_exec_cmd, tool_usagedata{{/str}}</code>
+  </div>
+</div>
+

@@ -1,0 +1,10 @@
+This file describes API changes in /client/component/performelement_linked_review,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Updated LinkedReviewParticipantForm.vue to allow for adding review items even after there are existing items in "selectedContent"
+    * Template changes
+* Updated SelectContent.vue so that the existing items on the adder can include the items that had previously been saved
+    These are provided into this component via the "existingItemIds" prop
+    * Template & JS changes 

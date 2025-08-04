@@ -1,0 +1,24 @@
+query mod_page_download($input: totara_mobile_download_activity_input!) {
+  mod_page_download(input: $input) {
+    id
+    instanceid
+    name
+    introformat
+    intro(format: MOBILE)
+    attachments {
+      file_url
+      file_size
+      __typename
+    }
+    viewurl
+    timemodified
+    content(format: MOBILE)
+    contentformat
+    showdescription
+    completionenabled
+    completion
+    completionstatus
+    downloadsize
+    __typename
+  }
+}

@@ -1,0 +1,11 @@
+query goaltype_basic_creation_config {
+  config: goaltype_basic_creation_config {
+    options {
+      id
+      name
+      description
+      icon_component
+      ui_component
+    }
+  }
+}

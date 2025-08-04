@@ -1,0 +1,25 @@
+query perform_goal_overview_by_state(
+  $input: perform_goal_overview_by_state_input!
+) {
+  perform_goal_overview_by_state(input: $input) {
+    total
+    goals {
+      id
+      raw_id
+      name
+      url
+      achievement_date
+      description
+      assignment_date
+      last_update {
+        date
+        description
+      }
+      due {
+        date
+        due_soon
+        overdue
+      }
+    }
+  }
+}

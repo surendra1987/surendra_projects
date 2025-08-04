@@ -1,0 +1,28 @@
+This files describes API changes in the mod_scorm code,
+information provided here is intended especially for developers.
+
+=== 18.0 ===
+
+* Added optional '$returnobjects' parameter to scorm_get_completed_attempt_count function.
+  If true, it returns an object with attempts, if false it returns count of attempts
+
+=== 14 ===
+
+* Force new attempt setting no longer a boolean - now accepts 3 values:
+  No
+  When previous attempt completed, passed or failed - (Same as previous behaviour)
+  Always - (new option)
+  See MDL-32585 for more details.
+
+== 12.17 ==
+
+* mod_scorm/rb_source_scorm::rb_filter_scorm_attempt_list() function has been deprecated, please use the number type filter instead.
+
+== 12 ==
+
+* New capabilities 'mod/scorm:view' and 'mod/scorm:launch' were added.
+
+=== 10 ===
+
+* Group and groupings support has now been enabled.
+

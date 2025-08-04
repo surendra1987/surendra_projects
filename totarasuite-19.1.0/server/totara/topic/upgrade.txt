@@ -1,0 +1,19 @@
+This files describes API changes in /totara/topic/* - plugins,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Topics have been refactored to work a lot more like normal tag collections. The tag collection which topics use
+  can be changed to any tag collection. On installation, there is no longer a dedicated "Topics" tag collection, it
+  uses the default tag collection instead. The setting $CFG->topics_collection_id is now redundant.
+* Hid the topic report source and topic usage source
+* Hid 'topic management page' and 'usage of topic page'
+* The topic_helper::delete_topic_usage function no longer verifies whether the topic can be deleted, this check should
+  be performed by the caller.
+
+=== 14.0 ===
+
+* Added new context variable "sesskey" in template report_actions.mustache
+* Added new context variable "delete_url_title" in template report_actions.mustache
+* Added new context variable "update_url_title" in template report_actions.mustache
+* Added new required class for Javascript "tw-reportActions__deleteForm" in template report_actions.mustache

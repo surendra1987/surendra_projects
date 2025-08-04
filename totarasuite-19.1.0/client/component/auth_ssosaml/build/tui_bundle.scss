@@ -1,0 +1,397 @@
+.tui-auth_ssosaml-addMappingModal {
+  &__boxes {
+    padding-top: var(--gap-6);
+    columns: auto rem-px(200);
+    & > * {
+      break-inside: avoid;
+      margin-bottom: var(--gap-4);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  &__selectAll {
+    display: flex;
+    align-items: center;
+    padding-bottom: var(--gap-4);
+  }
+
+  @media (min-width: $tui-screen-sm) {
+    &__footer {
+      flex-direction: row;
+    }
+
+    &__selectAll {
+      padding: 0;
+    }
+  }
+}
+
+.tui-auth_ssosaml-mappingEdit {
+  &__invisibleRemove {
+    height: 1px;
+    visibility: hidden;
+  }
+
+  &__addFieldRow {
+    margin-top: var(--gap-2);
+  }
+}
+
+.tui-auth_ssosaml-idpManageCard {
+  &__side {
+    @include font(body-sm);
+    display: flex;
+    align-items: center;
+  }
+
+  &__dropdown {
+    font-size: 0; /* work around dropdown alignment issue*/
+  }
+
+  &__enable {
+    padding: 0 var(--gap-2);
+  }
+
+  &__separator {
+    height: rem-px(16);
+    margin: 0 var(--gap-2);
+    border-right: 1px solid var(--color-border);
+  }
+}
+
+.tui-auth_ssosaml-idpNavButtons {
+  @include tui-stack-horizontal(var(--gap-2));
+  display: flex;
+
+  &__moreButton {
+    min-width: rem-px(56);
+  }
+}
+
+.tui-auth_ssosaml-idpEditForm {
+  &__subtitle {
+    margin-top: var(--gap-2);
+  }
+}
+
+.tui-auth_ssosaml-listingCard {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--card-border-color);
+  border-radius: var(--card-border-radius);
+
+  &:hover,
+  &.tui-focusWithin {
+    box-shadow: var(--shadow-2);
+  }
+
+  &__title {
+    @include tui-stack-horizontal(var(--gap-2));
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding: var(--gap-5) var(--gap-4);
+    font-weight: bold;
+    a#{&} {
+      text-decoration: none;
+    }
+  }
+
+  &__side {
+    display: flex;
+    align-items: center;
+    padding-right: var(--gap-4);
+  }
+}
+
+.tui-auth_ssosaml-manageIdps {
+  @include tui-stack-vertical(var(--gap-4));
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__cards {
+    @include tui-stack-vertical(var(--gap-4));
+  }
+}
+
+.tui-auth_ssosaml-metadataCard {
+  background-color: var(--color-neutral-2);
+  border: 1px solid var(--card-border-color);
+  border-radius: var(--card-border-radius);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: var(--gap-4);
+  }
+
+  &__icon {
+    flex: 0 0 auto;
+  }
+
+  &__heading {
+    @include font(h4);
+    flex-grow: 1;
+    margin: 0 var(--gap-2) 0 var(--gap-2);
+  }
+
+  &__content {
+    padding: 0 var(--gap-4) var(--gap-4) var(--gap-4);
+  }
+
+  &__info {
+    padding-top: var(--gap-4);
+    border-top: 1px solid var(--color-border);
+  }
+
+  &__infoIcon {
+    margin-right: var(--gap-1);
+  }
+
+  &__cols {
+    margin-top: var(--gap-4);
+  }
+
+  &__main {
+    @include tui-stack-vertical(var(--gap-4));
+  }
+
+  &__side {
+    margin-top: var(--gap-4);
+  }
+
+  &__kv {
+    @include tui-stack-vertical(var(--gap-2));
+  }
+
+  &__label {
+    @include font(body-sm, var(--label-weight));
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (min-width: $tui-screen-sm) {
+    &__cols {
+      display: grid;
+      grid-template-columns: 70% 30%;
+    }
+
+    &__main {
+      padding-right: var(--gap-4);
+    }
+
+    &__side {
+      margin: 0;
+      padding-left: var(--gap-4);
+      border-left: 1px solid var(--color-border);
+    }
+  }
+}
+
+.tui-auth_ssosaml-samlLog {
+  &__paging {
+    margin-top: var(--gap-4);
+  }
+}
+
+.tui-auth_ssosaml-logTable {
+  &__rowContent {
+    @include tui-stack-vertical(var(--gap-4));
+  }
+
+  &__message {
+    border: 1px solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+
+    &-heading {
+      @include font(h6);
+      display: flex;
+      justify-content: space-between;
+      padding: var(--gap-2);
+      background-color: var(--color-neutral-3);
+      border-radius: calc(var(--card-border-radius) - 1px);
+    }
+
+    &-date {
+      font-weight: normal;
+    }
+
+    &-xml {
+      @include font(body-sm);
+      padding: var(--gap-2);
+      overflow: auto;
+      font-family: var(--font-family-monospace);
+      white-space: pre-wrap;
+    }
+  }
+}
+
+.tui-auth_ssosaml-globalSettings {
+  @include tui-stack-vertical(var(--gap-4));
+
+  &__title {
+    margin: 0;
+  }
+}
+
+.tui-auth_ssosaml-userAttributes {
+  &__invisibleRemove {
+    height: 1px;
+    visibility: hidden;
+  }
+
+  &__addFieldRow {
+    margin-top: var(--gap-4);
+  }
+}
+
+.tui-auth_ssosaml-simpleTable {
+  $block: #{&};
+
+  &__row {
+    display: grid;
+    grid-template-columns: var(
+      --tui-auth_ssosaml-simple-table-grid-template-columns
+    );
+    gap: var(--gap-2);
+    padding: var(--gap-2) var(--gap-1);
+    border-bottom: 1px solid var(--datatable-row-border-color);
+
+    &--header {
+      border-bottom: var(--border-width-normal) solid
+        var(--datatable-row-first-border-color);
+    }
+  }
+
+  &--stacked &__row {
+    grid-template-columns: none;
+  }
+
+  &--stacked &__row--header {
+    padding: 0;
+  }
+
+  &__cell {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &--stacked &__cell {
+    flex-direction: column;
+  }
+
+  &--stacked &__row--header &__cell {
+    @include sr-only();
+  }
+
+  &__cell-label {
+    @include font(body-sm, var(--label-weight));
+    display: none;
+    padding-bottom: var(--gap-1);
+  }
+
+  &--stacked &__cell-label {
+    display: block;
+  }
+
+  &__cell-content {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-start;
+    min-width: 0;
+
+    #{$block}__cell--valign-start & {
+      align-items: flex-start;
+    }
+
+    #{$block}__cell--valign-center & {
+      align-items: center;
+    }
+
+    #{$block}__cell--valign-end & {
+      align-items: flex-end;
+    }
+
+    #{$block}__cell--valign-stretch & {
+      align-items: stretch;
+    }
+  }
+
+  &__row--header &__cell {
+    font-weight: var(--label-weight);
+  }
+}
+
+.tui-auth_ssosaml-idp {
+  &__subtitle {
+    margin-top: var(--gap-2);
+  }
+
+  &__content {
+    @include tui-stack-vertical(var(--gap-8));
+  }
+
+  &__entityId {
+    overflow-wrap: break-word;
+  }
+
+  &__options {
+    @include tui-stack-vertical(var(--gap-2));
+  }
+}
+
+.tui-auth_ssosaml-idpEdit {
+  &__subtitle {
+    margin-top: var(--gap-2);
+  }
+
+  &__content {
+    @include tui-stack-vertical(var(--gap-8));
+  }
+}
+
+.tui-auth_ssosaml-idpTest {
+  @include font(body);
+
+  &__subtitle {
+    margin-top: var(--gap-2);
+  }
+
+  &__sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: var(--gap-8) 0 var(--gap-2) 0;
+    padding: var(--gap-4);
+    background-color: var(--color-neutral-3);
+
+    &-label {
+      @include font(h4);
+    }
+  }
+}
+
+.tui-auth_ssosaml-settings {
+  &__subtitle {
+    margin-top: var(--gap-2);
+  }
+
+  &__content {
+    @include tui-stack-vertical(var(--gap-6));
+  }
+}
+

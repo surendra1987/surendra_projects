@@ -1,0 +1,63 @@
+{
+  "title": "title_label",
+  "shortname": "simple",
+  "revision": "Revised August 2023",
+  "version": "2022120802",
+  "language": "en-US",
+  "component": "approvalform_simple",
+  "sections": [
+    {
+      "key": "A",
+      "line": "section_a_line",
+      "label": "section_a_label",
+      "fields": [
+        {
+          "key": "request",
+          "line": "1",
+          "label": "request_label",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "notes",
+          "line": "2",
+          "label": "notes_label",
+          "type": "editor",
+          "char_length": "50",
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "B",
+      "line": "section_b_line",
+      "label": "section_b_label",
+      "fields": [
+        {
+          "key": "complete",
+          "line": "1",
+          "label": "complete_label",
+          "required": false,
+          "type": "select_one",
+          "default": null,
+          "attrs": {
+            "choices": [
+              {
+                "key": null,
+                "label": "complete_label_select_one"
+              },
+              {
+                "key": "Complete",
+                "label": "complete_label_yes"
+              },
+              {
+                "key": "Incomplete",
+                "label": "complete_label_no"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

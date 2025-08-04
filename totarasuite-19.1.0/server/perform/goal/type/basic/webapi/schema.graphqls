@@ -1,0 +1,18 @@
+type goaltype_basic_creation_config {
+  options: [goaltype_basic_creation_option!]!
+}
+
+type goaltype_basic_creation_option {
+  id: String!
+  name: String!
+  description: String!
+  icon_component: String!
+  ui_component: String!
+}
+
+extend type Query {
+  """
+  Fetch creation config
+  """
+  goaltype_basic_creation_config: goaltype_basic_creation_config!
+}

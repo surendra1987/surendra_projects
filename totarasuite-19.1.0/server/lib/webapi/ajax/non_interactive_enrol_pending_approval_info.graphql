@@ -1,0 +1,10 @@
+query core_non_interactive_enrol_pending_approval_info($course_id: core_id!) {
+  result: core_non_interactive_enrol_pending_approval_info(
+    course_id: $course_id
+  ) {
+    button_name
+    pending
+    redirect_url
+    needs_create_new_application
+  }
+}

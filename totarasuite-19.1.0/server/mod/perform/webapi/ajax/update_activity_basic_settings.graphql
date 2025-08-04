@@ -1,0 +1,15 @@
+mutation mod_perform_update_activity_basic_settings(
+  $input: mod_perform_update_activity_basic_settings_input!
+) {
+  mod_perform_update_activity_basic_settings(input: $input) {
+    id
+    name
+    edit_name: name(format: RAW)
+    description
+    edit_description: description(format: RAW)
+    type {
+      id
+      display_name
+    }
+  }
+}

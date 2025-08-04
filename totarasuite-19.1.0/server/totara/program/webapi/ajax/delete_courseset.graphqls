@@ -1,0 +1,16 @@
+"""
+Input schema for delete courseset
+"""
+input totara_program_delete_courseset_input {
+  id: core_id
+  program_id: core_id
+}
+
+extend type Mutation {
+  """
+  Delete the given courseset.
+  """
+  totara_program_delete_courseset(
+    input: totara_program_delete_courseset_input
+  ): Boolean!
+}

@@ -1,0 +1,37 @@
+query auth_ssosaml_idp_for_editing($id: core_id!) {
+  idp: auth_ssosaml_idp(id: $id) {
+    __typename
+    id
+    metadata {
+      source
+      url
+      xml
+    }
+    label(format: RAW)
+    idp_user_id_field
+    totara_user_id_field
+    status
+    debug
+    logout_idp
+    logout_url
+    create_users
+    autolink_users
+    login_hide
+    field_mapping_config {
+      delimiter
+      field_maps {
+        internal
+        external
+        update
+      }
+    }
+    saml_config {
+      sign_metadata
+      signing_algorithm
+      wants_assertions_signed
+      authnrequests_signed
+      nameid_format
+      entity_id
+    }
+  }
+}

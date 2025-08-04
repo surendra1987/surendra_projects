@@ -1,0 +1,22 @@
+"""
+Input provided when creating a new TOTP MFA instance.
+"""
+input mfa_totp_create_instance_input {
+  """
+  TOTP secret
+  """
+  secret: String!
+  """
+  TOTP token to verify setup is working
+  """
+  token: String!
+}
+
+extend type Mutation {
+  """
+  Create a new TOTP MFA instance.
+  """
+  mfa_totp_create_instance(
+    input: mfa_totp_create_instance_input!
+  ): core_mfa_instance!
+}

@@ -1,0 +1,38 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2023 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2023 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @author    Simon Chester <simon.chester@totara.com>
+// @package   theme_legacy
+
+:root {
+  // Height of single line form elements (including padding & border)
+  --form-input-height: #{rem-px(36)};
+  // Height of large single line form elements (including padding & border)
+  --form-input-height-large: #{rem-px(40)};
+  // Inner font size of form elements
+  --form-input-font-size: var(--font-body-size);
+  --form-input-font-size-sm: var(--font-body-sm-size);
+  --form-input-font-size-lg: var(--font-body-lg-size);
+  --form-input-line-height: var(--font-body-line-height);
+  // Border size of input elements
+  --form-input-border-size: 1px;
+  --form-input-border-radius: #{rem-px(4)};
+  --form-input-invalid-shadow-size: 1px;
+}

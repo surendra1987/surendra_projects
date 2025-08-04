@@ -1,0 +1,62 @@
+"""
+The result returned from a query to find the available goals for adding to a performance activity review.
+"""
+type perform_goal_goal_for_add_result {
+  """
+  Retrieved personal goals.
+  """
+  items: [perform_goal_goal]
+  """
+  Total number of personal goals retrieved across all pages.
+  """
+  total: Int!
+  """
+  Pointer to next page of personal goals.
+  """
+  next_cursor: String!
+}
+
+"""
+Filters input provided when querying 'perform_goal_select_goals'.
+"""
+input perform_goal_select_goals_for_add_filter {
+  """
+  The display name for the goal(s).
+  """
+  name: String
+  """
+  The user who is the subject of the goal, i.e. who the goal is applied to. For a team goal this could be null (as more than just a single user will
+  be the subject).
+  """
+  user_id: core_id
+  """
+  Ids of goals.
+  """
+  goals: [core_id]
+}
+
+"""
+Input provided when selecting goals for adding to a review.
+"""
+input perform_goal_select_goals_for_add_input {
+  """
+  Filters options available when querying 'perform_goal_select_goals'.
+  """
+  filters: perform_goal_select_goals_for_add_filter!
+  """
+  Opaque string containing information to allow the system to identify the next set of results that should be returned after this one. This value can be passed into a query that uses core_pagination_input to fetch the next page.
+  """
+  cursor: String
+}
+
+extend type Query {
+  """
+  A query to fetch the available goals for adding to a performance activity review.
+  """
+  perform_goal_select_goals_for_add(
+    """
+    Values provided when selecting goals for adding to a review.
+    """
+    input: perform_goal_select_goals_for_add_input!
+  ): perform_goal_goal_for_add_result!
+}

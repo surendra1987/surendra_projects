@@ -1,0 +1,81 @@
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??ruleSet[1].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./client/component/tui/src/global_styles/styles/typography.scss ***!
+  \************************************************************************************************************************************************************************************************************************/
+/* This file is part of Totara Enterprise Extensions.*/
+/**/
+/* Copyright (C) 2024 onwards Totara Learning Solutions LTD*/
+/**/
+/* Totara Enterprise Extensions is provided only to Totara*/
+/* Learning Solutions LTD's customers and partners, pursuant to*/
+/* the terms and conditions of a separate agreement with Totara*/
+/* Learning Solutions LTD or its affiliate.*/
+/**/
+/* If you do not have an agreement with Totara Learning Solutions*/
+/* LTD, you may not access, use, modify, or distribute this software.*/
+/* Please contact [licensing@totara.com] for more information.*/
+/**/
+/* @author Simon Chester <simon.chester@totara.com>*/
+/* @module tui*/
+
+h1,
+.h1 {
+  @include font(h1);
+  margin: var(--gap-4) 0 var(--gap-5);
+}
+
+h2,
+.h2 {
+  @include font(h2);
+  margin: var(--gap-4) 0 var(--gap-5);
+}
+
+h3,
+.h3 {
+  @include font(h3);
+  margin: var(--gap-4) 0 var(--gap-4);
+}
+
+h4,
+.h4 {
+  @include font(h4);
+  margin: var(--gap-4) 0 var(--gap-4);
+}
+
+h5,
+.h5 {
+  @include font(h5);
+  margin: var(--gap-4) 0 var(--gap-2);
+}
+
+h6,
+.h6 {
+  @include font(h6);
+  margin: var(--gap-4) 0 var(--gap-2);
+  color: var(--color-text-hint);
+  text-transform: uppercase;
+}
+
+@each $font
+  in (
+    h1
+      h2
+      h3
+      h4
+      h5
+      h6
+      display-lg
+      display-md
+      display-sm
+      display-xs
+      body-xl
+      body-lg
+      body
+      body-sm
+      body-xs
+  )
+{
+  .text-#{$font} {
+    @include font($font);
+  }
+}
+

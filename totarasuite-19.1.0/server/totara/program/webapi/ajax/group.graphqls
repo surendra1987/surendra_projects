@@ -1,0 +1,38 @@
+"""
+Input for identifying a program assignment group. There are multiple ways to
+identify a group. Unfortunately it is not possible to use a union type here so
+exactly one input value must be entered.
+"""
+input totara_program_group_reference {
+  """
+  The database ID of the group record. NB: this is NOT the assignment record id.
+  If this is specified then any assignment id entered below is ignored.
+  """
+  id: core_id
+
+  """
+  The assignment record id.
+  """
+  assignment_id: core_id
+}
+
+extend type Mutation {
+  """
+  Mutation to self enrol the current user into a program group assignment.
+
+  Possible result error code(s):
+  - group:error:invalid_group_reference if the group does not exist
+  """
+  totara_program_group_self_enrol(
+    input: totara_program_group_reference
+  ): core_mutation_result!
+  """
+  Mutation to self unenrol the current user out of a program group assignment.
+
+  Possible result error code(s):
+  - group:error:invalid_group_reference if the group does not exist
+  """
+  totara_program_group_self_unenrol(
+    input: totara_program_group_reference
+  ): core_mutation_result!
+}

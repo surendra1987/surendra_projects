@@ -1,0 +1,5 @@
+mutation mod_contentmarketplace_request_non_interactive_enrol_v2(
+  $cm_id: core_id!
+) {
+  result: mod_contentmarketplace_request_non_interactive_enrol_v2(cm_id: $cm_id)
+}

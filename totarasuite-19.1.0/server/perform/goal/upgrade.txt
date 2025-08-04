@@ -1,0 +1,13 @@
+This files describes API changes in /perform/goal,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* The mod_perform_activity_controls GraphQL query now returns 'success' and 'errors' in the response. It also validates
+the 'control_keys' input field value.
+* The perform_goal_user_goals GraphQL query now returns 'success' and 'errors' in the response. It also validates
+the 'cursor' field as an input, only allowing 'sort_by' values with it of 'target_date' and 'created_at'.
+
+=== 18.0 ===
+
+ * Initial implementation

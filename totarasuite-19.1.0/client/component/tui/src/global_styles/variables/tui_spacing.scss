@@ -1,0 +1,55 @@
+// This file is part of Totara Enterprise Extensions.
+//
+// Copyright (C) 2020 onwards Totara Learning Solutions LTD
+//
+// Totara Enterprise Extensions is provided only to Totara
+// Learning Solutions LTD's customers and partners, pursuant to
+// the terms and conditions of a separate agreement with Totara
+// Learning Solutions LTD or its affiliate.
+//
+// If you do not have an agreement with Totara Learning Solutions
+// LTD, you may not access, use, modify, or distribute this software.
+// Please contact [licensing@totaralearning.com] for more information.
+//
+// @author    Kevin Hottinger <kevin.hottinger@totaralearning.com>
+// @module tuickage   tui
+
+@function gap($val) {
+  @return calc(var(--gap-base) * #{$val});
+}
+
+:root {
+  // Common spacing used for margin & padding
+  --gap-base: 0.25rem; // 4px
+  @for $i from 1 through 12 {
+    --gap-#{$i}: #{gap($i)};
+  }
+
+  // Common named sizes
+  --gap-page-columns: var(--gap-8); // gap between page columns
+  --gap-card-grid: var(--gap-4); // gap between cards
+
+  // Grid
+  // values for the gutters between wrapped GridItems
+  --grid-gutter-vertical: #{rem-px(20)};
+  --grid-gutter-horizontal: #{rem-px(20)};
+
+  // Global default for 'how many columns are in the grid'
+  // specified for use with theme.getVar('grid-maxunits') in Grid.vue
+  --grid-maxunits: 12;
+
+  --paragraph-gap: 1rem;
+}
+
+// Outside-in spacing: Stack
+// Stacks provide spacing between their children.
+@mixin tui-stack-vertical($gap) {
+  & > * + * {
+    margin-top: $gap;
+  }
+}
+@mixin tui-stack-horizontal($gap) {
+  & > * + * {
+    margin-left: $gap;
+  }
+}

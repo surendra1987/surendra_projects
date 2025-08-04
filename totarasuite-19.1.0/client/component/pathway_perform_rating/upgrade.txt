@@ -1,0 +1,7 @@
+This file describes API changes in /client/component/pathway_perform_rating,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Added optional prop "canUpdate" to RatingForm.vue for disabling the submit button
+* Updated ProgressNavigation.vue to use a h2 instead of a h1

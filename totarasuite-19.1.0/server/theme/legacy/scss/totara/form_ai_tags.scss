@@ -1,0 +1,161 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2024 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2024 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @author    Arshad Anwer <arshad.anwer@totara.com>
+// @package   theme_legacy
+
+$form-aitags-input-max-width: 75%;
+$form-aitags-loading-pill-min-w: rem-px(100);
+$form-aitags-loading-pill-h: rem-px(32);
+$form-aitags-select-wrapper-min-h: $form-aitags-loading-pill-h;
+$form-aitags-skeleton-loading-background: var(--color-neutral-5);
+$form-aitags-skeleton-shimmer-overlay-color: var(--color-neutral-4);
+$form-aitags-white-color: var(--color-neutral-1);
+$form-aitags-title-top-padding: rem-px(21);
+
+.fitem_ftags {
+  .fitemtitle {
+    @media (min-width: $screen-md-min) {
+      padding-top: $form-aitags-title-top-padding;
+    }
+  }
+}
+
+.form-aitags {
+  &__input-container {
+    display: flex;
+    flex-direction: column;
+
+    .form-aitags__input-wrapper {
+      input {
+        max-width: $form-aitags-input-max-width;
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    max-width: $form-aitags-input-max-width;
+    border-radius: $border-radius-base;
+    flex-direction: column;
+    margin-top: var(--gap-1);
+    transition: all 0.2s;
+
+    &--active {
+      box-shadow: var(--shadow-2);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    padding: var(--gap-2);
+    min-height: 52px;
+    justify-content: space-between;
+    border-top-left-radius: $border-radius-base;
+    border-top-right-radius: $border-radius-base;
+  }
+
+  &__label {
+    color: var(--color-neutral-6);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__experiment-label {
+    background-color: var(--color-secondary);
+    font-size: font-size-px(10);
+    padding: var(--gap-1) var(--gap-2) var(--gap-1) var(--gap-2);
+    border-radius: var(--gap-3);
+    margin-left: var(--gap-1);
+    color: $form-aitags-white-color;
+  }
+
+  &__suggestions-container {
+    display: none;
+    padding: var(--gap-2);
+    opacity: 0;
+    background-color: var(--color-neutral-2);
+    border-bottom-left-radius: $border-radius-base;
+    border-bottom-right-radius: $border-radius-base;
+    transition: all 0.2s;
+  }
+
+  &__suggestions-loading,
+  &__suggestions-selector-container {
+    display: flex;
+    gap: var(--gap-2);
+    flex-wrap: wrap;
+    min-height: calc(#{$form-aitags-select-wrapper-min-h} + var(--gap-1));
+    padding-top: var(--gap-1);
+    margin-bottom: var(--gap-6);
+  }
+
+  &__suggestion-item {
+    cursor: pointer;
+    background: $form-aitags-white-color;
+    border: 1px solid var(--color-neutral-5);
+    padding: var(--gap-1) var(--gap-2);
+    border-radius: var(--gap-4);
+  }
+
+  &__loading-pill {
+    display: flex;
+    width: $form-aitags-loading-pill-min-w;
+    height: $form-aitags-loading-pill-h;
+    background: var(--color-neutral-3);
+    border: 1px dashed var(--color-neutral-6);
+    border-radius: calc(#{$form-aitags-loading-pill-min-w} / 2);
+
+    &--shimmer {
+      opacity: 0.35;
+      background: linear-gradient(
+          -55deg,
+          $form-aitags-skeleton-loading-background 0%,
+          $form-aitags-skeleton-loading-background 35%,
+          $form-aitags-skeleton-shimmer-overlay-color 50%,
+          $form-aitags-skeleton-loading-background 58%,
+          $form-aitags-skeleton-loading-background 100%
+      );
+      background-size: 1000px 100%;
+      background-attachment: fixed;
+      animation: pill-skeletonShimmer 3s linear infinite;
+    }
+
+    @keyframes pill-skeletonShimmer {
+      0% {
+        /*!rtl:ignore*/
+        background-position: 0 0;
+      }
+      100% {
+        /*!rtl:ignore*/
+        background-position: 1000px 0;
+      }
+    }
+  }
+
+  &__suggestions-footer {
+    display: flex;
+    align-items: center;
+    font-size: font-size-px(12);
+    color: var(--color-neutral-6);
+  }
+}

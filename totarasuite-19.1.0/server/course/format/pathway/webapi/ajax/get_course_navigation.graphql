@@ -1,0 +1,23 @@
+query format_pathway_get_course_navigation($course_id: core_id!) {
+  format_pathway_get_course_navigation(course_id: $course_id) {
+    sections {
+      id
+      title
+      available
+      availablereason
+      visible
+      modules {
+        cmid: id
+        name
+        modtype
+        available
+        availablereason
+        visible
+        completion_type: completion
+        completionenabled
+        blacklisted
+        viewurl
+      }
+    }
+  }
+}

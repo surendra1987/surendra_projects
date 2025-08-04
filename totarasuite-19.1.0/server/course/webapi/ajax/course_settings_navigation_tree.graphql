@@ -1,0 +1,37 @@
+query core_course_course_settings_navigation_tree(
+  $context_id: core_id!
+  $page_url: param_url!
+) {
+  data: core_course_settings_navigation_tree(
+    context_id: $context_id
+    page_url: $page_url
+  ) {
+    trees {
+      ...core_course_settings_navigation_tree_node
+      children {
+        ...core_course_settings_navigation_tree_node
+        children {
+          ...core_course_settings_navigation_tree_node
+          children {
+            ...core_course_settings_navigation_tree_node
+            children {
+              ...core_course_settings_navigation_tree_node
+              children {
+                ...core_course_settings_navigation_tree_node
+              }
+            }
+          }
+        }
+      }
+    }
+    open_ids
+  }
+}
+
+# Note: For now, additional information such as the current active node, icons and styling are not returned.
+fragment core_course_settings_navigation_tree_node on core_course_tui_tree_node {
+  __typename
+  id
+  label
+  linkUrl
+}

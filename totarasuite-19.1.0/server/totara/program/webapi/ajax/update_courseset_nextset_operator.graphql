@@ -1,0 +1,5 @@
+mutation totara_program_update_courseset_nextset_operator(
+  $input: totara_program_update_courseset_nextset_operator_input!
+) {
+  totara_program_update_courseset_nextset_operator(input: $input)
+}

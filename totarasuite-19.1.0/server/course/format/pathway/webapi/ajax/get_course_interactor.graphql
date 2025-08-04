@@ -1,0 +1,17 @@
+query format_pathway_get_course_interactor($course_id: core_id!) {
+  interactor: format_pathway_get_course_interactor(course_id: $course_id) {
+    can_enrol
+    supports_non_interactive_enrol
+    is_site_guest
+    non_interactive_enrol_instance_enabled
+    is_siteadmin
+    is_enrolled
+    can_mark_self_complete
+    guest_enrol_enabled
+    is_guest
+    can_view_hidden_activities
+    can_update_course
+    non_interactive_enrol_requires_approval
+    is_enrolled_not_pending_approval
+  }
+}

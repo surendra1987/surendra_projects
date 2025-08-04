@@ -1,0 +1,5 @@
+mutation auth_ssosaml_update_plugin_config(
+  $input: auth_ssosaml_update_plugin_config_input!
+) {
+  result: auth_ssosaml_update_plugin_config(input: $input)
+}

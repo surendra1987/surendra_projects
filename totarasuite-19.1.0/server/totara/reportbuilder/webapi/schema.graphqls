@@ -1,0 +1,246 @@
+"""
+Custom type for report rows. See the type resolver for details.
+A row provides the unlabelled data for each column in order.
+Columns that are hidden by default on a report are excluded.
+"""
+type totara_reportbuilder_report_row {
+  """
+  An array of data for each row in the report table.
+  Note that fields containing files such as summary fields cannot be rendered here,
+  and image tags will be replaced with empty strings.
+  """
+  data: [String]!
+}
+
+"""
+Custom type for a report column.
+Columns that are hidden by default on a report are excluded.
+"""
+type totara_reportbuilder_report_column {
+  """
+  The database name for the column
+  """
+  key: String!
+  """
+  The human-readable name for the column
+  """
+  label: String
+}
+
+"""
+Custom type for report metadata.
+This field contains information from the General tab of the report editor.
+"""
+type totara_reportbuilder_report_metadata {
+  """
+  The presentable report name that is displayed to a user.
+  The title field is an HTML text input field of 30 characters; we do not expect any formatting.
+  """
+  title(format: core_format = PLAIN): String!
+  """
+  The summary of the report; a brief description.
+  The abstract field is an HTML textarea, so it only supports plain text, and cannot have HTML tags.
+  When the report abstract is empty, this field can be null or an empty string.
+  """
+  abstract(format: core_format = PLAIN): String
+  """
+  The long-format description of the report.
+  The description field is an atto editor, so it is formatted in HTML by default.
+  When the report description is left blank, we expect a null value.
+  """
+  description(format: core_format = HTML): String
+  """
+  The number of records that will be returned on this page of the report.
+  """
+  records_per_page: Int!
+}
+
+"""
+Custom type for the report pagination.
+"""
+type totara_reportbuilder_report_pagination {
+  """
+  The next page after this one.
+  If there are no more pages, this value will be null.
+  If we did not do the pagination calculation, this will be null.
+  """
+  next_cursor: String
+  """
+  Total number of pages returned by the filtered report
+  This is not the number of pages returned by the query, but the total number
+  of pages in the report after applying filters.
+  If there are no records in the report, this value will be 0.
+  If we did not do the pagination calculation, this value will be null.
+  """
+  total_pages: Int
+}
+
+"""
+Input provided when requesting report builder data
+"""
+input totara_reportbuilder_get_report_input {
+  """
+  The id of the report you want the data from. Required.
+  """
+  report_id: core_id!
+  """
+  The id of an optional saved search to apply. Optional.
+  In order to use the saved search, it must be a shared search, or owned by the API user.
+  If an invalid saved search ID is provided, the API will return an exception
+  """
+  saved_search_id: core_id
+  """
+  Which page of results you want.
+  Optional, defaults to page 1.
+  Note that page size is configured in the report settings.
+  Result will be empty if you request a page beyond the last page.
+  """
+  page: Int
+  """
+  Optional.
+  An array containing the column and direction by which the report should be sorted.
+  We only support sorting by one column at a time.
+  We expect the column to be in the format <type>_<value>,
+  e.g. course_courselink to sort by Course Name
+  """
+  sort_by: core_sort_input
+  """
+  Optional.
+  Get the report pagination information with the total record count and the next cursor.
+  Performing the record count is computationally expensive, so we will only do it when
+  this flag is set to true.
+  """
+  display_report_pagination: Boolean = false
+  """
+  Optional.
+  An array of custom formats that should be applied to the associated columns.
+  See the input type for more details.
+  """
+  custom_formats: [totara_reportbuilder_format_input!]
+}
+
+"""
+Input type for custom formats
+"""
+input totara_reportbuilder_format_input {
+  """
+  The column to apply the format to, in lowercase, and the form of "<type>_<value>".
+  This is the same column that will be returned in the totara_reportbuilder_report_column.key field
+  """
+  column: String!
+  """
+  The ENUM value of the formatter to use for the column.
+  Using an incorrect formatter for a column will return an exception.
+  """
+  formatter: totara_reportbuilder_supported_column_formatter!
+  """
+  The format to convert the column value to.
+  This is the format type that will be passed to the formatter.
+  Using an invalid target format for the formatter type will return an exception.
+  """
+  target_format: totara_reportbuilder_supported_target_format!
+}
+
+"""
+Available column formatters for different data types.
+It is important to note that applying the incorrect formatter to a field will
+not give the desired result.
+Additionally, some fields cannot be effectively formatted by HTML if they are cleaned
+when they are saved to the database.
+"""
+enum totara_reportbuilder_supported_column_formatter {
+  """
+  The DATE formatter is for date fields. The default formatter gives values in timestamps.
+  """
+  DATE
+  """
+  The STRING formatter is for short fields such as course names or user names.
+  HTML tags are not saved for these fields.
+  """
+  STRING
+  """
+  The TEXT formatter is for longer fields that retain formatting, such as Atto or Weka editors.
+  These fields are most likely to have HTML formatting.
+  """
+  TEXT
+  """
+  The TEXTAREA formatter is for longer fields that use the textarea HTML tag.
+  These fields typically do not save HTML formatting.
+  """
+  TEXTAREA
+}
+
+"""
+Valid formats available for each formatter.
+Each format describes the formatter for which it is valid.
+"""
+enum totara_reportbuilder_supported_target_format {
+  """
+  ISO8601 format. Available for DATE formatters.
+  """
+  ISO8601
+  """
+  An integer time. Available for DATE formatters.
+  """
+  TIMESTAMP
+  """
+  The field exactly as it is saved in the database.
+  Available for STRING, TEXT, and TEXTAREA formatters.
+  """
+  RAW
+  """
+  The field stripped of whitespace and HTML tags.
+  Available for STRING, TEXT, and TEXTAREA formatters.
+  """
+  PLAIN
+  """
+  The field with whitespace and HTML preserved where possible.
+  Available for STRING, TEXT, and TEXTAREA formatters.
+  """
+  HTML
+  """
+  JSON-formatted data where possible, otherwise plain. Available for TEXT formatters.
+  """
+  MOBILE
+}
+
+"""
+Custom query return type. See query resolver for details.
+"""
+type totara_reportbuilder_get_report_results {
+  """
+  Information about the report itself.
+  This object will always be available.
+  """
+  report_metadata: totara_reportbuilder_report_metadata!
+  """
+  Information about the number of pages in the report, and the next page number.
+  This object will always be available, but its fields may be null.
+  """
+  report_pagination: totara_reportbuilder_report_pagination!
+  """
+  The columns in the report.
+  This object will always be available. A report must have at least one column.
+  """
+  columns: [totara_reportbuilder_report_column!]!
+  """
+  The report rows containing the report data.
+  This object will always be available. If there are no rows, the `data` field will be an empty array.
+  """
+  rows: [totara_reportbuilder_report_row!]!
+}
+
+extend type Query {
+  """
+  Query to fetch a paginated set of report data.
+  This report will contain the same data as a report viewed on the site,
+  meaning that it will hide columns that are hidden by default, and be pre-filtered
+  by any default saved searches.
+  """
+  totara_reportbuilder_get_report(
+    """
+    The request input that must be provided for the query.
+    """
+    input: totara_reportbuilder_get_report_input!
+  ): totara_reportbuilder_get_report_results
+}

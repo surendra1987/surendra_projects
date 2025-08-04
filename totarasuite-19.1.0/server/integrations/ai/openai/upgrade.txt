@@ -1,0 +1,6 @@
+This files describes API changes in /ai/openai,
+information provided here is intended especially for developers.
+
+=== 19.1.0 ===
+
+* ai_openai\feature\gen_prompt has been renamed ai_openai\feature\generative_prompt

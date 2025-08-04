@@ -1,0 +1,3 @@
+cohortbugheading,totara_cohort
+goals,totara_cohort
+manageaudincevisibility,totara_cohort

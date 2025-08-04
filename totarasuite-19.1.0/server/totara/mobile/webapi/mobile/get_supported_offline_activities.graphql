@@ -1,0 +1,12 @@
+query totara_mobile_get_supported_offline_activities(
+  $input: totara_mobile_course_input!
+) {
+  activities: totara_mobile_get_supported_offline_activities(input: $input) {
+    cmid
+    name
+    type
+    version
+    enablecompletion
+    __typename
+  }
+}

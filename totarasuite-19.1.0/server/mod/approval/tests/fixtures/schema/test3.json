@@ -1,0 +1,89 @@
+{
+  "title": "No Root Fields Test Form",
+  "shortname": "PTF",
+  "revision": "1.01",
+  "version": "2021071500",
+  "language": "en-NZ",
+  "sections": [
+    {
+      "key": "A",
+      "line": "Section A",
+      "label": "Food & drinks",
+      "fields": [
+        {
+          "key": "food",
+          "label": "What food do you want",
+          "type": "text"
+        },
+        {
+          "key": "drink",
+          "label": "What beverage do you want",
+          "type": "text",
+          "default": "Latte"
+        }
+      ]
+    },
+    {
+      "key": "B",
+      "line": "Section B",
+      "label": "Optional questions",
+      "fields": [
+        {
+          "key": "genre",
+          "label": "What movie genre do you like",
+          "type": "text"
+        },
+        {
+          "key": "tomato",
+          "label": "Tomayto, Tomahto",
+          "type": "select_one",
+          "attrs": {
+            "choices": [
+              {
+                "key": null,
+                "label": "Select one"
+              },
+              {
+                "key": "tomayto",
+                "label": "Tomayto"
+              },
+              {
+                "key": "tomahto",
+                "label": "Tomahto"
+              }
+            ]
+          }
+        },
+        {
+          "key": "shirt",
+          "label": "Which is your shirt size",
+          "type": "select_one",
+          "attrs": {
+            "choices": [
+              {
+                "key": null,
+                "label": "Select one"
+              },
+              {
+                "key": "S",
+                "label": "S"
+              },
+              {
+                "key": "M",
+                "label": "M"
+              },
+              {
+                "key": "L",
+                "label": "L"
+              },
+              {
+                "key": "?",
+                "label": "N/A"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

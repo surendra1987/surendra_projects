@@ -1,0 +1,20 @@
+This files describes API changes for the core question engine,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* question_attempt_step_subquestion_adapter constructor parameter $realqas renamed to $realstep to match the defined class property
+  For PHP 8.2 support dynamic properties must be declared, and there was a mismatch between $realqas and $realstep were both used.
+* qtype_calculated_variable_substituter removed $this->replace declaration from the constructor, it was never in use and was not declared.
+
+=== 14.0 ===
+
+=== 13.0 ===
+
+* When a question is displayed, the outer div of the question has an id="q123" added.
+  Unfortunately, this id was not unique in all cases when a question was rendered on
+  a page. Therefore, get_outer_question_div_unique_id() has been added to generate a
+  unique id. In any custom question type "'q' . $qa->get_slot()" needs to be replaced
+  by a call to this method.
+
+  core_question_renderer::question() has now been updated to use this new method.

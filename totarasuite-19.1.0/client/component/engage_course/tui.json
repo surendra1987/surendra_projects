@@ -1,0 +1,7 @@
+{
+  "component": "engage_course",
+  "vendor": "totara",
+  "dependencies": [
+    "totara_engage"
+  ]
+}

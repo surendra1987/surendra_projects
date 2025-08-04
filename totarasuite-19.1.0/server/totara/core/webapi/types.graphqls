@@ -1,0 +1,7 @@
+"""
+Separated iso date and timezone type.
+"""
+type totara_core_date_time_setting {
+  iso: String!
+  timezone: String
+}

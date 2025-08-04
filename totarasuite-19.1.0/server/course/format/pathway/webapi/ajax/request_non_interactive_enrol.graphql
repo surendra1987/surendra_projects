@@ -1,0 +1,3 @@
+mutation format_pathway_request_non_interactive_enrol($course_id: core_id!) {
+  result: format_pathway_request_non_interactive_enrol(course_id: $course_id)
+}

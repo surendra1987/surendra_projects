@@ -1,0 +1,2381 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/activities_list/ActivityActions.vue?vue&type=style&index=0&id=5e23a078&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performActivityActions {
+  display: flex;
+  justify-content: flex-start;
+
+  &__item {
+    margin-right: var(--gap-2);
+    padding: 0 var(--gap-1);
+  }
+}
+
+@media screen and (min-width: $tui-screen-xs) {
+  .tui-performActivityActions {
+    justify-content: flex-end;
+
+    &__item {
+      margin-right: 0;
+    }
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/activities_list/AdminActivityFilters.vue?vue&type=style&index=0&id=e71cd792&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performManageActivityFilters {
+  & > * + * {
+    margin-top: var(--gap-3);
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/element/ElementParticipantFormContent.vue?vue&type=style&index=0&id=5450ffa0&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performElementParticipantFormContent {
+  & > * + * {
+    margin-top: var(--gap-8);
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/element/ElementParticipantResponse.vue?vue&type=style&index=0&id=7fed06c6&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performElementParticipantResponse {
+  display: flex;
+  &__name {
+    @include font(body);
+    margin-left: var(--gap-3);
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/element/ElementParticipantResponseHeader.vue?vue&type=style&index=0&id=7e75471a&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performElementParticipantHeader {
+  &__title {
+    @include font(h4);
+    margin: 0;
+
+    &--topLevel {
+      @include font(h3);
+      padding: var(--gap-4);
+      background-color: var(--color-neutral-3);
+    }
+  }
+
+  &--printedToDo {
+    display: inline;
+  }
+
+  &__printedTodo {
+    vertical-align: initial;
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/element/PerformAdminChildElements.vue?vue&type=style&index=0&id=530d6d87&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performAdminChildElements {
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__dragList {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/element/PerformAdminCustomElement.vue?vue&type=style&index=0&id=fbba04c2&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performAdminCustomElement {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--gap-4);
+  background: var(--color-neutral-1);
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    &-item {
+      padding: 0 var(--gap-1);
+    }
+  }
+
+  &__lozenge {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: var(--gap-2);
+  }
+
+  &__content {
+    margin-top: var(--gap-1);
+
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+
+    &-accessibleTitle {
+      @include sr-only();
+    }
+
+    &-title {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-titleRequired {
+      color: var(--color-prompt-alert);
+    }
+  }
+
+  &__moveIcon {
+    position: absolute;
+    top: var(--gap-1);
+    left: var(--gap-2);
+    display: none;
+  }
+
+  &--dragging > &__moveIcon,
+  &:hover > &__moveIcon {
+    display: block;
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/element/PerformAdminCustomElementSummary.vue?vue&type=style&index=0&id=44004e37&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performAdminCustomElementSummary {
+  & > * + * {
+    margin-top: var(--gap-8);
+  }
+
+  &__button {
+    text-align: right;
+  }
+
+  &__section {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+
+    &-title {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-options {
+      & > * + * {
+        margin-top: var(--gap-8);
+      }
+    }
+
+    &-optionSubHeading {
+      margin-top: var(--gap-2);
+      @include font(body-sm);
+      color: var(--color-neutral-6);
+    }
+
+    &-valueDescription {
+      max-width: calc(50 * var(--form-input-font-size));
+      margin-top: var(--gap-2);
+    }
+
+    &-htmlValue {
+      margin: var(--gap-4);
+    }
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/element/participant_form/ElementDescription.vue?vue&type=style&index=0&id=0a0bcd3e&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performParticipantElementDescription {
+  &__content {
+    margin-left: var(--gap-2);
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/element/participant_form/NoResponseSubmitted.vue?vue&type=style&index=0&id=fcc01470&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-participantFormNoResponseSubmitted {
+  @include text-hint();
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/ActivitySetting.vue?vue&type=style&index=0&id=8465e7e0&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performManageActivitySetting {
+  padding: var(--gap-8);
+  background: var(--color-neutral-3);
+
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    padding-bottom: var(--gap-2);
+    border-bottom: var(--border-width-thin) solid var(--color-neutral-5);
+
+    &-header {
+      @include font(h4);
+      margin: 0;
+    }
+
+    &-side {
+      margin-left: auto;
+      padding-left: var(--gap-2);
+    }
+  }
+
+  &__description {
+    max-width: 800px;
+  }
+
+  &__form {
+    margin-top: var(--gap-8);
+
+    &--noMargin {
+      margin-top: 0;
+    }
+  }
+
+  &__modal {
+    margin-top: 0;
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/ActivityStatusBanner.vue?vue&type=style&index=0&id=75f531a4&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-activityStatusBanner__helpIcon {
+  margin-left: var(--gap-2);
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/GeneralInfoTab.vue?vue&type=style&index=0&id=0b32d080&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performManageActivityGeneralInfo {
+  & > * + * {
+    margin-top: var(--gap-12);
+  }
+
+  &__buttons {
+    margin-top: var(--gap-8);
+  }
+
+  &__heading {
+    @include font(h3);
+    margin: 0;
+  }
+
+  &__description {
+    margin-top: var(--gap-4);
+  }
+
+  &__warning {
+    max-width: 712px;
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/assignment/AssignmentsGroup.vue?vue&type=style&index=0&id=067bfa6a&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performManageActivityAssignmentsGroup {
+  flex-direction: column;
+  padding: var(--gap-4);
+
+  & > * + * {
+    margin-top: var(--gap-2);
+  }
+
+  &__actions {
+    display: flex;
+
+    &-stacked {
+      margin-top: var(--gap-3);
+    }
+  }
+
+  &__title {
+    @include font(h4);
+    margin: 0;
+    padding-left: var(--gap-1);
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/assignment/AssignmentsIndividualGroup.vue?vue&type=style&index=0&id=2358a811&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performManageActivityAssignmentsIndividuals {
+  flex-direction: column;
+  padding: var(--gap-4);
+
+  & > * + * {
+    margin-top: var(--gap-2);
+  }
+
+  &__actions {
+    display: flex;
+
+    &-stacked {
+      margin: var(--gap-2) 0 0 var(--gap-1);
+    }
+  }
+
+  &__table {
+    margin-top: var(--gap-2);
+  }
+
+  &__title {
+    @include font(h4);
+    margin: 0;
+    padding-left: var(--gap-1);
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/assignment/AssignmentsTab.vue?vue&type=style&index=0&id=4a306140&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performManageActivityAssignmentsForm {
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(var(--gap-1) * -1);
+
+    &-title {
+      @include font(h3);
+      margin: 0;
+    }
+
+    &-add {
+      margin-top: var(--gap-2);
+      margin-left: auto;
+    }
+  }
+
+  &__settings {
+    margin-top: var(--gap-12);
+
+    & > * {
+      margin-top: var(--gap-4);
+    }
+
+    &-title {
+      @include font(h3);
+      margin: 0;
+    }
+  }
+
+  &__assigned {
+    margin-top: var(--gap-8);
+
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performManageActivityAssignmentsForm {
+    &__heading {
+      flex-direction: row;
+      align-items: center;
+
+      &-add {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/assignment/Schedule.vue?vue&type=style&index=0&id=05b43828&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performAssignmentSchedule {
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__heading {
+    @include font(h3);
+    margin: 0;
+  }
+
+  &__form {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+
+    &-section {
+      padding: var(--gap-8);
+      background: var(--color-neutral-3);
+    }
+
+    &-buttons {
+      margin-top: var(--gap-8);
+    }
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/assignment/schedule/AssignmentScheduleCreationRange.vue?vue&type=style&index=0&id=355d685a&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-assignmentScheduleCreationRange {
+  &__title {
+    @include font(h4);
+    margin: 0;
+  }
+
+  &__description {
+    margin-top: var(--gap-4);
+  }
+
+  &__form {
+    margin-top: var(--gap-8);
+
+    &-checkbox {
+      margin-top: var(--gap-2);
+    }
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/assignment/schedule/AssignmentScheduleDueDate.vue?vue&type=style&index=0&id=1dd8d492&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-assignmentScheduleDueDate {
+  &__description {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+
+    &-header {
+      @include font(h5);
+      margin: 0;
+    }
+
+    &-text {
+      & > * {
+        margin: 0;
+      }
+
+      & > * + * {
+        margin-top: var(--gap-4);
+      }
+    }
+  }
+
+  &__form {
+    margin-top: var(--gap-8);
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/assignment/schedule/AssignmentScheduleFrequencySettings.vue?vue&type=style&index=0&id=24d708d4&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-assignmentScheduleFrequencySettings {
+  &__title {
+    @include font(h4);
+    margin: 0;
+  }
+
+  &__description {
+    margin-top: var(--gap-4);
+  }
+
+  &__form {
+    margin-top: var(--gap-8);
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/assignment/schedule/AssignmentScheduleJobAssignment.vue?vue&type=style&index=0&id=b48822c2&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-assignmentScheduleJobAssignment {
+  &__description {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+
+    &-header {
+      @include font(h5);
+      margin: 0;
+    }
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/assignment/schedule/AssignmentScheduleToggles.vue?vue&type=style&index=0&id=0f093f14&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-assignmentScheduleToggles {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: var(--gap-4);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__item {
+    margin-right: var(--gap-4);
+
+    &-header {
+      @include font(h4);
+      margin: var(--gap-4) 0 0;
+    }
+
+    &-toggle {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-assignmentScheduleToggles {
+    &__group {
+      border-right: var(--border-width-thin) solid var(--color-neutral-6);
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    &__item {
+      &-header {
+        margin: 0;
+      }
+    }
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/content/ActivityContentTab.vue?vue&type=style&index=0&id=5acf3222&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performManageActivityContent {
+  & > * + * {
+    margin: var(--gap-4) 0 0;
+  }
+
+  &__items {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__heading {
+    @include font(h3);
+    margin: 0;
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/content/ActivitySection.vue?vue&type=style&index=0&id=4b1606e2&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performActivitySection {
+  &--editing {
+    padding: var(--gap-4);
+    border: solid var(--color-secondary) var(--border-width-normal);
+  }
+
+  &__title {
+    @include font(h4);
+    margin: 0;
+  }
+
+  &__multiple {
+    padding: var(--gap-4);
+    & > * + * {
+      margin-top: var(--gap-6);
+    }
+  }
+
+  &.tui-card {
+    display: block;
+  }
+
+  &__action-buttons {
+    display: flex;
+    gap: var(--gap-1);
+    justify-content: flex-end;
+  }
+  &__saveButtons {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__action-edit {
+    min-width: auto;
+  }
+
+  &__action {
+    &-more {
+      display: flex;
+    }
+  }
+
+  &__divider {
+    margin-top: var(--gap-8);
+    margin-bottom: 0;
+  }
+
+  &__content {
+    margin-top: var(--gap-4);
+  }
+
+  &__can-view-others-legend {
+    display: block;
+  }
+
+  &__participant-heading {
+    margin-top: var(--gap-2);
+  }
+
+  &__participant-items {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__participant-groups {
+    margin-top: var(--gap-2);
+  }
+
+  &__participant-group {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__participant-info {
+    font-style: italic;
+  }
+
+  &__participant-heading {
+    @include font(h5);
+    display: inline-block;
+    margin-top: var(--gap-4);
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performActivitySection {
+    &__can-view-others-legend {
+      display: inline;
+    }
+
+    &__content-buttons {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/content/ActivitySectionElementSummary.vue?vue&type=style&index=0&id=175d7479&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performActivitySectionElementSummary {
+  &__count {
+    font-weight: bold;
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/content/ActivitySectionRelationship.vue?vue&type=style&index=0&id=28cda067&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performActivitySectionRelationship {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  &__item-name {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding: var(--gap-2);
+    border: var(--border-width-thin) solid var(--color-neutral-5);
+    border-radius: var(--border-radius-normal);
+  }
+
+  &__item-options {
+    margin-top: var(--gap-2);
+  }
+}
+
+@media (min-width: $tui-screen-xs) {
+  .tui-performActivitySectionRelationship {
+    &__item {
+      flex-direction: row;
+    }
+
+    &__item-name {
+      max-width: rem-px(200);
+    }
+
+    &__item-options {
+      margin: auto 0;
+      padding: var(--gap-2);
+    }
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/content/WorkflowSettings.vue?vue&type=style&index=0&id=7be622ce&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performActivityWorkflowSettings {
+  &__heading {
+    @include font(h3);
+    margin: 0;
+  }
+  & > * + * {
+    margin: var(--gap-8) 0 0;
+  }
+
+  &__warning {
+    max-width: 712px;
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/notification/NotificationsTab.vue?vue&type=style&index=0&id=5993fe00&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-activityNotifications {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+
+  &__header {
+    @include font(h3);
+    margin: 0;
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/notification/RecipientsTable.vue?vue&type=style&index=0&id=e46ef15e&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-activityNotificationsRecipientsTable {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__row {
+    margin: 0 0 var(--gap-4);
+    padding: 0;
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/participation/InstanceInfoCard.vue?vue&type=style&index=0&id=09ea5f22&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-instanceInfoCard {
+  &__title {
+    @include font(h4);
+    margin-top: 0;
+  }
+
+  &__info-section {
+    @include font(body);
+    display: table;
+  }
+
+  &__info-row {
+    display: table-row;
+  }
+
+  &__info-label {
+    display: table-cell;
+    padding-right: var(--gap-8);
+    padding-bottom: var(--gap-3);
+  }
+
+  &__info-value {
+    display: table-cell;
+    padding-bottom: var(--gap-3);
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/settings/Assignment.vue?vue&type=style&index=0&id=40d454c8&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performPASettingAssignment {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2);
+    margin-top: calc(var(--gap-1) * -1);
+
+    &-title {
+      @include font(h3);
+      margin: 0;
+    }
+
+    &-add {
+      margin-left: auto;
+    }
+  }
+
+  &__assigned {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performPASettingAssignment {
+    &__heading {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/settings/Closure.vue?vue&type=style&index=0&id=85393f60&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performPASettingClosure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+
+  &__heading {
+    @include font(h4);
+    margin: 0;
+  }
+  &__helpSetting {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+  }
+
+  &__helpSettingDetail {
+    @include tui-font-body-x-small();
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+    color: var(--color-neutral-6);
+
+    &-heading {
+      @include tui-font-body();
+      margin: 0;
+      color: var(--color-neutral-7);
+    }
+  }
+
+  &__toggle {
+    padding-top: tui-input-toggle-v-padding();
+  }
+
+  &__warning {
+    max-width: 712px;
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/settings/SyncParticipation.vue?vue&type=style&index=0&id=503166bb&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performPASettingSyncParticipation {
+  &__removedHelpSetting {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+  }
+
+  &__removedHelpSettingDetail {
+    @include tui-font-body-x-small();
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+    color: var(--color-neutral-6);
+
+    &-heading {
+      @include tui-font-body();
+      margin: 0;
+      color: var(--color-neutral-7);
+    }
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/settings/Visibility.vue?vue&type=style&index=0&id=425d868d&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performPASettingVisibility {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+
+  &__heading {
+    @include font(h4);
+    margin: 0;
+  }
+
+  &__anonymous {
+    padding-top: tui-input-toggle-v-padding();
+
+    &--static {
+      padding-top: tui-input-v-padding-borderless();
+    }
+  }
+
+  &__warning {
+    max-width: 712px;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/manage_activity/tabs/AssignmentsTab.vue?vue&type=style&index=0&id=05f26ba2&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performManageActivityAssignments {
+  &__participation {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-4);
+    margin-top: var(--gap-12);
+
+    &-title {
+      @include font(h3);
+      margin: 0;
+    }
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/report/element_response/ExportActionCard.vue?vue&type=style&index=0&id=0a8f5dc5&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-elementResponseReportingActionCard {
+  margin-bottom: var(--gap-10);
+
+  &__record {
+    &-count {
+      font-weight: bold;
+    }
+  }
+
+  &__viewReport {
+    margin-left: var(--gap-2);
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/report/element_response/RowActions.vue?vue&type=style&index=0&id=5bf03fe4&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performResponseReportRowActions {
+  display: flex;
+
+  &__menu {
+    margin-left: auto;
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/report/performance/ReportingIdFilterBanner.vue?vue&type=style&index=0&id=3b7727ae&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performReportPerformanceReportingIdBanner {
+  margin-bottom: var(--gap-8);
+  padding: var(--gap-2) var(--gap-3);
+  background: var(--color-neutral-3);
+  border: none;
+  border-radius: var(--border-radius-normal);
+
+  &__tag {
+    margin-left: var(--gap-2);
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/report/performance/ResponseByContent.vue?vue&type=style&index=0&id=2eacb602&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performReportPerformanceResponseByContent {
+  display: flex;
+  flex-direction: column;
+  &__heading {
+    @include font(h3);
+  }
+  &__divider {
+    max-width: 250px;
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/ActivityContent.vue?vue&type=style&index=0&id=3f0e6c1e&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-participantContent {
+  @include font(body);
+
+  &__user {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--gap-2) var(--gap-4);
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--border-radius-normal);
+
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+
+    &-relationship {
+      display: flex;
+      padding-top: var(--gap-3);
+    }
+
+    &-relationshipValue {
+      @include font(h4);
+      display: inline;
+      margin: auto 0 auto var(--gap-1);
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    padding-top: var(--gap-6);
+    border-top: var(--border-width-thin) solid var(--color-neutral-5);
+
+    &-buttons {
+      margin-left: auto;
+
+      & > * + * {
+        margin-left: var(--gap-4);
+      }
+    }
+  }
+
+  &__sectionHeading {
+    & > * + * {
+      margin-top: var(--gap-8);
+    }
+
+    &-title {
+      @include font(h2);
+      flex: 1;
+      margin: auto 0;
+    }
+
+    &-relationshipNotInSection {
+      font-style: italic;
+    }
+  }
+
+  &__progressTracker {
+    padding: var(--gap-2) 0 0 var(--gap-2);
+  }
+
+  &__progressTrackerHeading {
+    @include font(h4);
+    margin-top: 0;
+    padding-left: var(--gap-2);
+  }
+
+  &__form {
+    padding-bottom: var(--gap-12);
+    & > * + * {
+      margin-top: var(--gap-8);
+    }
+  }
+
+  &__infoBar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: var(--gap-4) 0;
+    border-top: solid var(--color-neutral-5) var(--border-width-thin);
+    border-bottom: solid var(--color-neutral-5) var(--border-width-thin);
+  }
+
+  &__sectionHeadingOtherResponsesDescription {
+    margin: 0;
+  }
+
+  &__sectionHeading-otherResponseSwitch {
+    margin-top: var(--gap-4);
+    margin-left: 0;
+  }
+
+  &__section {
+    & > * + * {
+      margin-top: var(--gap-8);
+    }
+
+    &-responseRequired {
+      display: inline-flex;
+      color: var(--color-prompt-alert);
+      font-weight: var(--label-weight);
+    }
+  }
+
+  &__sectionItems {
+    margin-top: var(--gap-4);
+
+    & > * + * {
+      margin-top: var(--gap-12);
+    }
+  }
+
+  &__sectionItem {
+    &-content {
+      margin-top: var(--gap-8);
+      padding: 0 var(--gap-4);
+
+      & > * + * {
+        margin-top: var(--gap-8);
+      }
+    }
+  }
+
+  &__actions {
+    padding-top: var(--gap-6);
+    border-top: var(--border-width-thin) solid var(--color-neutral-5);
+  }
+
+  &__manualClose {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2);
+    -webkit-hyphens: none;
+            hyphens: none;
+
+    &-requirement {
+      display: flex;
+      justify-content: center;
+      @include tui-font-body-x-small();
+      color: var(--color-neutral-6);
+      text-align: center;
+    }
+
+    &-action {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+@media (min-width: $tui-screen-xs) {
+  .tui-participantContent {
+    /* Spit the avatar and relationship blurb on tablet an larger.*/
+    &__user {
+      flex-direction: row;
+      align-items: center;
+
+      & > * + * {
+        margin-top: 0;
+      }
+
+      &-info {
+        padding-right: var(--gap-4);
+      }
+
+      &-relationship {
+        display: block;
+        padding-top: 0;
+      }
+
+      &-relationshipValue {
+        display: block;
+        margin: var(--gap-1) 0 0;
+      }
+    }
+
+    &__infoBar {
+      flex-wrap: nowrap;
+    }
+
+    &__sectionHeading-otherResponseSwitch {
+      flex-shrink: 0;
+      margin-top: 0;
+      margin-left: var(--gap-6);
+    }
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/ActivityContentPrint.vue?vue&type=style&index=0&id=1f0e0228&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-participantContentPrint {
+  @include font(body-sm);
+
+  &__printedOnDate {
+    text-align: center;
+  }
+
+  &__user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--gap-2) var(--gap-4);
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--border-radius-normal);
+
+    &-relationshipValue {
+      display: block;
+      margin: var(--gap-1) 0 0;
+    }
+  }
+
+  &__activityType {
+    @include font(h3);
+    margin: 0;
+  }
+
+  &__header {
+    margin-top: var(--gap-12);
+    padding: var(--gap-4);
+    text-align: center;
+    border: var(--border-width-thin) solid var(--color-primary);
+
+    & > * + * {
+      margin: var(--gap-6) 0 0 0;
+    }
+  }
+
+  &__participantGeneralInformation {
+    margin-top: var(--gap-4);
+  }
+
+  &__legendKey {
+    margin-top: var(--gap-2);
+
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__sectionHeading {
+    @include font(h3);
+    margin: var(--gap-4) 0 0;
+  }
+
+  &__section {
+    margin-top: var(--gap-8);
+
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+
+    &-requiredContainer {
+      margin-top: var(--gap-2);
+    }
+
+    &-responseRequired {
+      display: inline-flex;
+      color: var(--color-primary);
+      font-weight: var(--label-weight);
+    }
+  }
+
+  &__instanceDetails {
+    text-align: center;
+
+    &-detail {
+      display: inline-block;
+
+      &:not(:last-child):after {
+        margin: 0 var(--gap-1);
+        border-left: solid 1px var(--color-text);
+        content: '';
+      }
+    }
+  }
+
+  &__element {
+    pointer-events: none;
+  }
+
+  &__sectionItems {
+    & > * + * {
+      margin-top: var(--gap-8);
+    }
+  }
+
+  &__sectionItem {
+    &-content {
+      -webkit-print-color-adjust: exact;
+              print-color-adjust: exact;
+      padding-left: var(--gap-4);
+      & > * {
+        margin-top: var(--gap-4);
+      }
+    }
+  }
+
+  &__actionButtons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+    padding: var(--gap-2) 0;
+    background: rgba(247, 247, 247, 0.8);
+  }
+
+  @media screen {
+    max-width: 21cm;
+    margin: auto auto var(--gap-12);
+    padding: var(--gap-12);
+    border: var(--border-width-thin) solid var(--color-border);
+    box-shadow: var(--shadow-4);
+  }
+
+  @media print {
+    &__actionButtons {
+      display: none;
+    }
+
+    &__sectionItem {
+      break-inside: avoid;
+    }
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/ActivityProgressTrackerItem.vue?vue&type=style&index=0&id=d9074614&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-activityProgressTrackerItem {
+  &__availability {
+    @include font(body-sm);
+    margin: 0;
+    padding-left: var(--gap-2);
+    overflow: hidden;
+    color: var(--color-neutral-6);
+    line-height: var(--font-body-line-height);
+    text-overflow: ellipsis;
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/ManualParticipantsSelectionBanner.vue?vue&type=style&index=0&id=9ada5b8e&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performManualParticipantSelectionBanner {
+  &__body {
+    display: flex;
+
+    & > * + * {
+      margin-left: var(--gap-4);
+    }
+
+    &-icon {
+      flex-shrink: 0;
+    }
+  }
+
+  &__text {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+
+    &-title {
+      margin: 0;
+    }
+  }
+
+  &__button {
+    margin-left: var(--gap-10);
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performManualParticipantSelectionBanner {
+    &__button {
+      margin-left: 0;
+    }
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/RequiredOptionalIndicator.vue?vue&type=style&index=0&id=2ad60277&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performRequiredOptionalIndicator {
+  &--required {
+    color: var(--color-prompt-alert);
+    font-weight: var(--label-weight);
+  }
+  &--optional {
+    @include font(body);
+    font-style: italic;
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/layout/LayoutOneColumnSidePanelActivities.vue?vue&type=style&index=0&id=58b82294&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-layoutOneColumnSidePanelActivities {
+  @include font(body);
+  margin-top: var(--gap-2);
+
+  @include tui-stack-vertical(var(--gap-8));
+
+  &__heading {
+    @include tui-stack-vertical(var(--gap-2));
+  }
+
+  &--flush {
+    margin-top: var(--gap-12);
+  }
+
+  &__sidePanel {
+    &--hasBorder {
+      border-right: var(--border-width-thin) solid var(--color-neutral-5);
+    }
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/list/Activities.vue?vue&type=style&index=0&id=49859076&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivityList {
+  margin-top: var(--gap-2);
+
+  & > * + * {
+    margin-top: var(--gap-8);
+  }
+
+  &__priority {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+
+    &-heading {
+      @include font(h3);
+      margin: 0;
+    }
+  }
+
+  &__content {
+    min-height: 500px;
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__heading {
+    margin: 0;
+    @include font(h3);
+  }
+
+  &__paging {
+    margin-top: var(--gap-5);
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/list/ActivitiesCount.vue?vue&type=style&index=0&id=35e1b2fa&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivitiesCount {
+  margin-top: var(--gap-6);
+
+  &__count {
+    flex-grow: 1;
+
+    &--hidden {
+      visibility: hidden;
+    }
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/list/ActivitiesFilter.vue?vue&type=style&index=0&id=6a160d9d&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivitiesFilter {
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/list/ActivitiesPriorityCard.vue?vue&type=style&index=0&id=29758d39&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivitiesPriorityCard {
+  width: 100%;
+  padding: var(--gap-3);
+
+  & > * + * {
+    margin-top: var(--gap-2);
+  }
+
+  &__activity {
+    position: relative;
+    @include font(h4);
+    height: calc(var(--font-h4-line-height) * 3);
+    margin: 0;
+    overflow: hidden;
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: calc(var(--font-h4-line-height) * 3);
+      background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      content: ' ';
+    }
+
+    @supports (-webkit-line-clamp: 3) and (-webkit-box-orient: vertical) and
+      (display: -webkit-box) {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+
+      &::after {
+        height: 0;
+        background: none;
+      }
+    }
+
+    /* Safari in RTL Languages doesn't show ellipsis so fall back to fade*/
+    [dir='rtl'] .safari &::after {
+      height: var(--font-h4-line-height);
+      background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+  }
+
+  &__action {
+    margin-top: var(--gap-2);
+  }
+
+  &__due {
+    @include font(body-sm);
+    height: var(--font-h4-line-height);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__subject {
+    margin-top: var(--gap-1);
+  }
+
+  &__subjectName {
+    @include font(body-sm, var(--label-weight));
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__subjectAssignment {
+    @include font(body-sm);
+    height: var(--font-h4-line-height);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__top {
+    display: flex;
+
+    &-overdue {
+      margin-left: auto;
+    }
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/list/ActivitiesTableItem.vue?vue&type=style&index=0&id=6d168b6c&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivityListTableItem {
+  $block: #{&};
+
+  &__left {
+    display: flex;
+    width: 100%;
+
+    & > * + * {
+      margin-left: var(--gap-2);
+    }
+
+    &-avatarLoader {
+      width: var(--avatar-xsmall-width);
+      height: var(--avatar-xsmall-height);
+      overflow: hidden;
+      border-radius: var(--avatar-border-radius);
+    }
+
+    &-content {
+      width: 100%;
+      overflow: hidden;
+
+      & > * + * {
+        margin-top: var(--gap-2);
+      }
+    }
+  }
+
+  &__right {
+    & > * + * {
+      margin-top: var(--gap-1);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__details {
+    margin-top: var(--gap-4);
+    @include font(body-sm);
+    color: var(--color-neutral-6);
+
+    &-dueDate {
+      &--overdue {
+        color: var(--color-prompt-alert);
+      }
+    }
+
+    &-overallProgress {
+      &--overdue {
+        color: var(--color-prompt-alert);
+      }
+    }
+
+    &-jobAssignment {
+      display: block;
+      overflow: hidden;
+    }
+
+    &-jobAssignmentText {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__overview {
+    display: flex;
+    flex-wrap: wrap;
+    @include font(body-sm);
+    color: var(--color-neutral-6);
+
+    & > * {
+      margin-right: var(--gap-2);
+    }
+
+    &-subject {
+      color: var(--color-neutral-7);
+      font-weight: bold;
+    }
+  }
+
+  &__progress {
+    margin-top: 0;
+
+    &-complete {
+      margin: 0 gap(0.5) 0 0;
+      color: var(--color-prompt-success);
+    }
+
+    &-overdue {
+      margin: 0 gap(0.5) 0 0;
+      color: var(--color-prompt-alert);
+    }
+
+    &-status {
+      &--overdue {
+        color: var(--color-prompt-alert);
+      }
+    }
+
+    &-viewOnly {
+      margin-right: 1px;
+    }
+  }
+
+  &__stackedBar {
+    display: flex;
+
+    &-user {
+      display: flex;
+      @include font(body-sm);
+      flex-grow: 1;
+      align-items: center;
+      font-weight: bold;
+
+      & > * + * {
+        margin-left: var(--gap-2);
+      }
+    }
+  }
+
+  &__title {
+    @include font(h4);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-1) var(--gap-2);
+    align-items: center;
+    margin: var(--gap-1) 0 0;
+    -webkit-hyphens: none;
+            hyphens: none;
+  }
+
+  &--notStacked {
+    #{$block} {
+      &__details {
+        display: flex;
+        @include tui-separator-pipe();
+        margin-top: var(--gap-1);
+
+        & > * + * {
+          margin-top: 0;
+        }
+
+        &-jobAssignmentText {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/list/HistoricActivities.vue?vue&type=style&index=0&id=486c5e04&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserHistoricActivities {
+  &__heading {
+    margin: var(--gap-8) 0 var(--gap-6) 0;
+    padding-right: var(--gap-8);
+  }
+
+  @include font(body);
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/list/MyHistoricActivities.vue?vue&type=style&index=0&id=82c54260&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performMyHistoricActivityList {
+  @include font(body);
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/list/OtherHistoricActivities.vue?vue&type=style&index=0&id=321c25b4&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performOtherHistoricActivityList {
+  @include font(body);
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/list/Sections.vue?vue&type=style&index=0&id=82177cf4&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivityListSections {
+  & > * + * {
+    margin-top: var(--gap-12);
+  }
+
+  &__progressTracker {
+    &:first-child {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__viewSection {
+    position: absolute;
+    top: calc(var(--gap-4) * -1);
+    left: 0;
+    white-space: nowrap;
+    @include font(body-sm);
+  }
+
+  &__collapsible {
+    margin-bottom: var(--gap-6);
+    margin-left: calc(var(--gap-5) * -1);
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/list/SectionsContent.vue?vue&type=style&index=0&id=04e513c3&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivityListSection {
+  max-width: 800px;
+  margin-left: var(--gap-12);
+
+  & > * + * {
+    margin-top: var(--gap-2);
+  }
+
+  &__roleHeader {
+    @include font(body-sm);
+    margin-top: var(--gap-4);
+    margin-bottom: var(--gap-2);
+    @media (min-width: $tui-screen-sm) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__closed {
+    margin-left: var(--gap-7);
+    color: var(--color-neutral-6);
+    @include font(body-sm);
+  }
+
+  &__stateProgressCell {
+    margin-top: var(--gap-2);
+    margin-left: var(--gap-1);
+    @media (min-width: $tui-screen-sm) {
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+
+  &__progress {
+    display: flex;
+    & > * + * {
+      margin-left: var(--gap-2);
+    }
+  }
+
+  &__progressIcon {
+    min-width: 20px;
+
+    &-complete {
+      color: var(--color-prompt-success);
+    }
+
+    &-overdue {
+      color: var(--color-prompt-alert);
+    }
+  }
+
+  &__viewMoreButton {
+    width: 100%;
+    @include font(body-sm);
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/list/SectionsModal.vue?vue&type=style&index=0&id=3b7b7712&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivityListSectionsModal {
+  display: flex;
+  flex-direction: column;
+
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__heading {
+    display: flex;
+    padding-bottom: var(--gap-4);
+    border-bottom: var(--border-width-thin) solid var(--color-neutral-5);
+
+    & > * + * {
+      margin-left: var(--gap-2);
+    }
+  }
+
+  &__details {
+    display: flex;
+    @include font(body-sm);
+    @include tui-separator-pipe();
+    margin-top: var(--gap-2);
+    color: var(--color-neutral-6);
+
+    &-overallProgress {
+      &--overdue {
+        color: var(--color-prompt-alert);
+      }
+    }
+  }
+
+  &__overview {
+    display: flex;
+    flex-wrap: wrap;
+    @include font(body-sm);
+    color: var(--color-neutral-6);
+
+    & > * {
+      margin-right: var(--gap-2);
+    }
+
+    &-subject {
+      color: var(--color-neutral-7);
+      font-weight: bold;
+    }
+  }
+
+  &__sections {
+    overflow-y: auto;
+  }
+
+  &__title {
+    @include font(h4);
+    margin: var(--gap-1) 0 0;
+
+    &-closed {
+      display: inline-flex;
+      vertical-align: middle;
+    }
+
+    & > * {
+      margin-right: var(--gap-1);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performUserActivityListSectionsModal {
+    height: 80vh;
+
+    &__title {
+      @include font(h3);
+    }
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/participant/JobAssignmentInformation.vue?vue&type=style&index=0&id=3c929e72&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-jobAssignment {
+  @include font(body);
+
+  &__jobAssignmentDetails {
+    @include font(body-sm);
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: var(--gap-1);
+
+    span {
+      margin-right: var(--gap-1);
+    }
+  }
+
+  &__spacing {
+    margin-right: var(--gap-1);
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/participant/OtherParticipantResponses.vue?vue&type=style&index=0&id=925d310c&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-otherParticipantResponses {
+  & > * + * {
+    margin-top: var(--gap-8);
+  }
+
+  &__response {
+    & > * + * {
+      margin-top: var(--gap-6);
+    }
+
+    &-participant {
+      & > * + * {
+        margin-top: var(--gap-2);
+      }
+    }
+  }
+
+  &__noParticipant {
+    @include text-hint();
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/participant/ParticipantGeneralInformation.vue?vue&type=style&index=0&id=001c3022&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-participantGeneralInformation {
+  @include font(body);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: var(--border-width-thin) solid var(--color-border);
+  border-radius: var(--border-radius-normal);
+
+  &__userDetails {
+    min-width: 30%;
+    height: 100%;
+    padding: var(--gap-2) var(--gap-4);
+    border-bottom: var(--border-width-thin) solid var(--color-neutral-5);
+  }
+
+  &__rhs {
+    background: var(--color-neutral-2);
+    border-radius: var(--border-radius-normal);
+  }
+
+  &__relationship {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: var(--gap-2) var(--gap-4) var(--gap-1) var(--gap-4);
+    border-radius: var(--border-radius-normal);
+  }
+
+  &__relationship-heading {
+    @include font(h3, $weight: normal);
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: var(--gap-1);
+
+    span {
+      @include font(h3);
+      /* margin-left: 4px;*/
+    }
+  }
+
+  &__relationshipHeadingDetails {
+    @include font(h3);
+  }
+
+  &__relationship-toSubject {
+    @include font(body-sm);
+    margin-bottom: var(--gap-1);
+  }
+}
+
+@media (min-width: $tui-screen-xs) {
+  .tui-participantGeneralInformation {
+    flex-direction: row;
+
+    &__userDetails {
+      border-right: var(--border-width-thin) solid var(--color-neutral-5);
+      border-bottom: none;
+    }
+
+    &__relationship-heading {
+      span {
+        margin-left: var(--gap-1);
+      }
+    }
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/participant/ParticipantUserHeader.vue?vue&type=style&index=0&id=4f4fcf36&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-participantUserHeader {
+  display: flex;
+  align-items: center;
+
+  &__avatar {
+    flex-shrink: 0;
+  }
+
+  &__name {
+    @include font(h5);
+
+    &--sectionModal {
+      @include font(h5);
+    }
+
+    margin-left: var(--gap-2);
+
+    &--regular {
+      font-weight: normal;
+    }
+  }
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/participant/ResponsesAreVisibleToDescription.vue?vue&type=style&index=0&id=32d6d2d6&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-responsesAreVisibleToDescription {
+  & > * + * {
+    margin-top: var(--gap-1);
+  }
+
+  &__viewOnly {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+
+    &-lozenge {
+      flex-shrink: 0;
+    }
+  }
+
+  &__text {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: $tui-screen-xs) {
+    &__viewOnly {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      & > * + * {
+        margin-top: 0;
+        margin-left: var(--gap-2);
+      }
+    }
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/components/user_activities/participant_selector/ActivityParticipants.vue?vue&type=style&index=0&id=b5ab620c&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performActivityParticipantSelector {
+  padding: var(--gap-4);
+  border: var(--border-width-thin) solid var(--card-border-color);
+
+  &__title {
+    @include font(h3);
+    margin: 0;
+  }
+
+  &__meta {
+    margin-top: var(--gap-2);
+  }
+
+  &__form {
+    margin-top: var(--gap-4);
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/pages/Activities.vue?vue&type=style&index=0&id=559f27f4&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performManageActivityList {
+  &__content {
+    & > * + * {
+      margin-top: var(--gap-3);
+    }
+  }
+
+  &__loadMore {
+    margin-top: var(--gap-3);
+    text-align: center;
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/pages/AddParticipants.vue?vue&type=style&index=0&id=302e5198&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performAddParticipants {
+  & > * + * {
+    margin-top: var(--gap-2);
+  }
+
+  &__content {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/pages/ExternalUserActivityInvalid.vue?vue&type=style&index=0&id=63d4d689&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivityInvalid {
+  @include font(body);
+
+  & > * + * {
+    margin-top: var(--gap-6);
+  }
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/pages/ExternalUserActivitySuccess.vue?vue&type=style&index=0&id=510c3e95&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivitySuccess {
+  @include font(body);
+
+  & > * + * {
+    margin-top: var(--gap-6);
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/pages/ManageActivity.vue?vue&type=style&index=0&id=3da0dbad&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performManageActivity {
+  &__actions {
+    display: flex;
+    gap: var(--gap-4);
+    align-items: center;
+    min-height: var(--gap-6);
+
+    &-activate {
+      display: none;
+    }
+
+    &-triggerIcon {
+      font-size: font-size-px(16);
+    }
+  }
+
+  &__content {
+    & > * + * {
+      margin-top: var(--gap-8);
+    }
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-5);
+    margin-top: var(--gap-4);
+  }
+
+  &__details {
+    display: flex;
+    gap: var(--gap-2);
+    align-items: baseline;
+
+    &-type {
+      color: var(--color-neutral-6);
+      @include font(body-sm);
+    }
+  }
+
+  &__description {
+    max-width: 700px;
+
+    &-expand {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-1);
+    }
+  }
+
+  .tui-pageHeading {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performManageActivity {
+    &__actions {
+      &-activate {
+        display: block;
+      }
+
+      &-triggerIcon {
+        font-size: font-size-px(20);
+      }
+    }
+
+    &__mobileActions {
+      display: none;
+    }
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/pages/SectionContent.vue?vue&type=style&index=0&id=5a3daded&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performSectionContent {
+  &__title {
+    &-required {
+      @include font(body);
+    }
+
+    &-requiredStar {
+      color: var(--color-prompt-alert);
+    }
+  }
+
+  &__form {
+    min-height: rem-px(20);
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__activeForm {
+    min-height: rem-px(20);
+    padding-top: var(--gap-2);
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+
+  &__dragList {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+  }
+
+  &__draggableItem {
+    position: relative;
+  }
+
+  &__add {
+    margin-top: var(--gap-8);
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/pages/UserActivities.vue?vue&type=style&index=0&id=8f77879e&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivities {
+  @include font(body);
+
+  & > * + * {
+    margin-top: var(--gap-8);
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/pages/UserActivitiesPriority.vue?vue&type=style&index=0&id=6a07eef5&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivitiesPriority {
+  &__content {
+    padding-bottom: var(--gap-2);
+
+    & > * + * {
+      margin-top: var(--gap-6);
+    }
+  }
+
+  &__heading {
+    @include font(h3);
+    margin: 0;
+  }
+
+  &__loadMore {
+    text-align: center;
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1128.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1128.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_perform/src/pages/UserActivitiesSelectParticipants.vue?vue&type=style&index=0&id=35038666&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performUserActivitiesSelectParticipants {
+  &__content {
+    & > * + * {
+      margin-top: var(--gap-4);
+    }
+  }
+}
+

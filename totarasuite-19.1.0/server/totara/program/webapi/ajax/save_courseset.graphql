@@ -1,0 +1,9 @@
+mutation totara_program_save_courseset(
+  $input: totara_program_save_courseset_input!
+) {
+  totara_program_save_courseset(input: $input) {
+    __typename
+    id
+    label
+  }
+}

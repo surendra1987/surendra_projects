@@ -1,0 +1,3 @@
+cohortname,totara_tenant
+participantsother,totara_tenant
+uploadusers,totara_tenant

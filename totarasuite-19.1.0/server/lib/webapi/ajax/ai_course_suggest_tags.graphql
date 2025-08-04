@@ -1,0 +1,9 @@
+query core_ai_course_suggest_tags($input: core_ai_suggest_tags_input!) {
+  result: core_ai_course_suggest_tags(input: $input) {
+    items {
+      name
+      rawname
+    }
+    total
+  }
+}
