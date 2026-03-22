@@ -1,0 +1,290 @@
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??ruleSet[1].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./client/component/tui/src/global_styles/variables/deprecated.scss ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/* This file is part of Totara Enterprise Extensions.*/
+/**/
+/* Copyright (C) 2024 onwards Totara Learning Solutions LTD*/
+/**/
+/* Totara Enterprise Extensions is provided only to Totara*/
+/* Learning Solutions LTD's customers and partners, pursuant to*/
+/* the terms and conditions of a separate agreement with Totara*/
+/* Learning Solutions LTD or its affiliate.*/
+/**/
+/* If you do not have an agreement with Totara Learning Solutions*/
+/* LTD, you may not access, use, modify, or distribute this software.*/
+/* Please contact [licensing@totara.com] for more information.*/
+/**/
+/* @author Simon Chester <simon.chester@totara.com>*/
+/* @module tui*/
+
+/* stylelint-disable tui/no-deprecated-vars */
+
+/* Deprecated since Totara 19.0*/
+$tui-gap: rem-px(4);
+
+:root {
+  /* Deprecated since Totara 18.0*/
+  --grid-gutter: var(--gap-5);
+
+  /* Deprecated since Totara 19.0*/
+  --font-size-1: calc(var(--font-size-base) / 16 * 1);
+  --font-size-2: calc(var(--font-size-base) / 16 * 2);
+  --font-size-4: calc(var(--font-size-base) / 16 * 4);
+  --font-size-8: calc(var(--font-size-base) / 16 * 8);
+  --font-size-10: calc(var(--font-size-base) / 16 * 10);
+  --font-size-11: calc(var(--font-size-base) / 16 * 11);
+  --font-size-12: calc(var(--font-size-base) / 16 * 12);
+  --font-size-13: calc(var(--font-size-base) / 16 * 13);
+  --font-size-14: calc(var(--font-size-base) / 16 * 14);
+  --font-size-15: calc(var(--font-size-base) / 16 * 15);
+  --font-size-16: calc(var(--font-size-base) / 16 * 16);
+  --font-size-18: calc(var(--font-size-base) / 16 * 18);
+  --font-size-20: calc(var(--font-size-base) / 16 * 20);
+  --font-size-22: calc(var(--font-size-base) / 16 * 22);
+  --font-size-24: calc(var(--font-size-base) / 16 * 24);
+  --font-size-30: calc(var(--font-size-base) / 16 * 30);
+  --font-size-32: calc(var(--font-size-base) / 16 * 32);
+  --font-size-40: calc(var(--font-size-base) / 16 * 40);
+  --font-size-48: calc(var(--font-size-base) / 16 * 48);
+  --font-size-50: calc(var(--font-size-base) / 16 * 50);
+  --font-body-large-line-height: 1.33;
+  --font-body-small-line-height: 1.154;
+  --font-body-x-small-line-height: 1.25;
+  --font-body-xx-small-line-height: 1.1;
+  --font-heading-large-line-height: 1.167;
+  --font-heading-line-height: 1.333;
+  --font-heading-small-line-height: 1.333;
+  --font-heading-x-small-line-height: 1.333;
+  --font-body-small-size: calc(var(--font-size-base) / 16 * 13);
+  --font-body-x-small-size: calc(var(--font-size-base) / 16 * 12);
+  --font-body-xx-small-size: calc(var(--font-size-base) / 16 * 11);
+  --font-heading-large-size: calc(var(--font-size-base) / 16 * 50);
+  --font-heading-size: calc(var(--font-size-base) / 16 * 30);
+  --font-heading-small-size: calc(var(--font-size-base) / 16 * 20);
+  --font-heading-x-small-size: calc(var(--font-size-base) / 16 * 16);
+  --btn-sm-min-height: #{rem-px(30)};
+  --btn-min-height: #{rem-px(36)};
+  --btn-xs-min-height: #{rem-px(20)};
+  --btn-min-width: 72px;
+  --btn-bg-color-active: var(--color-neutral-1);
+  --btn-bg-color-hover: var(--color-neutral-3);
+  --btn-border-color: var(--btn-accent-color);
+  --btn-border-color-active: var(--btn-accent-color-active);
+  --btn-border-color-disabled: var(--btn-accent-color-disabled);
+  --btn-border-color-hover: var(--btn-accent-color-hover);
+  --btn-loader-color-disabled: var(--color-neutral-6);
+  --btn-text-color-active: var(--btn-accent-color-active);
+  --btn-text-color-disabled: var(--btn-accent-color-disabled);
+  --btn-text-color-hover: var(--btn-accent-color-hover);
+  --btn-prim-accent-color: var(--color-state);
+  --btn-prim-accent-color-active: var(--color-state-active);
+  --btn-prim-accent-color-hover: var(--color-state-hover);
+  --btn-prim-accent-color-disabled: var(--color-state-disabled);
+  --btn-prim-bg-color: var(--btn-prim-accent-color);
+  --btn-prim-bg-color-active: var(--btn-prim-accent-color-active);
+  --btn-prim-bg-color-disabled: var(--btn-prim-accent-color-disabled);
+  --btn-prim-bg-color-hover: var(--btn-prim-accent-color-hover);
+  --btn-prim-border-color: var(--btn-prim-accent-color);
+  --btn-prim-border-color-active: var(--btn-prim-accent-color-active);
+  --btn-prim-border-color-disabled: var(--btn-prim-accent-color-disabled);
+  --btn-prim-border-color-hover: var(--btn-prim-accent-color-hover);
+  --btn-prim-loader-color-disabled: var(--color-neutral-7);
+  --btn-prim-text-color: var(--color-neutral-1);
+  --btn-prim-text-color-active: var(--color-neutral-1);
+  --btn-prim-text-color-disabled: var(--color-neutral-3);
+  --btn-prim-text-color-hover: var(--color-neutral-1);
+  --btn-alert-bg-color: var(--color-prompt-alert);
+  --btn-alert-bg-color-active: var(--color-prompt-alert);
+  --btn-alert-bg-color-disabled: var(--color-neutral-3);
+  --btn-alert-bg-color-hover: var(--color-prompt-alert);
+  --btn-alert-border-color: var(--color-prompt-alert);
+  --btn-alert-border-color-active: var(--color-prompt-alert);
+  --btn-alert-border-color-disabled: var(--color-state-disabled);
+  --btn-alert-border-color-hover: var(--color-prompt-alert);
+  --btn-alert-text-color: var(--color-neutral-1);
+  --btn-alert-text-color-active: var(--color-neutral-1);
+  --btn-alert-text-color-disabled: var(--color-state-disabled);
+  --btn-alert-text-color-hover: var(--color-neutral-1);
+  --btn-toolbar-bg-color: transparent;
+  --btn-toolbar-bg-color-hover: var(--color-neutral-4);
+  --btn-toolbar-bg-color-focus: var(--color-neutral-4);
+  --btn-toolbar-bg-color-selected: var(--color-state-active);
+  --btn-toolbar-text-color: var(--color-neutral-6);
+  --btn-toolbar-text-color-selected: var(--color-neutral-1);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-body {
+  color: var(--color-text);
+  @include font(body);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-body-small {
+  @include font(body-sm);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-body-x-small {
+  @include font(body-sm);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-body-xx-small {
+  @include font(body-xs);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-body-disabled {
+  color: var(--color-text-disabled);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-body-placeholder {
+  color: var(--color-text-hint);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-heavy {
+  font-weight: bold;
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-hint {
+  color: var(--color-text-hint);
+  font-style: italic;
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-monospace {
+  font-family: var(--font-family-monospace);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-link {
+  color: var(--color-state);
+  font-size: var(--font-body-size);
+  line-height: var(--font-body-line-height);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: var(--color-state-hover);
+  }
+
+  &:active,
+  &:active:hover,
+  &:active:focus {
+    color: var(--color-state-active);
+  }
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-link-large {
+  color: var(--color-state);
+  font-size: font-size-px(16);
+  line-height: 1.33;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: var(--color-state-hover);
+  }
+
+  &:active,
+  &:active:hover,
+  &:active:focus {
+    color: var(--color-state-active);
+  }
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-link-small {
+  color: var(--color-state);
+  font-size: font-size-px(13);
+  line-height: 1.33;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: var(--color-state-hover);
+  }
+
+  &:active,
+  &:active:hover,
+  &:active:focus {
+    color: var(--color-state-active);
+  }
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-heading-large {
+  font-weight: bold;
+  font-size: var(--font-heading-large-size);
+  line-height: var(--font-heading-large-line-height);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-heading-medium {
+  font-weight: 500;
+  font-size: var(--font-heading-size);
+  line-height: var(--font-heading-line-height);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-heading-small {
+  font-weight: bold;
+  font-size: var(--font-heading-small-size);
+  line-height: var(--font-heading-small-line-height);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-heading-small-regular {
+  font-weight: normal;
+  font-size: var(--font-heading-small-size);
+  line-height: var(--font-heading-small-line-height);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-heading-x-small {
+  font-weight: bold;
+  font-size: var(--font-heading-x-small-size);
+  line-height: var(--font-heading-x-small-line-height);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-heading-label {
+  font-weight: bold;
+  font-size: var(--font-body-size);
+  line-height: var(--font-body-line-height);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-heading-label-small {
+  font-weight: bold;
+  font-size: var(--font-body-small-size);
+  line-height: var(--font-body-small-line-height);
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-heading-page-title {
+  margin: 0;
+  @include tui-font-heading-medium;
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-font-heading-page-title-small {
+  margin: 0;
+  @include tui-font-heading-small;
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-wordbreak--hyphens {
+  overflow-wrap: break-word;
+}
+
+/* @deprecated since Totara 19.0*/
+@mixin tui-wordbreak--hard {
+  overflow-wrap: break-word;
+}
+

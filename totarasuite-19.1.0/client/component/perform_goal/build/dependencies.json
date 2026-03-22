@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    {
+      "name": "core_course"
+    },
+    {
+      "name": "totara_comment"
+    },
+    {
+      "name": "totara_reaction"
+    }
+  ]
+}

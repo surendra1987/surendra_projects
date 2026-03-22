@@ -1,0 +1,400 @@
+<?php
+/*
+ * This file is part of Totara Learn
+ *
+ * Copyright (C) 2018 onwards Totara Learning Solutions LTD
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author Alastair Munro <alastair.munro@totaralearning.com>
+ * @package totara_program
+ */
+
+namespace totara_program\rb\source;
+
+use programcat_helper;
+use program_in_list;
+use totara_program\program;
+use report_builder_program_expand_form;
+
+defined('MOODLE_INTERNAL') || die();
+
+trait program_trait {
+
+    /**
+     * Adds the program table to the $joinlist array
+     *
+     * @param array &$joinlist Array of current join options
+     *                         Passed by reference and updated to
+     *                         include new table joins
+     * @param string $join Name of the join that provides the
+     *                     'program id' field
+     * @param string $field Name of table containing program id field to join on
+     * @param string $jointype Type of join (INNER, LEFT, RIGHT)
+     *
+     * @return bool always true
+     */
+    protected function add_totara_program_tables(&$joinlist, $join, $field, $jointype = 'LEFT') {
+
+        $joinlist[] = new \rb_join(
+            'program',
+            $jointype,
+            '{prog}',
+            "program.id = $join.$field AND program.certifid IS NULL",
+            REPORT_BUILDER_RELATION_ONE_TO_ONE,
+            $join
+        );
+        return true;
+    }
+
+    /**
+     * Adds the assignment tables to the $joinlist array
+     *
+     * @param array &$joinlist Array of current join options
+     *                         Passed by reference and updated to
+     *                         include new table joins
+     * @param string $join Name of the join that provides the
+     *                     'program id' field
+     * @param string $field Name of table containing program id field to join on
+     * @param string $userjoin Name of the join that provides the
+     *                      'user id' field
+     * @param string $userfield Name of field containing user id field to join on
+     * @param string $jointype Type of join (INNER, LEFT, RIGHT)
+     *
+     * @return bool always true
+     */
+    protected function add_totara_program_assignment_tables(&$joinlist, $join, $field, $userjoin, $userfield, $jointype = 'LEFT') {
+        $joinlist[] = new \rb_join(
+            'prog_user_assignment',
+            $jointype,
+            '{prog_user_assignment}',
+            "prog_user_assignment.programid = $join.$field AND prog_user_assignment.userid = $userjoin.$userfield",
+            REPORT_BUILDER_RELATION_ONE_TO_MANY,
+            [$join, 'program']
+        );
+
+        $joinlist[] = new \rb_join(
+            'prog_user_assignment_type',
+            $jointype,
+            '{prog_assignment}',
+            "prog_user_assignment_type.id = prog_user_assignment.assignmentid",
+            REPORT_BUILDER_RELATION_ONE_TO_ONE,
+            'prog_user_assignment'
+        );
+        return true;
+    }
+
+    /**
+     * Adds some common program info to the $columnoptions array
+     *
+     * @param array &$columnoptions Array of current column options
+     *                              Passed by reference and updated by
+     *                              this method
+     * @param string $join Name of the join that provides the {prog} table, either 'program' or 'base'
+     *
+     * @return bool
+     */
+    protected function add_totara_program_columns(&$columnoptions, $join) {
+        $columnoptions[] = new \rb_column_option(
+            'prog',
+            'fullname',
+            get_string('programname', 'totara_program'),
+            "$join.fullname",
+            array('joins' => $join,
+                  'dbdatatype' => 'char',
+                  'outputformat' => 'text',
+                  'displayfunc' => 'format_string')
+        );
+        $columnoptions[] = new \rb_column_option(
+            'prog',
+            'shortname',
+            get_string('programshortname', 'totara_program'),
+            "$join.shortname",
+            array('joins' => $join,
+                  'dbdatatype' => 'char',
+                  'outputformat' => 'text',
+                  'displayfunc' => 'format_string')
+        );
+        $columnoptions[] = new \rb_column_option(
+            'prog',
+            'idnumber',
+            get_string('programidnumber', 'totara_program'),
+            "$join.idnumber",
+            array('joins' => $join,
+                  'displayfunc' => 'plaintext',
+                  'dbdatatype' => 'char',
+                  'outputformat' => 'text')
+        );
+        $columnoptions[] = new \rb_column_option(
+            'prog',
+            'id',
+            get_string('programid', 'totara_program'),
+            "$join.id",
+            array('joins' => $join,
+                  'displayfunc' => 'integer')
+        );
+        $columnoptions[] = new \rb_column_option(
+            'prog',
+            'summary',
+            get_string('programsummary', 'totara_program'),
+            "$join.summary",
+            array(
+                'joins' => $join,
+                'displayfunc' => 'editor_textarea',
+                'extrafields' => array(
+                    'filearea' => '\'summary\'',
+                    'component' => '\'totara_program\'',
+                    'context' => '\'context_program\'',
+                    'recordid' => "$join.id",
+                    'fileid' => 0
+                ),
+                'dbdatatype' => 'text',
+                'outputformat' => 'text'
+            )
+        );
+        $columnoptions[] = new \rb_column_option(
+            'prog',
+            'availablefrom',
+            get_string('availablefrom', 'totara_program'),
+            "$join.availablefrom",
+            array(
+                'joins' => $join,
+                'displayfunc' => 'nice_date',
+                'dbdatatype' => 'timestamp'
+            )
+        );
+        $columnoptions[] = new \rb_column_option(
+            'prog',
+            'availableuntil',
+            get_string('availableuntil', 'totara_program'),
+            "$join.availableuntil",
+            array(
+                'joins' => $join,
+                'displayfunc' => 'nice_date',
+                'dbdatatype' => 'timestamp'
+            )
+        );
+        $columnoptions[] = new \rb_column_option(
+            'prog',
+            'proglinkicon',
+            get_string('prognamelinkedicon', 'totara_program'),
+            "$join.fullname",
+            array(
+                'joins' => $join,
+                'displayfunc' => 'program_icon_link',
+                'defaultheading' => get_string('programname', 'totara_program'),
+                'extrafields' => array(
+                    'programid' => "$join.id",
+                    'program_icon' => "$join.icon",
+                    'program_visible' => "$join.visible",
+                    'program_audiencevisible' => "$join.audiencevisible",
+                )
+            )
+        );
+        $columnoptions[] = new \rb_column_option(
+            'prog',
+            'progexpandlink',
+            get_string('programexpandlink', 'totara_program'),
+            "$join.fullname",
+            array(
+                'joins' => $join,
+                'displayfunc' => 'program_expand',
+                'defaultheading' => get_string('programname', 'totara_program'),
+                'extrafields' => array(
+                    'prog_id' => "$join.id",
+                    'prog_visible' => "$join.visible",
+                    'prog_audiencevisible' => "$join.audiencevisible",
+                    'prog_certifid' => "$join.certifid")
+            )
+        );
+        $audvisibility = get_config(null, 'audiencevisibility');
+        if (empty($audvisibility)) {
+            $programvisiblestring = get_string('programvisible', 'totara_program');
+            $audvisibilitystring = get_string('audiencevisibilitydisabled', 'totara_reportbuilder');
+        } else {
+            $programvisiblestring = get_string('programvisibledisabled', 'totara_program');
+            $audvisibilitystring = get_string('audiencevisibility', 'totara_reportbuilder');
+        }
+        $columnoptions[] = new \rb_column_option(
+            'prog',
+            'visible',
+            $programvisiblestring,
+            "$join.visible",
+            array(
+                'joins' => $join,
+                'displayfunc' => 'yes_or_no'
+            )
+        );
+        $columnoptions[] = new \rb_column_option(
+            'prog',
+            'audvis',
+            $audvisibilitystring,
+            "$join.audiencevisible",
+            array(
+                'joins' => $join,
+                'displayfunc' => 'cohort_visibility'
+            )
+        );
+
+        return true;
+    }
+
+    /**
+     * Adds some common program assignment details to the $columnoptions array
+     *
+     * @param array &$columnoptions Array of current column options
+     *                              Passed by reference and updated by
+     *                              this method
+     * @param string $programid Name of the column containing program id
+     * @param string $joinname Name of the join containing the assignment info
+     *
+     * @return bool
+     */
+    protected function add_assignment_columns(&$columnoptions, $programid, $joinname = 'prog_user_assignment_type') {
+        $columnoptions[] = new \rb_column_option(
+            'proguserassignment',
+            'assignmenttype',
+            get_string('assignmenttype', 'rb_source_program_membership'),
+            'assignmenttype',
+            array(
+                'joins' => $joinname,
+                'displayfunc' => 'program_assignment_type',
+            )
+        );
+        $columnoptions[] = new \rb_column_option(
+            'proguserassignment',
+            'assignmenttypeid',
+            get_string('assignmentname', 'rb_source_program_membership'),
+            'assignmenttypeid',
+            array(
+                'joins' => $joinname,
+                'displayfunc' => 'program_assignment_name',
+                'extrafields' => array(
+                    'assignmenttype' => "$joinname.assignmenttype",
+                    'programid' => $programid,
+                ),
+            )
+        );
+        return true;
+    }
+
+    /**
+     * Adds some common program filters to the $filteroptions array
+     *
+     * @param array &$filteroptions Array of current filter options
+     *                              Passed by reference and updated by
+     *                              this method
+     * @return bool
+     */
+    protected function add_totara_program_filters(&$filteroptions) {
+        $filteroptions[] = new \rb_filter_option(
+            'prog',
+            'fullname',
+            get_string('programname', 'totara_program'),
+            'text'
+        );
+        $filteroptions[] = new \rb_filter_option(
+            'prog',
+            'shortname',
+            get_string('programshortname', 'totara_program'),
+            'text'
+        );
+        $filteroptions[] = new \rb_filter_option(
+            'prog',
+            'idnumber',
+            get_string('programidnumber', 'totara_program'),
+            'text'
+        );
+        $filteroptions[] = new \rb_filter_option(
+            'prog',
+            'summary',
+            get_string('programsummary', 'totara_program'),
+            'textarea'
+        );
+        $filteroptions[] = new \rb_filter_option(
+            'prog',
+            'availablefrom',
+            get_string('availablefrom', 'totara_program'),
+            'date'
+        );
+        $filteroptions[] = new \rb_filter_option(
+            'prog',
+            'availableuntil',
+            get_string('availableuntil', 'totara_program'),
+            'date'
+        );
+        return true;
+    }
+
+    /**
+     * Adds common program filters for assignment details to the $filteroptions array
+     *
+     * @param array &$filteroptions Array of current filter options
+     *                              Passed by reference and updated by
+     *                              this method
+     * @return bool
+     */
+    protected function add_assignment_filter_options(&$filteroptions) {
+        $filteroptions[] = new \rb_filter_option(
+            'proguserassignment',
+            'assignmenttype',
+            get_string('assignmenttype', 'rb_source_program_membership'),
+            'select',
+            [
+                'selectchoices' => \totara_program\rb\display\program_assignment_type::get_options(),
+                'attributes' => \rb_filter_option::select_width_limiter(),
+                'simplemode' => true,
+            ]
+        );
+        return true;
+    }
+
+    /**
+     * Expanding content to display when clicking a program.
+     * Will be placed inside a table cell which is the width of the table.
+     * Call required_param to get any param data that is needed.
+     * Make sure to check that the data requested is permitted for the viewer.
+     *
+     * @return string
+     */
+    public function rb_expand_prog_details() {
+        global $CFG, $DB, $USER;
+        require_once($CFG->dirroot . '/totara/reportbuilder/report_forms.php');
+        require_once($CFG->dirroot . '/totara/program/renderer.php');
+
+        $progid = required_param('expandprogid', PARAM_INT);
+        $userid = $USER->id;
+
+        if (!$program = new program($progid)) {
+            ajax_result(false, get_string('error:programid', 'totara_program'));
+            exit();
+        }
+
+        if (!$program->is_viewable()) {
+            ajax_result(false, get_string('error:inaccessible', 'totara_program'));
+            exit();
+        }
+
+        $formdata = $DB->get_record('prog', array('id' => $progid));
+
+        $phelper = new programcat_helper();
+        $formdata->summary = $phelper->get_program_formatted_summary(new program_in_list($formdata));
+
+        $formdata->assigned = $DB->record_exists('prog_user_assignment', array('userid' => $userid, 'programid' => $progid));
+
+        $mform = new report_builder_program_expand_form(null, (array)$formdata);
+
+        return $mform->render();
+    }
+}

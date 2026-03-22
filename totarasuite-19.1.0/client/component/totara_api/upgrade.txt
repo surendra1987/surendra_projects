@@ -1,0 +1,8 @@
+This files describes API changes in /client/component/totara_api,
+information provided here is intended especially for developers.
+
+=== 19.1.0 ===
+
+* Added ability to rotate a client secret
+  * Updated `components/api_client/ClientActions.vue` to emit a 'rotate-client-secret' event, as well as template and JS changes
+  * Updated `pages/Clients.vue` template and added openRotateModal() and rotateClient() js methods

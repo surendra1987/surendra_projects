@@ -1,0 +1,45 @@
+"""
+The results of a query to retrieve course completion data.
+"""
+type core_completion_get_course_completion_result {
+  """
+  The user who was specified in the query.
+  """
+  user: core_user!
+  """
+  The course that was specified in the query.
+  """
+  course: core_course!
+  """
+  The course completion data for the user in the course, or NULL if no record was found.
+  """
+  completion: core_course_completion
+}
+
+"""
+The get_course_completion query request parameter object.
+This object requires both the course and user reference.
+"""
+input core_completion_get_course_completion_input {
+  """
+  The user whose completion record is to be retrieved.
+  """
+  user: core_user_user_reference!
+  """
+  The course to which the completion record belongs.
+  """
+  course: core_course_course_reference!
+}
+
+extend type Query {
+  """
+  Query to get course completion data for a user in a course.
+  """
+  core_completion_get_course_completion(
+    """
+    The parameter object for this query.
+    This object requires a user reference and course reference.
+    """
+    query: core_completion_get_course_completion_input!
+  ): core_completion_get_course_completion_result!
+}

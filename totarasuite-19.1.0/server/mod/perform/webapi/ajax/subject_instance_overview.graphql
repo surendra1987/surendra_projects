@@ -1,0 +1,48 @@
+query mod_perform_subject_instance_overview(
+  $input: mod_perform_subject_instance_overview_input!
+) {
+  mod_perform_subject_instance_overview(input: $input) {
+    total
+    due_soon
+    state_counts {
+      completed
+      progressed
+      not_progressed
+      not_started
+    }
+    activities {
+      completed {
+        ...mod_perform_subject_instance_overview_item_data
+      }
+      progressed {
+        ...mod_perform_subject_instance_overview_item_data
+      }
+      not_progressed {
+        ...mod_perform_subject_instance_overview_item_data
+      }
+      not_started {
+        ...mod_perform_subject_instance_overview_item_data
+      }
+    }
+  }
+}
+
+fragment mod_perform_subject_instance_overview_item_data on mod_perform_subject_instance_overview_item {
+  __typename
+  id
+  name
+  url
+  completion_date
+  description
+  assignment_date
+  job_assignment
+  last_update {
+    date
+    description
+  }
+  due {
+    date
+    due_soon
+    overdue
+  }
+}

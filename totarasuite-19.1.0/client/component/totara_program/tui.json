@@ -1,0 +1,7 @@
+{
+  "component": "totara_program",
+  "vendor": "totara",
+  "dependencies": [
+    "core_course"
+  ]
+}

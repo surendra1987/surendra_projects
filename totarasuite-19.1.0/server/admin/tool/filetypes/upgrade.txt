@@ -1,0 +1,5 @@
+This files describes API changes in the tool_filetypes code.
+
+=== 19.0 ===
+
+* updated tool_filetypes_renderer::edit_table() to use page_main_heading() instead of heading()

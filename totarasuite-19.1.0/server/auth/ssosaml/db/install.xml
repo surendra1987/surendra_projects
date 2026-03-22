@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="auth/ssosaml/db" VERSION="20230420" COMMENT="XMLDB file for auth/ssosaml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="auth_ssosaml_idp_config" COMMENT="List of configured SAML Identity Providers">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="metadata" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="label" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Name of the Idp"/>
+        <FIELD NAME="idp_entity_id" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="idp_user_id_field" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="totara_user_id_field" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="create_users" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Allow users to be created in Totara when they login into the IdP"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="debug" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="field_mapping_config" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="saml_config" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="certificates" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="logout_idp" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="logout_url" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="autolink_users" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="If this IdP can auto link existing accounts."/>
+        <FIELD NAME="login_hide" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Hide on the login page"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="idx_entity_id" UNIQUE="true" FIELDS="idp_entity_id"/>
+        <INDEX NAME="idx_status" UNIQUE="false" FIELDS="status"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="auth_ssosaml_session" COMMENT="Authentication requests made in the SAML lifetime">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="idp_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the IDP involved"/>
+        <FIELD NAME="request_id" TYPE="char" LENGTH="64" NOTNULL="false" SEQUENCE="false" COMMENT="Unique ID posted to the remote instance. Null for IdP initiated sessions"/>
+        <FIELD NAME="session_id" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Totara user for this request populated after the user has passed through the IdP."/>
+        <FIELD NAME="name_id" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="SAML Name field"/>
+        <FIELD NAME="name_id_format" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="SAML Name format field"/>
+        <FIELD NAME="session_index" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="SAML Session Index. Null for IdP that do not support single logout"/>
+        <FIELD NAME="session_not_on_or_after" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp specified by the IdP which the session must expire"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Initiated or Completed"/>
+        <FIELD NAME="test" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Is this session used via the test page?"/>
+        <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="updated_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="fn_idp_id" TYPE="foreign" FIELDS="idp_id" REFTABLE="auth_ssosaml_idp_config" REFFIELDS="id" ONDELETE="cascade"/>
+        <KEY NAME="fn_user_id" TYPE="foreign" FIELDS="user_id" REFTABLE="user" REFFIELDS="id" ONDELETE="cascade"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="idx_status" UNIQUE="false" FIELDS="status"/>
+        <INDEX NAME="idx_session_not_on_or_after" UNIQUE="false" FIELDS="session_not_on_or_after"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="auth_ssosaml_saml_log" COMMENT="Log of SAML protocol interactions">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="idp_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="ID of the IDP involved"/>
+        <FIELD NAME="request_id" TYPE="char" LENGTH="64" NOTNULL="false" SEQUENCE="false" COMMENT="Unique ID posted to the remote instance. Null for IdP initiated sessions"/>
+        <FIELD NAME="session_id" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="type" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false" COMMENT="Message type, e.g. Login, IdPLogout"/>
+        <FIELD NAME="content_request" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Request generated by Totara"/>
+        <FIELD NAME="content_response" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Response sent by the IdP"/>
+        <FIELD NAME="error" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Error message"/>
+        <FIELD NAME="notice" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Notice message"/>
+        <FIELD NAME="test" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Is this log triggered via the test page?"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="0 = Incomplete, 1 = Success, 2 = Error"/>
+        <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Totara user this log was attached to"/>
+        <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="content_request_time" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="content_response_time" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="fn_idp_id" TYPE="foreign" FIELDS="idp_id" REFTABLE="auth_ssosaml_idp_config" REFFIELDS="id" ONDELETE="cascade"/>
+        <KEY NAME="fn_user_id" TYPE="foreign" FIELDS="user_id" REFTABLE="user" REFFIELDS="id" ONDELETE="cascade"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="auth_ssosaml_idp_users" COMMENT="Mapping between each idp instance and their associated users when email confirmation is required.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="idp_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the IdP involved"/>
+        <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the user mapped to this IdP"/>
+        <FIELD NAME="code" TYPE="char" LENGTH="32" NOTNULL="false" SEQUENCE="false" COMMENT="Unique verification code"/>
+        <FIELD NAME="code_expiry" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="0 = Unconfirmed, 1 = Invalid, 2 = Confirmed"/>
+        <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="updated_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="idp_id_fk" TYPE="foreign" FIELDS="idp_id" REFTABLE="auth_ssosaml_idp_config" REFFIELDS="id" ONDELETE="cascade"/>
+        <KEY NAME="user_id_fk" TYPE="foreign" FIELDS="user_id" REFTABLE="user" REFFIELDS="id" ONDELETE="cascade"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="auth_ssosaml_assertion" COMMENT="Record of assertions that have been sent and how long we keep knowledge of them">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="idp_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the IdP involved"/>
+        <FIELD NAME="assertion_id" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="assertion_expiry" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="How long we need to keep track of this assertion id"/>
+        <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="unq_assertion_id" UNIQUE="true" FIELDS="idp_id, assertion_id"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

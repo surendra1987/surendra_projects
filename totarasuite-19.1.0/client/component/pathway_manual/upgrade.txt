@@ -1,0 +1,6 @@
+This file describes API changes in /client/component/pathway_manual,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Updated RatingPopover.vue to use a h3 instead of a h1

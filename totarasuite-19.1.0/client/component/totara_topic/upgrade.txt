@@ -1,0 +1,7 @@
+This files describes API changes in /client/component/totara_topic,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Added disabled prop to TopicsSelector.vue
+ * Template and JS changes

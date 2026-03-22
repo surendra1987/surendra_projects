@@ -1,0 +1,15 @@
+List of upgrade and API changes in Totara core,
+information provided here is intended especially for developers.
+
+=== 19.1.0 ===
+
+* Updated page_main_heading in edit.php to be the dashboard name when editing, and match the page title otherwise.
+
+=== 14.0 ===
+
+=== 13.0 ===
+
+=== 12.0 ===
+
+* Blocks on Totara dashboards are now added with pagetype 'totara-dashboard'.
+  Previously they were added with pagetype 'my-totara-dashboard'.

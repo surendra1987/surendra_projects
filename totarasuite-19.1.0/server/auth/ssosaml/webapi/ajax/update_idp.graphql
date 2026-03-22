@@ -1,0 +1,5 @@
+mutation auth_ssosaml_update_idp($input: auth_ssosaml_update_idp_input!) {
+  idp: auth_ssosaml_update_idp(input: $input) {
+    id
+  }
+}

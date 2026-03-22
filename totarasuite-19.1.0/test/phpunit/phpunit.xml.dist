@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../server/lib/phpunit/phpunit.xsd"
+    bootstrap="../../server/lib/phpunit/bootstrap.php"
+    failOnNotice="true"
+    failOnWarning="true"
+    failOnDeprecation="true"
+    failOnRisky="true"
+    failOnIncomplete="false"
+    displayDetailsOnTestsThatTriggerNotices="true"
+    displayDetailsOnTestsThatTriggerWarnings="true"
+    displayDetailsOnTestsThatTriggerDeprecations="true"
+    displayDetailsOnTestsThatTriggerErrors="true"
+    displayDetailsOnIncompleteTests="true"
+    processIsolation="false"
+    beStrictAboutOutputDuringTests="true"
+    beStrictAboutTestsThatDoNotTestAnything="false"
+>
+    <php>
+        <!--<const name="PHPUNIT_LONGTEST" value="1"/> uncomment to execute also slow or otherwise expensive tests-->
+        <!--<const name="PHPUNIT_DISABLE_UNRESET_PROPERTIES_CHECK" value="1"/> uncomment to disable check which protects against creating memory leaks-->
+        <!--Following constants instruct tests to fetch external test files from alternative location or skip tests if empty, clone https://github.com/totara/exttests to local web server-->
+        <!--<const name="TEST_EXTERNAL_FILES_HTTP_URL" value="http://test.totaralms.com/exttests"/> uncomment and alter to fetch external test files from alternative location-->
+        <!--<const name="TEST_EXTERNAL_FILES_HTTPS_URL" value="https://test.totaralms.com/exttests"/> uncomment and alter to fetch external test files from alternative location-->
+    </php>
+    <extensions>
+        <bootstrap class="\core_phpunit\extension\totara_framework"/>
+        <bootstrap class="\core_phpunit\extension\performance">
+            <parameter name="console" value="true" />
+            <!--<parameter name="console_colours" value="true" /> Uncomment to control whether the performance messages log with colour or not-->
+            <!--<parameter name="log_file" value="performance_timings.csv" /> Uncomment to enable writing the performance results to file-->
+        </bootstrap>
+    </extensions>
+    <testsuites>
+        <!-- Subsystem directories are automatically added providing they have a test directory -->
+        <!--@subsystem_suites_start@-->
+        <!--@subsystem_suites_end@-->
+
+        <!-- Plugin directories are automatically added providing they have a test directory -->
+        <!--@plugin_suites_start@-->
+        <!--@plugin_suites_end@-->
+
+        <!-- Non-standard test locations. These are neither subsystems nor plugins. -->
+        <!-- Any changes here must be updated in server/lib/tests/phpunit_naming_conventions_test.php as well -->
+        <testsuite name="core_phpunit_testsuite">
+            <directory suffix="_test.php">../../server/lib/phpunit/tests</directory>
+        </testsuite>
+        <testsuite name="core_test_testsuite">
+            <directory suffix="_test.php">../../server/lib/testing/tests</directory>
+        </testsuite>
+        <testsuite name="core_ddl_testsuite">
+            <directory suffix="_test.php">../../server/lib/ddl/tests</directory>
+        </testsuite>
+        <testsuite name="core_dml_testsuite">
+            <directory suffix="_test.php">../../server/lib/dml/tests</directory>
+        </testsuite>
+        <testsuite name="core_files_testsuite">
+            <directory suffix="_test.php">../../server/lib/filestorage/tests</directory>
+        </testsuite>
+        <testsuite name="core_grade_testsuite">
+            <directory suffix="_test.php">../../server/lib/grade/tests</directory>
+        </testsuite>
+        <testsuite name="core_backup_testsuite">
+            <directory suffix="_test.php">../../server/backup/controller/tests</directory>
+            <directory suffix="_test.php">../../server/backup/converter/moodle1/tests</directory>
+            <directory suffix="_test.php">../../server/backup/moodle2/tests</directory>
+        </testsuite>
+        <testsuite name="core_iplookup_testsuite">
+            <directory suffix="_test.php">../../server/iplookup/tests</directory>
+        </testsuite>
+        <testsuite name="core_question_testsuite">
+            <directory suffix="_test.php">../../server/question/engine/tests</directory>
+            <directory suffix="_test.php">../../server/question/type/tests</directory>
+        </testsuite>
+        <testsuite name="core_external_testsuite">
+            <directory suffix="_test.php">../../server/lib/external/tests</directory>
+        </testsuite>
+        <testsuite name="core_login_testsuite">
+            <directory suffix="_test.php">../../server/login/tests</directory>
+        </testsuite>
+    </testsuites>
+    <groups>
+        <exclude>
+            <group>performance</group>
+        </exclude>
+    </groups>
+</phpunit>

@@ -1,0 +1,203 @@
+"""
+A single custom field object. This object contains value of the custom field (both the raw value stored in the database, and the value dependant on the custom field type).
+We also provide information about the custom field through the definition property, including the name, shortname, type and description).
+
+Custom fields are user-defined extra fields in Totara to store additional information not covered by the usual fields a component has.
+
+Custom fields are used in many different components in Totara including courses, seminars and evidence.
+"""
+type totara_customfield_field {
+  """
+  The custom field's definition.
+  This includes identifying information (such as fullname or shortname) as well as defining information (such as the default value and type).
+  """
+  definition: totara_customfield_definition!
+  """
+  The raw value of the custom field without any transformation. This is the raw representation of the data.
+  If no value is set for the related item, then definition.raw_default_value is used.
+  """
+  raw_value: String
+  """
+  The value set against the related item. If no value is set for the related item, then definition.default_value is used.
+
+  For example, if we have a custom field 'Custom Field A' for courses with a default value of 'My default value'
+  and we have a course 'Course 1', but no data has been set for the custom field on the course,
+  Then the value for Course 1 will be 'My default value'.
+  However, if we then edit Course 1 and set the value for Custom Field A for the course to 'My new value', the value returned will be 'My new value'.
+  """
+  value: totara_customfield_value_type
+}
+
+"""
+A single custom field definition.
+Represents details about the custom field. For example, identifying information (such as fullname or shortname) as well as defining information (such as the default value and type)
+"""
+type totara_customfield_definition {
+  """
+  The custom field definition ID.
+  """
+  id: core_id!
+  """
+  Custom field full name.
+  """
+  fullname: String
+  """
+  Custom field short name.
+  """
+  shortname: String
+  """
+  The type of custom field. Defined by an enum of available formats the user can choose from when setting up custom fields in Totara.
+  """
+  type: totara_customfield_type!
+  """
+  Custom field description.
+  """
+  description: String
+  """
+  The raw default value of the custom fieid without any transformation. This is the raw representation of the data.
+  See totara_customfield_type for more information on specific implementations.
+  """
+  raw_default_value: String
+  """
+  Custom field default value.
+  """
+  default_value: totara_customfield_value_type
+}
+
+"""
+Enum of the different types of custom fields.
+These relate to the different types of custom fields available to the user when creating custom fields in Totara.
+"""
+enum totara_customfield_type {
+  """
+  Checkbox type.
+  The raw value is stored as a 0 (for false) or a 1 (for true).
+  """
+  CHECKBOX
+  """
+  Multiselect type. The raw value defines a string JSON object with hashes of the options as keys.
+  An example of this structure would look like:
+  ```
+  {
+    "an_md5_hash_for_the_option": {
+      "option": "my option value", -- Defines the value of the option
+      "icon": "", -- The icon displayed with the option
+      "default": "0", -- Whether the value is selected by default
+      "delete": "0", -- Whether the value is deleted.
+    }
+  }
+  ```
+  **Note:** the default value for a custom field's definition will return null due to a limitation of how multiselect stores default options.
+  """
+  MULTISELECT
+  """
+  File types are currently unsupported. A custom field with the type FILE will always return null for value, raw_value, raw_default_value and default_value properties.
+  """
+  FILE
+  """
+  Datetime type. The raw value is stored as a UNIX timestamp.
+  """
+  DATETIME
+  """
+  Textarea type.
+  The raw value can be different depending on the text editor used.
+
+  For example, if Weka (JSON_EDITOR) was used, the raw value for this will be a JSON object in the format the JSON_EDITOR expects.
+  However, if the Atto editor was used, the raw value may include HTML.
+  These two editors are not the only options for editor. The output is determined on the particular editor used, which varies depending on user preference.
+
+  A single editor is also not guaranteed for a single custom field's uses.
+  Depending on a user's editor preferences, different editors may have been used for different uses of the textarea custom field.
+
+  For example, let's say there's two courses; CourseA and CourseB and both of these courses have a custom field "MyTextarea", and two users; UserAtto and UserWeka.
+  If UserAtto has the Atto editor set as their editor preference, and UserWeka, Weka.,
+  then it's possible for a textarea custom field (MyTextarea) on CourseA to use Atto when first edited by UserAtto and for CourseB to use Weka when edited by UserWeka.
+  However, if UserAtto then edits CourseB, they will see and use Weka, and vice versa.
+  This is a limitation of the textarea custom field.
+  """
+  TEXTAREA
+  """
+  URL type.
+  The raw value can either be a JSON value or a plain URL.
+
+  * The raw value will be a JSON string when the custom field's value has been set on the item (e.g. the custom field has been set on a course).
+  * The raw value will be a plain text URL when the value has not been set on the item, and is following the custom field definition's default value.
+  * The raw default value will always be a plain text URL, so long as a value is set.
+  """
+  URL
+  """
+  Location type.
+  For type location, the default value (including raw_default_value) will be null, regardless of configuration.
+
+  The raw value is a JSON object representing both location and display properties. An example is provided below.
+  ```
+  {
+    "address": "186 Willis Street", -- A user editable textarea field specifying an address.
+    "size": "medium", -- A display property for Google maps. Defines the size of the Google maps canvas. For values, see totara_customfield_value_type_location_size
+    "view": "map", -- A display property for Google maps. Defines the type of view Google maps should display. For values, see totara_customfield_value_type_location_view
+    "zoom": 12, -- A display property for Google maps. Defines the level of zoom when displaying Google maps. Defines the level of zoom when displaying Google maps.
+    "display": "address", -- A display property for the custom field. Defines which fields to show for the custom field (maps, address or both). For values, see totara_customfield_value_type_location_display
+    "coordinates": { -- The geographical coordinates (longitude and latitude) for a given location.
+      "latitude": -41.2917599,
+      "longitude": 174.7704544
+    }
+  }
+  ```
+  """
+  LOCATION
+  """
+  Menu type. The type allows for a single choice of many values for the custom field.
+  The raw value will be the value selected.
+  """
+  MENU
+  """
+  Text type.
+  """
+  TEXT
+  """
+  Integer type.
+  """
+  INTEGER
+  """
+  Decimal type.
+  """
+  DECIMAL
+  """
+  Unknown type.
+  This type is used for types which aren't defined in the tye totara_customfield_type enum.
+  """
+  UNKNOWN
+}
+
+"""
+Input type representing a single custom field for a particular type.
+Please note: setting custom fields may require certain capabilites
+"""
+input totara_customfield_input {
+  """
+  The shortname of the custom field.
+
+  Note: if the same custom field is provided multiple times in a single request they will be applied in order so the last one will be used.
+  """
+  shortname: String!
+  """
+  Represents the value for the custom field.
+  The format of this data will depend on the field type of the field. See below for a list of types that are supported.
+
+  Types and their expected inputs:
+  * checkbox: 0 (unchecked) or 1 (checked).
+  * menu: A string exactly matching one of the menu options (case sensitive).
+  * text: Plain text.
+  * datetime: A string in the format YYYY-MM-DD or YYYY-MM-DD-HH-MM-SS (depending on if the field uses the 'Include time?' option).
+  If the field defines a year range, the input will be validated to ensure it falls within that range. If only YYYY-MM-DD is provided for
+  a field where 'Include time?' is enabled, 00:00 will be used for the time. Stored as a unix timestamp.
+  * integer: A string representing an integer value E.g. 10
+  * decimal: A string representing a decimal value E.g. 10.59
+
+  Setting data to null will delete the existing value for that custom field. This will set the value back to the default value.
+
+  Note: We currently do not support file, textarea, url, multiselect, location. If one of this is used, an exception will be thrown
+  stating an unsupported datatype was used.
+  """
+  data: String
+}

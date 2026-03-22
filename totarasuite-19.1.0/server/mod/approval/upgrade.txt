@@ -1,0 +1,16 @@
+This files describes API changes in /mod/approval/*,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Added new field to GraphQL application type: `workflow_type_id`
+* Added optional field to GraphQL application_input type: `job_assignment_id`
+* Behaviour of application_submissions has changed; previously there could be one unsuperseded submission per stage, with form_data that only applied to that stage. Submissions now have a full set of form_data, and there can only be one un-superseded draft, and one un-superseded submitted application_submission at a time, across all stages.
+* mod_approval\model\application\application_submission::supersede_submissions_for_stage has been deprecated, because submissions are superseded automatically by application_submission::publish()
+* Deprecated several methods/constants on application_editor class, as the relevant functionality has been moved to form_data:
+    * by_application_id, serve_file, move_files_to_application_area, copy_files_to_application, FILE_COMPONENT, FILE_AREA
+* Added field 'context_id' into graphql input type 'mod_approval_manageable_workflows_input'
+* Added field 'context_id' into graphql input type 'mod_approval_workflow_create_input'
+* Added field 'context_id' into graphql input type 'mod_approval_workflow_clone_input'
+* Added field 'tenant_id' into graphql type 'mod_approval_workflow'
+* Added fields 'applications_count' and 'assignments_count' into graphql tpe 'mod_approval_workflow'

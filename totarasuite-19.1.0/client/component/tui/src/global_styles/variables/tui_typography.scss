@@ -1,0 +1,103 @@
+// This file is part of Totara Enterprise Extensions.
+//
+// Copyright (C) 2020 onwards Totara Learning Solutions LTD
+//
+// Totara Enterprise Extensions is provided only to Totara
+// Learning Solutions LTD's customers and partners, pursuant to
+// the terms and conditions of a separate agreement with Totara
+// Learning Solutions LTD or its affiliate.
+//
+// If you do not have an agreement with Totara Learning Solutions
+// LTD, you may not access, use, modify, or distribute this software.
+// Please contact [licensing@totaralearning.com] for more information.
+//
+// @author Kevin Hottinger <kevin.hottinger@totara.com>
+// @author Simon Chester <simon.chester@totara.com>
+// @module tui
+
+/**
+ * Define font style variables
+ *
+ * @param {string} $name - font variant name (e.g. h1 or body-sm)
+ * @param {number} $size - font size in unitless rem
+ * @param {number} $line-height - line height in unitless rem
+ * @param {number} $weight -- font weight
+ * @param {number} $family -- font family
+ */
+@mixin define-font($name, $size, $line-height, $weight, $family) {
+  --font-#{$name}-size: calc(var(--font-size-base) * #{$size});
+  --font-#{$name}-line-height: calc(var(--line-height-base) * #{$line-height});
+  --font-#{$name}-weight: #{$weight};
+  --font-#{$name}-family: #{$family};
+}
+
+/**
+ * Use font style variables
+ *
+ * @param {string} $name - font variant name (e.g. h1 or body-sm)
+ * @param {number} $weight -- font weight. set to null to not add
+ * @param {number} $family -- font family. set to null to not add
+ */
+@mixin font($name, $weight: default, $family: default) {
+  @if $weight == default {
+    font-weight: var(--font-#{$name}-weight);
+  } @else {
+    font-weight: $weight;
+  }
+  font-size: var(--font-#{$name}-size);
+  @if $family == default {
+    font-family: var(--font-#{$name}-family);
+  } @else {
+    font-family: $family;
+  }
+  line-height: var(--font-#{$name}-line-height);
+}
+
+@function font-size-px($val) {
+  @return calc(var(--font-size-base) / 16 * #{$val});
+}
+
+@function line-height-px($val) {
+  @return calc(var(--line-height-base) / 16 * #{$val});
+}
+
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-family-monospace: Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+
+  --font-size-base: 1rem;
+  --line-height-base: 1rem;
+  --icon-size-base: 1rem;
+  --label-weight: 501;
+
+  // Body
+  --font-family-body: var(--font-family);
+  @include define-font(body-xl, 1.25, 1.75, 400, var(--font-family-body));
+  @include define-font(body-lg, 1, 1.5, 400, var(--font-family-body));
+  @include define-font(body, 0.875, 1.25, 400, var(--font-family-body));
+  @include define-font(body-sm, 0.75, 1.125, 400, var(--font-family-body));
+  @include define-font(body-xs, 0.625, 1, 400, var(--font-family-body));
+
+  // Headings
+  --font-family-heading: var(--font-family);
+  @include define-font(h1, 2, 2.5, 600, var(--font-family-heading));
+  @include define-font(h2, 1.5, 2, 600, var(--font-family-heading));
+  @include define-font(h3, 1.25, 1.75, 600, var(--font-family-heading));
+  @include define-font(h4, 1, 1.5, 600, var(--font-family-heading));
+  @include define-font(h5, 0.875, 1.25, 600, var(--font-family-heading));
+  @include define-font(h6, 0.75, 1, 501, var(--font-family-heading));
+
+  // Display
+  --font-family-display: var(--font-family);
+  @include define-font(display-lg, 3, 3.5, 400, var(--font-family-display));
+  @include define-font(display-md, 2.5, 3, 400, var(--font-family-display));
+  @include define-font(display-sm, 2, 2.5, 400, var(--font-family-display));
+  @include define-font(display-xs, 1.5, 2, 400, var(--font-family-display));
+}
+
+@mixin text-hint() {
+  color: var(--color-text-hint);
+  font-style: italic;
+}

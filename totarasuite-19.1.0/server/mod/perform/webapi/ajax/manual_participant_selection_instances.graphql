@@ -1,0 +1,32 @@
+query mod_perform_manual_participant_selection_instances {
+  mod_perform_manual_participant_selection_instances {
+    subject_instance {
+      id
+      created_at
+      subject_user {
+        id
+        fullname
+      }
+      activity {
+        name
+      }
+      subject_static_instances {
+        job_assignment {
+          fullname
+          position {
+            fullname
+          }
+          organisation {
+            fullname
+          }
+        }
+        former_manager
+      }
+    }
+    manual_relationships {
+      id
+      name
+      idnumber
+    }
+  }
+}

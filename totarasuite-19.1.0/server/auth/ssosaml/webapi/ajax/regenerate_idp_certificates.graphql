@@ -1,0 +1,7 @@
+mutation auth_ssosaml_regenerate_idp_certificates(
+  $input: auth_ssosaml_regenerate_certificates_input!
+) {
+  idp: auth_ssosaml_regenerate_idp_certificates(input: $input) {
+    id
+  }
+}

@@ -1,0 +1,8 @@
+mutation mod_perform_close_participant_instance_by_external_nosession(
+  $input: mod_perform_close_participant_instance_by_external_input!
+) {
+  mod_perform_close_participant_instance_by_external_nosession(input: $input) {
+    success
+    error
+  }
+}

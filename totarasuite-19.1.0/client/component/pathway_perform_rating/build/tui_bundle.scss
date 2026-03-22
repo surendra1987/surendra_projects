@@ -1,0 +1,87 @@
+.tui-competencyLinkedReviewRating {
+  padding: var(--gap-4) 0;
+  border-bottom: var(--border-width-normal) solid var(--color-neutral-7);
+
+  &--print {
+    border-top: none;
+  }
+
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__title {
+    @include font(h4);
+    margin: 0;
+
+    &-help {
+      padding-left: var(--gap-1);
+    }
+
+    &-required {
+      color: var(--color-prompt-alert);
+      font-weight: var(--label-weight);
+    }
+  }
+}
+
+.tui-competencyLinkedReviewRatingForm {
+  max-width: 1200px;
+
+  &__summary {
+    &-rating {
+      font-weight: bold;
+    }
+  }
+}
+
+.tui-pathwayPerformRatingAchievement {
+  & > * + * {
+    margin-top: var(--gap-6);
+  }
+}
+
+.tui-pathwayPerformRatingAchievementRater {
+  margin-top: var(--gap-2);
+  padding: var(--gap-4);
+  border: var(--border-width-thin) solid var(--color-neutral-5);
+  border-radius: var(--border-radius-normal);
+
+  &__overview {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+
+    &-text {
+      margin: 0;
+      @include font(body);
+    }
+
+    &-relationship {
+      font-weight: bold;
+    }
+  }
+
+  &__item {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+
+    &-header {
+      margin: 0;
+      @include font(h6);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-pathwayPerformRatingAchievementRater {
+    &__item {
+      &-header {
+        @include sr-only();
+      }
+    }
+  }
+}
+

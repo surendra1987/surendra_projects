@@ -1,0 +1,121 @@
+<?php
+/**
+ * This file is part of Totara Core
+ *
+ * Copyright (C) 2021 onwards Totara Learning Solutions LTD
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author  Kian Nguyen <kian.nguyen@totaralearning.com>
+ * @package core_course
+ */
+use core_phpunit\testcase;
+
+class core_course_manage_categories_rendering_test extends testcase {
+    /**
+     * @return void
+     */
+    public function test_rendering_non_selected_category_should_render_caret_right(): void {
+        global $PAGE;
+        $PAGE->set_url(new moodle_url('/course/management.php'));
+
+        $generator = self::getDataGenerator();
+        $category_one = $generator->create_category(["name" => "Category one"]);
+        $category_two = $generator->create_category(["name" => "Category two"]);
+
+        $category_one_child = $generator->create_category(["parent" => $category_one->id]);
+
+        /** @var core_course_management_renderer $renderer */
+        $renderer = $PAGE->get_renderer("core_course", "management");
+
+        // The html content that is rendered when the category two (without sub category) was selected.
+        $collapsed_html = $renderer->category_listing($category_two);
+        self::assertNotEmpty($collapsed_html);
+
+        // Expect that the icon collapsed is being used
+        self::assertStringNotContainsString("tfont-var-caret-down-fill", $collapsed_html);
+        self::assertStringContainsString("tfont-var-caret-right-fill", $collapsed_html);
+
+        // Now check the expand html, which we are rendering the selected sub category.
+        // Check that the icon should not be existing from the content.
+        $expanded_html = $renderer->category_listing($category_one_child);
+        self::assertStringNotContainsString("tfont-var-caret-right-fill", $expanded_html);
+        self::assertStringContainsString("tfont-var-caret-down-fill", $expanded_html);
+    }
+    /**
+     * @return void
+     */
+    public function test_rendering_small_number_of_categories_should_not_render_pagination(): void {
+        global $PAGE;
+        $PAGE->set_url(new moodle_url('/course/management.php'));
+
+        $generator = self::getDataGenerator();
+        $category_1 = $generator->create_category(["name" => "Category 1"]);
+        $category_2 = $generator->create_category(["name" => "Category 2"]);
+
+        /** @var core_course_management_renderer $renderer */
+        $renderer = $PAGE->get_renderer("core_course", "management");
+
+        // The html content that is rendered when category alpha was selected.
+        $category_list = $renderer->category_listing($category_1);
+        self::assertNotEmpty($category_list);
+        self::assertStringNotContainsString("page-numbers", $category_list);
+        self::assertStringNotContainsString("Page 1", $category_list);
+        self::assertStringNotContainsString("Page 2", $category_list);
+        self::assertStringNotContainsString("...", $category_list);
+        self::assertStringNotContainsString("Next", $category_list);
+        self::assertStringNotContainsString("Last", $category_list);
+    }
+    /**
+     * @return void
+     */
+    public function test_rendering_large_number_of_categories_should_render_pagination(): void {
+        global $PAGE;
+        $PAGE->set_url(new moodle_url('/course/management.php'));
+
+        $generator = self::getDataGenerator();
+        $category_1 = $generator->create_category(["name" => "Category 1"]);
+        $category_2 = $generator->create_category(["name" => "Category 2"]);
+        $category_3 = $generator->create_category(["name" => "Category 3"]);
+        $category_4 = $generator->create_category(["name" => "Category 4"]);
+        $category_5 = $generator->create_category(["name" => "Category 5"]);
+        $category_6 = $generator->create_category(["name" => "Category 6"]);
+        $category_7 = $generator->create_category(["name" => "Category 7"]);
+        $category_8 = $generator->create_category(["name" => "Category 8"]);
+        $category_9 = $generator->create_category(["name" => "Category 9"]);
+
+        /** @var core_course_management_renderer $renderer */
+        $renderer = $PAGE->get_renderer("core_course", "management");
+
+        // The pagination shows on the first page.
+        $category_list = $renderer->category_listing($category_1);
+        self::assertNotEmpty($category_list);
+        self::assertStringContainsString("page-numbers", $category_list);
+        self::assertStringContainsString("Page 1", $category_list);
+        self::assertStringContainsString("Page 2", $category_list);
+        self::assertStringContainsString("...", $category_list);
+        self::assertStringContainsString("Next", $category_list);
+        self::assertStringContainsString("Last", $category_list);
+
+        // The pagination shows on the last page.
+        $category_list = $renderer->category_listing($category_9, 2);
+        self::assertNotEmpty($category_list);
+        self::assertStringContainsString("page-numbers", $category_list);
+        self::assertStringContainsString("First", $category_list);
+        self::assertStringContainsString("Prev", $category_list);
+        self::assertStringContainsString("...", $category_list);
+        self::assertStringContainsString("Page 1", $category_list);
+        self::assertStringContainsString("Page 2", $category_list);
+    }
+}

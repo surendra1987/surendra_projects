@@ -1,0 +1,102 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2023 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2023 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @package   theme_legacy
+
+body {
+  color: var(--color-text);
+  font-size: var(--font-body-size);
+  line-height: var(--font-body-line-height);
+}
+
+h1,
+.h1 {
+  @include font(h1);
+  margin: var(--gap-4) 0 var(--gap-5);
+}
+
+h2,
+.h2 {
+  @include font(h2);
+  margin: var(--gap-4) 0 var(--gap-5);
+}
+
+h3,
+.h3 {
+  @include font(h3);
+  margin: var(--gap-4) 0 var(--gap-4);
+}
+
+h4,
+.h4 {
+  @include font(h4);
+  margin: var(--gap-4) 0 var(--gap-4);
+}
+
+h5,
+.h5 {
+  @include font(h5);
+  margin: var(--gap-4) 0 var(--gap-2);
+}
+
+h6,
+.h6 {
+  @include font(h6);
+  margin: var(--gap-4) 0 var(--gap-2);
+  color: var(--color-text-hint);
+  text-transform: uppercase;
+}
+
+@each $font
+  in (
+    h1
+    h2
+    h3
+    h4
+    h5
+    h6
+    display-lg
+    display-md
+    display-sm
+    display-xs
+    body-xl
+    body-lg
+    body
+    body-sm
+    body-xs
+  )
+{
+  .text-#{$font} {
+    @include font($font);
+  }
+}
+
+p {
+  margin: 0 0 var(--paragraph-gap);
+}
+
+ul,
+ol {
+  margin-bottom: var(--paragraph-gap);
+}
+
+li > p {
+  margin: 0 0 gap(2);
+}

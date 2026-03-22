@@ -1,0 +1,119 @@
+<?php
+/*
+ * This file is part of Totara LMS
+ *
+ * Copyright (C) 2021 onwards Totara Learning Solutions LTD
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author Samantha Jayasinghe <samantha.jayasinghe@totaralearning.com>
+ * @package totara_program
+ */
+
+/**
+ * Program notification view page
+ */
+use totara_core\extended_context;
+use totara_tui\output\component;
+use totara_notification\local\helper;
+use totara_program\event\program_viewed;
+use totara_program\program;
+
+require_once(__DIR__ . '/../../config.php');
+require_once('lib.php');
+
+global $OUTPUT, $PAGE;
+
+// Get URL parameters
+$context_id = required_param('context_id', PARAM_INT);
+$id = required_param('id', PARAM_INT); // program id
+
+require_login();
+
+$program = new program($id);
+$iscertif = $program->is_certif();
+
+$programcontext = $program->get_context();
+
+$extended_context = extended_context::make_with_context(
+    $programcontext,
+    $iscertif ? 'totara_certification' : 'totara_program',
+    'program',
+    $program->id
+);
+
+require_capability('totara/program:configuremessages', $programcontext);
+$program->check_enabled();
+
+$PAGE->set_url(
+    new moodle_url('/totara/program/edit_notifications.php'),
+    ['context_id' => $context_id, 'id' => $program->id]
+);
+$PAGE->set_program($program);
+$PAGE->set_title($program->fullname);
+$PAGE->set_heading($program->fullname);
+
+// Trigger event.
+$dataevent = array('id' => $program->id, 'other' => array('section' => 'messages'));
+program_viewed::create_from_data($dataevent)->trigger();
+
+// Display.
+$heading = format_string($program->fullname);
+
+if ($iscertif) {
+    $heading = get_string('header:certification', 'totara_certification', $heading);
+}
+
+$tui = new component(
+    'totara_notification/components/Notifications',
+    [
+        'context-id'                           => $extended_context->get_context_id(),
+        'extendedContext'                      => [
+            'component' => $extended_context->get_component(),
+            'area'      => $extended_context->get_area(),
+            'itemId'    => $extended_context->get_item_id(),
+        ],
+        'can-change-delivery-channel-defaults' => false,
+        'preferred-editor-format'              => helper::get_preferred_editor_format(FORMAT_JSON_EDITOR),
+    ]
+);
+$tui->register($PAGE);
+
+if (has_capability('totara/program:cloneprogram', $programcontext)) {
+    $clone_button = new component('totara_program/components/clone/CloneButton', [
+        'id' => $program->id,
+        'fullname' => $program->fullname,
+        'isCertif' => $program->is_certif()
+    ]);
+    $clone_button->register($PAGE);
+    $PAGE->set_button($PAGE->button . $OUTPUT->render($clone_button));
+}
+
+$data = $program->get_current_status();
+$header = new component('totara_program/components/manage_program/Header', [
+    'fullname' => $heading,
+    'affected' => (array)$data,
+]);
+$header->register($PAGE);
+
+echo $OUTPUT->header();
+echo $OUTPUT->render($header);
+
+// Display the current status
+$exceptions = $program->get_exception_count();
+$currenttab = 'notifications';
+require('tabs.php');
+
+echo $OUTPUT->render($tui);
+echo $OUTPUT->footer();

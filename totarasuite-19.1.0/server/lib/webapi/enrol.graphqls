@@ -1,0 +1,95 @@
+"""
+Enumerates the possible user enrolment status values.
+"""
+enum core_user_enrolment_status_enum {
+  """
+  The user enrolment is currently active.
+  """
+  ENROL_USER_ACTIVE
+  """
+  The user enrolment is currently suspended.
+  """
+  ENROL_USER_SUSPENDED
+}
+
+"""
+Enumerates the possible enrolment status values for an enrolment instance.
+"""
+enum core_enrol_status_enum {
+  """
+  The enrolment instance is enabled.
+  """
+  ENROL_INSTANCE_ENABLED
+  """
+  The enrolment instance is disabled.
+  """
+  ENROL_INSTANCE_DISABLED
+  """
+  The enrolment instance has been deleted.
+  """
+  ENROL_INSTANCE_DELETED
+}
+
+"""
+Represents user enrolment data.
+"""
+type core_user_enrolment {
+  """
+  The unique identifier for the user enrolment.
+  """
+  id: core_id!
+  """
+  The enrolment instance.
+  """
+  enrolment: core_enrol!
+  """
+  The status of the user enrolment.
+  """
+  status: core_user_enrolment_status_enum!
+  """
+  The start date for the enrolment (in the specified format, defaulting to TIMESTAMP).
+  """
+  timestart(format: core_date_format = TIMESTAMP): core_date!
+  """
+  The end date for the enrolment (in the specified format, defaulting to TIMESTAMP).
+  """
+  timeend(format: core_date_format = TIMESTAMP): core_date
+  """
+  The creation time for the enrolment (in the specified format, defaulting to TIMESTAMP).
+  """
+  timecreated(format: core_date_format = TIMESTAMP): core_date!
+  """
+  The modification time for the enrolment (in the specified format, defaulting to TIMESTAMP).
+  """
+  timemodified(format: core_date_format = TIMESTAMP): core_date!
+  """
+  The user who last modified the enrolment.
+  """
+  modified_by: core_user!
+}
+
+"""
+Represents an enrolment instance.
+"""
+type core_enrol {
+  """
+  The unique identifier for the enrolment instance.
+  """
+  id: core_id!
+  """
+  The enrolment method or type as a string.
+  """
+  enrol: String!
+  """
+  The status of the enrolment instance.
+  """
+  status: core_enrol_status_enum!
+  """
+  The course associated with the enrolment instance.
+  """
+  course: core_course!
+  """
+  The sort order of the enrolment instance.
+  """
+  sortorder: Int!
+}

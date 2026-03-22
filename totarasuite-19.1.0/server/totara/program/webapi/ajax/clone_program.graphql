@@ -1,0 +1,5 @@
+mutation totara_program_clone_program($input: totara_clone_program_input!) {
+  totara_program_clone_program(input: $input) {
+    id
+  }
+}

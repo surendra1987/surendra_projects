@@ -1,0 +1,5 @@
+mutation totara_program_move_courseset(
+  $input: totara_program_move_courseset_input!
+) {
+  totara_program_move_courseset(input: $input)
+}

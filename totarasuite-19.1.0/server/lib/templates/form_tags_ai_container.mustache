@@ -1,0 +1,56 @@
+{{!
+   This file is part of Totara LMS
+
+   Copyright (C) 2023 onwards Totara Learning Solutions LTD
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/form_tags_ai_container
+
+    Totara form_tags_ai_container template.
+
+    The purpose of this template is to render the Ai suggestions inside the container element.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * ai_tags_container_id The dom id of the AI tags container.
+    * ai_suggested_tags_string String to indicate AI suggestions tag in header.
+    * ai_tags_experimental_stirng String to indicate that it is experimental.
+    * action_trigger_wrapper_id The dom id of the trigger wrapper container.
+    * ai_suggestion_container_id The dom id of the AI suggestions container.
+    * ai_suggestions_body_id The dom id of AI suggestions body wrapper.
+
+    Example context (json):
+    { "ai_tags_container_id": 1, "action_trigger_wrapper_id": 2, "ai_suggestion_container_id": 3, "ai_suggestions_body_id": 4, "ai_tags_experimental_stirng": "AI-suggested tags", "ai_tags_experimental_stirng": "Experimental" }
+}}
+<div id="{{ai_tags_container_id}}" class="form-aitags__container">
+  <div class="form-aitags__wrapper">
+    <div class="form-aitags__label">
+      {{ai_suggested_tags_string}} <span class="form-aitags__experiment-label">{{ai_tags_experimental_stirng}}</span>
+    </div>
+    <div id="{{action_trigger_wrapper_id}}"></div>
+  </div>
+  <div id="{{ai_suggestion_container_id}}" class="form-aitags__suggestions-container">
+    <div id="{{ai_suggestions_body_id}}" class="aitags-suggestions-body"></div>
+    <div class="form-aitags__suggestions-footer">
+      {{#flex_icon}}info-circle, , , ft-size-100{{/flex_icon}}{{footer_string}}
+    </div>
+  </div>
+</div>

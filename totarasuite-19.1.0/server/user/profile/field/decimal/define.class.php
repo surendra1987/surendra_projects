@@ -1,0 +1,52 @@
+<?php
+/**
+ * This file is part of Totara Learn
+ *
+ * Copyright (C) 2023 onwards Totara Learning Solutions LTD
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author Oleg Demeshev <oleg.demeshev@totara.com>
+ * @package profilefield_decimal
+ */
+
+use totara_customfield\interfaces\decimal;
+
+class profile_define_decimal extends profile_define_base implements decimal {
+
+    use \totara_customfield\traits\decimal_field_helper;
+
+    protected const LANG_COMPONENT = 'profilefield_decimal';
+
+    /**
+     * @inheritDoc
+     */
+    public function define_form_specific($form) {
+        $this->define_decimal_form_specific($form);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function define_validate_specific($data, $files) {
+        return $this->define_decimal_validate_specific($data);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function define_save_preprocess($data) {
+        return $this->define_decimal_save_preprocess($data);
+    }
+}

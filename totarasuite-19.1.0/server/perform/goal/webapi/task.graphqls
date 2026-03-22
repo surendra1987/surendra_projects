@@ -1,0 +1,275 @@
+"""
+Represents a goal task resource.
+"""
+type perform_goal_goal_task_resource {
+  """
+  Internal database ID of the resource.
+  """
+  id: core_id!
+  """
+  Internal database ID of the parent task.
+  """
+  task_id: core_id!
+  """
+  Points to the id in the table of the given resource type.
+  """
+  resource_id: core_id!
+  """
+  Numerical code for the resource type.
+  """
+  resource_type: Int!
+  """
+  The date the resource was first created.
+  """
+  created_at(format: core_date_format = DATELONG): core_date!
+  """
+  Extra data about the goal_task resource, e.g. a course resource.
+  """
+  resource_custom_data: String
+}
+
+"""
+Represents a goal task value.
+"""
+type perform_goal_goal_task {
+  """
+  Internal database ID of the task.
+  """
+  id: core_id!
+  """
+  Internal database ID of the parent goal.
+  """
+  goal_id: core_id!
+  """
+  Task description.
+  """
+  description(format: core_format = PLAIN): String
+  """
+  The date the task was completed.
+  """
+  completed_at(format: core_date_format = DATELONG): core_date
+  """
+  The date the task was first created.
+  """
+  created_at(format: core_date_format = DATELONG): core_date!
+  """
+  The date the task was last updated.
+  """
+  updated_at(format: core_date_format = DATELONG): core_date
+  """
+  Indicates whether the associated resource (e.g. course) exists. If this is false
+  and resource_id is not null, it means the resource originally existed but has
+  now been deleted.
+  """
+  resource_exists: Boolean
+  """
+  Indicates whether the resource is viewable by the current user.
+  """
+  resource_can_view: Boolean!
+  """
+  Associated resource if any.
+  """
+  resource: perform_goal_goal_task_resource
+}
+
+"""
+The result returned from a get goal tasks operation.
+"""
+type perform_goal_get_goal_tasks_result {
+  """
+  The database ID of the parent goal.
+  """
+  goal_id: core_id!
+  """
+  The list of goal_task items associated with a goal.
+  """
+  tasks: [perform_goal_goal_task!]
+  """
+  Total number of tasks in this goal.
+  """
+  total: Int!
+  """
+  Total number of _completed_ tasks in this goal.
+  """
+  completed: Int!
+}
+
+"""
+The result returned from a goal task create/update/set progress operation.
+"""
+type perform_goal_task_upsert_result {
+  """
+  Task type object, containing information about a goal task.
+  """
+  goal_task: perform_goal_goal_task
+  """
+  Indicates if the operation succeeded.
+  """
+  success: Boolean!
+  """
+  Error messages if the operation failed.
+  """
+  errors: perform_goal_task_operation_error
+}
+
+"""
+The result returned from a goal task delete operation.
+"""
+type perform_goal_task_delete_result {
+  """
+  Whether the current goal task successfully deleted.
+  """
+  success: Boolean!
+}
+
+"""
+Describes an error that occurred when doing a goal task related query/mutation.
+"""
+type perform_goal_task_operation_error {
+  """
+  An error code representing this particular class of error.
+  """
+  code: String
+  """
+  Human readable string describing the error.
+  """
+  message: String
+}
+
+"""
+Input for identifying a goal task.
+
+The task must be specified by providing one of these:
+
+* The task's internal database id (if present, always ignores the position value
+  and goal id below).
+
+* Its position in a parent goal's list. Note this value ranges from 0 (earliest
+  created task) to <list size - 1> (latest created task).
+"""
+input perform_goal_task_reference {
+  """
+  The database ID of the parent goal.
+  """
+  goal_id: core_id
+  """
+  The database ID of the task.
+  """
+  id: core_id
+  """
+  The task's position in the parent goal's list.
+  """
+  ordinal: Int
+}
+
+"""
+Input provided when creating a goal task. Some fields are required.
+"""
+input perform_goal_task_create_input {
+  """
+  Internal database ID of the parent goal.
+  """
+  goal_id: core_id!
+  """
+  Goal task description.
+  """
+  description: param_text
+  """
+  Points to the id in the table of the given resource type.
+  """
+  resource_id: core_id
+  """
+  Numerical code for the resource type corresponding to constants in the back end code.
+  """
+  resource_type: Int
+}
+
+"""
+Input provided when updating a goal task.
+"""
+input perform_goal_task_update_input {
+  """
+  Input value(s) for identifying a goal task.
+  """
+  goal_task_reference: perform_goal_task_reference!
+  """
+  Goal task description.
+  """
+  description: param_text
+  """
+  Points to the id in the table of the given resource type.
+  """
+  resource_id: core_id
+  """
+  Numerical code for the resource type corresponding to constants in the back end code.
+  """
+  resource_type: Int
+}
+
+"""
+Input provided when setting a goal task's progress.
+"""
+input perform_goal_task_set_progress_input {
+  """
+  Input value(s) for identifying a goal task.
+  """
+  goal_task_reference: perform_goal_task_reference!
+  """
+  The task completion status: 0 = false, anything else = true.
+  """
+  completed: Int!
+}
+
+extend type Query {
+  """
+  A query to get the tasks for a specified goal.
+  """
+  perform_goal_get_goal_tasks(
+    """
+    Input value(s) for identifying a goal: id and/or id_number.
+    """
+    goal_reference: perform_goal_reference!
+  ): perform_goal_get_goal_tasks_result!
+}
+
+extend type Mutation {
+  """
+  An operation to create a new goal task, containing the information needed to initialise it for use.
+  """
+  perform_goal_create_goal_task(
+    """
+    Values provided to create a new goal task.
+    """
+    input: perform_goal_task_create_input!
+  ): perform_goal_task_upsert_result!
+
+  """
+  An operation to update a goal task.
+  """
+  perform_goal_update_goal_task(
+    """
+    Values provided to create a new goal task.
+    """
+    input: perform_goal_task_update_input!
+  ): perform_goal_task_upsert_result!
+
+  """
+  An operation to delete an existing goal task.
+  """
+  perform_goal_delete_goal_task(
+    """
+    Input value(s) for identifying a goal task.
+    """
+    goal_task_reference: perform_goal_task_reference!
+  ): perform_goal_task_delete_result!
+
+  """
+  An operation to set the progress of a single goal task.
+  """
+  perform_goal_set_goal_task_progress(
+    """
+    Input value for setting a goal task's progress.
+    """
+    input: perform_goal_task_set_progress_input!
+  ): perform_goal_task_upsert_result!
+}

@@ -1,0 +1,5 @@
+mutation mod_perform_remove_participant_instance_access(
+  $input: mod_perform_remove_participant_instance_access_input!
+) {
+  mod_perform_remove_participant_instance_access(input: $input)
+}

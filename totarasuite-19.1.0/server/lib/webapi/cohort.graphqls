@@ -1,0 +1,45 @@
+"""
+Constant for the audience type.
+"""
+enum core_cohort_type {
+  STATIC
+  DYNAMIC
+}
+
+"""
+Audience type object, containing information about an audience.
+"""
+type core_cohort {
+  """
+  Internal database id of the audience.
+  """
+  id: core_id!
+  """
+  Audience name.
+  """
+  name(format: core_format = PLAIN): String!
+  """
+  The id number of the audience.
+  """
+  idnumber(format: core_format = PLAIN): String
+  """
+  Audience description.
+  """
+  description(format: core_format = HTML): String
+  """
+  Audience type.
+  """
+  type: core_cohort_type!
+  """
+  Whether the audience is active.
+  """
+  active: Boolean!
+  """
+  The number of audience members.
+  """
+  members_count: Int!
+  """
+  The tags of static cohorts.
+  """
+  tags: [core_tag]!
+}

@@ -1,0 +1,30 @@
+This files describes API changes for code that uses the notification API,
+information provided here is intended especially for developers.
+
+=== 19.1.0 ===
+
+* Added the ability to rotate the client secret for an individual oauth2 provider
+  * Added a new field "client_secret_updated_at" to the "totara_oauth2_client_provider"
+    table to store when the client secret was last rotated.
+  * Added a access_tokens() method to \totara_oauth2\entity\client_provider
+    for fetching access tokens associated with the client.
+  * Added a new `rotated_secret_event` event for logging when a client secret is rotated.
+  * Added a rotate_secret() method to \totara_oauth2\model\client_provider
+    for handling deleting existing tokens and generating a new client secret value.
+
+=== 17.0 ===
+
+* Added a new field "status" to client providers to set them enabled/disabled.
+* Added a new field "internal" to client providers to mark them for internal usage.
+* Added a new field "component" to client providers to store which internal component is used with client provider.
+* Updated return value of statement_handler::authenticate from nullable to non-nullable
+
+=== 16.0 ===
+
+--- Update to graphQL ---
+* Changed name field  format to 'PLAIN' for 'totara_oauth2_client_provider' type
+
+=== 15.3 ===
+
+* Changed field 'client_provider_id' type to int and length to 10 on 'totara_oauth2_access_token' table.
+* Changed foreign key 'client_probider_id_fk' to 'client_provider_id_fk' and added 'cascade' property to it.

@@ -1,0 +1,731 @@
+"""
+Represents a seminar session.
+"""
+type mod_facetoface_session {
+  """
+  Internal database ID of the session.
+  """
+  id: core_id!
+  """
+  The start date/time for the session.
+  """
+  timestart(format: core_date_format = TIMESTAMP): core_date
+  """
+  The finish date/time for the session.
+  """
+  timefinish(format: core_date_format = TIMESTAMP): core_date
+  """
+  The rooms associated with the session.
+  """
+  rooms: [mod_facetoface_room!]!
+}
+
+"""
+Represents a seminar event.
+"""
+type mod_facetoface_event {
+  """
+  Internal database ID of the event.
+  """
+  id: core_id!
+  """
+  The time the event was created.
+  """
+  timecreated(format: core_date_format = TIMESTAMP): core_date!
+  """
+  The time the event was last modified.
+  """
+  timemodified(format: core_date_format = TIMESTAMP): core_date!
+  """
+  The ID of the seminar the event belongs to.
+  """
+  seminar_id: Int!
+  """
+  The cancellation behaviour for the event.
+  """
+  allow_cancellations: mod_facetoface_event_allow_cancellations
+  """
+  The number of seconds before the session starts that a user can cancel their booking.
+  """
+  cancellation_cutoff: Int
+  """
+  Details of the event.
+  """
+  details(format: core_text_format = HTML): String
+  """
+  Regular cost for event entry.
+  """
+  cost_normal: String
+  """
+  Discounted cost for event entry.
+  """
+  cost_discount: String
+  """
+  The time when registration for the event opens.
+  """
+  registration_time_start(format: core_date_format = TIMESTAMP): core_date
+  """
+  The time when registration for the event closes.
+  """
+  registration_time_end(format: core_date_format = TIMESTAMP): core_date
+  """
+  The total number of seats for the event.
+  A value of 0 means unlimited.
+  """
+  seats_total: Int!
+  """
+  Number of seats which have been booked.
+  """
+  seats_booked: Int!
+  """
+  Number of seats which are available to be booked. Waitlisting does not affect this value.
+  Null if unlimited.
+  """
+  seats_available: Int
+  """
+  A list of sessions associated with the event.
+  """
+  sessions: [mod_facetoface_session!]!
+  """
+  The custom fields associated with the event.
+  Will be null if the custom fields have not been loaded.
+  """
+  custom_fields: [totara_customfield_field!]
+  """
+  Start date of the event.
+  Based on the earliest session's start date.
+  """
+  start_date(format: core_date_format = TIMESTAMP): core_date!
+  """
+  Finish date of the event.
+  Based on the latest session's end date.
+  """
+  finish_date(format: core_date_format = TIMESTAMP): core_date!
+  """
+  The seminar the event belongs to.
+  """
+  seminar: mod_facetoface_seminar!
+}
+
+type mod_facetoface_room {
+  """
+  Internal database ID of the room.
+  """
+  id: core_id!
+  """
+  The name of the room.
+  """
+  name: String!
+  """
+  The number of seats in the room.
+  """
+  capacity: Int!
+  """
+  Whether the room can be booked for multiple events at the same time.
+  """
+  allow_conflicts: Boolean!
+  """
+  The description of the room.
+  """
+  description(format: core_text_format = HTML): String
+  """
+  The URL of the room if it is a virtual room.
+  """
+  url: String
+  """
+  The custom fields associated with the room.
+  Will be null if the custom fields have not been loaded.
+  """
+  custom_fields: [totara_customfield_field!]
+  """
+  The time the event was created.
+  """
+  timecreated(format: core_date_format = TIMESTAMP): core_date!
+  """
+  The time the event was last modified.
+  """
+  timemodified(format: core_date_format = TIMESTAMP): core_date!
+}
+
+"""
+The booking details that are associated with an event.
+"""
+type mod_facetoface_event_user_booking {
+  """
+  Custom fields associated with the user's booking (sign-up custom fields).
+  Will be null if the custom fields have not been loaded.
+  """
+  custom_fields: [totara_customfield_field!]
+  """
+  Custom fields associated with the user's cancellation (user cancellation custom fields).
+  Will be null if the custom fields have not been loaded.
+  """
+  cancellation_custom_fields: [totara_customfield_field!]
+  """
+  User associated with the booking.
+  Null when the user does not exist or you do not have permissions to view the user.
+  """
+  user: core_user
+  """
+  Event associated with the booking.
+  """
+  event: mod_facetoface_event!
+  """
+  If true, the user is booked for the event.
+  The user's booking is considered as booked when in any of the following states:
+  * REQUESTED,
+  * REQUESTED_ROLE,
+  * REQUESTED_ADMIN,
+  * WAITLISTED,
+  * BOOKED
+  """
+  booked: Boolean!
+  """
+  The state the booking is in (booked, cancelled, requested, etc.).
+  """
+  state: mod_facetoface_booking_state!
+}
+
+"""
+The exact state of a booking.
+"""
+type mod_facetoface_booking_state {
+  """
+  Used to determine the state type.
+  """
+  key: mod_facetoface_booking_state_key!
+  """
+  User-facing title of the booking.
+  This uses a language string and may change depending on language settings.
+  """
+  title: String!
+  """
+  User-facing message for showing when entering the state.
+  This uses a language string and may change depending on language settings.
+  Null if the state is not associated with a signup (e.g., in `mod_facetoface_event_user_booking_state_error`).
+  """
+  enter_state_message: String
+}
+
+"""
+Represents a booking state type.
+"""
+enum mod_facetoface_booking_state_key {
+  """
+  User is booked and confirmed to attend the event.
+  """
+  BOOKED
+  """
+  Booking request is declined.
+  """
+  DECLINED
+  """
+  The event is cancelled.
+  """
+  EVENT_CANCELLED
+  """
+  User attended the entire event.
+  """
+  FULLY_ATTENDED
+  """
+  User attended part of the event.
+  """
+  PARTIALLY_ATTENDED
+  """
+  User indicated they are unable to attend the event.
+  """
+  UNABLE_TO_ATTEND
+  """
+  User did not attend the event.
+  """
+  NO_SHOW
+  """
+  Booking is requested and pending approval.
+  """
+  REQUESTED
+  """
+  Booking is requested and pending admin approval.
+  """
+  REQUESTED_ADMIN
+  """
+  Booking is requested and pending role approval.
+  """
+  REQUESTED_ROLE
+  """
+  User cancelled their booking.
+  """
+  USER_CANCELLED
+  """
+  User is on the waitlist for the event.
+  """
+  WAITLISTED
+  """
+  Booking state has not been set.
+  """
+  NOT_SET
+  """
+  Unknown booking state.
+  """
+  UNKNOWN
+}
+
+"""
+Error returned based on why a booking state cannot be changed.
+"""
+type mod_facetoface_event_user_booking_state_error {
+  """
+  The booking state associated with the error.
+  """
+  state: mod_facetoface_booking_state!
+  """
+  Human readable string describing the error.
+  """
+  message: String!
+  """
+  An error code representing the error.
+  """
+  code: String!
+}
+
+"""
+Defines the available options for allowing cancellations in events.
+"""
+enum mod_facetoface_event_allow_cancellations {
+  """
+  Cancellations are not allowed.
+  """
+  NEVER
+  """
+  Cancellations can be made at any time.
+  """
+  ANY_TIME
+  """
+  Cancellations are allowed until the specified cancellation_cutoff time.
+  """
+  CUT_OFF
+}
+
+"""
+Event status filters.
+"""
+enum mod_facetoface_event_status {
+  """
+  Cancelled events.
+  """
+  CANCELLED
+  """
+  Active events (events which have not been cancelled).
+  """
+  ACTIVE
+  """
+  Both active and cancelled events.
+  """
+  BOTH
+}
+
+"""
+Event tense filters.
+"""
+enum mod_facetoface_event_tense {
+  """
+  Past events from the current time. Includes all events which finish on or before the current time.
+  """
+  PAST
+  """
+  Future events from the current time. Includes all events which start after the current time.
+  """
+  FUTURE
+  """
+  Both past and future events.
+  """
+  BOTH
+}
+
+"""
+Events filters.
+"""
+input mod_facetoface_events_filters {
+  """
+  Retrieve all events belonging to a course.
+  """
+  course_id: core_id
+  """
+  Retrieve all events belonging to a seminar.
+  """
+  seminar_id: core_id
+  """
+  Events to retrieve by ID.
+  """
+  event_ids: [core_id!]
+  """
+  Whether events are active, cancelled or both.
+
+  Defaults to both.
+  """
+  status: mod_facetoface_event_status
+  """
+  Whether events start in the future, past or both.
+
+  Defaults to both past and future events.
+  """
+  tense: mod_facetoface_event_tense
+  """
+  Only events which start after a given date time.
+
+  Handles the following formats: integer timestamp, numeric string or an ISO-8601 string.
+  """
+  starts_after: core_date
+  """
+  Only events which finishes on or before a given date time.
+
+  Handles the following formats: integer timestamp, numeric string or an ISO-8601 string.
+  """
+  finishes_on_or_before: core_date
+  """
+  Only include events that have at least the specified minimum number of available seats.
+  """
+  min_seats_available: Int
+  """
+  Only events which have been modified after a given date time.
+
+  Handles the following formats: integer timestamp, numeric string or an ISO-8601 string.
+  """
+  since_timemodified: core_date
+}
+
+"""
+Reference for a single seminar event.
+"""
+input mod_facetoface_event_reference {
+  """
+  The ID of the seminar event.
+  """
+  id: core_id!
+}
+
+"""
+Result for the seminar event query.
+"""
+type mod_facetoface_event_result {
+  """
+  The seminar event.
+  """
+  event: mod_facetoface_event
+}
+
+"""
+Events query input. Specifies pagination, filters and sorting.
+"""
+input mod_facetoface_events_query {
+  """
+  Pagination input for this query.
+
+  Note: Only cursor-based pagination is supported. The `page` field is not applicable and will be ignored.
+  """
+  pagination: core_pagination_input
+  """
+  Defines the filters to search by.
+  """
+  filters: mod_facetoface_events_filters
+  """
+  Defines the sort order for the results. The following columns may be used for sorting:
+  * id
+  * timecreated
+  * timemodified
+  * seminar_id
+  * cost_normal
+  * cost_discount
+  * registration_time_start
+  * registration_time_finish
+
+  Note: Currently, sorting is limited to a single column at a time.
+  """
+  sort: [core_sort_input!]
+}
+
+"""
+Defines the result of the events query.
+"""
+type mod_facetoface_events_result implements core_pageable_result {
+  """
+  A list of events.
+  """
+  items: [mod_facetoface_event!]!
+  total: Int!
+  next_cursor: String!
+}
+
+"""
+Input provided when cancelling a seminar event user booking.
+"""
+input mod_facetoface_event_cancel_user_booking_input {
+  """
+  Identifies the user associated with a signup.
+  """
+  user: core_user_user_reference!
+  """
+  Identifies the event associated with a signup.
+  """
+  event: mod_facetoface_event_reference!
+  """
+  List of cancellation custom fields (each array element describes a single custom field value).
+  """
+  cancellation_custom_fields: [totara_customfield_input!]
+}
+
+"""
+Result for the event cancel user booking mutation.
+"""
+type mod_facetoface_event_cancel_user_booking_result {
+  """
+  When switching the user's booking to the cancelled state fails, state errors and codes will be provided.
+  E.g. the event is in the past or the event is cancelled.
+  """
+  cancellation_errors: [mod_facetoface_event_user_booking_state_error!]
+  """
+  Whether or not the cancellation was successful.
+  """
+  success: Boolean
+  """
+  The user's booking.
+  """
+  booking: mod_facetoface_event_user_booking!
+}
+
+"""
+Result for the booking query
+"""
+type mod_facetoface_event_user_booking_result {
+  """
+  Whether a booking for the user for the event was found or not.
+  """
+  found: Boolean!
+  """
+  The booking for the user for the event.
+  Null if a booking could not be found.
+  """
+  booking: mod_facetoface_event_user_booking
+}
+
+"""
+Input provided when creating a seminar event user booking.
+"""
+input mod_facetoface_event_create_user_booking_input {
+  """
+  Reference for the seminar event to be booked.
+  """
+  event: mod_facetoface_event_reference!
+  """
+  Reference for the user to be booked.
+  """
+  user: core_user_user_reference!
+  """
+  Optional array of seminar event booking custom field data (Sign-up custom fields).
+  Each array element describes a single custom field value for this seminar event user booking.
+  """
+  custom_fields: [totara_customfield_input!]
+}
+
+"""
+Represents a seminar.
+"""
+type mod_facetoface_seminar {
+  """
+  Internal database ID of the seminar.
+  """
+  id: core_id!
+  """
+  Short name for the seminar.
+  """
+  shortname: String
+  """
+  Regular name for the seminar.
+  """
+  name: String
+  """
+  Description for the seminar.
+  """
+  description(format: core_text_format = HTML): String
+  """
+  The time the session was created.
+  """
+  timecreated(format: core_date_format = TIMESTAMP): core_date
+  """
+  The time the session was last modified.
+  """
+  timemodified(format: core_date_format = TIMESTAMP): core_date!
+  """
+  The ID of the course associated with the seminar.
+  """
+  course_id: core_id!
+  """
+  The events associated with the seminar.
+  Note: Resolving events, sessions and rooms can be expensive when resolving multiple seminars.
+  """
+  events: [mod_facetoface_event!]!
+}
+
+"""
+Result for the create seminar event user booking mutation.
+"""
+type mod_facetoface_event_create_user_booking_result {
+  """
+  Whether or not the user booking was able to be successfully created.
+  """
+  created: Boolean!
+  """
+  When attempting to book the user for the event and the booking fails, state errors and codes will be provided.
+  E.g. the event is in the past or the event is over capacity.
+  Null when the booking was successful.
+  """
+  booking_errors: [mod_facetoface_event_user_booking_state_error!]
+  """
+  The user's booking for the event.
+  Null if a booking could not be created.
+  """
+  booking: mod_facetoface_event_user_booking
+}
+
+"""
+Reference for a single seminar.
+"""
+input mod_facetoface_seminar_reference {
+  """
+  The ID of the seminar.
+  """
+  id: core_id
+}
+
+"""
+Result for the seminar query.
+"""
+type mod_facetoface_seminar_result {
+  """
+  The seminar that was found.
+  """
+  seminar: mod_facetoface_seminar
+}
+
+"""
+Defines the result of the seminars in course query.
+"""
+type mod_facetoface_seminars_in_course_result {
+  """
+  A list of seminars.
+  """
+  items: [mod_facetoface_seminar!]!
+  total: Int!
+}
+
+"""
+Seminars in Course query input. Specifies pagination, filters and sorting.
+"""
+input mod_facetoface_seminars_in_course_query {
+  """
+  Defines the filters to search by.
+  """
+  filters: mod_facetoface_seminars_filters
+  """
+  Defines the sort order for the results. The following columns may be used for sorting:
+  * id
+  * timecreated
+  * timemodified
+  * shortname
+
+  Note: Currently, sorting is limited to a single column at a time.
+  """
+  sort: [core_sort_input!]
+}
+
+"""
+Seminars filters.
+"""
+input mod_facetoface_seminars_filters {
+  """
+  Filters by a specific set of seminar IDs.
+  """
+  ids: [core_id!]
+  """
+  Filters seminars which have been modified after a given date time.
+  Handles the following formats: integer timestamp, numeric string or an ISO-8601 string.
+  """
+  since_timemodified: core_date
+}
+
+extend type Query {
+  """
+  Get a single seminar event.
+  """
+  mod_facetoface_event(
+    """
+    Reference for a single seminar event.
+    """
+    event: mod_facetoface_event_reference!
+  ): mod_facetoface_event_result!
+  """
+  Get a list of events.
+  """
+  mod_facetoface_events(
+    """
+    The parameters for the events query, including pagination, sorting and filters.
+    """
+    query: mod_facetoface_events_query
+  ): mod_facetoface_events_result!
+  """
+  Gets the user booking for a given seminar event.
+  """
+  mod_facetoface_event_user_booking(
+    """
+    User reference for a single user.
+    """
+    user: core_user_user_reference!
+    """
+    Event reference for a single event.
+    """
+    event: mod_facetoface_event_reference!
+  ): mod_facetoface_event_user_booking_result!
+  """
+  Get a single seminar.
+  """
+  mod_facetoface_seminar(
+    """
+    Reference for a single seminar.
+    """
+    seminar: mod_facetoface_seminar_reference!
+  ): mod_facetoface_seminar_result!
+  """
+  Get a list of seminars within a course.
+  """
+  mod_facetoface_seminars_in_course(
+    """
+    The course to search for seminars in.
+    """
+    course: core_course_course_reference!
+    """
+    The parameters for the events query, including sorting and filters.
+    """
+    query: mod_facetoface_seminars_in_course_query
+  ): mod_facetoface_seminars_in_course_result!
+}
+
+extend type Mutation {
+  """
+  Cancel a user booking/signup for a seminar event.
+  """
+  mod_facetoface_event_cancel_user_booking(
+    """
+    Input for cancelling a seminar event booking/signup.
+    """
+    input: mod_facetoface_event_cancel_user_booking_input!
+  ): mod_facetoface_event_cancel_user_booking_result!
+  """
+  Create a user booking/signup for a seminar event.
+  This service attempts to create a user booking in any one of the states of BOOKED, REQUESTED, REQUESTED_ROLE, or WAITLISTED. See `mod_facetoface_booking_state_key` for full definitions of states.
+  """
+  mod_facetoface_event_create_user_booking(
+    """
+    Input for creating a seminar event booking/signup.
+    """
+    input: mod_facetoface_event_create_user_booking_input!
+  ): mod_facetoface_event_create_user_booking_result!
+}

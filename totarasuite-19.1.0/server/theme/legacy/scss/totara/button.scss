@@ -1,0 +1,121 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2019 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2019 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @copyright 2015 Bas Brands <www.sonsbeekmedia.nl>
+// @author    Bas Brands
+// @author    David Scotson
+// @author    Joby Harding <joby.harding@totaralearning.com>
+// @package   theme_legacy
+
+.singlebutton {
+  display: inline-block;
+
+  + .singlebutton {
+    margin-left: var(--gap-1);
+  }
+}
+
+// Two singlebutton's side by side for ok/cancel.
+#notice .buttons .singlebutton {
+  display: inline-block;
+}
+
+.continuebutton {
+  text-align: center;
+}
+
+p.arrow_button {
+  margin-top: 5em;
+  text-align: center;
+  #remove {
+    margin: 3em auto 5em;
+  }
+  input {
+    @include bs-btn-block();
+  }
+}
+
+#addcontrols {
+  margin-top: 5em;
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+#addcontrols input,
+#removecontrols input {
+  @include bs-btn-block();
+}
+
+.button,
+input.form-submit,
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+  @include bs-btn();
+  @include bs-btn-default();
+
+  &.btn-link {
+    box-shadow: none;
+  }
+}
+
+input.form-submit,
+input#id_submitbutton,
+input#id_submitbutton2,
+.path-admin .buttons input[type='submit'],
+td.submit input {
+  @include bs-btn-primary();
+}
+
+// override .btn-primary
+#notice .singlebutton + .singlebutton input,
+.submit.buttons input[name='cancel'] {
+  @include bs-btn();
+  @include bs-btn-default();
+}
+
+input.fp-btn-choose {
+  @include bs-btn-sm();
+  margin-left: 0;
+  margin-top: var(--gap-1);
+  margin-bottom: var(--gap-1);
+}
+
+.user-enroller-panel .uep-search-results .user .options .enrol {
+  @include bs-btn-xs();
+}
+
+// End of original bootstrap theme code.
+.buttons .singlebutton {
+  display: inline-block;
+  margin-right: $padding-xs-horizontal;
+}
+
+.btn.yui3-button {
+  box-shadow: none;
+
+  &:hover {
+    box-shadow: var(--btn-shadow-hover);
+  }
+
+  &:active {
+    box-shadow: var(--btn-shadow-active);
+  }
+}

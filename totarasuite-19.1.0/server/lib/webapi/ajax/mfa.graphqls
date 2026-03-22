@@ -1,0 +1,59 @@
+"""
+Input to delete an instance
+"""
+input core_mfa_delete_instance_input {
+  """
+  ID of instance to be deleted
+  """
+  id: core_id!
+}
+
+"""
+Input to verify MFA factor
+"""
+input core_mfa_verify_factor_input {
+  """
+  Factor
+  """
+  factor: String!
+  """
+  Json data
+  """
+  data: String!
+}
+
+"""
+Result of verifying a MFA factor
+"""
+type core_mfa_verify_factor_result {
+  """
+  Status of verification
+  """
+  success: Boolean!
+
+  """
+  Url to redirect the user to
+  """
+  next_url: String
+}
+
+"""
+A configured factor instance
+"""
+type core_mfa_instance {
+  id: core_id!
+}
+
+extend type Mutation {
+  """
+  Delete an existing instance by ID.
+  """
+  core_mfa_delete_instance(input: core_mfa_delete_instance_input!): Boolean!
+
+  """
+  Authenticate MFA factor.
+  """
+  core_mfa_verify_factor(
+    input: core_mfa_verify_factor_input!
+  ): core_mfa_verify_factor_result!
+}

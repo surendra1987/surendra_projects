@@ -1,0 +1,6 @@
+This files describes API changes in /totara/engage/course,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Added new method can_create_source_item() in totara_engage/resource/course.php to ignore create resource item in the engage.

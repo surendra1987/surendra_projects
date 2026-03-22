@@ -1,0 +1,36 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2023 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2023 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @author    Simon Chester <simon.chester@totara.com>
+// @package   theme_legacy
+
+:root {
+  // Drop down
+  --dropdown-item-bg-color-hover: var(--color-neutral-3);
+  --dropdown-item-bg-color-focus: var(--color-neutral-3);
+  --dropdown-item-bg-color-disabled-focus: var(--color-neutral-2);
+  --dropdown-item-text-color: var(--color-text);
+  --dropdown-item-text-color-hover: var(--color-text);
+  --dropdown-item-text-color-focus: var(--color-text);
+  --dropdown-item-text-color-disabled: var(--color-text-disabled);
+  --dropdown-item-focus-ring-color: var(--color-state);
+  --dropdown-menu-bg-color: var(--color-background);
+  --dropdown-menu-border-color: var(--color-neutral-5);
+}

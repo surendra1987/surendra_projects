@@ -1,0 +1,15 @@
+"""
+Set inspire theme navigation state input
+"""
+input theme_inspire_set_navigation_state_input {
+  state: String
+}
+
+extend type Mutation {
+  """
+  Set inspire theme navigation state.
+  """
+  theme_inspire_set_navigation_state(
+    input: theme_inspire_set_navigation_state_input!
+  ): Boolean!
+}

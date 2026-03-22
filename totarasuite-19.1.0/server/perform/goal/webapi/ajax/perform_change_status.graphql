@@ -1,0 +1,20 @@
+mutation perform_goal_perform_change_status(
+  $input: perform_goal_perform_change_status_input
+) {
+  perform_goal_perform_change_status_result: perform_goal_perform_change_status(
+    input: $input
+  ) {
+    perform_status_change {
+      status_changer_user {
+        fullname
+      }
+      current_value
+      status {
+        id
+        label
+      }
+      created_at
+    }
+    already_exists
+  }
+}

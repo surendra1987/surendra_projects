@@ -1,0 +1,4 @@
+This files describes API changes in /mfa/* - plugins,
+information provided here is intended especially for developers.
+
+=== 18.0 ===

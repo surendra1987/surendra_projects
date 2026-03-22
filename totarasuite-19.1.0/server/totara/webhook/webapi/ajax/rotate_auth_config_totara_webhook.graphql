@@ -1,0 +1,14 @@
+mutation totara_webhook_rotate_auth_config_totara_webhook(
+  $reference: totara_webhook_totara_webhook_reference!
+) {
+  totara_webhook: totara_webhook_rotate_auth_config_totara_webhook(
+    reference: $reference
+  ) {
+    item {
+      __typename
+      id
+      auth_class
+      auth_config
+    }
+  }
+}

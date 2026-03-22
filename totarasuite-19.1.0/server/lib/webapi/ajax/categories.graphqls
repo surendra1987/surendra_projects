@@ -1,0 +1,45 @@
+extend type Query {
+  """
+  Return a single category from its ID
+  """
+  core_category(categoryid: core_id!): core_category!
+
+  """
+  Return all the categories that are available to be maintained
+  by the user only, no system categories in this list.
+  """
+  core_categories: [core_category!]!
+
+  """
+  Return all categories in the specified category visible to the current user. Excludes non-direct decendants
+  (sub-sub-categories).
+  """
+  core_categories_by_parent_category(
+    """
+    The id of the parent category to return the children of.
+    """
+    categoryid: core_id!
+    """
+    Order of categories to return.
+    """
+    sort: core_category_sort_order = SORTORDER
+  ): [core_category!]!
+}
+
+"""
+Specify how a list of categories will be sorted.
+"""
+enum core_category_sort_order {
+  """
+  Sort in the order specified on the manage courses and categories page.
+  """
+  SORTORDER
+  """
+  Sort alphabetically by category name.
+  """
+  NAME
+  """
+  Sort alphabetically by category id number.
+  """
+  IDNUMBER
+}

@@ -1,0 +1,134 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1278.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1278.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/performelement_perform_goal_creation/src/components/PerformGoalCreationAdminView.vue?vue&type=style&index=0&id=2123e2e1&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalCreationAdminView {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4) 0;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: var(--gap-2) 0;
+    padding: var(--gap-4);
+    background: var(--color-neutral-3);
+  }
+
+  &__itemHeading {
+    @include font(h4);
+    display: flex;
+
+    &-title {
+      @include font(h4);
+      margin: 0;
+    }
+  }
+
+  &__itemContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+
+    &-date {
+      @include font(body-sm);
+    }
+
+    &-box {
+      display: flex;
+      padding: var(--gap-4);
+      background: var(--color-neutral-1);
+      border: var(--border-width-thin) solid var(--color-neutral-5);
+    }
+  }
+
+  &__bar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2);
+    @include font(body-sm);
+
+    &-item {
+      display: flex;
+      gap: var(--gap-2);
+    }
+
+    &-heading {
+      margin: 0;
+      @include font(h6);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-performGoalCreationAdminView {
+    &__bar {
+      flex-direction: row;
+      gap: var(--gap-6);
+    }
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1278.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1278.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/performelement_perform_goal_creation/src/components/PerformGoalCreationParticipantForm.vue?vue&type=style&index=0&id=2e76f9a4&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalCreationParticipantForm {
+  &__createButton {
+    margin-top: var(--gap-2);
+  }
+
+  &__permissionMessage {
+    @include font(body-sm);
+    margin-top: var(--gap-2);
+    font-style: italic;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1278.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1278.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/performelement_perform_goal_creation/src/components/PerformGoalCreationResponseDisplay.vue?vue&type=style&index=0&id=ea311164&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-performGoalCreationResponseDisplay {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--gap-4);
+  @include font(body-sm);
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: var(--gap-2) 0;
+    padding: var(--gap-4);
+    background: var(--color-neutral-3);
+  }
+
+  &__itemHeading {
+    @include font(h4);
+    display: flex;
+    justify-content: space-between;
+
+    &-title {
+      @include font(h4);
+      margin: 0;
+    }
+  }
+
+  &__itemContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+
+    &-date {
+      @include font(body-sm);
+    }
+
+    &-box {
+      display: flex;
+      padding: var(--gap-4);
+      background: var(--color-neutral-1);
+      border: var(--border-width-thin) solid var(--color-neutral-5);
+    }
+  }
+}
+

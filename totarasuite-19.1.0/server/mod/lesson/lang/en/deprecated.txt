@@ -1,0 +1,2 @@
+configactionaftercorrectanswer,mod_lesson
+modulename_link,mod_lesson

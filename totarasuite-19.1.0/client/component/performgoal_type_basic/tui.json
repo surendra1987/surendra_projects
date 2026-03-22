@@ -1,0 +1,7 @@
+{
+    "component": "performgoal_type_basic",
+    "vendor": "totara",
+    "dependencies": [
+        "editor_weka"
+    ]
+}

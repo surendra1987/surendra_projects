@@ -1,0 +1,42 @@
+"""
+Role type object, containing information about a role.
+"""
+type core_role {
+  """
+  Internal database id of the role.
+  """
+  id: core_id!
+  """
+  Name of a role.
+  """
+  name: String
+  """
+  Shortname of a role.
+  """
+  shortname: String!
+  """
+  Description of a role.
+  """
+  description: String
+}
+
+"""
+Input for identifying a role.
+
+The role must be specified by providing one of the following:
+
+* The role's internal database id
+* The role's shortname
+
+A role reference must uniquely identify a single role to be valid.
+"""
+input core_role_role_reference {
+  """
+  The internal id for the role
+  """
+  id: core_id
+  """
+  The shortname for the role
+  """
+  shortname: String
+}

@@ -1,0 +1,188 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2023 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2023 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @author    Simon Chester <simon.chester@totara.com>
+// @package   theme_legacy
+
+@mixin button {
+  // local CSS variables
+  --local-btn-color: var(--btn-accent-color);
+  --local-btn-color-hover: var(--btn-accent-color-hover);
+  --local-btn-color-active: var(--btn-accent-color-active);
+  --local-btn-color-contrast: var(--btn-accent-color-contrast);
+  --local-btn-shadow: none;
+  --local-btn-shadow-hover: var(--btn-shadow-hover);
+  --local-btn-shadow-active: var(--btn-shadow-active);
+  --local-btn-content-height: var(--btn-line-height);
+  --local-btn-padding-h: calc(var(--btn-padding-h) - var(--btn-border-width));
+  --local-btn-padding-v: calc(var(--btn-padding-v) - var(--btn-border-width));
+  --local-btn-font-size: var(--btn-font-size);
+  --local-btn-line-height: var(--btn-line-height);
+  --local-btn-min-height: calc(var(--local-btn-line-height) + (var(--local-btn-padding-v) + var(--btn-border-width)) * 2);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--local-btn-min-height);
+  max-width: 100%;
+  min-height: var(--local-btn-min-height);
+  padding: var(--local-btn-padding-v) var(--local-btn-padding-h);
+  color: var(--local-btn-color);
+  font-size: var(--local-btn-font-size);
+  line-height: var(--local-btn-line-height);
+  overflow-wrap: break-word;
+  background: var(--btn-bg-color);
+  border: var(--btn-border-width) solid;
+  border-color: var(--local-btn-color);
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+
+  flex-shrink: 0;
+  transition: background-color var(--transition-button-duration)
+      var(--transition-button-function),
+    border-color var(--transition-button-duration)
+      var(--transition-button-function),
+    box-shadow var(--transition-button-duration)
+      var(--transition-button-function);
+  vertical-align: middle;
+  touch-action: manipulation;
+  margin-bottom: 0; // For input.btn
+  user-select: none;
+
+  &:is(a) {
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: var(--local-btn-color);
+    }
+  }
+
+  &.focus,
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &:hover {
+    --local-btn-color: var(--local-btn-color-hover);
+    box-shadow: var(--btn-shadow-hover);
+  }
+
+  &:active,
+  &.active {
+    --local-btn-color: var(--local-btn-color-active);
+    box-shadow: var(--btn-shadow-active);
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:active {
+      --local-btn-color: var(--btn-accent-color-disabled);
+      box-shadow: none;
+    }
+  }
+
+  &:is(a).disabled {  
+    // counteract a.disabled global style
+    color: var(--local-btn-color);
+  }
+
+  @include prepend-current('a') {
+    &.disabled,
+    fieldset[disabled] & {
+      pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+    }
+  }
+
+  .badge {
+    color: var(--local-btn-color);
+    background-color: var(--btn-bg-color);
+  }
+}
+
+@mixin button-sz($variant) {
+  --local-btn-font-size: var(--btn-#{$variant}-font-size);
+  --local-btn-line-height: var(--btn-#{$variant}-line-height);
+  --local-btn-padding-h: calc(var(--btn-#{$variant}-padding-h) - var(--btn-border-width));
+  --local-btn-padding-v: calc(var(--btn-#{$variant}-padding-v) - var(--btn-border-width));
+  border-radius: var(--btn-#{$variant}-radius);
+}
+
+// Deprecated since Totara 19.0
+@mixin button-color-variant($variant) {
+  color: var(--btn-#{$variant}-text-color);
+  background: var(--btn-#{$variant}-bg-color);
+  border-color: var(--btn-#{$variant}-border-color);
+
+  &:focus {
+    color: var(--btn-#{$variant}-text-color);
+  }
+
+  &:hover {
+    color: var(--btn-#{$variant}-text-color-hover);
+    background: var(--btn-#{$variant}-bg-color-hover);
+    border-color: var(--btn-#{$variant}-border-color-hover);
+    box-shadow: var(--btn-#{$variant}-shadow-hover);
+  }
+
+  &:active,
+  &.active {
+    color: var(--btn-#{$variant}-text-color-active);
+    background: var(--btn-#{$variant}-bg-color-active);
+    border: var(--btn-border-width) solid;
+    border-color: var(--btn-#{$variant}-border-color-active);
+    box-shadow: var(--btn-#{$variant}-shadow-active);
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:active,
+    &:focus,
+    &:hover {
+      color: var(--btn-#{$variant}-text-color-disabled);
+      background-color: var(--btn-#{$variant}-bg-color-disabled);
+      border-color: var(--btn-#{$variant}-border-color-disabled);
+    }
+  }
+
+  .badge {
+    color: var(--btn-#{$variant}-text-color);
+    background-color: var(--btn-#{$variant}-bg-color);
+  }
+}
+
+@mixin button-primary {
+  color: var(--local-btn-color-contrast);
+  background-color: var(--local-btn-color);
+
+  &:is(a):hover,
+  &:is(a):focus {
+    color: var(--local-btn-color-contrast);
+  }
+
+  &:is(a).disabled {
+    // counteract a.disabled global style
+    color: var(--local-btn-color-contrast);
+  }
+}

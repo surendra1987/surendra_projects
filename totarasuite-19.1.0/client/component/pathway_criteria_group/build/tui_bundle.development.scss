@@ -1,0 +1,13 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1138.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1138.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_criteria_group/src/components/achievements/AchievementDisplay.vue?vue&type=style&index=0&id=66e75c3a&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-pathwayCriteriaGroupAchievement {
+  padding: var(--gap-4);
+  border: var(--border-width-thin) solid var(--color-neutral-5);
+  border-radius: 6px;
+
+  & > * + * {
+    margin-top: var(--gap-8);
+  }
+}
+

@@ -1,0 +1,6 @@
+deletewarningmsg,totara_playlist
+privacychangeprivatetorestrictedorpublic,totara_playlist
+privacychangerestrictedtopublic,totara_playlist
+selectexistingresource,totara_playlist
+tagarea_playlist,totara_playlist
+toaddplaylist,totara_playlist

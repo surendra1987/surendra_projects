@@ -1,0 +1,15 @@
+mutation core_theme_settings_send_email_notification(
+  $html_header: String!
+  $html_footer: String!
+  $text_footer: String!
+  $tenant_id: core_id
+  $category: String
+) {
+  core_theme_settings_send_email_notification(
+    html_header: $html_header
+    html_footer: $html_footer
+    text_footer: $text_footer
+    tenant_id: $tenant_id
+    category: $category
+  )
+}

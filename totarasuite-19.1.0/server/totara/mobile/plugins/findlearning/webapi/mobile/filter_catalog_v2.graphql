@@ -1,0 +1,73 @@
+query mobile_findlearning_filter_catalog_v2(
+  $pointer: Int
+  $filter_data: mobile_findlearning_filter_input_v2!
+) {
+  catalogPage: mobile_findlearning_filter_catalog_v2(
+    limit_from: $pointer
+    filter_data: $filter_data
+  ) {
+    maxCount: max_count
+    pointer: limit_from
+    finalPage: final_records
+    items {
+      id
+      itemid
+      itemType: item_type
+      title
+      mobileImage: image_url
+      viewUrl: view_url
+      summary(format: MOBILE)
+      summaryFormat: summary_format
+      progress_bar_enabled
+      progress_bar {
+        progress
+      }
+      native: mobile_coursecompat
+      download_friendly
+      __typename
+    }
+    filters {
+      __typename
+      key
+      title
+      type
+      options {
+        ... on totara_catalog_option {
+          __typename
+          id
+          label
+          active
+        }
+        ... on totara_catalog_tree_option {
+          __typename
+          id
+          parentid
+          label
+          active
+        }
+      }
+    }
+    browse_filter {
+      __typename
+      key
+      title
+      type
+      options {
+        ... on totara_catalog_option {
+          __typename
+          id
+          label
+          active
+        }
+        ... on totara_catalog_tree_option {
+          __typename
+          id
+          parentid
+          label
+          active
+        }
+      }
+    }
+    suggestion
+  }
+}

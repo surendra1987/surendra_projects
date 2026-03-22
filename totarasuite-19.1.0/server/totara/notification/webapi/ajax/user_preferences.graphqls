@@ -1,0 +1,22 @@
+"""
+Results after disabling notifications against the active user
+"""
+type totara_notification_disable_notifications_result {
+  state: Boolean!
+}
+
+"""
+Input for disabling notifications against the active user
+"""
+input totara_notification_disable_notifications_input {
+  new_state: Boolean!
+}
+
+extend type Mutation {
+  """
+  Update the delivery channels attached to the specific event resolver (in the system context).
+  """
+  totara_notification_toggle_user_disable_notifications(
+    input: totara_notification_disable_notifications_input!
+  ): totara_notification_disable_notifications_result!
+}

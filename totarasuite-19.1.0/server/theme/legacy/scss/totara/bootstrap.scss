@@ -1,0 +1,92 @@
+/*!
+ * Bootstrap v3.4.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap-sass/blob/master/LICENSE)
+ */
+
+// Some imports are commented out as we have our own definitions
+
+// Core variables and mixins
+@import '../bootstrap3/_variables';
+@import 'bootstrap-compat/variables';
+
+@import '../bootstrap3/mixins/_alerts';
+@import '../bootstrap3/mixins/_background-variant';
+@import '../bootstrap3/mixins/_border-radius';
+// @import '../bootstrap3/mixins/_buttons';
+@import '../bootstrap3/mixins/_center-block';
+@import '../bootstrap3/mixins/_clearfix';
+// @import '../bootstrap3/mixins/_forms';
+@import '../bootstrap3/mixins/_gradients';
+@import '../bootstrap3/mixins/_grid-framework';
+@import '../bootstrap3/mixins/_grid';
+@import '../bootstrap3/mixins/_hide-text';
+@import '../bootstrap3/mixins/_image';
+@import '../bootstrap3/mixins/_labels';
+@import '../bootstrap3/mixins/_list-group';
+@import '../bootstrap3/mixins/_nav-divider';
+@import '../bootstrap3/mixins/_nav-vertical-align';
+@import '../bootstrap3/mixins/_opacity';
+@import '../bootstrap3/mixins/_pagination';
+@import '../bootstrap3/mixins/_panels';
+@import '../bootstrap3/mixins/_progress-bar';
+@import '../bootstrap3/mixins/_reset-filter';
+@import '../bootstrap3/mixins/_reset-text';
+@import '../bootstrap3/mixins/_resize';
+@import '../bootstrap3/mixins/_responsive-visibility';
+@import '../bootstrap3/mixins/_size';
+@import '../bootstrap3/mixins/_tab-focus';
+@import '../bootstrap3/mixins/_table-row';
+@import '../bootstrap3/mixins/_text-emphasis';
+@import '../bootstrap3/mixins/_text-overflow';
+@import '../bootstrap3/mixins/_vendor-prefixes';
+
+// Reset and dependencies
+@import '../bootstrap3/_normalize';
+@import '../bootstrap3/_print';
+@import '../bootstrap3/_glyphicons';
+
+// Core CSS
+// @import '../bootstrap3/_scaffolding';
+@import '../bootstrap3/_type';
+@import '../bootstrap3/_code';
+@import '../bootstrap3/_grid';
+@import '../bootstrap3/_tables';
+// @import '../bootstrap3/_forms';
+// @import '../bootstrap3/_buttons';
+
+// Components
+@import '../bootstrap3/_component-animations';
+@import '../bootstrap3/_dropdowns';
+@import '../bootstrap3/_button-groups';
+@import '../bootstrap3/_input-groups';
+@import '../bootstrap3/_navs';
+@import '../bootstrap3/_navbar';
+@import '../bootstrap3/_breadcrumbs';
+@import '../bootstrap3/_pagination';
+@import '../bootstrap3/_pager';
+@import '../bootstrap3/_labels';
+@import '../bootstrap3/_badges';
+@import '../bootstrap3/_jumbotron';
+@import '../bootstrap3/_thumbnails';
+@import '../bootstrap3/_alerts';
+@import '../bootstrap3/_progress-bars';
+@import '../bootstrap3/_media';
+@import '../bootstrap3/_list-group';
+@import '../bootstrap3/_panels';
+@import '../bootstrap3/_responsive-embed';
+@import '../bootstrap3/_wells';
+@import '../bootstrap3/_close';
+
+// Components w/ JavaScript
+@import '../bootstrap3/_modals';
+@import '../bootstrap3/_tooltip';
+@import '../bootstrap3/_popovers';
+@import '../bootstrap3/_carousel';
+
+// Utility classes
+@import '../bootstrap3/_utilities';
+@import '../bootstrap3/_responsive-utilities';
+
+// Totara compat
+@import 'bootstrap-compat/styles';

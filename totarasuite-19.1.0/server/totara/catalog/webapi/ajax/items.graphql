@@ -1,0 +1,104 @@
+query totara_catalog_items($input: totara_catalog_url_query_input!) {
+  totara_catalog_items(input: $input) {
+    items {
+      itemid
+      type_label
+      featured
+      title
+      logo {
+        url
+        alt
+      }
+      image {
+        url
+        alt
+      }
+      redirecturl
+      objecttype
+      hero_data_type
+      hero_data_text
+      hero_data_icon {
+        icon
+        url
+        alt
+      }
+      description_enabled
+      description
+      progress_bar_enabled
+      progress_bar {
+        progress
+      }
+      text_placeholders_enabled
+      text_placeholders {
+        data
+        label
+        show_label
+      }
+      icon_placeholders_enabled
+      icon_placeholders {
+        icon
+        url
+        alt
+      }
+    }
+    limitfrom
+    maxcount
+    filters {
+      __typename
+      key
+      title
+      type
+      options {
+        ... on totara_catalog_option {
+          __typename
+          id
+          label
+          active
+        }
+        ... on totara_catalog_tree_option {
+          __typename
+          id
+          parentid
+          label
+          active
+        }
+      }
+    }
+    browse_filter {
+      __typename
+      key
+      title
+      type
+      options {
+        ... on totara_catalog_option {
+          __typename
+          id
+          label
+          active
+        }
+        ... on totara_catalog_tree_option {
+          __typename
+          id
+          parentid
+          label
+          active
+        }
+      }
+    }
+    sort {
+      key
+      title
+      options {
+        ... on totara_catalog_option {
+          __typename
+          id
+          label
+          active
+        }
+      }
+    }
+    is_filtered
+    endofrecords
+    suggestion
+  }
+}

@@ -1,0 +1,42 @@
+{{!
+   This file is part of Totara LMS
+
+   Copyright (C) 2023 onwards Totara Learning Solutions LTD
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/form_tags_ai_selection_loading
+
+    Totara form_tags_ai_selection_loading template.
+
+    The purpose of this template is to render the loading state.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * multiple True if this field allows multiple selections
+
+    Example context (json):
+    { "loading_pill_counter": [] }
+}}
+<div class="form-aitags__suggestions-loading">
+  {{#loading_pill_counter}}
+    <span class="form-aitags__loading-pill form-aitags__loading-pill--shimmer"></span>
+  {{/loading_pill_counter}}
+</div>

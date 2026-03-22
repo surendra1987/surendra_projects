@@ -1,0 +1,99 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1168.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1168.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_perform_rating/src/components/Rating.vue?vue&type=style&index=0&id=77d29a04&lang=scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyLinkedReviewRating {
+  padding: var(--gap-4) 0;
+  border-bottom: var(--border-width-normal) solid var(--color-neutral-7);
+
+  &--print {
+    border-top: none;
+  }
+
+  & > * + * {
+    margin-top: var(--gap-4);
+  }
+
+  &__title {
+    @include font(h4);
+    margin: 0;
+
+    &-help {
+      padding-left: var(--gap-1);
+    }
+
+    &-required {
+      color: var(--color-prompt-alert);
+      font-weight: var(--label-weight);
+    }
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1168.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1168.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_perform_rating/src/components/RatingForm.vue?vue&type=style&index=0&id=01311a30&lang=scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-competencyLinkedReviewRatingForm {
+  max-width: 1200px;
+
+  &__summary {
+    &-rating {
+      font-weight: bold;
+    }
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1168.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1168.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_perform_rating/src/components/achievements/AchievementDisplay.vue?vue&type=style&index=0&id=3a1131c7&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-pathwayPerformRatingAchievement {
+  & > * + * {
+    margin-top: var(--gap-6);
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1168.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1168.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/pathway_perform_rating/src/components/achievements/AchievementDisplayRater.vue?vue&type=style&index=0&id=7f37af3b&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-pathwayPerformRatingAchievementRater {
+  margin-top: var(--gap-2);
+  padding: var(--gap-4);
+  border: var(--border-width-thin) solid var(--color-neutral-5);
+  border-radius: var(--border-radius-normal);
+
+  &__overview {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+
+    &-text {
+      margin: 0;
+      @include font(body);
+    }
+
+    &-relationship {
+      font-weight: bold;
+    }
+  }
+
+  &__item {
+    & > * + * {
+      margin-top: var(--gap-2);
+    }
+
+    &-header {
+      margin: 0;
+      @include font(h6);
+    }
+  }
+}
+
+@media (min-width: $tui-screen-sm) {
+  .tui-pathwayPerformRatingAchievementRater {
+    &__item {
+      &-header {
+        @include sr-only();
+      }
+    }
+  }
+}
+

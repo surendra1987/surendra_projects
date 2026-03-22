@@ -1,0 +1,58 @@
+This files describes API changes in the quiz code,
+
+=== 19.0 ===
+
+* Updated heading levels in:
+  * mod_quiz\output\edit_renderer::edit_page()
+  * mod_quiz_renderer::render_recent_activities()
+  * mod_quiz_renderer::review_page()
+  * mod_quiz_renderer::review_question_not_allowed()
+  * mod_quiz_renderer::start_attempt_page()
+  * mod_quiz_renderer::attempt_page()
+  * mod_quiz_renderer::quiz_notices()
+  * mod_quiz_renderer::summary_page()
+  * mod_quiz_renderer::view_information()
+  * mod_quiz_renderer::view_table_heading()
+  * mod_quiz_renderer::view_result_info()
+  * mod_quiz_renderer::chart()
+  * mod_quiz_renderer::graph()
+
+=== 18.0 ===
+
+* Updated mod_quiz_renderer::navigation_panel, mod_quiz_renderer::review_page, mod_quiz_renderer::attempt_page
+    and mod_quiz_renderer::summary_page, adding the navigation block content when there is no block regions on the page
+
+=== 16.9 ===
+
+If a quiz is sequential the external functions mod_quiz_external::get_attempt_data, mod_quiz_external::get_attempt_summary will not return any data
+related to out of sequence question except while reviewing the quiz (MDL-75210).
+
+=== 14.0 ===
+
+=== 13.0 ===
+
+=== 12.0 ===
+
+* mod_quiz_renderer::summary_table() has changed
+
+=== 10.0 ===
+
+* External functions mod_quiz_external::get_attempt_data, mod_quiz_external::get_attempt_summary
+  and mod_quiz_external::get_attempt_review now return additional optional fields:
+   - blockedbyprevious: Whether a question is blocked by the previous question.
+* quiz_attempt::question_print_comment_fields() has been removed. It was broken
+  since at least Moodle 2.0.
+* quiz::confirm_start_attempt_message and mod_quiz_view_object::$startattemptwarning
+  have been deprecated. This functionality is now entirely handled within the
+  quiz access rule plugins.
+* The third argument to mod_quiz_renderer::start_attempt_button has been changed
+  from a warning string to a mod_quiz_preflight_check_form.
+* mod_quiz_renderer::review_next_navigation has a new optional argument. If you
+  have overridden that method, consider updating your code to match.
+* mod_quiz\output\edit_renderer::start_section_list now takes $structure as an
+  argument. If you have overridden this method (it's hard to believe anyone ever
+  would) you will need to update your renderer.
+* Several methods relating to preview links/buttons/urls have a new optional
+  argument to make the preview be of a particular variant.
+* mod_quiz_renderer::attempt_navigation_buttons has been changed to output warning text regarding 'next' navigation
+  when using 'sequential' navigation method with the addition of a new style 'mod_quiz-next-nav-wrn'.

@@ -1,0 +1,5 @@
+mutation theme_inspire_set_navigation_state(
+  $input: theme_inspire_set_navigation_state_input!
+) {
+  result: theme_inspire_set_navigation_state(input: $input)
+}

@@ -1,0 +1,16 @@
+query core_course_selector($query: course_selector_input) {
+  core_course_selector(input: $query) {
+    courses {
+      id
+      fullname
+      idnumber
+      image
+      category {
+        full_path
+      }
+    }
+    total
+    page
+    next_cursor
+  }
+}

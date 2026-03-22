@@ -1,0 +1,44 @@
+"""
+An enum to match input operators to constants defined in \totara_program\content\course_set
+"""
+enum totara_program_nextset_operator {
+  """
+  This course set, then the next one.
+  """
+  NEXTSETOPERATOR_THEN
+  """
+  This course set, and the next one.
+  """
+  NEXTSETOPERATOR_AND
+  """
+  This course set, or the next one.
+  """
+  NEXTSETOPERATOR_OR
+}
+
+"""
+Input schema for updating a coursesets nextset operator
+"""
+input totara_program_update_courseset_nextset_operator_input {
+  """
+  The id of the program to check permissions for
+  """
+  program_id: core_id!
+  """
+  The id of the courseset to update inside the program
+  """
+  courseset_id: core_id!
+  """
+  The nextset operator to set for the courseset
+  """
+  nextset_operator: totara_program_nextset_operator!
+}
+
+extend type Mutation {
+  """
+  Update the nextset operator for the given courseset.
+  """
+  totara_program_update_courseset_nextset_operator(
+    input: totara_program_update_courseset_nextset_operator_input
+  ): Boolean!
+}

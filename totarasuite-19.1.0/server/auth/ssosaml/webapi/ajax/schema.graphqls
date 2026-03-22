@@ -1,0 +1,575 @@
+"""
+Constant for which specific type of metadata is selected.
+NONE is only available during initial setup.
+"""
+enum auth_ssosaml_metadata_source {
+  URL
+  XML
+  NONE
+}
+
+"""
+Constant for defining how a mapping field updates.
+"""
+enum auth_ssosaml_map_attributes {
+  CREATE
+  LOGIN
+}
+
+"""
+Constant for the log status.
+"""
+enum auth_ssosaml_log_status {
+  ERROR
+  INCOMPLETE
+  SUCCESS
+}
+
+"""
+Constant for the auto linking existing accounts.
+"""
+enum auth_ssosaml_idp_autolink_users {
+  LINK_WITH_CONFIRMATION
+  LINK_NO_CONFIRMATION
+  NO_LINK
+}
+
+"""
+The Metadata configuration. Source indicates which of the XML or URL fields are active.
+The non-active field will return a NULL.
+"""
+type auth_ssosaml_metadata {
+  """
+  Metadata source
+  """
+  source: auth_ssosaml_metadata_source!
+
+  """
+  Metadata URL
+  """
+  url: String
+
+  """
+  Manually entered metadata XML
+  """
+  xml: String
+}
+
+"""
+One specific mapping field, Totara to Remote.
+"""
+type auth_ssosaml_totara_remote_map {
+  """
+  Name of the Totara field to update
+  """
+  internal: String!
+
+  """
+  Name of the remote field to update
+  """
+  external: String!
+
+  """
+  Whether to update the field in Totara on each login.
+  """
+  update: auth_ssosaml_map_attributes!
+}
+
+"""
+Algorithms available for signing.
+"""
+enum auth_ssosaml_signing_algorithm {
+  SHA1
+  SHA256
+  SHA386
+  SHA512
+}
+
+"""
+Configuration options that only apply to SAML
+"""
+type auth_ssosaml_saml_config {
+  """
+  Whether the metadata should be signed.
+  """
+  sign_metadata: Boolean!
+
+  """
+  What algorithm should be used for signing.
+  """
+  signing_algorithm: auth_ssosaml_signing_algorithm!
+
+  """
+  Whether assertions should be signed or not.
+  """
+  wants_assertions_signed: Boolean!
+
+  """
+  Indicates to the IdP that all authentication requests will be signed.
+  """
+  authnrequests_signed: Boolean!
+
+  """
+  Which SAML NameID format to request.
+  """
+  nameid_format: String
+
+  """
+  Custom entity ID.
+  """
+  entity_id: String
+}
+
+type auth_ssosaml_field_mapping_config {
+  """
+  Delimiter used to join multi-value attributes
+  """
+  delimiter: String
+
+  """
+  Local to Remote field mappings.
+  """
+  field_maps: [auth_ssosaml_totara_remote_map!]!
+}
+
+"""
+Identity Provider(IdP)
+"""
+type auth_ssosaml_idp {
+  """
+  ID of IdP
+  """
+  id: core_id!
+
+  """
+  Metadata configuration.
+  """
+  metadata: auth_ssosaml_metadata! @cache(merge: true)
+
+  """
+  Label for the login method
+  """
+  label(format: core_format = PLAIN): String
+
+  """
+  Field to use as user identifier on IdP end
+  """
+  idp_user_id_field: String
+
+  """
+  Field to use as user identifier on Totara end
+  """
+  totara_user_id_field: String
+  """
+  Allow users to be created in Totara when they login into the IdP
+  """
+  create_users: Boolean!
+
+  """
+  Enabled/disabled
+  """
+  status: Boolean!
+
+  """
+  Debug mode
+  """
+  debug: Boolean!
+
+  """
+  SAML Config
+  """
+  saml_config: auth_ssosaml_saml_config! @cache(merge: false)
+
+  """
+  Settings for the field mappings
+  """
+  field_mapping_config: auth_ssosaml_field_mapping_config! @cache(merge: true)
+
+  """
+  If true, logout in totara will trigger a logout in the IdP
+  """
+  logout_idp: Boolean!
+
+  """
+  URL to redirect to after the final logout.
+  """
+  logout_url: String
+
+  """
+  Indicates what auto link option is set.
+  """
+  autolink_users: auth_ssosaml_idp_autolink_users!
+
+  """
+  Whether this IdP is hidden from the login screen.
+  """
+  login_hide: Boolean!
+}
+
+"""
+Result of the IdPs list query.
+"""
+type auth_ssosaml_idps_result {
+  """
+  List of IdPs
+  """
+  items: [auth_ssosaml_idp!]!
+}
+
+"""
+An individual SAML debug log
+"""
+type auth_ssosaml_saml_log_entry {
+  """
+  The type of the messages
+  """
+  type: String!
+
+  """
+  The Totara-initiated messages
+  """
+  content_request: String
+
+  """
+  The IdP message
+  """
+  content_response: String
+
+  """
+  Error message
+  """
+  error: String
+
+  """
+  Notice message
+  """
+  notice: String
+
+  """
+  The status of the specific log
+  """
+  status: auth_ssosaml_log_status!
+
+  """
+  The label of the log status
+  """
+  status_label: String!
+
+  """
+  When was this specific log entry first captured
+  """
+  created_at(format: core_date_format = TIMESTAMP): core_date!
+
+  """
+  The time the request was logged - if it has been.
+  """
+  content_request_time(format: core_date_format = TIMESTAMP): core_date
+
+  """
+  The time the response was logged, if it has been
+  """
+  content_response_time(format: core_date_format = TIMESTAMP): core_date
+}
+
+"""
+Result of the SAML Logs
+"""
+type auth_ssosaml_saml_log_result implements core_pageable_result {
+  """
+  List of scheduled rules
+  """
+  items: [auth_ssosaml_saml_log_entry!]!
+  """
+  Total number of scheduled rules for this query.
+  """
+  total: Int!
+  """
+  Cursor to request the next batch of results for this query.
+  """
+  next_cursor: String!
+}
+
+"""
+Map between a Totara field and remote field.
+"""
+input auth_ssosaml_totara_remote_map_input {
+  """
+  The string name of the Totara field.
+  """
+  internal: String!
+
+  """
+  The string name of the remote field.
+  """
+  external: String!
+
+  """
+  Whether to update the Totara field on each login.
+  """
+  update: auth_ssosaml_map_attributes!
+}
+
+"""
+Metadata field input
+"""
+input auth_ssosaml_idp_metadata_input {
+  """
+  Source of the Metadata
+  """
+  source: auth_ssosaml_metadata_source!
+
+  """
+  URL if source is set to URL
+  """
+  url: param_url
+
+  """
+  XML if source is set to XML
+  """
+  xml: String
+}
+
+"""
+IdP specific attributes input
+"""
+input auth_ssosaml_idp_attributes_input {
+  """
+  Metadata source
+  """
+  metadata: auth_ssosaml_idp_metadata_input!
+
+  """
+  Label for the login method
+  """
+  label: param_text
+
+  """
+  Field to use as user identifier on IdP end
+  """
+  idp_user_id_field: String!
+
+  """
+  Field to use as user identifier on Totara end
+  """
+  totara_user_id_field: String!
+
+  """
+  Enabled/disabled
+  """
+  status: param_boolean
+
+  """
+  Debug mode
+  """
+  debug: param_boolean!
+
+  """
+  Auto create IdP users in Totara
+  """
+  create_users: param_boolean!
+
+  """
+  Autolink users.
+  """
+  autolink_users: auth_ssosaml_idp_autolink_users!
+
+  """
+  Logout the user in the IdP when Totara logs out.
+  """
+  logout_idp: param_boolean
+
+  """
+  URL to redirect to after a logout happens.
+  """
+  logout_url: param_url
+
+  """
+  Field mappings settings between Totara and the remote service.
+  """
+  field_mapping_config: auth_ssosaml_idp_field_mapping_config_input
+
+  """
+  Whether this IdP is hidden from the login screen.
+  """
+  login_hide: param_boolean!
+}
+
+"""
+Input for field mappings
+"""
+input auth_ssosaml_idp_field_mapping_config_input {
+  """
+  Delimiter to join attributes returned by the IdP to a single value
+  """
+  delimiter: String
+
+  """
+  Field mappings between Totara and the Identity Provider's attributes.
+  """
+  field_maps: [auth_ssosaml_totara_remote_map_input!]!
+}
+
+"""
+Input for SAML-specific settings.
+Any field that isn't provided will fall back to a sensible default.
+"""
+input auth_ssosaml_saml_config_input {
+  """
+  Signing metadata.
+  """
+  sign_metadata: param_boolean
+
+  """
+  Algorithm to sign with.
+  """
+  signing_algorithm: auth_ssosaml_signing_algorithm
+
+  """
+  Whether assertions should be signed or not.
+  """
+  wants_assertions_signed: param_boolean
+
+  """
+  Indicates to the IdP that all authentication requests will be signed.
+  """
+  authnrequests_signed: param_boolean
+
+  """
+  Which SAML NameID format to request.
+  """
+  nameid_format: String
+
+  """
+  Custom entity ID.
+  """
+  entity_id: String
+}
+
+"""
+Input provided when updating an existing idp.
+"""
+input auth_ssosaml_update_idp_input {
+  """
+  ID of IdP to be updated
+  """
+  id: core_id!
+
+  """
+  Attributes for the IdP. Not updated if not specified.
+  """
+  attributes: auth_ssosaml_idp_attributes_input
+
+  """
+  SAML-specific config. Not updated if not specified.
+  """
+  saml_config: auth_ssosaml_saml_config_input
+}
+
+"""
+Input to delete an IdP
+"""
+input auth_ssosaml_delete_idp_input {
+  """
+  ID of IdP to be deleted
+  """
+  id: core_id!
+}
+
+"""
+Input to set IdP enabled status
+"""
+input auth_ssosaml_set_idp_enabled_input {
+  """
+  ID of IdP
+  """
+  id: core_id!
+
+  """
+  Enabled/disabled
+  """
+  status: param_boolean!
+}
+
+"""
+Input to regenerate a IdP's certificates
+"""
+input auth_ssosaml_regenerate_certificates_input {
+  """
+  ID of IdP to be regenerated
+  """
+  id: core_id!
+}
+
+input auth_ssosaml_saml_log_input {
+  """
+  Pagination input
+  """
+  pagination: core_pagination_input
+
+  """
+  ID of IdP to fetch the logs for
+  """
+  idp_id: core_id!
+
+  """
+  Restrict to logs from the active session
+  """
+  active_session: param_boolean
+
+  """
+  Only show test results.
+  """
+  test: param_boolean
+}
+
+extend type Query {
+  """
+  Get a list of configured IdPs
+  """
+  auth_ssosaml_idps: auth_ssosaml_idps_result!
+
+  """
+  Get a single configured IdP
+  """
+  auth_ssosaml_idp(id: core_id!): auth_ssosaml_idp!
+
+  """
+  Fetch the debug logs
+  """
+  auth_ssosaml_saml_log(
+    input: auth_ssosaml_saml_log_input
+  ): auth_ssosaml_saml_log_result!
+}
+
+extend type Mutation {
+  """
+  Create a new idp.
+  """
+  auth_ssosaml_create_idp: auth_ssosaml_idp!
+
+  """
+  Update a configured IdP
+  """
+  auth_ssosaml_update_idp(
+    input: auth_ssosaml_update_idp_input!
+  ): auth_ssosaml_idp!
+
+  """
+  Delete an existing Idp by ID.
+  """
+  auth_ssosaml_delete_idp(input: auth_ssosaml_delete_idp_input!): Boolean!
+
+  """
+  Set an IdP enabled status.
+  """
+  auth_ssosaml_set_idp_enabled(
+    input: auth_ssosaml_set_idp_enabled_input!
+  ): auth_ssosaml_idp!
+
+  """
+  Regenerate the IdP certificates.
+  """
+  auth_ssosaml_regenerate_idp_certificates(
+    input: auth_ssosaml_regenerate_certificates_input!
+  ): auth_ssosaml_idp!
+}

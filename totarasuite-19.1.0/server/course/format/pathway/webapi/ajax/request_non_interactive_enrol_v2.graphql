@@ -1,0 +1,8 @@
+mutation format_pathway_request_non_interactive_enrol_v2($course_id: core_id!) {
+  result: format_pathway_request_non_interactive_enrol_v2(
+    course_id: $course_id
+  ) {
+    redirect_url
+    success
+  }
+}

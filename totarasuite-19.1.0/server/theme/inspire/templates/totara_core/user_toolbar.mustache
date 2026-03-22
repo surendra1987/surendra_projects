@@ -1,0 +1,62 @@
+{{!
+    This file is part of Totara Talent Experience Platform
+
+    Copyright (C) 2024 onwards Totara Learning Solutions LTD
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    @author Jack Humphrey <jack.humphrey@totara.com>
+    @package theme_inspire
+}}
+
+{{!
+    @template theme_inspire/user_toolbar
+
+    Creates the totara primary nav.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * [parent] -> masthead_lang: Language data
+    * [parent] -> masthead_plugins: Plugins data (alert/messages)
+    * [parent] -> masthead_usermenu: Usermenu data
+
+}}
+<div class="userToolbar_prim{{#has_background}} userToolbar_prim--hasBackground{{/has_background}}">
+    <div class="container-fluid">
+        {{#logo}}
+            <a class="userToolbar_primlogo" href="{{siteurl}}">
+                <img class="userToolbar_primlogoImg" src="{{logourl}}" {{#logoalt}}alt="{{.}}"{{/logoalt}} />
+            </a>
+        {{/logo}}
+
+        <div class="userToolbar_prim--side">
+            {{! Admin mega menu }}
+            {{#masthead_quickaccessmenu}}{{> totara_core/quickaccessmenu }}{{/masthead_quickaccessmenu}}
+
+            {{! mail & alert button }}
+            {{#masthead_plugins}}{{> totara_core/masthead_plugins }}{{/masthead_plugins}}
+
+            {{! User menu / login }}
+            {{#masthead_usermenu}}{{> totara_core/masthead_usermenu }}{{/masthead_usermenu}}
+
+            {{! Language button here }}
+            {{#masthead_lang}}{{> totara_core/masthead_lang }}{{/masthead_lang}}
+        </div>
+    </div>
+</div>

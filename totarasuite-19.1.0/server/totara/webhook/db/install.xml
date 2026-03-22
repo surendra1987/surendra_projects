@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="totara/webhook/db" VERSION="20250409" COMMENT="XMLDB file for Webhooks"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="totara_webhook_webhook" COMMENT="Stores Webhook records">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Unique identifier for totara_webhook"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Name of the webhook"/>
+        <FIELD NAME="endpoint" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="URL the webhook data will be sent to"/>
+        <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Timestamp when the record was created"/>
+        <FIELD NAME="updated_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Timestamp when the record was last updated"/>
+        <FIELD NAME="content_type_adapter" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Content type adapter of the webhook"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="Determines if a webhook is enabled or disabled"/>
+        <FIELD NAME="immediate" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Boolean value for if the webhook should send immediately"/>
+        <FIELD NAME="auth_class" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Class for webhook auth"/>
+        <FIELD NAME="auth_config" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Details specific to webhook auth"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="totara_webhook_event_subscription" COMMENT="Stores Webhook Event Subscription records">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Unique identifier for totara_webhook_event_subscription"/>
+        <FIELD NAME="event" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="event class name the webhook is subscribed to"/>
+        <FIELD NAME="webhook_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the webhook subscribed to the event"/>
+        <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Timestamp when the record was created"/>
+        <FIELD NAME="updated_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Timestamp when the record was last updated"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="webhook_fk" TYPE="foreign" FIELDS="webhook_id" REFTABLE="totara_webhook_webhook" REFFIELDS="id" ONDELETE="cascade"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="totara_webhook_payload_queue" COMMENT="Stores webhook payloads ready to send">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Unique id for totara_webhook_payload_queue"/>
+        <FIELD NAME="webhook_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the webhook associated with the payload"/>
+        <FIELD NAME="attempt" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false" COMMENT="The number of sending attempts for this payload"/>
+        <FIELD NAME="time_created" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="The time the payload was added to the queue"/>
+        <FIELD NAME="time_updated" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp when the record was last updated"/>
+        <FIELD NAME="time_sent" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp when the payload was sent"/>
+        <FIELD NAME="next_send" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp for the next send attempt"/>
+        <FIELD NAME="event" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The class name of the event which was triggered"/>
+        <FIELD NAME="body" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The string representation of the payload request body"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="webhook_fk" TYPE="foreign" FIELDS="webhook_id" REFTABLE="totara_webhook_webhook" REFFIELDS="id" ONDELETE="cascade"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="totara_webhook_dlq_item" COMMENT="Stores Totara webhook dead letter queue item records">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Unique identifier for totara_webhook_dlq_item"/>
+        <FIELD NAME="webhook_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="The ID of the webhook the payload failed to send to"/>
+        <FIELD NAME="attempt" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false" COMMENT="The number of sending attempts for this payload"/>
+        <FIELD NAME="event" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The class name of the event which was triggered"/>
+        <FIELD NAME="body" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The string representation of the payload request body"/>
+        <FIELD NAME="time_created" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Timestamp when the event was triggered"/>
+        <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Timestamp when the record was created"/>
+        <FIELD NAME="updated_at" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Timestamp when the record was last updated"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="webhook_fk" TYPE="foreign" FIELDS="webhook_id" REFTABLE="totara_webhook_webhook" REFFIELDS="id" ONDELETE="cascade"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

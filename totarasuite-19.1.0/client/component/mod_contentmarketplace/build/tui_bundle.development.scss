@@ -1,0 +1,131 @@
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1108.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1108.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_contentmarketplace/src/components/layouts/LayoutBannerSidepanelTwoColumn.vue?vue&type=style&index=0&id=11069852&lang=scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-marketplaceLayoutBannerSidepanelTwoColumn {
+  &__heading {
+    @include tui-stack-vertical(var(--gap-2));
+  }
+
+  &__grid {
+    & > * {
+      margin-left: var(--gap-8);
+      overflow-wrap: break-word;
+    }
+
+    &--stacked {
+      & > * {
+        margin-left: var(--gap-4);
+      }
+    }
+  }
+
+  &__main {
+    @include tui-stack-vertical(var(--gap-9));
+  }
+
+  &__sidePanel {
+    height: 100%;
+    padding: var(--gap-4);
+    overflow-wrap: break-word;
+    background: var(--color-neutral-3);
+  }
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1108.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1108.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_contentmarketplace/src/components/layouts/LayoutBannerTwoColumn.vue?vue&type=style&index=0&id=ab0d40e0&lang=scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-marketplaceLayoutBannerTwoColumn {
+  &__heading {
+    @include tui-stack-vertical(var(--gap-2));
+  }
+
+  &__grid {
+    & > * {
+      margin-left: var(--gap-8);
+      overflow-wrap: break-word;
+    }
+
+    &--stacked {
+      & > * {
+        margin-left: var(--gap-4);
+      }
+    }
+  }
+
+  &__main {
+    @include tui-stack-vertical(var(--gap-9));
+  }
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1108.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1108.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_contentmarketplace/src/components/outer_layouts/OuterLayoutBanner.vue?vue&type=style&index=0&id=0d8e4971&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-marketplaceOuterLayoutBanner {
+  @include font(body);
+
+  &__banner {
+    position: relative;
+
+    &-image {
+      min-height: 120px;
+      padding-bottom: 18.04%;
+      background-color: var(--color-neutral-3);
+      background-position: center;
+      background-size: cover;
+    }
+
+    &-content {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      padding: var(--gap-4);
+    }
+
+    &-contentArea {
+      display: flex;
+    }
+  }
+
+  &__body {
+    margin: var(--gap-10) var(--gap-4) var(--gap-10) 0;
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1108.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1108.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/mod_contentmarketplace/src/components/outer_layouts/OuterLayoutBannerSidepanel.vue?vue&type=style&index=0&id=1da8e768&lang=scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-marketplaceOuterLayoutBannerSidepanel {
+  @include font(body);
+
+  &__banner {
+    position: relative;
+    left: calc(var(--gap-5) * -1);
+    width: calc(var(--gap-5) + 100%);
+
+    &-image {
+      min-height: 120px;
+      padding-bottom: 18.04%;
+      background-color: var(--color-neutral-3);
+      background-position: center;
+      background-size: cover;
+    }
+
+    &-content {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      padding: var(--gap-4);
+    }
+
+    &-contentArea {
+      display: flex;
+    }
+  }
+
+  &__body {
+    margin: var(--gap-10) var(--gap-4) var(--gap-10) 0;
+  }
+}
+

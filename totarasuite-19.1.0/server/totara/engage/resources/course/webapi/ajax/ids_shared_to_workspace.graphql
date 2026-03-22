@@ -1,0 +1,3 @@
+query engage_course_ids_shared_to_workspace($workspace_id: core_id!) {
+  ids: engage_course_ids_shared_to_workspace(workspace_id: $workspace_id)
+}

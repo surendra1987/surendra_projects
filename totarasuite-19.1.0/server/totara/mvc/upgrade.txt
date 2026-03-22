@@ -1,0 +1,10 @@
+List of upgrade and API changes in Totara MVC,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Added resultsheader element to report template and removed showhide element.
+
+=== 17.0 ===
+
+* Changed visibility modifier for \totara_mvc\controller::run_action to protected.

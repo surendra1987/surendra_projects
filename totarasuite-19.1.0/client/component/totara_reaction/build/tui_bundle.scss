@@ -1,0 +1,44 @@
+.tui-simpleLike {
+  display: inline-flex;
+}
+
+:root {
+  --totaraReaction-modalMaxHeight: 50vh;
+}
+.tui-likeRecordsModal {
+  &__title {
+    @include font(h4);
+    margin: 0;
+    padding-bottom: var(--gap-2);
+    border-bottom: var(--border-width-normal) solid var(--color-neutral-5);
+  }
+
+  &__content {
+    max-height: var(--totaraReaction-modalMaxHeight);
+    overflow-y: auto;
+  }
+
+  &__records {
+    @include font(body-sm);
+    margin: 0;
+    color: var(--color-state);
+    list-style-type: none;
+
+    li {
+      padding: var(--gap-2) 0;
+
+      + li {
+        border-top: var(--border-width-thin) solid var(--color-neutral-5);
+      }
+    }
+  }
+}
+
+.tui-likeRecordsList {
+  overflow-wrap: break-word;
+  &__list {
+    margin: 0;
+    list-style-type: none;
+  }
+}
+

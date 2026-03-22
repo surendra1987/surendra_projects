@@ -1,0 +1,20 @@
+input auth_ssosaml_update_plugin_config_input {
+  fields: [auth_ssosaml_update_plugin_config_field_input!]!
+}
+
+input auth_ssosaml_update_plugin_config_field_input {
+  id: String!
+  locked: auth_ssosaml_field_locking_status!
+}
+
+enum auth_ssosaml_field_locking_status {
+  UNLOCKED
+  UNLOCKED_IF_EMPTY
+  LOCKED
+}
+
+extend type Mutation {
+  auth_ssosaml_update_plugin_config(
+    input: auth_ssosaml_update_plugin_config_input!
+  ): Boolean!
+}

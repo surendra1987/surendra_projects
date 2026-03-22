@@ -1,0 +1,25 @@
+query auth_ssosaml_idps {
+  idps: auth_ssosaml_idps {
+    items {
+      __typename
+      id
+      metadata {
+        source
+        url
+        xml
+      }
+      label
+      idp_user_id_field
+      totara_user_id_field
+      status
+      debug
+      field_mapping_config {
+        field_maps {
+          internal
+          external
+          update
+        }
+      }
+    }
+  }
+}

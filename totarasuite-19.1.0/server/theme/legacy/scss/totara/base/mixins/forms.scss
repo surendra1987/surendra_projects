@@ -1,0 +1,117 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2023 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2023 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @author    Simon Chester <simon.chester@totara.com>
+// @package   theme_legacy
+
+@function form-control-v-padding() {
+  @return calc(
+    (
+        var(--form-input-height) - var(--form-input-line-height) -
+          (var(--form-input-border-size) * 2)
+      ) / 2
+  );
+}
+
+@function form-control-label-v-padding() {
+  @return calc((var(--form-input-height) - var(--form-input-line-height)) / 2);
+}
+
+@mixin form-control {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: var(--form-input-height);
+  padding: form-control-v-padding() var(--gap-3);
+  color: var(--form-input-text-color);
+  font-size: var(--form-input-font-size);
+  line-height: var(--form-input-line-height);
+  background: var(--form-input-bg-color);
+  border: var(--form-input-border-size) solid var(--form-input-border-color);
+  border-radius: var(--form-input-border-radius);
+  vertical-align: middle;
+
+  &::placeholder {
+    color: var(--form-input-text-placeholder-color);
+  }
+
+  &:focus {
+    background: var(--form-input-bg-color-focus);
+    border: var(--form-input-border-size) solid
+      var(--form-input-border-color-focus);
+    outline: none;
+    box-shadow: var(--form-input-shadow-focus);
+    @include focus-ring();
+
+    .context-invalid & {
+      background: var(--form-input-bg-color-invalid-focus);
+      border-color: var(--form-input-border-color-invalid);
+      outline-color: var(--form-input-border-color-invalid);
+      box-shadow: var(--form-input-shadow-invalid-focus);
+    }
+  }
+
+  &:where(textarea),
+  &:where(select[multiple]),
+  &:where(select[size]) {
+    height: auto;
+  }
+
+  &[disabled] {
+    color: var(--form-input-text-color-disabled);
+    background: var(--form-input-bg-color-disabled);
+    border-color: var(--form-input-border-color-disabled);
+
+    &::placeholder {
+      color: var(--form-input-text-color-disabled);
+    }
+  }
+}
+
+@mixin form-select {
+  @include form-control;
+  &:not([multiple], [size]) {
+    appearance: none;
+    padding: 0 var(--gap-8) 0 var(--gap-3);
+    $bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='2' viewBox='0 0 4 2'%3e%3cpath fill='%23000' d='M2 2L0 0h4z'/%3e%3c/svg%3e");
+    $bg-opt: right rem-px(14) center / rem-px(8) rem-px(10) no-repeat;
+
+    background: var(--form-input-bg-color) $bg $bg-opt;
+    &:focus {
+      background: var(--form-input-bg-color-focus) $bg $bg-opt;
+    }
+    &:disabled {
+      background: var(--form-input-bg-color-disabled) $bg $bg-opt;
+    }
+
+    .dir-rtl & {
+      $bg-opt-rtl: left rem-px(14) center / rem-px(8) rem-px(10) no-repeat;
+
+      background: var(--form-input-bg-color) $bg $bg-opt-rtl;
+      &:focus {
+        background: var(--form-input-bg-color-focus) $bg $bg-opt-rtl;
+      }
+      &:disabled {
+        background: var(--form-input-bg-color-disabled) $bg $bg-opt-rtl;
+      }
+    }
+  }
+}

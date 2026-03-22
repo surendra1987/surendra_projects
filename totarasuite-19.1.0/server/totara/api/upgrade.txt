@@ -1,0 +1,30 @@
+This file describes changes in the totara API.
+Information provided here is intended especially for developers.
+
+=== 19.1.0 ===
+
+* Added totara_api_rotate_client_secret GraphQL mutation to handle rotating
+  the client secret for an external API client. This invalidates all existing
+  access tokens for the specified client and generates a new client secret.
+* Added a method get_active_tokens() to totara_api\models\client which fetches
+  the number of active access tokens for the client.
+* Added the ability to specify whitelist of allowed IP for an API client.
+  * Added a nullable new field 'allowed_ip_list' to the "totara_api_client_settings"
+    table to store the list of allowed IPs.
+  * Added an optional `$allowed_ip_list` parameter to the totara_api_update_client_settings GraphQL mutation
+    to specify a list of IPs to the whitelist.
+  * Added an `$allowed_ip_list` parameter to the totara_api_client_settings GraphQL query
+    to retrieve the list of allowed IPs.
+  * Added an 'api_client_request_blocked' event that is triggered when a
+    external request is made from a non-allowed address.
+
+=== 18.0 ===
+
+* Added /api/pluginfile.php for ability to download files via external API.
+* Moved common code for authenticating external API users from /server/totara/api/classes/watcher/handle_request_pre_watcher.php
+  to /server/totara/api/classes/auth/access_token_validator.php
+
+=== 17.2 ===
+
+* Updated client_settings is refactored to handle optional fields / parameters. Replace three arguments with an array for
+the put and update methods.

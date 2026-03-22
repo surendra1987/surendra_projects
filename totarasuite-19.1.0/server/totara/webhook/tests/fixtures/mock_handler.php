@@ -1,0 +1,74 @@
+<?php
+/**
+ * This file is part of Totara Core
+ *
+ * Copyright (C) 2025 onwards Totara Learning Solutions LTD
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author Ben Fesili <ben.fesili@totara.com>
+ * @package totara_webhook
+ */
+
+namespace totara_webapi\fixtures;
+
+use totara_webhook\handler\totara_webhook_handler;
+use totara_webhook\model\totara_webhook;
+use totara_webhook\totara_webhook_payload;
+
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * mock webhook handler - useful for testing the totara_webhook_handler_factory
+ */
+class mock_handler implements totara_webhook_handler {
+    public bool $dispatch_called = false;
+    public bool $process_called = false;
+    public bool $purge_called = false;
+    public bool $purge_dead_letters_called = false;
+    public totara_webhook_payload $totara_webhook_payload;
+    public totara_webhook $totara_webhook;
+
+    /**
+     * @param totara_webhook $totara_webhook
+     * @param totara_webhook_payload $totara_webhook_payload
+     * @return void
+     */
+    public function dispatch(totara_webhook $totara_webhook, totara_webhook_payload $totara_webhook_payload) {
+        $this->dispatch_called = true;
+        $this->totara_webhook = $totara_webhook;
+        $this->totara_webhook_payload = $totara_webhook_payload;
+    }
+
+    /**
+     * @return void
+     */
+    public function process_queue(): void {
+        $this->process_called = true;
+    }
+
+    /**
+     * @return void
+     */
+    public function purge_queue(): void {
+        $this->purge_called = true;
+    }
+
+    /**
+     * @return void
+     */
+    public function purge_dead_letters(): void {
+        $this->purge_dead_letters_called = true;
+    }
+}

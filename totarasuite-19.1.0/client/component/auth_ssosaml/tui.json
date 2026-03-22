@@ -1,0 +1,5 @@
+{
+  "component": "auth_ssosaml",
+  "vendor": "totara",
+  "entry": "./src/js/internal/entry.js"
+}

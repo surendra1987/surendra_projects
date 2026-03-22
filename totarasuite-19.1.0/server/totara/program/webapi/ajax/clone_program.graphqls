@@ -1,0 +1,31 @@
+enum totara_program_section {
+  """
+  Program details (e.g. fullname, shortname, summary)
+  """
+  DETAILS
+  """
+  Program content (e.g. course sets)
+  """
+  CONTENT
+  """
+  Program centralised notification preferences
+  """
+  NOTIFICATION_PREFERENCES
+}
+
+input totara_clone_program_input {
+  """
+  The id of the program you are cloning from
+  """
+  program_id: Int!
+  clone_sections: [totara_program_section!]!
+}
+
+extend type Mutation {
+  """
+  Mutation for cloning specific sections from an existing program to a new program instance
+  """
+  totara_program_clone_program(
+    input: totara_clone_program_input!
+  ): totara_program_program
+}

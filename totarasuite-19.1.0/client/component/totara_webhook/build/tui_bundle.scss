@@ -1,0 +1,29 @@
+.tui-tagList__tagItem {
+  max-width: 100%;
+}
+.tui-customTag {
+  padding: rem-px(4);
+  border: 1px solid var(--btn-text-color);
+  border-radius: 6px;
+}
+
+.tui-totara_webhookCreate {
+  &__content {
+    display: flex;
+    flex-flow: column;
+    gap: var(--gap-4);
+  }
+}
+
+.tui-totara_webhookIndex {
+  &__content {
+    display: flex;
+    flex-flow: column;
+    gap: var(--gap-4);
+  }
+
+  &__moreButtonWrap {
+    display: flex;
+  }
+}
+

@@ -1,0 +1,382 @@
+This file describes API changes in /client/component/tui,
+information provided here is intended especially for developers.
+
+=== 19.1.0 === 
+
+* Updated the expand button in TreeViewNode to only include the aria-controls attribute if the item is expanded. This prevents the case where we reference the id of the child when it doesn't exist.
+  * Template changes
+* Updated LearningCard action wrapper to show/hide using opacity instead of display: none. This fixes an issue where the action trigger wouldn't receive focus.
+  * SCSS changes
+* Updated the behaviour of tabbing on Dropdown so that it returns focus to the trigger correctly while using the uncontained context mode
+  * JS changes
+
+=== 19.0 ===
+
+* Updated Popover.vue to close when pressing the 'Escape' key 
+  * JS changes
+* Vue has been upgraded to 3.x. Please see the Totara help documentation for an upgrade guide.
+* Partial component overrides in themes (see 18.0 section) have now been fully removed. You must override the entire component to replace it in a theme.
+* The <lang-strings> block in .vue files is now ignored, and should be removed. Instead, calls to $str() are replaced with the actual value at runtime. Ensure you are using $str in a supported way by running `npm run tui-style-check`.
+* The root font size has been changed to the browser default (16px). 1rem is now equal to 16px instead of 10px. There is a SCSS function "rem-px" available to easily convert from pixels to rem.
+  * Before: 6.4rem
+  * After: 4rem or rem-px(64)
+* All --font-size-{number} variables are now deprecated. Please use the SCSS `font-size-px()` function instead.
+* The Apollo client instance should now be imported from `tui/apollo/client` instead of `tui/apollo_client`. The latter will continue to work but is now deprecated.
+* Within a tui component, "tui.json" and any files that are not intended to be part of the bundle (including upgrade.txt) should now be placed directly under the component directory.
+  * Before: client/component/mod_example/src/tui.json
+  * After: client/component/mod_example/tui.json
+  * The previous tui.json location will continue to work, however moving it to the
+    new location unlocks a new capability: everything in the src/ directory will be
+    bundled, and the `js` subdirectory is no longer required (but still supported).
+    It becomes a straight mapping from mod_example/xyz to src/xyz.
+  * Theme overrides are now also simplified, as they may be placed under
+    overrides/(original import path) in the theme's src/ directory, for example:
+    * client/component/theme_example/src/overrides/tui/components/Button.vue
+* The tui.mount interface has changed:
+  * tui.mount now returns a Vue app instance instead of a component instance. If you need a component instance, provide a ref in the props argument.
+  * tui.mount no longer accepts a string as the first argument. If you have a string, use tui.loadComponent to load the component before passing it to tui.mount.
+  * The second argument is now just the props instead of a full mount options object
+  * It is no longer async
+* tui.needsRequirements and tui.loadRequirements from tui/tui, and collectStrings() from tui/i18n_vue_plugin are deprecated and will be removed in a future version. They currently do nothing.
+* tui.theme has been deprecated and will be removed in a future version. Import tui/theme instead.
+* makeScanner and getInheritedOption from vue_requirements.js are deprecated and will be removed along with vue_requirements.js in a future version.
+* getPropDefs and getModelDef from tui/vue_util are deprecated and will be removed in a future version.
+* set and vueAssign from tui/vue_util are deprecated and will be removed in a future version. Use the regular set from tui/util and Object.assign instead.
+  * tui.vueAssign is likewise deprecated.
+* tui/polyfills/ResizeObserver is deprecated and should be replaced with direct usage of the browser API.
+* parseQueryString and getQueryStringParam from tui/util have been deprecated. Please use parseParams instead.
+* Tabs.vue was rewritten to work with Vue 3. The TabBar was separated into its own component.
+* Upload.vue now requires the ref on the child input to be set to `inputRef` from the slot prop. See SpaceImagePicker for an example.
+* TagList no longer automatically shows the loading indicator when the search input changes. Manually pass the "loading" prop instead.
+* Button, ButtonIcon, and ActionLink have been rewritten
+  * styleclass prop is deprecated, please update your code to use the variant, size, color, and shape props
+  * Button can now perform all functions of ButtonIcon and ActionLink, the latter two are now just wrappers
+  * variable usage has been drastically simplified
+  * CSS class has changed from tui-formBtn to tui-btn
+  * "reveal" and "srOnly" styleclass values have been removed. replace srOnly with the class "tui-sr-only"
+  * Template, JS, and SCSS changes
+* The following typography-related CSS variables and mixins are now deprecated. Please use the indicated replacement. This is also flagged by stylelint.
+  * --font-body-large-size: --font-body-lg-size, @include font(body-xl), or @include font(body-lg)
+  * --font-body-small-size: --font-body-sm-size or @include font(body-sm)
+  * --font-body-x-small-size: --font-body-sm-size or @include font(body-sm)
+  * --font-body-xx-small-size: --font-body-xs-size or @include font(body-xs)
+  * --font-heading-large-size: --font-display-lg-size or @include font(display-lg)
+  * --font-heading-size: <h1>, --font-h1-size, @include font(h1), --font-display-sm-size, or @include font(display-sm)
+  * --font-heading-small-size: <h3>, --font-h3-size, @include font(h3), --font-body-xl-size, or @include font(body-xl)
+  * --font-heading-x-small-size: <h4>, --font-h4-size, @include font(h4), --font-body-lg-size, or @include font(body-lg)
+  * --font-body-large-line-height: --font-body-lg-line-height
+  * --font-body-small-line-height: --font-body-sm-line-height
+  * --font-body-x-small-line-height: --font-body-sm-line-height
+  * --font-body-xx-small-line-height: --font-body-xs-line-height
+  * --font-heading-large-line-height: --font-display-lg-line-height
+  * --font-heading-line-height: --font-h1-line-height or --font-display-sm-line-height
+  * --font-heading-small-line-height: --font-h3-line-height or --font-body-xl-line-height
+  * --font-heading-x-small-line-height: --font-h4-line-height or --font-body-lg-line-height
+  * --font-size-X: font-size-px(X) (where X is a number)
+  * @include tui-font-body: @include font(body)
+  * @include tui-font-body-small: @include font(body-sm)
+  * @include tui-font-body-x-small: @include font(body-sm)
+  * @include tui-font-body-xx-small: @include font(body-xs)
+  * @include tui-font-body-disabled: color: var(--color-text-disabled)
+  * @include tui-font-body-placeholder: color: var(--color-text-hint)
+  * @include tui-font-heavy: font-weight: bold
+  * @include tui-font-monospace: font-family: var(--font-family-monospace)
+  * @include tui-font-heading-medium: @include font(h1)
+  * @include tui-font-heading-small: @include font(h3)
+  * @include tui-font-heading-small-regular: @include font(h3)
+  * @include tui-font-heading-x-small: @include font(h4)
+  * @include tui-font-heading-label: @include font(h4), @include font(h5), or font-weight: var(--label-weight)
+  * @include tui-font-heading-label-small: @include font(h6) or @include font(body-sm, var(--label-weight))
+  * @include tui-font-heading-page-title: @include font(h1)
+  * @include tui-font-heading-page-title-small: @include font(h2)
+  * @include tui-font-hint: @include text-hint()
+  * @include tui-wordbreak--hyphens: overflow-wrap: break-word
+  * @include tui-wordbreak--hard: overflow-wrap: break-word
+* Added new prop hasContentPadding to Popover.vue and PopoverFrame.vue which is used to remove the content padding on the PopoverFrame
+  * Template, JS & SCSS changes
+* Added new custom buttons slot to Popover.vue and PopoverFrame.vue which ignores the standard styling applied to content in the buttons slot
+  * Template, JS & SCSS changes
+* Updated ImageUpload.vue and ImageUploadSetting.vue to pass along the unique-name prop
+  * Template and JS changes
+* Added noPadding prop to CloseIcon.vue for removing the button padding
+  * Template & JS changes
+* Added disabled prop to CloseIcon.vue for disabling button
+  * Template & JS changes
+* Added aria-hidden attribute to Checkbox.vue label
+  * Template changes
+* Moved ToggleSwitch.vue variables into their own global_style variables file tui_toggle.scss
+  * SCSS changes
+* Added new prop 'smallOnMobile' to LayoutOneColumn.vue & PageHeading.vue, this allows for title size to be changed at a mobile breakpoint.
+  * A new slot 'header-sub-content' was also added to LayoutOneColumn.vue to allow for content to be included immediately below the title
+  * Template, JS & SCSS changes
+* Added new prop 'disabledReadable' to Checkbox.vue to allow for labels to be fully readable while disabled
+  * Template & SCSS changes
+* DateSelector will no longer emit an event when `value` is updated to a value that is deeply equal to the current value.
+* Updated Arrow.vue to support a dark variant
+  * Template, JS & SCSS changes
+* Updated PageHeading.vue to only add an h1 if title is set
+* Updated FilterBar.vue to use a h2 instead of a h1
+* Updated MiniProfileCard.vue adding an additional slot for content next to the dropdown trigger
+  * Template
+* Added new prop 'hideDropDown' to MiniProfileCard.vue, this allows for dropdown to be conditionally hidden
+  * JS change
+* Updated SidePanel.vue, moving the expandd/collapse functionality to a parent component
+  * Template, JS & SCSS changes
+  * Deprecating direction and direction properties
+* Fixed ProgressTrackerButton breaking component encapsulation
+  * Template and SCSS change
+
+
+=== 18.0 ===
+
+* Partial component overrides in themes have been deprecated, and will be
+  removed in Totara 19. Partial component overrides are those that do not
+  contain a <script> tag, or contain <script extends>, unless they _only_ contain a `<style>` tag
+  This mainly affects components where only the <template> was overridden.
+  All components overridden in themes will need to replace the entire component
+  from Totara 19 onwards, unless they are only overriding <style>.
+* Support for IE 11 builds has been removed. Features that were previously restricted (such as for...of) are now available.
+  * Support for IE 11 was officially dropped in Totara 17, but the supporting code has only now been removed.
+* The tui-test-modern and tui-test-legacy npm scripts are now deprecated. Please use tui-test instead.
+* Button and form input heights have changed. If you were previously using the "small" button height to match form inputs, the
+  regular button height now matches form input heights, and you should update your code to remove `small: true` on those buttons.
+* Updated TreeNode to correctly display siblings when there is no content or children
+  * Template changes
+* Updated FilterBar component to use the button component for reset
+  * Template changes
+* Updated Row.vue so that the prop 'borderBottomHidden' now also applies when the row is stacked
+  * SCSS changes
+* Updated value of descId prop for HelpIcon in FormRow.vue
+  * Template changes
+* Added new props "exclude-heading-padding" and "hide-focus" to Collapsible
+  * Template and SCSS changes
+* Added padding to SelectRowCell based on new prop "advancedSelectEnabled" to compensate for the new AdvancedTableSelect component taking up more space when enabled in SelectTable
+  * Template and SCSS changes
+* Added new prop "tabindex" for setting the tab index of the Checkbox component
+  * Template changes
+* Added a slot for the new AdvancedTableSelect component to SelectTable.vue
+  * Template changes
+* Added support for adding indicator icons to Tabs.vue
+  * Template and SCSS changes
+* Updated Tag.vue to include the props bold, label, and large that modify the style of the component
+  * Template and SCSS changes
+* Added new prop 'small' to the PageHeading component to allow for a smaller title size
+  * Template and SCSS changes
+* Added new prop 'thinHeader' to HeaderRow.vue & Table.vue component to allow for reduced padding on header rows
+  * Template and SCSS changes
+* Added new prop 'borderTopThin' to Row.vue, this is triggered by providing 'thinHeader' to table.vue
+  * Template and SCSS changes
+* Added new slot 'custom-loader' to HeaderCell component to allow custom loading UI
+  * Template changes
+* Amended ButtonIcon.vue styles when both 'transparentNoPadding' and 'xsmall' props are provided to exclude a minimum height
+  * SCSS changes
+* Added prop 'narrowTrigger' to HideShow.vue to conditionally drop the padding from toggle
+  * Template and SCSS changes
+* Added prop 'slim' to Popover.vue & PopoverFrame.vue to conditionally reduce padding on popover content
+  * Template and SCSS changes
+* Refactored Grid and GridItem gutter support to handle separate horizontal and vertical gutters
+ * Template and SCSS changes
+ * global_styles CSS Variable `--grid-gutter` deprecated, existing usages switched to `--gap-5`
+* Adjusted Grid usages to use global gap variables in LayoutThreeColumn and LayoutTwoColumn
+  * Template changes
+* Added "size" prop to Input.vue, which accepts the values null and "large". This replaces the previous size prop, which did not have any effect.
+  * Template and SCSS changes
+* Updated SettingsFormImages.vue component to include the new siteloginbackground image
+  * Template changes
+* Added drawer style to Modal, and restructured the HTML a little. Additionally, <Modal size="sheet"> is now deprecated. Please use <Modal type="sheet"> instead.
+  * Template and SCSS changes
+* Added prop 'noPadding' and 'noWrap' to ActionCard.vue to conditionally remove padding on prevent wrapping UI on mobile
+  * Template and SCSS changes
+* Refactored styling FormRow and InputSet
+  * Template and SCSS changes
+* Overhauled TagList UI
+  * Template and SCSS changes
+* Adjusted styling on subfield modifier in Label.vue
+  * SCSS changes
+* Added a initialLoading prop to TagList.vue to conditionally display an initial loading state when content hasn't been pre-loaded
+  * JS changes
+* Updated "Filters" button styling in FilterBarAreaPopover
+  * Template and CSS changes
+* Deprecated "hyphens" prop on GridItem, it is now ignored.
+  * Template and CSS changes
+
+=== 17.0 ===
+
+* Updated Modal.vue to fix an issue with keyboard navigation
+  * Removed isCurrentModal computed property
+* Adjust layout in the Adder.vue component
+  * Template and SCSS changes
+* Add grow mode to Tabs.vue
+  * Template and SCSS changes
+* Fixed issue with modal button box shadows being cropped by updating the outer margin with inner padding
+  * SCSS changes
+* Updated Input.vue disabled styles
+  * SCSS changes
+* Refactored Range.vue css
+  * Moved hard-coded values into new css variables, and moved the existing variables and mixins into global_styles/variables/tui_range.scss
+* Added styling for selected dropdown items in DropdownItem.vue
+  * Template changes
+* Updated FilterBar.vue to have an optional reset button set with 'showReset' prop and ''@reset' listener
+  * Template and SCSS changes
+* Added new uncontainedPopover prop to ProgressTrackerNav.vue and ProgressTrackerNavItem.vue that is used to toggle the context mode of the popover in ProgressTrackerNavItem
+  * Template, JS changes
+* Added new view-only state to ProgressTrackerNavItem.vue and ProgressTrackerNavCircleWorkflow.vue
+  * Template, JS & SCSS changes
+* Updated ImageBlock.vue, ResponsiveImage.vue in support of predefined image sizes
+  * Template and SCSS changes
+* Updated FormRow to take a full-width prop and to render the help icon when only the help-message slot is passed.
+  * Template and SCSS changes
+* Extended Cell.vue component to support a custom loader slot
+  * Template changes
+* Extended Paging.vue component to support a loading skeleton controlled by additional props
+  * Template changes
+* Extended Cell.vue component to support a custom loader slot
+  * Template changes
+* Updated focus styling in DropdownItem.vue and DropdownButton.vue
+  * CSS changes
+* Added accessibility fixes for interactivity in ProgressTrackerNavItem.vue
+  * Template changes
+
+=== 16.0 ===
+* Upgraded Date-fns to 2.24.0
+* Upgraded prosemirror packages
+  * prosemirror-commands to 1.1.12
+  * prosemirror-gapcursor to 1.2.0
+  * prosemirror-history to 1.2.0
+  * prosemirror-keymap to 1.1.5
+  * prosemirror-model to 1.15.0
+  * prosemirror-transform to 1.3.3
+  * prosemirror-view to 1.21.0
+* Updated Collapsible to add new visual style options
+  * Template and SCSS changes
+* Updated ProgressTrackerNav to include optional icon slot
+  * Template changes
+* Updated ProgressTrackerNavCircleWorkflow to include optional icon slot and new invalid state
+  * Template and SCSS changes
+* Updated FormRow to take a full-width prop and to render the help icon when only the help-message slot is passed
+  * Template and SCSS changes
+* Updated Cell.vue to support different skeleton content loader heights based off a prop
+  * Template changes
+* Updated Adder.vue component to support a hasLoadingPreview prop to support display skeleton content while loading
+  * Template and SCSS changes
+* Updated Collapsible to add new visual style options
+  * Template and SCSS changes
+* Updated Table to take a headerHasLoaded prop to render the Table header while the Table body loads
+  * Template changes
+* Updated PopoverFrame.vue to support large popover sizes
+  * Template and SCSS changes
+* Updated InfoIconButton.vue to support a prop for set popover sizes
+  * Template changes
+* Extended Table.vue & SelectTable.vue to support a new prop 'stackedHeaderRowGap' for adding additional margin at top of table when stacked
+  * Template
+* Extended HeaderRow.vue to support a new prop 'stackedGap' for adding additional margin when stacked
+  * Template and SCSS changes
+* Added "contextMode" prop to LabelledButtonTrigger with default set to "uncontained"
+  * Template changes
+* Updated ConfirmationModal.vue to propagate close-complete event
+  * Template changes
+* Updated ToggleSwitch.vue to match the design spec when disabled
+  * SCSS changes
+* Added new shaded prop to ActionCard.vue
+  * Template & SCSS changes
+* Added "noPaddingTop" prop to RadioGroup.vue
+  * Template and SCSS changes
+* Added "labelPartials" prop to RadioWithInput.vue for providing substrings to accessibility labels
+* Extended Adder.vue, AudienceAdder.vue, HierarchialAdder.vue, and IndividualAdder.vue to support a notices slot
+  * Template and CSS changes
+* Added option for alignment of Popover.vue trigger
+  * Template and SCSS changes
+* Increased the top and bottom margin of the "Load more" button in the Adder.vue component
+  * SCSS changes
+* Fixed issue with safari cropping text on Button.vue and ToggleSwitch.vue components
+  * SCSS changes
+* Updated Taglist to show a loading state when items are updating
+  * Template and SCSS changes
+
+=== 15.0 ===
+* Deprecated ProgressTracker.vue and its child components, replaced by ProgressTrackerNav.vue and its child components
+* Updated CSS Variables for ProgressTrackerNav within tui_spacing.scss
+* Updated Collapsible to match latest design
+  * Template and SCSS changes
+* Updated styles of the basket component basket/Basket.vue
+  * Template and SCSS changes
+* Updated styles of filter side panel component filters/FilterSidePanel.vue
+  * Template and SCSS changes
+* Changed table and select table to stack based on its own width (using the new stackAt prop) rather than media queries.
+  The following components have had their media queries removed and replaced with a isStacked prop:
+  Cell.vue, ExpandCell.vue, ExpandedRow.vue, ExpandedRow.vue, HeaderCell.vue, HeaderRow.vue, Row.vue, RowGroup.vue, SelectRowCell.vue
+* Extended data table component templates to conditionally display a skeleton content loader
+* Removed text align rules from HasChildrenCell.vue
+  * SCSS changes
+* Exposed more of the table properties to the select table component datatable/SelectTable.vue
+  * Template changes
+* Updated MultiSelectFilter.vue to optionally support hiding/showing filter options after a certain number
+  * Template and SCSS changes
+* Amended Lozenge.vue to correctly align with other elements
+  * SCSS changes
+* Updated notification banner to provide a slot for custom content
+  * Template and SCSS changes
+* Updated ActionCard.vue to accept two additional props, has-shadow property now has to be manually provided and is no longer enabled by default
+  * Template changes
+* Updated SidePanel.vue to show the close handle when in sticky mode and on mobile
+  * SCSS changes
+* Improved Button.vue loading state handling
+  * Template and SCSS changes
+* Updated Repeater.vue to allow repeating headers
+  * Template and SCSS changes
+* Improved select all label usage in SelectVisibleRowsCell.vue to be clickable when displayed
+  * Template and SCSS changes
+* Converted AttachmentNode to a thin wrapper over the new FileCard component
+  * Template changes
+* Updated components SettingsFormBrand.vue and EditorTextarea.vue to allow locking the format of the editor
+  * Template changes
+* Updated file/FileCard.vue to correctly support different file extensions
+  * Template and SCSS changes
+
+=== 14.0 ===
+
+* Updated Grid.vue limiting width to stay in container
+  * SCSS changes
+* Fixed ExpandCell display logic
+  * Template changes
+* Updated Table and children component indent options
+  * Template and SCSS changes
+* Allowed Collapsible contents to be indented
+  * Template and SCSS changes
+* Allowed multiple rows of Table to be expanded at once
+  * Template changes
+* Allowed CollapsibleGroupToggle.vue to set transparency and alignment, removed chevron
+* Updated Table component to allow indent and stealth version of Expanded Rows
+  * Template and SCSS changes
+* Added closeable prop to Popover.vue component
+* Added closeable prop to PopoverFrame.vue component
+* Added closeablePopover prop to LabelledButtonTrigger.vue component
+* Updated SidePanel.vue component to address overlapping issues
+  * SCSS changes
+* Updated Range.vue component to not emit a change event on focus
+* Converted Loader.vue emptySlot computed property to a isEmptySlot method so it correctly updates for subsequent requests
+* Updated Form.vue to prevent native submit behavior unless native-submit prop or action/method attributes are passed
+  * Template changes
+* Update Tui Theme Settings Custom and Colour Uniforms to include new fields and make rows solution more generic
+  * Langstring, template, SCSS and script block changes
+* Adjusted PopoverFrame.vue to include border in positioning
+* Added size prop to Popover.vue to provide a minimum display width
+* Removed overridden focus styles from SearchBox.vue submit button, now uses default IconButton.vue focus styles
+* Updated Input.vue, Button.vue and ButtonIcon.vue to handle prop "autofocus" in JS
+  * Template changes
+* Updated AttachmentNode.vue, AudioBlock.vue, Hashtag.vue, ImageBlock.vue, and VideoBlock.vue to deprecate the attributes computed property
+  * Template changes
+* Updated Input.vue, Button.vue and ButtonIcon.vue to handle prop "autofocus" in JS
+  * Template changes
+* Updated Button.vue and ButtonIcon.vue to support a loading indicator prop
+  * Template & CSS changes
+* Updated Adder.vue component to support a loading indicator prop for add button and amend button position styles
+* Updated AudioBlock.vue to display transcript button and expose a slot
+  * Template changes
+* Added ariaDisabled prop to ButtonIcon.vue to cater for accessibility
+* Updated TagList.vue to display placeholder and color change on icon.
+  * LangString, template & SCSS changes
+* Included an optional inputPlaceholder prop to customise placeholder text in TagList.vue
+* Renamed existing Success icon to SuccessSolid and added a new Success icon
+* Removed Modal.vue overlay and combined it with modal root element
+  * Template && CSS changes

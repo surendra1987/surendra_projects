@@ -1,0 +1,10 @@
+query core_categories {
+  core_categories {
+    id
+    name
+    parent {
+      id
+      name
+    }
+  }
+}

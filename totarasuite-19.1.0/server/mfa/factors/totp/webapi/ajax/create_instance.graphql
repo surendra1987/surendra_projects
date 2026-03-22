@@ -1,0 +1,5 @@
+mutation mfa_totp_create_instance($input: mfa_totp_create_instance_input!) {
+  instance: mfa_totp_create_instance(input: $input) {
+    id
+  }
+}

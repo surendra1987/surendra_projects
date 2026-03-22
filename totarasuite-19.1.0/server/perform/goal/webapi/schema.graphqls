@@ -1,0 +1,526 @@
+"""
+Represents a goal status value.
+"""
+type perform_goal_status {
+  """
+  Status code.
+  """
+  id: String
+  """
+  Status display label.
+  """
+  label: String
+}
+
+"""
+Goal type object, containing information about a personal or team goal. All available fields are listed. No fields are required.
+"""
+type perform_goal_goal {
+  """
+  Internal database ID of the goal.
+  """
+  id: core_id
+  """
+  Parent context ID of the goal object.
+  """
+  context_id: core_id
+  """
+  Perform goal category, associates a category name with a goaltype subplugin.
+  """
+  category_id: core_id
+  """
+  The user that 'owns' the goal, i.e. is responsible for managing it. Usually the owner will be the same person as the user who initially created the goal.
+  """
+  owner: core_user
+  """
+  The user who is the subject of the goal, i.e. who the goal is applied to.
+  """
+  user: core_user
+  """
+  The display name for the goal.
+  """
+  name: String
+  """
+  An external identifier for the goal.
+  """
+  id_number: String
+  """
+  Comments or a statement about the goal.
+  """
+  description(format: core_format = HTML): String
+  """
+  Goal assignment type, e.g. self, manager, etc.
+  """
+  assignment_type: String!
+  """
+  The goaltype plugin used to implement this goal.
+  """
+  plugin_name: String!
+  """
+  The date the goal will commence.
+  """
+  start_date(format: core_date_format = DATELONG): core_date
+  """
+  The type of the target for the goal, e.g. date, percentage, currency, number, manual.
+  """
+  target_type: String
+  """
+  The date the goal is expected to be completed/closed.
+  """
+  target_date(format: core_date_format = DATELONG): core_date
+  """
+  The expected value for achieving the goal.
+  """
+  target_value: Float
+  """
+  The value towards the goal currently achieved so far.
+  """
+  current_value: Float
+  """
+  The date the current_value was most recently updated.
+  """
+  current_value_updated_at(format: core_date_format = DATELONG): core_date
+  """
+  The current status of the goal.
+  """
+  status: perform_goal_status
+  """
+  The date the status was most recently updated.
+  """
+  status_updated_at(format: core_date_format = DATELONG): core_date
+  """
+  The date the goal was closed, or null if the goal is still active.
+  """
+  closed_at(format: core_date_format = DATELONG): core_date
+  """
+  The date the goal record was first created.
+  """
+  created_at(format: core_date_format = DATELONG): core_date
+  """
+  The date the goal record was last updated.
+  """
+  updated_at(format: core_date_format = DATELONG): core_date
+  """
+  The number of comments for the goal.
+  """
+  comment_count: Int!
+  """
+  Tasks meta information for this goal.
+  """
+  goal_tasks_metadata: perform_goal_goal_tasks_metadata!
+}
+
+"""
+Tasks meta information for a goal.
+"""
+type perform_goal_goal_tasks_metadata {
+  """
+  Total number of tasks for a goal.
+  """
+  total_count: Int!
+  """
+  Number of completed tasks for a goal.
+  """
+  completed_count: Int!
+}
+
+"""
+Values returned from a perform_goal_update_progress operation.
+"""
+type perform_goal_update_progress_result {
+  """
+  The value towards the goal currently achieved so far.
+  """
+  current_value: Float
+  """
+  The current status of the goal.
+  """
+  status: perform_goal_status!
+}
+
+"""
+Goal metadata from a goal create/retrieve/update/delete operation.
+"""
+type perform_goal_goal_raw_data {
+  """
+  Allowed goal status values.
+  """
+  available_statuses: [perform_goal_status!]!
+  """
+  Associated goal description.
+  """
+  description(format: core_format = RAW): String
+  """
+  Associated goal start date.
+  """
+  start_date: totara_core_date_time_setting
+  """
+  Associated goal target completion date.
+  """
+  target_date: totara_core_date_time_setting
+}
+
+"""
+Permissions for the current user to manipulate goals.
+"""
+type perform_goal_permissions {
+  """
+  Whether the current user can create/update/delete goals.
+  """
+  can_manage: Boolean!
+  """
+  Whether the current user can update a goal's status.
+  """
+  can_update_status: Boolean!
+}
+
+"""
+The result returned from a goal create/update/delete operation.
+"""
+type perform_goal_crud_result {
+  """
+  Goal type object, containing information about a personal goal.
+  """
+  goal: perform_goal_goal!
+  """
+  Goal metadata from a goal create/update/delete operation.
+  """
+  raw: perform_goal_goal_raw_data!
+  """
+  Permissions for the current user to manipulate goals.
+  """
+  permissions: perform_goal_permissions!
+}
+
+"""
+The result returned from a goal view operation.
+"""
+type perform_goal_view_result {
+  """
+  Goal type object, containing information about a personal or team goal.
+  """
+  goal: perform_goal_goal
+  """
+  Goal metadata from a goal retrieve operation.
+  """
+  raw: perform_goal_goal_raw_data
+  """
+  Permissions for the current user to manipulate goals.
+  """
+  permissions: perform_goal_permissions
+}
+
+"""
+The result returned from a query to find the available goals for a user.
+"""
+type perform_goal_user_goals_result {
+  """
+  Retrieved personal goals.
+  """
+  items: [perform_goal_user_goals_result_item]
+  """
+  Total number of personal goals retrieved across all pages.
+  """
+  total: Int!
+  """
+  Pointer to next page of personal goals.
+  """
+  next_cursor: String!
+  """
+  Flag indicating if the user has at least one goal (independent of filter input).
+  """
+  has_goals: Boolean!
+  """
+  Indicates if the operation succeeded.
+  """
+  success: Boolean!
+  """
+  Error messages if the operation failed.
+  """
+  errors: perform_goal_operation_error
+}
+
+"""
+Information on one goal.
+"""
+type perform_goal_user_goals_result_item {
+  """
+  Retrieved goal.
+  """
+  goal: perform_goal_goal!
+  """
+  Permissions for the goal with respect to the currently logged-in user.
+  """
+  permissions: perform_goal_permissions!
+}
+
+"""
+The result returned from a goal delete operation.
+"""
+type perform_goal_delete_result {
+  """
+  Whether the current goal successfully deleted.
+  """
+  success: Boolean!
+}
+
+"""
+Describes an error that occurred when doing a goal related query/mutation.
+"""
+type perform_goal_operation_error {
+  """
+  An error code representing this particular class of error.
+  """
+  code: String
+  """
+  Human readable string describing the error.
+  """
+  message: String
+}
+
+"""
+Input for identifying a goal.
+
+The goal must be specified by providing one of the following:
+
+* The goal's internal database id
+* The user's id_number
+
+A goal reference must uniquely identify a single goal to be valid.
+"""
+input perform_goal_reference {
+  """
+  The database ID of the goal.
+  """
+  id: core_id
+  """
+  An external identifier for the goal.
+  """
+  id_number: String
+}
+
+"""
+Input provided when creating a goal. Some fields are required.
+"""
+input perform_goal_create_input {
+  """
+  Parent context ID of the goal object.
+  """
+  context_id: core_id
+  """
+  The user that 'owns' the goal, i.e. is responsible for managing it. Usually the owner will be the same person as the user who initially created the goal.
+  If this field is not included, the default owner will be set to the user making the request.
+  """
+  owner: core_user_user_reference
+  """
+  The user who is the subject of the goal, i.e. who the goal is applied to.
+  """
+  user: core_user_user_reference
+  """
+  The display name for the goal.
+  """
+  name: String!
+  """
+  An external identifier for the goal.
+  """
+  id_number: String
+  """
+  Comments or a statement about the goal.
+  """
+  description: String
+  """
+  The date the goal will commence.
+  """
+  start_date: core_date!
+  """
+  The type of the target for the goal, e.g. date, percentage, currency, number, manual.
+  Current target type is 'date'.
+  """
+  target_type: String
+  """
+  The date the goal is expected to be completed/closed.
+  """
+  target_date: core_date!
+  """
+  The expected value for achieving the goal.
+  """
+  target_value: Float!
+  """
+  The value towards the goal currently achieved so far.
+  """
+  current_value: Float
+  """
+  The current status of the goal (currently supports the 'not_started', 'in_progress', 'completed', 'cancelled').
+  """
+  status: String
+  """
+  The module/plugin name (currently supports the 'basic' plugin).
+  """
+  plugin_name: String
+}
+
+"""
+Input provided when updating a goal. No field is required.
+"""
+input perform_goal_update_input {
+  """
+  The display name for the goal.
+  """
+  name: String
+  """
+  An external identifier for the goal.
+  """
+  id_number: String
+  """
+  Comments or a statement about the goal.
+  """
+  description: String
+  """
+  The date the goal will commence.
+  """
+  start_date: core_date
+  """
+  The type of the target for the goal, e.g. date, percentage, currency, number, manual.
+  """
+  target_type: String
+  """
+  The date the goal is expected to be completed/closed.
+  """
+  target_date: core_date
+  """
+  The expected value for achieving the goal.
+  """
+  target_value: Float
+}
+
+"""
+Values to update a goal's progress with.
+"""
+input perform_goal_update_progress_input {
+  """
+  The value towards the goal currently achieved so far.
+  """
+  current_value: Float!
+  """
+  The current status of the goal.
+  """
+  status: String!
+}
+
+"""
+Filters input provided when querying available goals for a user.
+"""
+input perform_goal_user_goals_filter {
+  """
+  The user whose goals will be fetched. If left out, defaults to the logged-in user.
+  """
+  user: core_user_user_reference
+  """
+  A search term for searching the goals
+  """
+  search: param_text
+  """
+  A list of status codes to filter for. The status codes correspond to the status class names.
+  """
+  status: [param_alphaext!]
+}
+
+"""
+Options input provided when querying available goals for a user.
+"""
+input perform_goal_user_goals_options {
+  """
+  Sort by a given field. Possible values are created_at, target_date, most_complete, least_complete.
+  """
+  sort_by: param_alphaext
+}
+
+"""
+Input provided when querying available goals for a user.
+"""
+input perform_goal_user_goals_input {
+  """
+  Filters when querying available goals for a user.
+  """
+  filters: perform_goal_user_goals_filter
+  """
+  Options (e.g. sorting) when querying available goals for a user.
+  """
+  options: perform_goal_user_goals_options
+  """
+  Standard pagination input.
+  """
+  pagination: core_pagination_input
+}
+
+extend type Query {
+  """
+  A query to fetch information about a single goal.
+  """
+  perform_goal_view_goal(
+    """
+    Input value(s) for identifying a goal: id and/or id_number.
+    """
+    goal_reference: perform_goal_reference!
+  ): perform_goal_view_result!
+
+  """
+  A query to fetch the available goals for a user.
+  """
+  perform_goal_user_goals(
+    """
+    Filter and pagination parameters for the user goals query.
+    """
+    input: perform_goal_user_goals_input!
+  ): perform_goal_user_goals_result!
+}
+
+extend type Mutation {
+  """
+  An operation to create a new goal, containing the information needed to initialise it for use.
+  """
+  perform_goal_create_goal(
+    """
+    Values provided to create a new goal.
+    """
+    input: perform_goal_create_input!
+  ): perform_goal_crud_result!
+
+  """
+  An operation to modify an existing goal's information.
+  """
+  perform_goal_update_goal(
+    """
+    Input value(s) for identifying a goal.
+    """
+    goal_reference: perform_goal_reference!
+    """
+    Values provided for updating a goal.
+    """
+    input: perform_goal_update_input!
+  ): perform_goal_crud_result!
+
+  """
+  An operation to delete an existing goal.
+  """
+  perform_goal_delete_goal(
+    """
+    Input value(s) for identifying a goal.
+    """
+    goal_reference: perform_goal_reference!
+  ): perform_goal_delete_result!
+
+  """
+  An operation to update an existing goal's progress information, i.e. the goal status and current_value.
+  """
+  perform_goal_update_progress(
+    """
+    Input value(s) for identifying a goal.
+    """
+    goal_reference: perform_goal_reference!
+    """
+    Values to update a goal's progress with.
+    """
+    input: perform_goal_update_progress_input!
+  ): perform_goal_update_progress_result!
+}

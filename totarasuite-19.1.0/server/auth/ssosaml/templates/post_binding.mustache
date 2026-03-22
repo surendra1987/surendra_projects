@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ site }}</title>
+</head>
+<body onload="document.getElementById('submit-sso').click();">
+<noscript>
+  <p><strong>{{#str}}sso_warning_note, auth_ssosaml{{/str}}</strong>{{#str}}sso_warning, auth_ssosaml{{/str}}</p>
+</noscript>
+<form method="post" action="{{ url }}">
+  {{#data}}
+    <input type="hidden" name="{{ name }}" value="{{ value }}">
+  {{/data}}
+  <input id="submit-sso" type="submit" style="display:none;"/>
+  <noscript>
+    <input type="submit" value="{{#str}}sso_submit, auth_ssosaml{{/str}}"/>
+  </noscript>
+</form>
+</body>
+</html>

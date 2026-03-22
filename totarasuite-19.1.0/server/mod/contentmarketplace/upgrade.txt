@@ -1,0 +1,6 @@
+This files describes API changes in /mod/contentmarketplace/*,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Deprecated mutation 'mod_contentmarketplace_request_non_interactive_enrol', please use 'mod_contentmarketplace_request_non_interactive_enrol_v2' instead

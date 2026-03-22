@@ -1,0 +1,5 @@
+{
+  "component": "performelement_perform_goal_creation",
+  "vendor": "totara",
+  "dependencies": ["editor_weka", "perform_goal"]
+}

@@ -1,0 +1,3 @@
+modulename_link,mod_resource
+allowpdfembedding,mod_resource
+allowpdfembedding_desc,mod_resource

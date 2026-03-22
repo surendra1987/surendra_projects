@@ -1,0 +1,145 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1551.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1551.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_reportbuilder/src/components/reports/listing/ReportItem.vue?vue&type=style&index=0&id=a5bae250&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+:root {
+  --my-reports-image-bg-color: #f0f0f0;
+}
+
+.tui-totara_reportbuilder-listingReportItem {
+  $block: #{&};
+  position: relative;
+  display: flex;
+  color: var(--color-text);
+  border: var(--border-width-thin) solid var(--color-border);
+
+  /* Hover animation*/
+  transition-timing-function: ease-in-out;
+  transition-duration: 200ms;
+  transition-property: box-shadow;
+
+  &:hover,
+  &:active,
+  &:focus {
+    z-index: 1;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  &:hover {
+    box-shadow: var(--shadow-2);
+  }
+
+  &:focus-visible {
+    @include tui-focus;
+  }
+
+  &__indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: var(--gap-4);
+  }
+
+  &__imageWrap {
+    background-color: var(--my-reports-image-bg-color);
+  }
+
+  &__title {
+    @include font(h5);
+    flex-shrink: 0;
+    overflow: hidden;
+    font-weight: 600;
+  }
+
+  &__description {
+    @include font(body-sm);
+    overflow: hidden;
+  }
+
+  &--grid {
+    flex-direction: column;
+
+    #{$block}__image {
+      display: block;
+      width: 100%;
+      height: rem-px(120);
+      margin: 0 auto;
+    }
+
+    #{$block}__info {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-2);
+      min-height: rem-px(62);
+      max-height: rem-px(130);
+      padding: var(--gap-2) var(--gap-2) var(--gap-3) var(--gap-2);
+    }
+  }
+
+  &--list {
+    height: rem-px(70);
+    border-width: 0 0 var(--border-width-thin) 0;
+
+    #{$block}__imageWrap {
+      flex: 0 0 auto;
+      width: auto;
+      height: 100%;
+      max-height: 100%;
+    }
+
+    #{$block}__image {
+      width: auto;
+      height: 100%;
+      max-height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #{$block}__info {
+      display: grid;
+      flex-grow: 1;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-2);
+      padding: var(--gap-3);
+    }
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1551.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1551.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_reportbuilder/src/components/reports/listing/ReportList.vue?vue&type=style&index=0&id=91aff23a&lang=scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_reportbuilder-reportsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+  isolation: isolate;
+
+  &__overview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-4);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__list--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem-px(250), 1fr));
+    gap: var(--gap-card-grid);
+  }
+
+  &__list--list {
+    border-top: var(--border-width-thin) solid var(--color-border);
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??clonedRuleSet-1551.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-1551.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./client/component/totara_reportbuilder/src/components/reports/listing/ScheduledReportAdd.vue?vue&type=style&index=0&id=372250de&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tui-totara_reportbuilder-scheduledReportAdd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-2);
+  align-items: center;
+}
+

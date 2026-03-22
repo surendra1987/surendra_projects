@@ -1,0 +1,4 @@
+notification_status,totara_notification
+process_event_queue_task,totara_notification
+process_notification_queue_task,totara_notification
+process_scheduled_event_task,totara_notification

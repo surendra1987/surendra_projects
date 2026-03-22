@@ -1,0 +1,45 @@
+query totara_competency_perform_overview(
+  $input: totara_competency_perform_overview_input!
+) {
+  totara_competency_perform_overview(input: $input) {
+    total
+    state_counts {
+      achieved
+      progressed
+      not_progressed
+      not_started
+    }
+    competencies {
+      achieved {
+        ...totara_competency_perform_overview_item_data
+      }
+      progressed {
+        ...totara_competency_perform_overview_item_data
+      }
+      not_progressed {
+        ...totara_competency_perform_overview_item_data
+      }
+      not_started {
+        ...totara_competency_perform_overview_item_data
+      }
+    }
+    pending_changes
+  }
+}
+
+fragment totara_competency_perform_overview_item_data on totara_competency_perform_overview_item {
+  __typename
+  id
+  raw_id
+  name
+  url
+  description
+  assignment_date
+  assignment_type
+  achievement_level
+  achievement_date
+  last_update {
+    date
+    description
+  }
+}

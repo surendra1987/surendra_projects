@@ -1,0 +1,472 @@
+"""
+Organisation item object.
+
+The organisation structure defines the regions, departments, groups, areas, or teams that a company has defined.
+"""
+type hierarchy_organisation_organisation implements totara_hierarchy_item {
+  """
+  Internal database id of the organisation.
+  """
+  id: core_id!
+  """
+  Full name of the organisation.
+  """
+  fullname(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = PLAIN
+  ): String!
+  """
+  Unique reference used to represent the organisation across multiple systems.
+  """
+  idnumber: String
+  """
+  The short name of the organisation. Only used as additional information if admin setting 'showhierarchyshortnames' is enabled.
+  """
+  shortname(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = PLAIN
+  ): String
+  """
+  Rich-text description of the organisation.
+  """
+  description(
+    """
+    Output format this field should be formatted for.
+    Please note: RAW format is only available to users with the capability 'totara/hierarchy:updateorganisation' in the
+    system context, as its purpose is for editing.
+    """
+    format: core_format = HTML
+  ): String
+  """
+  The internal database id of the organisation framework this organisation belongs to.
+  Please note: viewing this organisation's frameworkid requires the capability 'totara/hierarchy:vieworganisationframeworks'
+  """
+  frameworkid: core_id
+  """
+  The organisation framework this organisation belongs to.
+  Please note: viewing this organisation's framework requires the capability 'totara/hierarchy:vieworganisationframeworks'
+  """
+  framework: hierarchy_organisation_framework
+  """
+  An ordered list of parent database ids for this organisation, indicating the hierarchy of parent items. Includes the
+  current item and separated by forward slashes, e.g. item with id=6 might be: /1/4/6
+  This is a computed value.
+  """
+  path: String!
+  """
+  The id of this organisation's immediate parent in the framework hierarchy. Set to 0 if this is a top-level organisation.
+  """
+  parentid: core_id
+  """
+  The parent organisation in the hierarchy. Null if a top-level item.
+  """
+  parent: hierarchy_organisation_organisation
+  """
+  Collection of organisations that are immediately below this one in the framework hierarchy. Empty if this organisation
+  has no children.
+  """
+  children: [hierarchy_organisation_organisation!]!
+  """
+  The id of the organisation type, or 0 if this is a generic organisation.
+  """
+  typeid: core_id
+  """
+  Organisation type object.
+  """
+  type: hierarchy_organisation_type
+  """
+  Timestamp of when the hierarchy item type was last modified.
+  Available since Totara 19.0.1.
+  """
+  timemodified(format: core_date_format = TIMESTAMP): core_date!
+  """
+  Flag determining whether the organisation is visible to end users or not.
+  """
+  visible: Boolean!
+  """
+  Custom fields relating to the organisation
+  """
+  custom_fields: [totara_customfield_field!]
+}
+
+"""
+Input for identifying an organisation.
+"""
+input hierarchy_organisation_organisation_reference {
+  """
+  Identify an organisation by internal database id.
+  """
+  id: core_id
+  """
+  Identify an organisation by its idnumber. `idnumber` is a unique reference used to represent the organisation across multiple systems.
+  """
+  idnumber: String
+}
+
+"""
+Input provided when creating an organisation.
+"""
+input hierarchy_organisation_create_organisation_input {
+  """
+  Full name of the organisation.
+  """
+  fullname: String!
+  """
+  Unique reference used to represent the organisation across multiple systems.
+  """
+  idnumber: String
+  """
+  Rich-text description of the organisation.
+  """
+  description: String
+  """
+  The organisation framework this organisation belongs to.
+  """
+  framework: hierarchy_organisation_framework_reference!
+  """
+  The parent organisation in the hierarchy.
+  """
+  parent: hierarchy_organisation_organisation_reference
+  """
+  Organisation type.
+  """
+  type: hierarchy_organisation_type_reference
+  """
+  Flag determining whether the organisation is visible to end users or not.
+  If not given, will default to visible.
+  """
+  visible: Boolean
+  """
+  Optional array of organisation type custom field data (each array element describes a single custom field value for this organisation).
+  """
+  custom_fields: [totara_customfield_input!]
+}
+
+"""
+Input provided when updating an organisation.
+"""
+input hierarchy_organisation_update_organisation_input {
+  """
+  Full name of the organisation.
+  """
+  fullname: String
+  """
+  Unique reference used to represent the organisation across multiple systems.
+  """
+  idnumber: String
+  """
+  Rich-text description of the organisation.
+  """
+  description: String
+  """
+  The organisation framework this organisation belongs to.
+  """
+  framework: hierarchy_organisation_framework_reference
+  """
+  The parent organisation in the hierarchy.
+  """
+  parent: hierarchy_organisation_organisation_reference
+  """
+  Organisation type.
+  """
+  type: hierarchy_organisation_type_reference
+  """
+  Flag determining whether the organisation is visible to end users or not.
+  """
+  visible: Boolean
+  """
+  Optional array of organisation type custom field data (each array element describes a single custom field value for this organisation).
+  """
+  custom_fields: [totara_customfield_input!]
+}
+
+"""
+Organisation filter
+
+Properties to filter out organisations.
+"""
+input hierarchy_organisation_organisations_filter {
+  """
+  The internal ID of a framework to filter on.
+  """
+  framework_id: param_integer
+  """
+  The internal ID of a parent organisation to filter on.
+  """
+  parent_id: param_integer
+  """
+  A list of internal IDs of organisations to filter on.
+  """
+  ids: [param_integer!]
+  """
+  Filter based on the name of the organisations.
+  """
+  name: param_text
+  """
+  The internal ID of a type to filter on.
+  """
+  type_id: param_integer
+  """
+  The timestamp of when the organisation was last modified.
+  Handles the following formats: integer timestamp, numeric string or an ISO-8601 string.
+  Available since Totara 19.0.1.
+  """
+  since_timemodified: core_date
+}
+
+"""
+Input type for the organisations query.
+"""
+input hierarchy_organisation_organisations_query {
+  """
+  The pagination object contains information about the number of items
+  to be returned, and the page offset to start from.
+  """
+  pagination: core_pagination_input
+  """
+  The sort order for the query. The query is currently only able to sort by one order.
+  """
+  sort: [core_sort_input!]
+  """
+  The filters for querying organisations.
+  """
+  filters: hierarchy_organisation_organisations_filter
+}
+
+"""
+Mutation result type returned after creation of a new organisation. Returns the organisation that was created.
+"""
+type hierarchy_organisation_organisation_created_result {
+  """
+  Organisation object for the organisation that was created as part of the operation.
+  """
+  organisation: hierarchy_organisation_organisation
+}
+
+"""
+Mutation result type returned after updates to an existing organisation. Returns the organisation that was updated.
+"""
+type hierarchy_organisation_organisation_updated_result {
+  """
+  Organisation object for the organisation that was updated as part of the operation.
+  """
+  organisation: hierarchy_organisation_organisation
+}
+
+"""
+Query result type returned when querying a single organisation.
+"""
+type hierarchy_organisation_organisation_result {
+  """
+  Whether the organisation was found.
+  This may return false if the record doesn't exist within Totara or if the API client doesn't have access to the record.
+  """
+  found: Boolean!
+  """
+  Organisation object for the organisation that was requested as part of the operation.
+  """
+  organisation: hierarchy_organisation_organisation
+}
+
+"""
+Mutation result type returned after deletion of an organisation. Returns the id of deleted organisation if it was deleted successfully.
+"""
+type hierarchy_organisation_organisation_deleted_result {
+  """
+  Internal database id of the organisation that was just deleted from the system.
+  """
+  organisation_id: core_id!
+}
+
+"""
+Organisation result
+
+Result type for a collection of organisations.
+"""
+type hierarchy_organisation_organisations_result implements core_pageable_result {
+  """
+  Array of one page of organisations returned by the query.
+  """
+  items: [hierarchy_organisation_organisation!]!
+  """
+  Total number of organisations from this query (across all pages).
+  """
+  total: Int!
+  """
+  Cursor to request the next set of results for this query.
+  """
+  next_cursor: String!
+}
+
+"""
+Input for identifying an organisation type.
+"""
+input hierarchy_organisation_type_reference {
+  """
+  Identify an organisation type by internal database id.
+  """
+  id: core_id
+  """
+  Identify an organisation type by its idnumber. `idnumber` is a unique reference used to represent the organisation type across multiple systems.
+  """
+  idnumber: String
+}
+
+"""
+Organisation type object. An organisation type is a user-defined classification which can be assigned to organisations
+leading to certain custom fields being available on that organisation.
+"""
+type hierarchy_organisation_type implements totara_hierarchy_type {
+  """
+  Internal database id of the organisation type.
+  """
+  id: core_id!
+  """
+  Organisation type full name.
+  """
+  fullname(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = PLAIN
+  ): String!
+  """
+  Unique reference used to represent the organisation type across multiple systems.
+  """
+  idnumber: String
+  """
+  The short name of the organisation type. Only used as additional information if admin setting 'showhierarchyshortnames' is enabled.
+  """
+  shortname(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = PLAIN
+  ): String
+  """
+  Rich-text description of the organisation type.
+  """
+  description(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = HTML
+  ): String
+}
+
+"""
+Input for identifying an organisation framework.
+"""
+input hierarchy_organisation_framework_reference {
+  """
+  Identify an organisation framework by internal database id.
+  """
+  id: core_id
+  """
+  Identify an organisation framework by its idnumber. `idnumber` is a unique reference used to represent the organisation framework across multiple systems.
+  """
+  idnumber: String
+}
+
+"""
+Organisation framework object. An organisation framework is a collection of organisations arranged in a tree.
+"""
+type hierarchy_organisation_framework implements totara_hierarchy_framework {
+  """
+  Internal database id of the organisation framework.
+  """
+  id: core_id!
+  """
+  Full name of the organisation framework.
+  """
+  fullname(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = PLAIN
+  ): String!
+  """
+  Unique reference used to represent the organisation framework across multiple systems.
+  """
+  idnumber: String
+  """
+  Short name of the organisation framework, only used if admin setting 'showhierarchyshortnames' is enabled.
+  """
+  shortname(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = PLAIN
+  ): String
+  """
+  Rich-text description of the organisation framework.
+  """
+  description(
+    """
+    Output format this field should be formatted for.
+    """
+    format: core_format = HTML
+  ): String
+}
+
+extend type Query {
+  """
+  Return a specific organisation.
+  """
+  hierarchy_organisation_organisation(
+    """
+    Input object specifying data for the existing organisation.
+    """
+    reference: hierarchy_organisation_organisation_reference!
+  ): hierarchy_organisation_organisation_result!
+
+  """
+  Query to retrieve organisations.
+  """
+  hierarchy_organisation_organisations(
+    query: hierarchy_organisation_organisations_query
+  ): hierarchy_organisation_organisations_result!
+}
+
+extend type Mutation {
+  """
+  Creates a new organisation.
+  Please note: creating organisations requires the capability 'totara/hierarchy:createorganisation'
+  """
+  hierarchy_organisation_create_organisation(
+    """
+    Input object specifying data for creating the new organisation.
+    """
+    input: hierarchy_organisation_create_organisation_input!
+  ): hierarchy_organisation_organisation_created_result!
+
+  """
+  Updates a specific target organisation with new properties.
+  Please note: updating organisations requires the capability 'totara/hierarchy:updateorganisation'
+  """
+  hierarchy_organisation_update_organisation(
+    """
+    The organisation that should be updated.
+    """
+    target_organisation: hierarchy_organisation_organisation_reference!
+    """
+    Input object specifying data for updating the organisation.
+    """
+    input: hierarchy_organisation_update_organisation_input!
+  ): hierarchy_organisation_organisation_updated_result!
+
+  """
+  Mutation to delete an organisation.
+  Please note: deleting organisations requires the capability 'totara/hierarchy:deleteorganisation'
+  """
+  hierarchy_organisation_delete_organisation(
+    """
+    Input provided for identifying the organisation.
+    """
+    target_organisation: hierarchy_organisation_organisation_reference!
+  ): hierarchy_organisation_organisation_deleted_result!
+}

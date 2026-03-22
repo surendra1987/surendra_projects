@@ -1,0 +1,39 @@
+This files describes API changes in /totara/engage,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Fixed invalid reference to undefined property interactor->resource, changed to interactor->resource_data
+* totara\engage\search.php has been deprecated and should no longer be linked to.
+* totara\engage\shared_with_you.php has been deprecated and should no longer be linked to. Replace it with a new endpoint of totara\engage\index.php
+* totara\engage\your_resources.php has been deprecated and should no longer be linked to. Replace it with a new endpoint of totara\engage\index.php
+* totara\engage\search_results.php has been deprecated and should no longer be linked to. Replace it with a new endpoint of totara\engage\index.php
+* totara\engage\saved_resources.php has been deprecated and should no longer be linked to. Replace it with a new endpoint of totara\engage\index.php
+* Added new prop showCreateButton totara\engage\index.php
+* As part of the new multiple workspace owners feature:
+  - Added a new 'owners' column in the Workspaces Engagement report source
+
+=== 16.0 ===
+
+--- Update to graphQL ---
+* Replaced 'param_text' scalar type for mutation and input type with 'String' default scalar type
+
+=== 14.0 ===
+
+* Added imgetuicopmonent and image properties to graphQL type totara_engage_card
+* Deprecated $visibility parameter in share_repository::is_recipient
+* Changed area variable type from param_text to param_area in graphql schema.
+* Removed unused class totara_engage\generator\engage_generator
+* Added query totara_engage_user_contributions_count
+* Updated user_contribution_cards persistent query to include query totara_engage_user_contributions_count
+* Added optional second parameter to totara_engage\card\card::get_card_image
+* Added optional parameter "$theme_config" to the totara_engage\card\card::get_extra_data function needed
+  by the theme files.
+* Added second optional parameter "$theme_config" to the totara_engage\share\helper::format_recipients function needed
+  by the theme files.
+* Added abstract function "can_unshare_resources" to totara_engage\share\recipient\recipient class
+* Added optional "theme" parameter to the "image" field in the "totara_engage_card" type
+* Added optional "theme" parameter to the "extra" field in the "totara_engage_card" type
+* Added optional "theme" parameter to "totara_engage_shareto_recipients" query
+* Added optional "theme" parameter to "totara_engage_share_recipients" query
+* added optional "theme" parameter to "totara_engage_contribution_cards" query

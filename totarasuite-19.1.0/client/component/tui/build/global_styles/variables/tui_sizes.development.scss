@@ -1,0 +1,28 @@
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./client/tooling/webpack/css_raw_loader.js??ruleSet[1].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./client/component/tui/src/global_styles/variables/tui_sizes.scss ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/* This file is part of Totara Enterprise Extensions.*/
+/**/
+/* Copyright (C) 2020 onwards Totara Learning Solutions LTD*/
+/**/
+/* Totara Enterprise Extensions is provided only to Totara*/
+/* Learning Solutions LTD's customers and partners, pursuant to*/
+/* the terms and conditions of a separate agreement with Totara*/
+/* Learning Solutions LTD or its affiliate.*/
+/**/
+/* If you do not have an agreement with Totara Learning Solutions*/
+/* LTD, you may not access, use, modify, or distribute this software.*/
+/* Please contact [licensing@totaralearning.com] for more information.*/
+/**/
+/* @author    Kevin Hottinger <kevin.hottinger@totaralearning.com>*/
+/* @module tuickage   tui*/
+
+@function rem-px($val) {
+  @return $val / 16 * 1rem;
+}
+
+:root {
+  --tui-card-default-width: #{rem-px(252)};
+  --tui-card-sm-width: #{rem-px(188)};
+}
+

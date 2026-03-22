@@ -1,0 +1,249 @@
+//
+// This file is part of Totara Learn
+//
+// Copyright (C) 2019 onwards Totara Learning Solutions LTD
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// @copyright 2019 onwards Totara Learning Solutions LTD
+// @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+// @package   theme_legacy
+
+@import 'date_polyfill';
+@import 'passwordunmask';
+@import 'wizard/wizard';
+
+.totara_form {
+  // This error-container is displayed at the top of the form.
+  > .totara_form-error-container {
+    background-color: $totara-form-error-top-bg-color;
+    color: $totara-form-error-top-text-color;
+    padding: 15px;
+    margin-bottom: $totara-form-bottom-space-other;
+    border: 1px solid $totara-form-error-top-border-color;
+    border-radius: 4px;
+  }
+  // This error-container is displayed above the input.
+  .tf_element .totara_form-error-container > .validation-error {
+    background-color: $totara-form-error-above-bg-color;
+    display: inline-block;
+    padding: 0.2em 0.6em 0.3em;
+    color: $totara-form-error-above-text-color;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em;
+    margin-bottom: 0.3em;
+  }
+
+  .totara_form-required_note {
+    margin-bottom: $totara-form-bottom-space-other;
+  }
+
+  // Equivalent to "row" in bootstrap.
+  .tf_element {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: $totara-form-bottom-space-element;
+
+    @media (min-width: 992px) {
+      flex-flow: row wrap;
+    }
+  }
+
+  // Equivalent to "col-md-3" in bootstrap.
+  .tf_element_title {
+    label {
+      display: inline-block;
+    }
+
+    @media (min-width: 992px) {
+      flex: 1 0 0;
+      min-width: 0;
+    }
+
+    .legend {
+      padding-top: form-control-label-v-padding();
+      font-weight: 500;
+      .required {
+        cursor: help;
+      }
+    }
+
+    .helptooltip {
+      vertical-align: text-bottom;
+      padding-left: 0.3em;
+    }
+  }
+
+  // Equivalent to "col-md-9" in bootstrap.
+  .tf_element_input {
+    label {
+      font-weight: normal;
+    }
+
+    @media (min-width: 992px) {
+      flex: 3 0 0;
+      min-width: 0;
+    }
+  }
+
+  .totara_form_element_filemanager object {
+    height: 160px;
+    width: 600px;
+    border: 1px solid var(--color-border);
+  }
+
+  // Align with label
+  .totara_form_element_checkbox,
+  .totara_form_element_checkboxes,
+  .totara_form_element_radios,
+  .totara_form_element_radio,
+  .totara_form_element_yesno {
+    .tf_element_input {
+      padding-top: form-control-label-v-padding();
+    }
+  }
+
+  .totara_form_element_checkboxes,
+  .totara_form_element_radios,
+  .totara_form_element_yesno {
+    .tf_element_input {
+      label {
+        padding-right: var(--gap-4);
+        padding-left: 0;
+        color: $totara-form-input-text-color;
+      }
+
+      .tf_loading {
+        margin-left: rem-px(-18);
+      }
+    }
+  }
+
+  .totara_form_element_checkboxes,
+  .totara_form_element_radios {
+    .tf_element_input {
+      display: flex;
+      flex-flow: column;
+      gap: var(--gap-1);
+    }
+  }
+
+  .totara_form_element_datetime {
+    .tf_element_input {
+      display: flex;
+      flex-flow: row wrap;
+      gap: var(--gap-1);
+    }
+
+    input[type='text'] {
+      width: rem-px(160);
+    }
+
+    select {
+      width: rem-px(200);
+    }
+  }
+
+  .totara_form_element_action_button {
+    input.btn-primary {
+      @include bs-btn-primary();
+    }
+  }
+
+  .totara_form_group_buttons {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 0;
+    margin-top: 20px;
+    text-align: left;
+    gap: var(--gap-3);
+
+    input[type='submit']:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .totara_form_group_buttons div {
+    display: inline;
+  }
+
+  .totara_form_group_section legend {
+    a,
+    a:hover {
+      color: var(--color-text);
+      text-decoration: none;
+    }
+  }
+
+  .totara_form_group_section fieldset.collapsed .tf_section_items {
+    display: none;
+  }
+
+  [data-item-classification][data-hidden] {
+    display: none;
+  }
+
+  // Apply input styles to HTML5 elements.
+  input[type='text'],
+  input[type='password'],
+  input[type='date'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='date'],
+  input[type='month'],
+  input[type='time'],
+  input[type='week'],
+  input[type='number'],
+  input[type='email'],
+  input[type='url'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='color'] {
+    @include form-control;
+    display: inline;
+    max-width: rem-px(300);
+  }
+  textarea,
+  select {
+    @include form-control;
+    max-width: rem-px(300);
+  }
+
+  [data-element-frozen='1'] {
+    .filemanager-container,
+    .filepicker-filelist {
+      background-color: var(--color-neutral-2);
+    }
+    .fp-iconview .fp-thumbnail {
+      border-width: 0;
+    }
+    .fp-iconview .fp-filename-field .fp-filename {
+      background-color: transparent;
+    }
+  }
+}
+
+// Required asterisk in both Totara forms and Moodle forms.
+.form-required.flex-icon {
+  color: $totara-form-icon-color-required;
+  font-size: 50%;
+  vertical-align: text-top;
+}
+
+.totara_form_element_checkboxes_checkbox_inline,
+.totara_form_element_radios_radio_inline {
+  display: inline-block;
+}

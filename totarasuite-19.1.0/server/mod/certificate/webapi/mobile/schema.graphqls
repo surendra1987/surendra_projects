@@ -1,0 +1,89 @@
+"""
+Query type to downloadable certificate information
+"""
+type mod_certificate_certificate implements totara_mobile_download_activity {
+  """
+  Course module id
+  """
+  id: core_id!
+  """
+  Module id
+  """
+  instanceid: core_id!
+  """
+  The name of the certificate
+  """
+  name: String!
+  """
+  The description of the certificate
+  """
+  intro(format: core_format = HTML): String
+  """
+  The description format
+  """
+  introformat: core_format
+  """
+  File attachments
+  """
+  attachments: [totara_mobile_download_attachment_info]!
+  """
+  Whether the course module displays the description or not
+  """
+  showdescription: Boolean
+  """
+  The completion settings of the course module
+  """
+  completion: String
+  """
+  Whether completion is enabled or not for the course module
+  """
+  completionenabled: Boolean!
+  """
+  The completion status of the current user in the course module
+  """
+  completionstatus: String
+  """
+  Certification issue detail
+  """
+  certificate_issues: [mod_certificate_download_certificate_issues!]
+  """
+  Certificate html content
+  """
+  certificate_content: String
+  """
+  The total number of download file size
+  """
+  downloadsize: Int!
+}
+
+"""
+Query type to certificate issues information
+"""
+type mod_certificate_download_certificate_issues {
+  """
+  Issued date
+  """
+  issue_date: String
+  """
+  Grade
+  """
+  grade: String
+}
+
+extend type Query {
+  """
+  Query to get downloadable certificate information
+  """
+  mod_certificate_download(
+    input: totara_mobile_download_activity_input!
+  ): mod_certificate_certificate!
+}
+
+extend type Mutation {
+  """
+  Mutation to sync certification completion
+  """
+  mod_certificate_sync_completion(
+    input: totara_mobile_sync_completion_input!
+  ): totara_mobile_sync_completion_result!
+}

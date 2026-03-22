@@ -1,0 +1,6 @@
+.tui-block_totara_catalog-learningItemsScroller__item {
+  &--minWidth-default {
+    min-width: min(var(--tui-card-default-width), 100%);
+  }
+}
+

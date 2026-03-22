@@ -1,0 +1,25 @@
+query mod_perform_subject_instance_overview_by_status(
+  $input: mod_perform_subject_instance_overview_by_status_input
+) {
+  mod_perform_subject_instance_overview_by_status(input: $input) {
+    total
+    activities {
+      id
+      name
+      url
+      completion_date
+      description
+      assignment_date
+      job_assignment
+      last_update {
+        date
+        description
+      }
+      due {
+        date
+        due_soon
+        overdue
+      }
+    }
+  }
+}

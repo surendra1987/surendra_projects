@@ -1,0 +1,366 @@
+<?php
+/*
+ * This file is part of Totara LMS
+ *
+ * Copyright (C) 2010 onwards Totara Learning Solutions LTD
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author Ben Lobo <ben.lobo@kineo.com>
+ * @package totara
+ * @subpackage program
+ */
+
+/**
+ * Program view page
+ */
+
+use core\format;
+use core\webapi\formatter\field\string_field_formatter;
+use totara_program\content\course_set;
+use totara_program\content\program_content;
+use totara_program\entity\program as program_entity;
+use totara_program\event\program_contentupdated;
+use totara_program\event\program_viewed;
+use totara_program\model\program as program_model;
+use totara_program\model\program_courseset as courseset_model;
+use totara_program\program as program_class;
+use totara_tui\output\component;
+
+require_once(__DIR__ . '/../../config.php');
+require_once('HTML/QuickForm/Renderer/QuickHtml.php');
+require_once($CFG->libdir.'/adminlib.php');
+require_once($CFG->dirroot . '/totara/program/lib.php');
+require_once($CFG->dirroot . '/totara/program/edit_content_form.php');
+require_once($CFG->dirroot . '/totara/core/js/lib/setup.php');
+
+$id = required_param('id', PARAM_INT); // program id
+$submitdata = false;
+
+require_login();
+
+$systemcontext = context_system::instance();
+
+// Constructors called in turn are: program, prog_content, prog_courseset, (multi_course_set).
+// So all existing data loaded.
+$program = new program_class($id);
+$programcontext = $program->get_context();
+$legacy_content = \totara_program\model\program::contains_legacy_content($program->id);
+$new_ui = empty($CFG->enablelegacyprogramcontent) && !$legacy_content;
+
+require_capability('totara/program:configurecontent', $programcontext);
+$program->check_enabled();
+
+$PAGE->set_url(new moodle_url('/totara/program/edit_content.php', array('id' => $id)));
+$PAGE->set_program($program);
+$PAGE->set_title($program->fullname);
+$PAGE->set_heading($program->fullname);
+
+$programcontent = $program->get_content();
+
+if (!$new_ui) {
+    // Javascript include.
+    local_js(array(
+        TOTARA_JS_DIALOG,
+        TOTARA_JS_TREEVIEW
+    ));
+
+    $currenturl = qualified_me();
+    $currenturl_noquerystring = strip_querystring($currenturl);
+
+    $overviewurl = $CFG->wwwroot."/totara/program/edit.php?id={$id}&action=view";
+
+    // if the form has been submitted we need to make sure that the program object
+    // contains all the submitted data before the form is created and validated as
+    // the form is defined based on the status of the program object. Nothing is
+    // saved to the database at this point and the submitted data is only used to
+    // populate the $program obect.
+    // This process MUST only READ data from the database and MUST NOT WRITE
+    // anything as nothing has been checked or validated yet.
+
+    if ($rawdata = data_submitted()) {
+        require_sesskey();
+
+        // process the submitted elements to create the courseset etc info that is passed on to program_content_edit_form()
+        if (!$programcontent->setup_content($rawdata)) {
+            print_error('error:unabletosetupprogcontent', 'totara_program');
+        }
+
+        global $CERTIFPATHSUF;
+        if ($si = get_certification_path_field($rawdata, 'addcontent', 'Add')) {
+            $addsuffix = $CERTIFPATHSUF[$si];
+        } else {
+            $addsuffix = '';
+        }
+        if ($si = get_certification_path_field($rawdata, 'update', 1)) {
+            $updatesuffix = $CERTIFPATHSUF[$si];
+        } else {
+            $updatesuffix = '';
+        }
+
+        if (isset($rawdata->{'addcontent'.$addsuffix})) {
+            if (!$programcontent->add_set($rawdata->{'contenttype'.$addsuffix})) {
+                echo $OUTPUT->notification(get_string('error:unabletoaddset', 'totara_program'));
+            }
+        } else if (isset($rawdata->{'update'.$updatesuffix})) {
+            $programcontent->update_content();
+            echo $OUTPUT->notification(get_string('contentupdatednotsaved', 'totara_program'));
+        } else if ($setnumber = $programcontent->check_set_action('delete', $rawdata)) {
+            if (!$programcontent->delete_set($setnumber)) {
+                echo $OUTPUT->notification(get_string('error:deleteset', 'totara_program'));
+            } else {
+                $submitdata = true;
+            }
+        } else if ($setnumber = $programcontent->check_set_action('update', $rawdata)) {
+            $programcontent->update_set($setnumber);
+        } else if ($setnumber = $programcontent->check_set_action('moveup', $rawdata)) {
+            $programcontent->move_set_up($setnumber);
+        } else if ($setnumber = $programcontent->check_set_action('movedown', $rawdata)) {
+            $programcontent->move_set_down($setnumber);
+        } else if ($setnumber = $programcontent->check_set_action('addcourse', $rawdata)) {
+            if (!$programcontent->add_course($setnumber, $rawdata)) {
+                echo $OUTPUT->notification(get_string('error:setunabletoaddcourse', 'totara_program'));
+            } else {
+                $submitdata = true;
+            }
+        } else if ($setnumber = $programcontent->check_set_action('addcompetency', $rawdata)) {
+            if (!$programcontent->add_competency($setnumber, $rawdata)) {
+                echo $OUTPUT->notification(get_string('error:setunableaddcompetency', 'totara_program'));
+            } else {
+                $submitdata = true;
+            }
+        } else if ($action = $programcontent->check_set_action('deletecourse', $rawdata)) {
+            if (!$programcontent->delete_course($action->setnumber, $action->courseid, $rawdata)) {
+                echo $OUTPUT->notification(get_string('error:setunabletodeletecourse', 'totara_program', $action->setnumber));
+            } else {
+                $submitdata = true;
+            }
+        }
+
+    }
+
+    // create form and populate
+    $contenteditform = new program_content_edit_form($currenturl, ['program' => $program], 'post', '', ['name' => 'form_prog_content']);
+
+    // this removes the 'mform' class which is set be default on the form and which
+    // causes problems with the styling
+    // TODO SCANMSG This may cause issues when styling
+    //$contenteditform->_form->updateAttributes(array('class' => ''));
+
+    if ($contenteditform->is_cancelled()) {
+        \core\notification::success(get_string('programupdatecancelled', 'totara_program'));
+        redirect($overviewurl);
+    }
+
+    // if the form has not been submitted, fill in the saved values and defaults
+    if (!$rawdata) {
+        $contenteditform->set_data($programcontent->formdataobject);
+    }
+
+    // This is where we validate and check the submitted data before saving it
+    if ($data = $contenteditform->get_data()) {
+        if (isset($data->savechanges) || $submitdata) {
+            // first set up the program content with the validated and checked submitted data
+            if (!$programcontent->setup_content($data)) {
+                print_error('error:setupprogcontent', 'totara_program');
+            }
+
+            // if certif and user want to have the recert path be a copy of the cert path
+            // replicate the cert courseset(s) by recreated objects
+            if (isset($data->sameascert_rc) && $data->sameascert_rc == 1) {
+                $programcontent->copy_coursesets_to_recert($data);
+            }
+
+            // Save program content
+            if (!$programcontent->save_content()) {
+                \core\notification::error(get_string('programupdatefail', 'totara_program'));
+                redirect($currenturl);
+            } else {
+                $coursesetids = array();
+                $coursesets = $programcontent->get_course_sets();
+                foreach ($coursesets as $courseset) {
+                    $coursesetids[] = $courseset->id;
+                }
+
+                // Trigger event.
+                $dataevent = array('id' => $program->id, 'other' => array('coursesets' => $coursesetids));
+                $event = program_contentupdated::create_from_data($dataevent)->trigger();
+
+                $prog_update = new stdClass();
+                $prog_update->id = $id;
+                $prog_update->timemodified = time();
+                $prog_update->usermodified = $USER->id;
+                $DB->update_record('prog', $prog_update);
+
+                if (isset($data->savechanges) || $submitdata) {
+                    $str = get_string('programcontentsaved', 'totara_program');
+                    \core\notification::success($str);
+                    redirect('edit_content.php?id=' . $id);
+                }
+            }
+        }
+    }
+
+    // Javascript includes
+    $PAGE->requires->strings_for_js(array('addcourseset', 'addcourses', 'cancel', 'ok', 'addcompetency',
+            'addcourse', 'addcourses', 'changecourse', 'editcontent', 'saveallchanges', 'confirmcontentchanges',
+            'youhaveunsavedchanges', 'youhaveunsavedchanges', 'or', 'and', 'affectedusercount',
+            'tosavecontent', 'error:courses_nocourses', 'error:recur_nocourse', 'error:nocompetency'),
+        'totara_program'
+    );
+    $selected_addrecurringcourse = json_encode(dialog_display_currently_selected(get_string('selected', 'totara_hierarchy'), 'addrecurringcourse'));
+    $selected_amendrecurringcourse = json_encode(dialog_display_currently_selected(get_string('selected', 'totara_hierarchy'), 'amendrecurringcourse'));
+    $selected_addcompetency = json_encode(dialog_display_currently_selected(get_string('selected', 'totara_hierarchy'), 'addcompetency'));
+    $args = array(
+        'args' => '{"id":' . $program->id . ','.
+                   '"display_selected_addcompetency":' . $selected_addcompetency . ',' .
+                   '"display_selected_addrecurringcourse":' . $selected_addrecurringcourse . ',' .
+                   '"display_selected_amendrecurringcourse":' . $selected_amendrecurringcourse . ',' .
+                   '"COMPLETIONTYPE_ANY":"' . course_set::COMPLETIONTYPE_ANY . '",' .
+                   '"COMPLETIONTYPE_SOME":"' . course_set::COMPLETIONTYPE_SOME . '",' .
+                   '"COMPLETIONTYPE_OPTIONAL":"' . course_set::COMPLETIONTYPE_OPTIONAL . '",' .
+                   '"CONTENTTYPE_MULTICOURSE":"' . program_content::CONTENTTYPE_MULTICOURSE . '",' .
+                   '"CONTENTTYPE_COMPETENCY":"' . program_content::CONTENTTYPE_COMPETENCY . '",' .
+                   '"CONTENTTYPE_RECURRING":"' . program_content::CONTENTTYPE_RECURRING .
+                   '"}'
+    );
+
+    $jsmodule = array(
+        'name' => 'totara_programcontent',
+        'fullpath' => '/totara/program/content/program_content.js',
+        'requires' => array('json', 'event-delegate')
+    );
+
+    $PAGE->requires->js_init_call('M.totara_programcontent.init', $args, false, $jsmodule);
+}
+
+// Trigger event.
+$dataevent = array('id' => $program->id, 'other' => array('section' => 'content'));
+program_viewed::create_from_data($dataevent)->trigger();
+
+// Display.
+$heading = format_string($program->fullname);
+
+if (has_capability('totara/program:cloneprogram', $programcontext)) {
+    $clone_button = new component('totara_program/components/clone/CloneButton', [
+        'id' => $program->id,
+        'fullname' => $program->fullname,
+        'isCertif' => $program->is_certif()
+    ]);
+    $clone_button->register($PAGE);
+    $PAGE->set_button($PAGE->button . $OUTPUT->render($clone_button));
+}
+
+$data = $program->get_current_status();
+$header = new component('totara_program/components/manage_program/Header', [
+    'fullname' => $heading,
+    'affected' => (array)$data,
+]);
+$header->register($PAGE);
+
+if ($new_ui) {
+    // Load the program model.
+    $program_entity = new program_entity($program->id);
+    $program_model = program_model::from_entity($program_entity);
+
+    // Hide the name of hidden fields, but display them as options.
+    $custom_fields = $DB->get_records('course_info_field', array(), 'fullname');
+
+    $score_fields = [
+        [
+            'id' => 0,
+            'label' => get_string('none'),
+        ],
+    ];
+    foreach ($custom_fields as $i => $field) {
+        if ($field->hidden && !is_siteadmin()) {
+            $score_fields[] = [
+                'id' => $i,
+                'label' => get_string('hiddenfield', 'totara_program'),
+            ];
+        } else {
+            $score_fields[] = [
+                'id' => $i,
+                'label' => format_string($field->fullname),
+            ];
+        }
+    }
+    $string_field_formatter = new string_field_formatter(format::FORMAT_PLAIN, $programcontext);
+
+    $course_sets = array_map(function ($course_set) use ($string_field_formatter) {
+        $courses = array_map(function ($course) use ($string_field_formatter) {
+            return [
+                'id' => (string)$course->id,
+                'sortorder' => $course->sortorder,
+                'fullname' => $string_field_formatter->format($course->fullname),
+                'image' => $course->image,
+            ];
+        }, $course_set['courses']);
+
+        $course_set['id'] = (string)$course_set['id'];
+        $course_set['courses'] = $courses;
+
+        // Tranform the nextsetoperator to the constant string.
+        $course_set['nextsetoperator'] = courseset_model::get_nextset_operator_constant($course_set['nextsetoperator']);
+        $course_set['label'] = $string_field_formatter->format($course_set['label']);
+
+        return $course_set;
+    }, $program_model->get_coursesets());
+
+    $vue_coursesets = new component(
+        'totara_program/components/manage_program/content/Content',
+        [
+            'program' => [
+                'id' => $program->id,
+                'coursesets' => $course_sets,
+                'tenant_id' => $program->get_context()->tenantid,
+            ],
+            'score-fields' => $score_fields,
+        ]
+    );
+    $vue_coursesets->register($PAGE);
+}
+
+echo $OUTPUT->header();
+
+// If we are overriding the legacy UI setting, add an explaination.
+if (empty($CFG->enablelegacyprogramcontent) && $legacy_content) {
+    echo $OUTPUT->notification(get_string('legacycontentwarning', 'totara_program'), 'warning');
+}
+
+echo $OUTPUT->container_start('program content', 'edit-program-content');
+
+$renderer = $PAGE->get_renderer('totara_program');
+echo $OUTPUT->render($header);
+
+$exceptions = $program->get_exception_count();
+$currenttab = 'content';
+require('tabs.php');
+
+// display the current status and a link to the exceptions report if there are any exceptions
+
+// Display the form
+if ($new_ui) {
+    echo $OUTPUT->render($vue_coursesets);
+} else {
+    $contenteditform->display();
+}
+
+echo $OUTPUT->container_end();
+
+if (!$new_ui) {
+    echo $renderer->get_cancel_button(array('id' => $program->id));
+}
+
+echo $OUTPUT->footer();

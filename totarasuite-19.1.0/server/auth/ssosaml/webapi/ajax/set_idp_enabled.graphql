@@ -1,0 +1,9 @@
+mutation auth_ssosaml_set_idp_enabled(
+  $input: auth_ssosaml_set_idp_enabled_input!
+) {
+  idp: auth_ssosaml_set_idp_enabled(input: $input) {
+    __typename
+    id
+    status
+  }
+}

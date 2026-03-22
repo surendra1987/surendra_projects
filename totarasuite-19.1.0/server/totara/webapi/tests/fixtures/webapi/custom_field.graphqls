@@ -1,0 +1,12 @@
+"""
+Bogus custom_field type to make schema_files_test happy.
+Why? Because the schema loader is looking in this directory for plugin schema, but still looks in server/lib/webapi
+for core schema. So it loads core_course, which depends on totara_customfield_field, but it doesn't find that type
+anywhere else because it is no longer looking in $pluginname/webapi but in $pluginname/test/fixtures/webapi.
+"""
+type totara_customfield_field {
+  """
+  The raw value of the custom field without any transformation. This is the raw representation of the data.
+  """
+  raw_value: String
+}

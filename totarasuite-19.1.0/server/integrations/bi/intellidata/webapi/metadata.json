@@ -1,0 +1,511 @@
+{
+  "OBJECT": {
+    "bi_intellidata_validate_credentials_result": {
+      "fields": {
+        "data": {
+          "documentation": {
+            "example": "ok"
+          }
+        }
+      }
+    },
+    "bi_intellidata_plugin_config_result": {
+      "fields": {
+        "pluginversion": {
+          "documentation": {
+            "example": "2023010612"
+          }
+        }
+      }
+    },
+    "bi_intellidata_pluginconfig": {
+      "fields": {
+        "title": {
+          "documentation": {
+            "example": "title"
+          }
+        }
+      }
+    },
+    "bi_intellidata_dbschema_unified_table": {
+      "fields": {
+        "name": {
+          "documentation": {
+            "example": "users"
+          }
+        }
+      }
+    },
+    "bi_intellidata_dbschema_unified_table_field": {
+      "fields": {
+        "field_name": {
+          "documentation": {
+            "example": "username"
+          }
+        },
+        "description": {
+          "documentation": {
+            "example": "Username description"
+          }
+        },
+        "type": {
+          "documentation": {
+            "example": "RAW"
+          }
+        },
+        "default": {
+          "documentation": {
+            "example": ""
+          }
+        },
+        "null": {
+          "documentation": {
+            "example": false
+          }
+        }
+      }
+    },
+    "bi_intellidata_pluginconfig_setting": {
+      "fields": {
+        "type": {
+          "documentation": {
+            "example": "setting"
+          }
+        },
+        "subtype": {
+          "documentation": {
+            "example": "select"
+          }
+        },
+        "title": {
+          "documentation": {
+            "example": "title"
+          }
+        },
+        "name": {
+          "documentation": {
+            "example": "name"
+          }
+        },
+        "value": {
+          "documentation": {
+            "example": "standard"
+          }
+        }
+      }
+    },
+    "bi_intellidata_moodleconfig": {
+      "fields": {
+        "version": {
+          "documentation": {
+            "example": "2022110800.03"
+          }
+        },
+        "release": {
+          "documentation": {
+            "example": "3.4.9 (Build: 20190513)"
+          }
+        },
+        "dbtype": {
+          "documentation": {
+            "example": "pgsql"
+          }
+        },
+        "moodleworkplace": {
+          "documentation": {
+            "example": "0"
+          }
+        },
+        "totaraversion": {
+          "documentation": {
+            "example": "17.3"
+          }
+        }
+      }
+    },
+    "bi_intellidata_cronconfig": {
+      "fields": {
+        "component": {
+          "documentation": {
+            "example": "bi_intellidata"
+          }
+        },
+        "classname": {
+          "documentation": {
+            "example": "\\bi_intellidata\\task\\migration_task"
+          }
+        },
+        "blocking": {
+          "documentation": {
+            "example": "0"
+          }
+        },
+        "minute": {
+          "documentation": {
+            "example": "1"
+          }
+        },
+        "hour": {
+          "documentation": {
+            "example": "1"
+          }
+        },
+        "day": {
+          "documentation": {
+            "example": "*"
+          }
+        },
+        "month": {
+          "documentation": {
+            "example": "*"
+          }
+        },
+        "dayofweek": {
+          "documentation": {
+            "example": "*"
+          }
+        },
+        "faildelay": {
+          "documentation": {
+            "example": "0"
+          }
+        },
+        "disabled": {
+          "documentation": {
+            "example": "1"
+          }
+        },
+        "customised": {
+          "documentation": {
+            "example": "0"
+          }
+        }
+      }
+    },
+    "bi_intellidata_export_logs_result": {
+      "fields": {
+        "datatype": {
+          "documentation": {
+            "example": "users"
+          }
+        },
+        "last_exported_time": {
+          "documentation": {
+            "example": "1677105664"
+          }
+        },
+        "last_exported_id": {
+          "documentation": {
+            "example": "4"
+          }
+        },
+        "migrated": {
+          "documentation": {
+            "example": 1
+          }
+        },
+        "timestart": {
+          "documentation": {
+            "example": "1677105664"
+          }
+        },
+        "recordsmigrated": {
+          "documentation": {
+            "example": 0
+          }
+        },
+        "recordscount": {
+          "documentation": {
+            "example": 2
+          }
+        },
+        "tabletype": {
+          "documentation": {
+            "example": 0
+          }
+        },
+        "timecreated": {
+          "documentation": {
+            "example": null
+          }
+        },
+        "timemodified": {
+          "documentation": {
+            "example": null
+          }
+        },
+        "usermodified": {
+          "documentation": {
+            "example": 0
+          }
+        }
+      }
+    },
+    "bi_intellidata_live_data_result": {
+      "data": {
+        "documentation": {
+          "example": "This will be a JSON encoded string listing records."
+        }
+      }
+    },
+    "bi_intellidata_dbschema_custom_table": {
+      "fields": {
+        "name": {
+          "documentation": {
+            "example": "course_sections"
+          }
+        },
+        "plugintype": {
+          "documentation": {
+            "example": "course"
+          }
+        },
+        "plugin": {
+          "documentation": {
+            "example": "core"
+          }
+        }
+      }
+    },
+    "bi_intellidata_dbschema_custom_table_field": {
+      "fields": {
+        "type": {
+          "documentation": {
+            "example": "text"
+          }
+        },
+        "name": {
+          "documentation": {
+            "example": "name"
+          }
+        },
+        "has_default": {
+          "documentation": {
+            "example": false
+          }
+        },
+        "max_length": {
+          "documentation": {
+            "example": 20
+          }
+        },
+        "primary_key": {
+          "documentation": {
+            "example": false
+          }
+        },
+        "not_null": {
+          "documentation": {
+            "example": true
+          }
+        },
+        "auto_increment": {
+          "documentation": {
+            "example": false
+          }
+        },
+        "default_value": {
+          "documentation": {
+            "example": ""
+          }
+        }
+      }
+    },
+    "bi_intellidata_dbschema_custom_table_key": {
+      "fields": {
+        "name": {
+          "documentation": {
+            "example": "primary"
+          }
+        },
+        "fields": {
+          "documentation": {
+            "example": [
+              "id"
+            ]
+          }
+        },
+        "reffields": {
+          "documentation": {
+            "example": []
+          }
+        },
+        "reftable": {
+          "documentation": {
+            "example": "users"
+          }
+        }
+      }
+    },
+    "bi_intellidata_enable_processing_result": {
+      "fields": {
+        "data": {
+          "documentation": {
+            "example": "ok"
+          }
+        }
+      }
+    },
+    "bi_intellidata_data_files_metadata": {
+      "fields": {
+        "lastmigrationdate": {
+          "documentation": {
+            "example": 1678836325
+          }
+        },
+        "lastexportdate": {
+          "documentation": {
+            "example": 1678110847
+          }
+        },
+        "pluginversion": {
+          "documentation": {
+            "example": 2023010612
+          }
+        }
+      }
+    },
+    "bi_intellidata_data_files_file_instance": {
+      "fields": {
+        "filename": {
+          "documentation": {
+            "example": "d19c2ecf20245b4d.zip"
+          }
+        },
+        "filearea": {
+          "documentation": {
+            "example": "userlogins"
+          }
+        },
+        "filepath": {
+          "documentation": {
+            "example": "/"
+          }
+        },
+        "mimetype": {
+          "documentation": {
+            "example": "application/zip"
+          }
+        },
+        "filesize": {
+          "documentation": {
+            "example": 208
+          }
+        },
+        "timemodified": {
+          "documentation": {
+            "example": 1678110847
+          }
+        },
+        "isexternalfile": {
+          "documentation": {
+            "example": false
+          }
+        },
+        "fileurl": {
+          "documentation": {
+            "example": "http://totara/api/pluginfile.php/1/bi_intellidata/userlogins/0/d19c2ecf20245b4d.zip"
+          }
+        },
+        "repositorytype": {
+          "documentation": {
+            "example": null
+          }
+        }
+      }
+    },
+    "bi_intellidata_set_datatype_result": {
+      "fields": {
+        "data": {
+          "documentation": {
+            "example": "Datatype successfully added."
+          }
+        }
+      }
+    },
+    "bi_intellidata_export_logs_log": {
+      "fields": {
+        "last_exported_time": {
+          "documentation": {
+            "example": 1678110847
+          }
+        },
+        "last_exported_id": {
+          "documentation": {
+            "example": 12345
+          }
+        },
+        "migrated": {
+          "documentation": {
+            "example": 1
+          }
+        },
+        "timestart": {
+          "documentation": {
+            "example": 1678110847
+          }
+        },
+        "recordsmigrated": {
+          "documentation": {
+            "example": 123
+          }
+        },
+        "recordscount": {
+          "documentation": {
+            "example": 456
+          }
+        },
+        "tabletype": {
+          "documentation": {
+            "example": 1
+          }
+        },
+        "timecreated": {
+          "documentation": {
+            "example": 1678110847
+          }
+        },
+        "timemodified": {
+          "documentation": {
+            "example": 1678110847
+          }
+        },
+        "usermodified": {
+          "documentation": {
+            "example": 9876
+          }
+        }
+      }
+    }
+  },
+  "INPUT_OBJECT": {
+    "bi_intellidata_set_datatype_input": {
+      "inputFields": {
+        "exportfiles": {
+          "documentation": {
+            "example": 1
+          }
+        },
+        "callbackurl": {
+          "documentation": {
+            "example": "https://mycallback.com?key=1234"
+          }
+        }
+      }
+    },
+    "bi_intellidata_enable_processing_input": {
+      "inputFields": {
+        "status": {
+          "documentation": {
+            "example": 1
+          }
+        },
+        "callbackurl": {
+          "documentation": {
+            "example": "https://mycallback.com?key=1234"
+          }
+        }
+      }
+    }
+  }
+}

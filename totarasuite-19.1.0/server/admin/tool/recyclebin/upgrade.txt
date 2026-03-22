@@ -1,0 +1,5 @@
+This files describes API changes in the tool_recyclebin code.
+
+=== 19.1.0 ===
+
+* Increased size of fullname coloum in tool_recyclebin_category database table

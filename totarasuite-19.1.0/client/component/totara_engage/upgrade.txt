@@ -1,0 +1,110 @@
+This files describes API changes in /client/component/totara_engage,
+information provided here is intended especially for developers.
+
+=== 19.1.0 ===
+
+* Changed showCreateButton prop to showCreateResource in dropdown/CreationDropDown.vue
+  * Template and JS changes
+* Added ARIA attributes to modal/ContributeModal.vue
+  * Template, SCSS and JS changes
+  
+=== 19.0 ===
+
+* As a result of the Vue 3 upgrade, components using contribution_mixin must also use contributionMixinData() manually.
+* Removed card image dimension variables and fixed height. Added aspect ratio and border radius to card image header
+  * SCSS changes
+* Updated CardsGrid.vue to use css grid and added itemDraggable prop in card_mixin.js
+  * BaseCard.vue have been rewritten
+  * Template, JS, and SCSS changes
+* Deprecated components with removal of side navigation:
+  * contribution/SavedResources.vue
+  * contribution/YourResources.vue
+  * sidepanel/navigation/EngageSection.vue
+  * sidepanel/navigation/SearchLibrary.vue
+  * sidepanel/navigation/YourResources.vue
+  * sidepanel/NavigationPanel.vue
+  * mixins/navigation_mixin.js
+* Adjusted responsive behaviour of engage pages:
+  * replaced gridDirection prop with new currentBoundaryName prop in contribution/BaseContent.vue (Template, SCSS, JS changes)
+  * contribution/YourLibrary.vue (Template, SCSS, JS changes)
+  * pages/OtherUserLibrary.vue (Template, SCSS, JS changes)
+  * header/ResourceNavigationBar.vue (SCSS changes)
+  * removed units and gridDirection props from mixins/contribution_mixin.js
+  * Simplified LibraryView.vue (removed title, content, sidePanel props, Template, SCSS and JS changes)
+* Added new prop showCreateButton that will handle visibility of create button dropdown resource item
+  * contribution/YourLibrary.vue (Template changes)
+  * dropdown/CreationDropDown.vue (Template changes)
+* Adjust EngageTopicsSelector.vue to allow for use in WorkspaceForm and added disabled prop
+  * Template, JS and SCSS changes
+* Adjust RecipientsSelector.vue and AccessForm.vue to use FormRow component
+  * Template, JS, SCSS changes
+* Updated EngageUnavailableResource.vue and OtherUserLibrary.vue to use h1s
+* Updated ResourceNavigationBar.vue adding collapse functionality
+  * Template, JS and SCSS changes
+* Updated LayoutOneColumnContentWithSidePanel.vue and LayoutOneColumnContentWithSidePanel.vue to incorporate ResourceNavigationBar
+  and sidebar expand/collapse functionality
+  * Template, JS and SCSS changes
+* Updated OtherUserLibrary, removing ResourceNavigationBar
+  * Template and SCSS changes
+* Updated page padding to be consistent in pages/OtherUserLibrary and components/contribution/YourLibrary
+* Updated FoundInFootnote.vue improving multilang capabilities
+  * Template changes
+
+=== 18.0 ===
+
+* Tweaked padding and spacing in BaseContent and LibraryView
+  * Template and SCSS changes
+
+=== 17.0 ===
+
+* Added an InfoIconButton to EngageTopicsSelector.vue 
+  * Template & SCSS changes
+* Added a custom placeholder string to the TagList in RecipientsSelector.vue
+  * Template changes
+
+=== 16.0 ===
+
+* Updated grid.js to handle zero perRow without causing an infinite loop
+* Updated _variables.scss to change ---totara-engage-card-height to ---engage-card-height to facilitate a shorter prefix for new variables
+  * SCSS changes
+* Updates in AccessSetting.vue
+  * Template changes
+* Updated EngageAdderModal.vue to include showLoadingBtn prop
+  * Template changes
+
+=== 15.0 ===
+
+* Updated EngageSidePanel.vue
+  * Template changes
+* Updated Contribution BaseContent and Filter to allow targeting with better selectors
+  * Template and SCSS changes
+* Updated BaseContent.vue to not be hard against the viewport edge on mobile
+    * SCSS changes
+* Updated LayoutOneColumnContentWithSidePanel.vue, LayoutOneColumnWithMultiSidePanel.vue, and LayoutOneColumnWithSidePanel.vue
+  to always use sticky mode for the collapsible sidebar (previously not used for mobile).
+  Never initially render with the collapsible sidebar open on mobile viewports,
+  force the persisted localstorage side panel state to be closed on mobile viewports.
+  * Template and script block changes
+* Updated LibraryView.vue to delegate right side panel initial state logic to LayoutOneColumnWithMultiSidePanel.vue
+  * Template changes
+
+=== 14.0 ===
+
+* Updated LayoutOneColumnWithMultiSidePanel.vue limiting width to stay in container
+  * SCSS changes
+* Update InlineEditing.vue to pass through prop "focusButton" to tui ButtonIcon.vue
+  * Template changes
+* Added optional prop "focusButton" to component InlineEditing.vue
+* Removed modal/EngageWarningModal.vue component
+  * use core ConfirmationModal instead
+* Added new optional prop "fromLibrary" for component BaseContent.vue
+* Added new optional prop "redirection" for component NavigationPanel.vue
+* Added new optional prop "redirection" for component EngageSection.vue
+* Added new optional prop "redirection" for component SearchLibrary.vue
+* Removed ButtonLabel.vue
+* Replaced ButtonLabel with LabelledButtonTrigger in Share.vue component
+* Removed the close button in the popover from Share.vue component
+* Updated BaseCard.vue by removing link and adding it in specific cards instead
+    * Template & SCSS changes
+* Removed getImage method from AdderBrowseAllTable.vue component, functionality is moved to EngageCardImage.vue component
+* Removed getImage method from AdderSelectedTable.vue component, functionality is moved to EngageCardImage.vue component

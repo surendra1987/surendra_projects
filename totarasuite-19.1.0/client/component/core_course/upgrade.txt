@@ -1,0 +1,11 @@
+This file describes API changes in /client/component/core_course,
+information provided here is intended especially for developers.
+
+=== 19.1.0 ===
+* Added accessibility fixes on dropdown button's aria-expanded in CategoryTree.vue
+  * Template changes
+
+=== 19.0 ===
+
+* Added a "truncateLabel" prop to CategoryTree.vue to truncate the button label if greater than 30 characters
+  * Template & JS changes

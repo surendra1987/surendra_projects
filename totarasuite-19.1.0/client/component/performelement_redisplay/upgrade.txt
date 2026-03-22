@@ -1,0 +1,7 @@
+This file describes API changes in /client/component/performelement_redisplay,
+information provided here is intended especially for developers.
+
+=== 18.0 ===
+* Modified RedisplayAdminEdit.vue to support an additional input value when redisplaying from the same activity. 
+  * The component now supports choosing between same instance or repeating instances of that activty
+  * Template, JS changes

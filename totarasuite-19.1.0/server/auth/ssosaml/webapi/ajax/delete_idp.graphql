@@ -1,0 +1,3 @@
+mutation auth_ssosaml_delete_idp($input: auth_ssosaml_delete_idp_input!) {
+  result: auth_ssosaml_delete_idp(input: $input)
+}

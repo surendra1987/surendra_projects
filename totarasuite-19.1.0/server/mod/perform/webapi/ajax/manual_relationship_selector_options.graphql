@@ -1,0 +1,10 @@
+# @deprecated since Totara 19.0 Use mod_perform_activity_controls
+query mod_perform_manual_relationship_selector_options(
+  $activity_id: core_id!
+    @deprecated(reason: "Use mod_perform_activity_controls instead")
+) {
+  mod_perform_manual_relationship_selector_options(activity_id: $activity_id) {
+    id
+    name
+  }
+}

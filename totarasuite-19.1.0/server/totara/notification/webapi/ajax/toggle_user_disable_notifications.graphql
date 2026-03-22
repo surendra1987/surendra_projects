@@ -1,0 +1,9 @@
+mutation totara_notification_toggle_user_disable_notifications(
+  $input: totara_notification_disable_notifications_input!
+) {
+  toggle_user_disable_notifications: totara_notification_toggle_user_disable_notifications(
+    input: $input
+  ) {
+    state
+  }
+}

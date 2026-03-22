@@ -1,0 +1,5 @@
+This files describes API changes in Mobile findlearning.
+information provided here is intended especially for developers.
+
+=== 19.1 ===
+Updated Graphql query 'mobile_findlearning_filter_catalog' to 'mobile_findlearning_filter_catalog_v2'

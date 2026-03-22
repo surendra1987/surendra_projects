@@ -1,0 +1,9 @@
+mutation mod_perform_override_global_participation_settings(
+  $input: mod_perform_override_global_participation_settings_input!
+) {
+  mod_perform_override_global_participation_settings(input: $input) {
+    override_global_participation_settings
+    sync_participant_instance_creation_type
+    sync_participant_instance_closure_type
+  }
+}

@@ -1,0 +1,53 @@
+{{!
+   This file is part of Totara LMS
+
+   Copyright (C) 2023 onwards Totara Learning Solutions LTD
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/form_tags_ai_input
+
+    Totara form_tags_ai_input template.
+
+    The purpose of this template is to render the input field.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * inputContainerId The dom id of container.
+    * inputWrapperId The dom id of input wrapper.
+    * inputId The dom id of this input field.
+    * suggestionsId The dom id of the suggestions list.
+    * selectionId The dom id of the current selection list.
+    * downArrowId The dom id of the down arrow to open the suggestions.
+    * placeholder The place holder text when the field is empty
+
+    Example context (json):
+    { "inputContainerId", "inputWrapperId", "inputId": 1, "suggestionsId": 2, "selectionId": 3, "downArrowId": 4, "placeholder": "Select something" }
+}}
+<div id="{{inputContainerId}}" class="form-aitags__input-container">
+  <div id="{{inputWrapperId}}" class="form-aitags__input-wrapper">
+    {{#showSuggestions}}
+      <input type="text" id="{{inputId}}" class="form-control d-inline form_autocomplete_input{{#class}} {{class}}{{/class}}" list="{{suggestionsId}}" placeholder="{{placeholder}}" role="combobox" aria-expanded="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-autocomplete="list" aria-owns="{{suggestionsId}} {{selectionId}}"/><span class="form-autocomplete-downarrow" id="{{downArrowId}}">&#x25BC;</span>
+    {{/showSuggestions}}
+    {{^showSuggestions}}
+      <input type="text" id="{{inputId}}" class="form-control d-inline form_autocomplete_input{{#class}} {{class}}{{/class}}" placeholder="{{placeholder}}" role="textbox" aria-owns="{{selectionId}}"/>
+    {{/showSuggestions}}
+  </div>
+</div>

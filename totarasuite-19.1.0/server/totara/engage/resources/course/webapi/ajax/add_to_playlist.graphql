@@ -1,0 +1,6 @@
+mutation engage_course_add_to_playlist(
+  $playlist_id: core_id!
+  $ids: [core_id!]!
+) {
+  playlist: engage_course_add_to_playlist(playlist_id: $playlist_id, ids: $ids)
+}

@@ -1,0 +1,2 @@
+allowadditionalcssclasses,block_html
+configallowadditionalcssclasses,block_html

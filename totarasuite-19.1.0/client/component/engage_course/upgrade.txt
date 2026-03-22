@@ -1,0 +1,8 @@
+This files describes API changes in /client/component/engage_course,
+information provided here is intended especially for developers.
+
+=== 19.0 ===
+
+* Updated CourseCard.vue to use learning card component
+  * Template changes
+  * SCSS changes

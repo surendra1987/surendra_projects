@@ -1,0 +1,10 @@
+{
+  "component": "perform_goal",
+  "vendor": "totara",
+  "entry": "./src/js/internal/entry.js",
+  "dependencies": [
+    "core_course",
+    "totara_comment",
+    "totara_reaction"
+  ]
+}
